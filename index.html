@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Història Contemporània — 4t ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111;
+    --ink-soft: #444444;
+    --ink-faint: #8a8a8a;
+    --paper: #ffffff;
+    --paper-off: #fafaf9;
+    --line: #111111;
+    --line-soft: #cfcfcc;
+    --line-faint: #e6e5e1;
+    --blue: #0057b8;
+    --blue-light: #e8f0fa;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .nav-sub {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.1em;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 64px 48px 52px;
+    border-bottom: 1px solid var(--line);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--blue);
+    display: block;
+    margin-bottom: 20px;
+  }
+  .hero h1 {
+    font-family: 'Spectral', serif;
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 400;
+  }
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--ink-faint);
+    max-width: 500px;
+    line-height: 1.7;
+    font-weight: 300;
+  }
+
+  /* ── MAIN ── */
+  .main {
+    max-width: 980px;
+    margin: 0 auto;
+    padding: 52px 48px 80px;
+  }
+
+  /* ── HOW TO ── */
+  .how-to {
+    border: 1px solid var(--line);
+    padding: 22px 26px;
+    margin-bottom: 52px;
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+  }
+  .how-to-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    white-space: nowrap;
+    padding-top: 2px;
+    flex-shrink: 0;
+  }
+  .how-to-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 28px;
+    list-style: none;
+  }
+  .how-to-items li {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    letter-spacing: 0.04em;
+  }
+  .how-to-items li::before {
+    content: '';
+    width: 5px;
+    height: 5px;
+    background: var(--blue);
+    flex-shrink: 0;
+  }
+
+  /* ── SECTION LABEL ── */
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 0;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--line);
+    display: block;
+  }
+
+  /* ── TOPIC LIST ── */
+  .topics {
+    margin-top: 0;
+  }
+  .topic-card {
+    display: grid;
+    grid-template-columns: 100px 1fr auto;
+    align-items: baseline;
+    gap: 0 28px;
+    padding: 22px 0;
+    border-bottom: 1px solid var(--line-faint);
+    text-decoration: none;
+    color: inherit;
+    transition: background 0.12s;
+    position: relative;
+  }
+  .topic-card:last-child {
+    border-bottom: 1px solid var(--line);
+  }
+  .topic-card:hover {
+    background: var(--blue-light);
+    margin: 0 -20px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .topic-card:hover .topic-arrow { color: var(--blue); transform: translateX(3px); }
+
+  .topic-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--blue);
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .topic-main {}
+  .topic-title {
+    font-family: 'Spectral', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--ink);
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
+  .topic-dates {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    color: var(--ink-faint);
+    letter-spacing: 0.04em;
+    display: block;
+    margin-bottom: 5px;
+  }
+  .topic-desc {
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+  .topic-arrow {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--ink-faint);
+    transition: color 0.15s, transform 0.2s;
+    white-space: nowrap;
+    align-self: center;
+  }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding: 22px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+    color: var(--ink-faint);
+    max-width: 980px;
+    margin: 0 auto;
+  }
+  .site-footer a { color: var(--ink-faint); text-decoration: none; }
+  .site-footer a:hover { color: var(--ink); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 640px) {
+    .nav { padding: 0 20px; }
+    .hero { padding: 40px 20px 36px; }
+    .main { padding: 36px 20px 60px; }
+    .topic-card { grid-template-columns: 70px 1fr; gap: 0 16px; }
+    .topic-arrow { display: none; }
+    .topic-card:hover { margin: 0; padding-left: 0; padding-right: 0; }
+    .how-to { flex-direction: column; gap: 12px; }
+    .site-footer { padding: 18px 20px; flex-direction: column; gap: 6px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <a href="index.html" class="nav-brand">Història Contemporània</a>
+  <span class="nav-sub">4t ESO</span>
+</nav>
+
+<div class="hero">
+  <span class="hero-tag">Curs · 4t d'ESO</span>
+  <h1>Història del Món<br><em>Contemporani</em></h1>
+  <p class="hero-desc">Del segle XVIII fins al final de la Guerra Freda. Aprèn com el món modern ha pres forma, i com el passat explica el present.</p>
+</div>
+
+<main class="main">
+
+  <div class="how-to">
+    <span class="how-to-label">Cada tema inclou</span>
+    <ul class="how-to-items">
+      <li>Apunts del tema</li>
+      <li>Eix cronològic</li>
+      <li>La història, ara — connexions amb el present</li>
+    </ul>
+  </div>
+
+  <span class="section-label">Temes del curs</span>
+
+  <div class="topics">
+
+    <a href="t00_introduccio.html" class="topic-card">
+      <span class="topic-num">Tema 00</span>
+      <div class="topic-main">
+        <div class="topic-title">Introducció a la història</div>
+        <span class="topic-dates">Conceptes i mètode</span>
+        <div class="topic-desc">Què és la història, com la construïm i per què ens importa. El temps, les fonts i la causalitat.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="t01_antic_regim.html" class="topic-card">
+      <span class="topic-num">Tema 01</span>
+      <div class="topic-main">
+        <div class="topic-title">L'Antic Règim i la Revolució Francesa</div>
+        <span class="topic-dates">Segles XVII–XVIII</span>
+        <div class="topic-desc">La societat estamental, el comerç triangular i l'esclavitud, la Il·lustració i la Revolució de 1789.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="t02_revolucio_industrial.html" class="topic-card">
+      <span class="topic-num">Tema 02</span>
+      <div class="topic-main">
+        <div class="topic-title">La Revolució Industrial</div>
+        <span class="topic-dates">1760–1870</span>
+        <div class="topic-desc">De la fàbrica a la locomotora. El capitalisme industrial, les condicions obreres i el moviment obrer.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="t03_imperialisme.html" class="topic-card">
+      <span class="topic-num">Tema 03</span>
+      <div class="topic-main">
+        <div class="topic-title">L'Imperialisme Europeu</div>
+        <span class="topic-dates">1870–1914</span>
+        <div class="topic-desc">El repartiment d'Àfrica i Àsia. La Conferència de Berlín, el Congo de Leopold II i les guerres de l'Opi.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="t04_igm.html" class="topic-card">
+      <span class="topic-num">Tema 04</span>
+      <div class="topic-main">
+        <div class="topic-title">La Primera Guerra Mundial</div>
+        <span class="topic-dates">1914–1918</span>
+        <div class="topic-desc">De Sarajevo a Versalles. Les aliances, la guerra de trinxeres, la Revolució Russa i la pau que engendra el nazisme.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="t05_entreguerres.html" class="topic-card">
+      <span class="topic-num">Tema 05</span>
+      <div class="topic-main">
+        <div class="topic-title">El Període d'Entreguerres i els Feixismes</div>
+        <span class="topic-dates">1919–1939</span>
+        <div class="topic-desc">El Crac del 29, la Gran Depressió i l'ascens del feixisme italià i del nazisme alemany.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="t06_iigm.html" class="topic-card">
+      <span class="topic-num">Tema 06</span>
+      <div class="topic-main">
+        <div class="topic-title">La Segona Guerra Mundial</div>
+        <span class="topic-dates">1939–1945</span>
+        <div class="topic-desc">Blitzkrieg, l'Holocaust, els fronts mundials i la derrota del nazisme. El reordenament del món.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="t07_espanya.html" class="topic-card">
+      <span class="topic-num">Tema 07</span>
+      <div class="topic-main">
+        <div class="topic-title">Història d'Espanya</div>
+        <span class="topic-dates">1898–1978</span>
+        <div class="topic-desc">De la Setmana Tràgica a la Transició. La República, la Guerra Civil, el Franquisme i la democràcia.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+    <a href="t08_guerra_freda.html" class="topic-card">
+      <span class="topic-num">Tema 08</span>
+      <div class="topic-main">
+        <div class="topic-title">La Guerra Freda</div>
+        <span class="topic-dates">1945–1991</span>
+        <div class="topic-desc">EUA vs. URSS. La cortina de ferro, la cursa armamentista, les crisis i la caiguda del Mur de Berlín.</div>
+      </div>
+      <span class="topic-arrow">→</span>
+    </a>
+
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <span>Història Contemporània · 4t ESO</span>
+  <span>Basat en <a href="http://www.buxaweb.cat/dossiers/indexhmc.htm" target="_blank">Buxaweb · Julià Buxadera</a></span>
+</footer>
+
+</body>
+</html>

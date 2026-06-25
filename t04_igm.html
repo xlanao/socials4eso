@@ -1,0 +1,1330 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T04 · Primera Guerra Mundial — Història 4t ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111;
+    --ink-soft: #444444;
+    --ink-faint: #8a8a8a;
+    --paper: #ffffff;
+    --paper-off: #fafaf9;
+    --line: #111111;
+    --line-soft: #cfcfcc;
+    --line-faint: #e6e5e1;
+    --blue: #0057b8;
+    --blue-light: #e8f0fa;
+    --blue-mid: #c0d6f5;
+    --sidebar-w: 250px;
+    --content-max: 740px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Spectral', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.75;
+    font-size: 16.5px;
+    font-weight: 400;
+  }
+
+  /* ── NAV ── */
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255,255,255,0.94);
+    backdrop-filter: blur(6px);
+    border-bottom: 1px solid var(--line);
+    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+  .nav-left { display: flex; align-items: center; gap: 0; }
+  .nav-back {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px 6px 0;
+    border-right: 1px solid var(--line-faint);
+    margin-right: 14px;
+    transition: color 0.15s;
+  }
+  .nav-back:hover { color: var(--ink); }
+  .nav-brand {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+  }
+  .nav-meta {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-faint);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── TOPIC HERO ── */
+  .topic-hero {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 52px 48px 44px;
+  }
+  .topic-hero-inner {
+    max-width: calc(var(--sidebar-w) + var(--content-max) + 64px);
+    margin: 0 auto;
+  }
+  .topic-breadcrumb {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 22px;
+  }
+  .topic-breadcrumb a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+  .topic-breadcrumb a:hover { opacity: 0.6; }
+  .topic-num-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 14px;
+  }
+  .topic-hero h1 {
+    font-family: 'Spectral', serif;
+    font-size: clamp(1.7rem, 3.6vw, 2.6rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.18;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .topic-hero h1 em { font-style: italic; font-weight: 400; }
+  .topic-subtitle {
+    font-family: 'DM Mono', monospace;
+    color: var(--ink-soft);
+    font-size: 0.82rem;
+    letter-spacing: 0.03em;
+  }
+
+  /* ── TABS ── */
+  .tabs-bar {
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    padding: 0 48px;
+    display: flex;
+    gap: 0;
+  }
+  .tab-btn {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    border: none;
+    background: none;
+    padding: 15px 22px;
+    cursor: pointer;
+    position: relative;
+    transition: color 0.15s;
+  }
+  .tab-btn::after {
+    content: '';
+    position: absolute;
+    bottom: -1px; left: 0; right: 0;
+    height: 1px;
+    background: var(--blue);
+    opacity: 0;
+    transition: opacity 0.15s;
+  }
+  .tab-btn:hover { color: var(--ink-soft); }
+  .tab-btn.active { color: var(--ink); font-weight: 700; }
+  .tab-btn.active::after { opacity: 1; }
+
+  /* ── PAGE WRAP ── */
+  .page-wrap {
+    max-width: calc(var(--sidebar-w) + var(--content-max) + 64px);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: var(--sidebar-w) 1fr;
+    align-items: start;
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: sticky;
+    top: 56px;
+    padding: 40px 24px 40px 0;
+    max-height: calc(100vh - 56px);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--line);
+  }
+  .toc { list-style: none; }
+  .toc a {
+    display: block;
+    padding: 5px 0 5px 14px;
+    font-family: 'Spectral', serif;
+    font-size: 0.83rem;
+    color: var(--ink-faint);
+    text-decoration: none;
+    border-left: 1px solid var(--line-faint);
+    transition: all 0.15s;
+    line-height: 1.4;
+  }
+  .toc a:hover { color: var(--ink); border-left-color: var(--ink-soft); }
+  .toc a.active {
+    color: var(--blue);
+    border-left: 2px solid var(--blue);
+    font-weight: 600;
+  }
+  .toc .toc-sub a {
+    padding-left: 28px;
+    font-size: 0.78rem;
+    font-style: italic;
+  }
+  .sidebar-sep { height: 1px; background: var(--line-faint); margin: 16px 0; }
+  .sidebar-exlink {
+    display: block;
+    margin: 0;
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    text-decoration: none;
+    padding: 9px 12px;
+    border: 1px solid var(--line);
+    transition: all 0.15s;
+    text-align: center;
+  }
+  .sidebar-exlink:hover { color: var(--paper); background: var(--ink); }
+
+  /* ── CONTENT ── */
+  .content {
+    padding: 48px 0 100px 40px;
+    border-left: 1px solid var(--line);
+    min-width: 0;
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── SECTIONS ── */
+  .section { margin-bottom: 64px; padding-top: 8px; }
+  .section { opacity: 0; transform: translateY(12px); transition: opacity 0.45s ease, transform 0.45s ease; }
+  .section.visible { opacity: 1; transform: none; }
+  .section-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 10px;
+    display: block;
+  }
+  h2 {
+    font-family: 'Spectral', serif;
+    font-size: 1.65rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 26px;
+    line-height: 1.3;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  h3 {
+    font-family: 'Spectral', serif;
+    font-size: 1.18rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin: 40px 0 14px;
+  }
+  h4 {
+    font-family: 'Spectral', serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    font-style: italic;
+    color: var(--ink-soft);
+    margin: 28px 0 10px;
+  }
+  p { margin-bottom: 14px; color: var(--ink-soft); font-weight: 300; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 700; }
+  em { font-style: italic; }
+  ul, ol { padding-left: 22px; margin-bottom: 14px; }
+  li { margin-bottom: 6px; color: var(--ink-soft); font-weight: 300; line-height: 1.6; }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--line);
+    margin: 52px 0;
+  }
+
+  /* ── DEF BOX ── */
+  .def-box {
+    border: 1px solid var(--ink);
+    padding: 18px 20px;
+    margin: 20px 0;
+  }
+  .def-box .def-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 700;
+  }
+  .def-box p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
+
+  /* ── BLUE INFO BOX ── */
+  .info-box {
+    border-left: 3px solid var(--blue);
+    background: var(--blue-light);
+    padding: 16px 20px;
+    margin: 22px 0;
+  }
+  .info-box .info-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--blue);
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 700;
+  }
+  .info-box p { margin: 0 0 8px; font-size: 0.93rem; color: var(--ink-soft); }
+  .info-box p:last-child { margin: 0; }
+
+  /* ── WARN BOX ── */
+  .warn-box {
+    border-top: 1px solid var(--ink);
+    border-bottom: 1px solid var(--ink);
+    padding: 16px 4px;
+    margin: 22px 0;
+    font-size: 0.93rem;
+    color: var(--ink-soft);
+  }
+  .warn-box::before {
+    content: 'PER ENTENDRE-HO BÉ — ';
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    color: var(--ink);
+    font-weight: 700;
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  /* ── IMAGE ── */
+  .img-wrap {
+    margin: 24px 0;
+    border: 1px solid var(--line-soft);
+  }
+  .img-wrap img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+  .img-cap {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-faint);
+    padding: 8px 12px;
+    border-top: 1px solid var(--line-faint);
+    background: var(--paper-off);
+  }
+
+  /* ── STATS STRIP ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+    margin: 24px 0;
+  }
+  .stat-item {
+    padding: 18px 14px;
+    text-align: center;
+    border-right: 1px solid var(--line-faint);
+  }
+  .stat-item:last-child { border-right: none; }
+  .stat-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--blue);
+    display: block;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    line-height: 1.4;
+  }
+
+  /* ── BÀNDOLS ── */
+  .bandols {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    border: 1px solid var(--line);
+    margin: 22px 0;
+  }
+  .bandol { padding: 20px; }
+  .bandol:first-child { border-right: 1px solid var(--line-faint); }
+  .bandol-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid;
+  }
+  .bandol.aliats .bandol-title { color: var(--blue); border-color: var(--blue); }
+  .bandol.centrals .bandol-title { color: var(--ink); border-color: var(--ink); }
+  .bandol ul { list-style: none; padding: 0; margin: 0; }
+  .bandol li { font-size: 0.88rem; padding: 4px 0; color: var(--ink-soft); border-bottom: 1px dotted var(--line-faint); }
+  .bandol li:last-child { border-bottom: none; }
+
+  /* ── TABLE ── */
+  .table-wrap { overflow-x: auto; margin: 20px 0; }
+  table { width: 100%; border-collapse: collapse; font-size: 0.88rem; }
+  th {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 10px 14px;
+    text-align: left;
+    font-family: 'DM Mono', monospace;
+    font-weight: 400;
+    font-size: 0.78rem;
+    letter-spacing: 0.04em;
+  }
+  td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--line-faint);
+    vertical-align: top;
+    color: var(--ink-soft);
+    font-size: 0.88rem;
+  }
+  tr:last-child td { border-bottom: 1px solid var(--line); }
+
+  /* ══════════════════
+     CRONOLOGIA TAB
+  ══════════════════ */
+  .crono {
+    border-left: 1px solid var(--line);
+    padding-left: 28px;
+    margin-top: 8px;
+  }
+  .crono-group { margin-bottom: 40px; }
+  .crono-group-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    background: var(--paper-off);
+    display: inline-block;
+    padding: 4px 10px;
+    margin-bottom: 18px;
+    position: relative;
+    left: -38px;
+    border: 1px solid var(--line-faint);
+  }
+  .crono-entry {
+    position: relative;
+    margin-bottom: 26px;
+    opacity: 0;
+    transform: translateX(-6px);
+    transition: opacity 0.38s ease, transform 0.38s ease;
+  }
+  .crono-entry.vis { opacity: 1; transform: none; }
+  .crono-dot {
+    position: absolute;
+    left: -33px;
+    top: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--paper);
+    border: 1px solid var(--ink);
+  }
+  .crono-dot.key {
+    background: var(--blue);
+    border-color: var(--blue);
+    width: 10px;
+    height: 10px;
+    left: -34px;
+    top: 5px;
+  }
+  .crono-year {
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--blue);
+    display: block;
+    margin-bottom: 2px;
+  }
+  .crono-event {
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 4px;
+    line-height: 1.3;
+  }
+  .crono-desc {
+    font-size: 0.88rem;
+    color: var(--ink-faint);
+    font-weight: 300;
+    line-height: 1.55;
+  }
+
+  /* ══════════════════
+     LA HISTÓRIA ARA
+  ══════════════════ */
+  .ara-intro {
+    border: 1px solid var(--line);
+    padding: 24px 28px;
+    margin-bottom: 40px;
+    background: var(--paper-off);
+  }
+  .ara-intro p {
+    font-size: 0.95rem;
+    color: var(--ink-soft);
+    font-weight: 300;
+    line-height: 1.7;
+  }
+
+  .task-block {
+    margin-bottom: 48px;
+    border: 1px solid var(--ink);
+  }
+  .task-header {
+    background: var(--ink);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .task-header h3 {
+    margin: 0;
+    font-family: 'Spectral', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--paper);
+  }
+  .task-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.4);
+    color: rgba(255,255,255,0.7);
+    white-space: nowrap;
+  }
+  .task-body { padding: 24px; }
+  .task-body p { font-size: 0.93rem; color: var(--ink-soft); margin-bottom: 12px; font-weight: 300; }
+  .task-steps {
+    list-style: none;
+    counter-reset: steps;
+    padding: 0;
+    margin: 14px 0 0;
+  }
+  .task-steps li {
+    counter-increment: steps;
+    display: grid;
+    grid-template-columns: 28px 1fr;
+    gap: 0 12px;
+    margin-bottom: 10px;
+    font-size: 0.88rem;
+    color: var(--ink-soft);
+    font-weight: 300;
+    line-height: 1.6;
+    border-bottom: 1px dotted var(--line-faint);
+    padding-bottom: 10px;
+  }
+  .task-steps li:last-child { border-bottom: none; padding-bottom: 0; }
+  .task-steps li::before {
+    content: counter(steps);
+    font-family: 'DM Mono', monospace;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--blue);
+    padding-top: 2px;
+  }
+  .debate-box {
+    border-top: 1px solid var(--line-soft);
+    margin-top: 18px;
+    padding-top: 16px;
+  }
+  .debate-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+  .debate-box p { font-style: italic; font-size: 0.9rem; }
+
+  /* ── FOOTER ── */
+  .site-footer {
+    border-top: 1px solid var(--line);
+    padding: 24px 48px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--ink-faint);
+    font-family: 'DM Mono', monospace;
+    font-size: 9.5px;
+    letter-spacing: 0.06em;
+    max-width: calc(var(--sidebar-w) + var(--content-max) + 64px);
+    margin: 0 auto;
+  }
+  .footer-nav { display: flex; gap: 20px; }
+  .footer-nav a { color: var(--ink-faint); text-decoration: none; transition: color 0.15s; }
+  .footer-nav a:hover { color: var(--ink); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 860px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .content { padding: 32px 22px 60px; border-left: none; }
+    .stats { grid-template-columns: 1fr 1fr; }
+    .bandols { grid-template-columns: 1fr; }
+    .bandol:first-child { border-right: none; border-bottom: 1px solid var(--line-faint); }
+    .topic-hero, .tabs-bar { padding-left: 22px; padding-right: 22px; }
+    .nav { padding: 0 22px; }
+    .nav-meta { display: none; }
+    .site-footer { padding: 20px 22px; flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-back" href="index.html">← Índex</a>
+    <span class="nav-brand">Història 4t ESO</span>
+  </div>
+  <span class="nav-meta">T04 · Primera Guerra Mundial</span>
+</nav>
+
+<!-- TOPIC HERO -->
+<div class="topic-hero">
+  <div class="topic-hero-inner">
+    <div class="topic-breadcrumb">
+      <a href="index.html">Índex</a> / Tema 04
+    </div>
+    <div class="topic-num-badge">Tema 04 — 1914–1918</div>
+    <h1>La Primera <em>Guerra Mundial</em></h1>
+    <p class="topic-subtitle">17 milions de morts · La fi dels grans imperis · La llavor del nazisme</p>
+  </div>
+</div>
+
+<!-- TABS -->
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('apunts', this)">APUNTS</button>
+  <button class="tab-btn" onclick="switchTab('cronologia', this)">EIX CRONOLÒGIC</button>
+  <button class="tab-btn" onclick="switchTab('ara', this)">LA HISTÒRIA, ARA</button>
+</div>
+
+<!-- PAGE WRAP -->
+<div class="page-wrap">
+
+  <!-- SIDEBAR -->
+  <nav class="sidebar" id="sidebar-apunts">
+    <div class="sidebar-title">Continguts</div>
+    <ul class="toc" id="toc-apunts">
+      <li><a href="#s1">1. El context (MAIN)</a></li>
+      <li class="toc-sub"><a href="#s1-1">1.1 La Belle Époque</a></li>
+      <li class="toc-sub"><a href="#s1-2">1.2 Les causes: MAIN</a></li>
+      <li class="toc-sub"><a href="#s1-m">M — Militarisme</a></li>
+      <li class="toc-sub"><a href="#s1-a">A — Aliances</a></li>
+      <li class="toc-sub"><a href="#s1-i">I — Imperialisme</a></li>
+      <li class="toc-sub"><a href="#s1-n">N — Nacionalisme</a></li>
+      <li><a href="#s2">2. L'esclat (1914)</a></li>
+      <li class="toc-sub"><a href="#s2-1">2.1 Sarajevo</a></li>
+      <li class="toc-sub"><a href="#s2-2">2.2 La crisi de juliol</a></li>
+      <li><a href="#s3">3. El conflicte</a></li>
+      <li class="toc-sub"><a href="#s3-1">Fase 1: moviments</a></li>
+      <li class="toc-sub"><a href="#s3-2">Fase 2: trinxeres</a></li>
+      <li class="toc-sub"><a href="#s3-3">Fase 3: crisi 1917</a></li>
+      <li><a href="#s4">4. La Revolució Russa</a></li>
+      <li><a href="#s5">5. La pau de Versalles</a></li>
+      <li class="toc-sub"><a href="#s5-1">5.1 Conferència de París</a></li>
+      <li class="toc-sub"><a href="#s5-2">5.2 Clàusules del tractat</a></li>
+      <li class="toc-sub"><a href="#s5-3">5.3 Versalles i el nazisme</a></li>
+      <li class="toc-sub"><a href="#s5-4">5.4 Conseqüències globals</a></li>
+    </ul>
+    <div class="sidebar-sep"></div>
+    <a class="sidebar-exlink" href="http://www.buxaweb.cat/dossiers/primeraguerramundial.htm" target="_blank">Buxaweb →</a>
+  </nav>
+
+  <!-- CONTENT -->
+  <main class="content">
+
+    <!-- ═══════════════════════════════════
+         TAB 1: APUNTS
+    ═══════════════════════════════════ -->
+    <div class="tab-panel active" id="panel-apunts">
+
+      <!-- XIFRES CLAU -->
+      <div class="stats" style="margin-bottom:40px;">
+        <div class="stat-item">
+          <span class="stat-num">17M</span>
+          <span class="stat-label">Morts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">21M</span>
+          <span class="stat-label">Ferits</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">4</span>
+          <span class="stat-label">Imperis desapareguts</span>
+        </div>
+        <div class="stat-item">
+          <span class="stat-num">1919</span>
+          <span class="stat-label">Tractat Versalles</span>
+        </div>
+      </div>
+
+      <!-- ─── S1: CONTEXT ─── -->
+      <section class="section" id="s1">
+        <span class="section-num">Secció 01</span>
+        <h2>El context europeu a principis del s. XX</h2>
+
+        <h3 id="s1-1">1.1. La Belle Époque i les seves contradiccions</h3>
+        <p>A principis del segle XX, Europa vivia el que s'ha anomenat la <strong>Belle Époque</strong>: una època de prosperitat econòmica, avenços tècnics notables (electricitat, automòbil, telèfon, cinema) i un cert optimisme cultural. Les classes burgeses de les grans capitals vivien amb comoditats mai vistes. Semblava que la raó i el progrés guiarien el futur.</p>
+        <p>Però sota la superfície s'acumulaven tensions enormes. La prosperitat era profundament desigual: les classes obreres vivien en condicions molt precàries. Les rivalitats imperialistes s'intensificaven a mesura que s'esgotaven els territoris per repartir. I les grans potències s'armaven a ritme accelerat alhora que construïen aliances cada vegada més rígides. Europa era com un polvorí carregat: només calia una espurna.</p>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/tensionsIGM.jpg" alt="Les tensions internacionals a Europa el 1914" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Les tensions internacionals a Europa el 1914. Font: Buxaweb.</div>
+        </div>
+
+        <h3 id="s1-2">1.2. Les causes: MAIN</h3>
+        <p>Per entendre per què un assassinat a Sarajevo va desencadenar la pitjor guerra de la Història fins aleshores, cal entendre les causes <em>estructurals</em> que s'havien acumulat durant dècades. Els historiadors les agrupen amb l'acrònim <strong>MAIN</strong>: Militarisme, Aliances, Imperialisme i Nacionalisme. Cap d'elles sola hauria causat la guerra; juntes, la feien gairebé inevitable.</p>
+
+        <h4 id="s1-m">M — Militarisme</h4>
+        <p>Des de finals del segle XIX, les grans potències europees havien iniciat una <strong>cursa d'armaments</strong> sense precedents. Els pressupostos militars s'havien disparat: entre 1870 i 1914, les despeses militars europees es van quadruplicar. Cada potència construïa exèrcits de masses —amb el servei militar obligatori— i acumulava arsenals d'armes cada vegada més destructives.</p>
+        <p>La rivalitat més intensa era la <strong>naval entre Gran Bretanya i Alemanya</strong>. Des de 1898, Alemanya havia decidit construir una gran flota de guerra per desafiar el domini britànic dels mars. Londres ho considerava una amenaça existencial —Gran Bretanya depenia del comerç marítim i de la connexió amb el seu imperi colonial. La resposta fou construir vaixells més ràpidament que els alemanys. El resultat: una espiral d'armament que enverinava les relacions entre les dues potències.</p>
+        <p>El militarisme no era només una qüestió de pressupostos: era una <strong>cultura</strong>. L'uniforme militar era un símbol de prestigi social. Als col·legis s'ensenyava patriotisme i heroisme bèl·lic. Els estats majors tenien plans d'atac elaboradíssims —com el Pla Schlieffen alemany— que previen mobilitzacions totals en qüestió de dies. Quan va arribar la crisi del 1914, els militars van empènyer els governs cap a l'acció, i molts pensaven que la guerra seria curta i victoriosa.</p>
+
+        <h4 id="s1-a">A — Aliances</h4>
+        <p>Des de finals del segle XIX, les potències europees havien construït un sistema complex d'aliances militars. La lògica era la de la <strong>dissuasió</strong>: si cap país sap que atacar un altre li suposarà enfrontar-se a tota una coalició, no l'atacarà. En teoria, les aliances havien de mantenir la pau. En la pràctica, van tenir l'efecte contrari.</p>
+        <p>El problema és que les aliances eren <strong>automàtiques i rígides</strong>: si un membre era atacat, tots els altres estaven obligats a defensar-lo. Això significava que un conflicte bilateral local —per exemple, entre Àustria i Sèrbia— podia arrossegar tota Europa en qüestió de dies, sense que cap govern tingués temps de frenar la maquinària. Quan va arribar la crisi del juliol del 1914, els mecanismes d'aliança van actuar exactament així.</p>
+
+        <div class="bandols">
+          <div class="bandol aliats">
+            <div class="bandol-title">Triple Entesa → Aliats</div>
+            <ul>
+              <li>França</li>
+              <li>Gran Bretanya</li>
+              <li>Rússia</li>
+              <li>+ Itàlia (1915, canvia de bàndol)</li>
+              <li>+ Estats Units (1917)</li>
+              <li>+ Sèrbia, Romania, Grècia...</li>
+            </ul>
+          </div>
+          <div class="bandol centrals">
+            <div class="bandol-title">Triple Aliança → Potències Centrals</div>
+            <ul>
+              <li>Alemanya</li>
+              <li>Àustria-Hongria</li>
+              <li>Turquia (Imperi Otomà)</li>
+              <li>Bulgària</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/aliancesIGM-2.jpg" alt="Les aliances internacionals abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El sistema d'aliances internacionals a Europa. Font: Buxaweb.</div>
+        </div>
+
+        <h4 id="s1-i">I — Imperialisme</h4>
+        <p>A finals del segle XIX, les potències europees s'havien repartit pràcticament tot el planeta en colònies i zones d'influència. Gran Bretanya controlava un imperi que abraçava el 25% de la superfície terrestre. França, Alemanya, Bèlgica, Portugal i altres potències tenien les seves pròpies colònies a Àfrica i Àsia.</p>
+        <p>El problema és que, cap al 1900, <strong>ja no quedaven territoris per repartir</strong>. Les potències que havien arribat tard al festí colonial —especialment Alemanya— es sentien injustament tractades i volien una reconfiguració del mapa imperial. Això generava friccions constants. Les <strong>crisis del Marroc</strong> (1905 i 1911) en van ser l'exemple més clar: Alemanya va desafiar el control francès sobre el Marroc dues vegades, portant Europa al llindar de la guerra. Les dues vegades es va resoldre diplomàticament, però el ressentiment va créixer.</p>
+        <p>Quan les rivalitats imperialistes ja no podien expandir-se cap a l'exterior, van girar cap a l'interior d'Europa: les potències competien per la influència als Balcans, on l'Imperi Otomà estava en descomposició. Allà és on el polvorí va explotar el 1914.</p>
+
+        <h4 id="s1-n">N — Nacionalisme</h4>
+        <p>El nacionalisme era una força poderosa i desestabilitzadora a l'Europa de principis del segle XX en dues formes complementàries.</p>
+        <p>D'una banda, el <strong>nacionalisme dels imperis multinacionals</strong>: l'Imperi Austrohongarès i l'Imperi Otomà contenien desenes de pobles —serbis, txecs, eslovens, croates, romanesos, armenis, àrabs...— que volien la independència o l'autonomia. A la zona dels Balcans, aquest desig era especialment intens: Sèrbia havia guanyat les guerres balcàniques (1912–13) i volia unir tots els pobles eslaus del sud sota la seva bandera, cosa que Àustria-Hongria considerava una amenaça directa a la seva integritat.</p>
+        <p>D'altra banda, el <strong>nacionalisme de les grans potències</strong>: a França, el revanxisme per la pèrdua d'Alsàcia-Lorena a mans d'Alemanya el 1871 era una ferida oberta. A Alemanya, el sentiment que el país mereixia un «lloc al sol» —un paper dominant al món— alimentava les ambicions expansionistes. A tots els països, els diaris i els polítics explotaven el patriotisme per guanyar vots i justificar les despeses militars.</p>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/balcanspreguerra.gif" alt="El conflicte dels Balcans abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El «polvorí dels Balcans»: l'escenari on es van creuar totes les tensions. Font: Buxaweb.</div>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">Com s'encadenen les causes</span>
+          <p>El <strong>militarisme</strong> va crear els exèrcits i els plans d'atac. L'<strong>imperialisme</strong> va generar les rivalitats i els ressentiments. El <strong>nacionalisme</strong> va escalfar les opinions públiques i va fer els governs presoners del sentiment popular. I les <strong>aliances</strong> van connectar tot plegat de manera que qualsevol incident local es convertia en una crisi europea. Les quatre causes juntes van crear un sistema tan tens i interconnectat que quan va arribar l'espurna de Sarajevo, l'explosió va ser inevitable.</p>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S2: ESCLAT ─── -->
+      <section class="section" id="s2">
+        <span class="section-num">Secció 02</span>
+        <h2>L'esclat de la guerra (1914)</h2>
+
+        <h3 id="s2-1">2.1. L'atemptat de Sarajevo</h3>
+        <p>El <strong>28 de juny de 1914</strong>, l'arxiduc <strong>Francesc Ferran d'Àustria</strong> —hereu de l'Imperi Austrohongarès— fou assassinat a <strong>Sarajevo</strong> (Bòsnia) juntament amb la seva esposa Sofia, mentre recorrien la ciutat en cotxe descapotat. L'autor material fou <strong>Gavrilo Princip</strong>, un jove nacionalista serbobosnià de 19 anys, membre de l'organització terrorista «La Mà Negra», vinculada als serveis secrets serbis.</p>
+        <p>El context és important: Sarajevo era una ciutat de l'Imperi Austrohongarès amb una gran població eslava que simpatitzava amb Sèrbia. La visita de l'arxiduc es produïa just el Dia de Sant Vitus, una data de gran significació nacional per als serbis. Hi havia hagut avisos previs d'un possible atemptat, però la seguretat era mínima. Un primer grup d'atacants ja havia llançat una granada contra el comboi aquell matí, però havia fallat. Princip els va trobar per casualitat quan el cotxe de Francesc Ferran feia un gir equivocat i s'havia aturat a uns metres d'ell.</p>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/atemptatsarajevo.jpg" alt="L'atemptat de Sarajevo, 1914" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">L'atemptat de Sarajevo, 28 de juny de 1914. Font: Buxaweb.</div>
+        </div>
+
+        <div class="warn-box">
+          L'atemptat de Sarajevo no va <em>causar</em> la guerra: va ser el <strong>detonant</strong> que va activar un sistema de tensions ja carregat. Les causes profundes —el MAIN— s'havien acumulat durant dècades. Si no hagués estat Sarajevo, hauria estat un altre incident en qualsevol altra part. L'espurna, però, havia de caure en algun moment.
+        </div>
+
+        <h3 id="s2-2">2.2. La crisi de juliol: com cinc setmanes canvien el món</h3>
+        <p>Àustria-Hongria va culpar directament el govern serbi de l'atemptat i va veure en la crisi una oportunitat per aixafar Sèrbia d'una vegada. Abans d'actuar, però, va consultar Alemanya: obtingué el que els historiadors anomenen el <strong>«xec en blanc»</strong> —el suport incondicional alemany sigui quina sigui la resposta austríaca.</p>
+        <p>El 23 de juliol, Àustria va presentar a Sèrbia un <strong>ultimàtum</strong> amb deu condicions deliberadament humiliants, dissenyades per ser inacceptables. Sèrbia va acceptar nou de les deu condicions —una acceptació que fins el Kaiser alemany va qualificar de sorprenent. Però Àustria va considerar insuficient la resposta i va declarar la guerra igualment el 28 de juliol. A partir d'aquí, el mecanisme d'aliances es va posar en marxa gairebé automàticament:</p>
+        <ol>
+          <li><strong>28 de juliol:</strong> Àustria-Hongria declara la guerra a Sèrbia.</li>
+          <li><strong>30 de juliol:</strong> Rússia mobilitza les seves tropes per defensar Sèrbia (solidaritat eslava i interessos als Balcans).</li>
+          <li><strong>1 d'agost:</strong> Alemanya declara la guerra a Rússia.</li>
+          <li><strong>3 d'agost:</strong> Alemanya declara la guerra a França —aliada de Rússia.</li>
+          <li><strong>4 d'agost:</strong> Alemanya envaeix Bèlgica neutral per atacar França pel flanc. Gran Bretanya, garant de la neutralitat belga, declara la guerra a Alemanya.</li>
+        </ol>
+        <p>En menys de cinc setmanes, un assassinat a Sarajevo havia desencadenat una guerra que implicava totes les grans potències europees i centenars de milions de persones.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S3: CONFLICTE ─── -->
+      <section class="section" id="s3">
+        <span class="section-num">Secció 03</span>
+        <h2>El desenvolupament del conflicte</h2>
+
+        <p>La guerra es va desenvolupar en tres fases ben diferenciades, cadascuna amb la seva pròpia lògica militar i les seves pròpies tragèdies. El que tots els governs creien que seria una guerra ràpida —«a casa per Nadal», deien els soldats britànics en partir— es va convertir en quatre anys de carnisseria industrial.</p>
+
+        <h3 id="s3-1">Fase 1 — La guerra de moviments (agost–desembre 1914)</h3>
+        <p>Alemanya tenia un pla precís elaborat anys enrere: el <strong>Pla Schlieffen</strong>. La idea central era evitar la temuda guerra en dos fronts simultanis. L'estratègia: atacar França amb tota la potència, a través de Bèlgica i Luxemburg —esquivant les defenses frontereres franceses—, vèncer-la en sis setmanes, i girar tot l'exèrcit cap a l'est contra Rússia, que per la seva grandària trigaria molt més a mobilitzar-se del tot.</p>
+        <p>En un primer moment, el pla va semblar que funcionava: els exèrcits alemanys avançaven ràpidament cap a París. La capital francesa estava a punt de caure. Però a la <strong>batalla del Marne</strong> (5–12 de setembre de 1914), els exèrcits francès i britànic van aconseguir reorganitzar-se i aturar l'avenç alemany amb una contraofensiva que va sorprendre l'estat major alemany. El front es va estabilitzar a menys de 80 quilòmetres de París.</p>
+        <p>Al <strong>front oriental</strong>, els russos van mobilitzar-se més ràpidament del previst i van penetrar a la Prússia Oriental alemanya. Alemanya els va derrotar de forma contundent a la <strong>batalla de Tannenberg</strong> (agost de 1914), però el front oriental va ser sempre molt més fluid i dinàmic que l'occidental.</p>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/europaIGM.gif" alt="Europa durant la Primera Guerra Mundial: fronts de combat" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Europa durant la Primera Guerra Mundial: els dos grans fronts de combat. Font: Buxaweb.</div>
+        </div>
+
+        <h3 id="s3-2">Fase 2 — La guerra de trinxeres (1915–1916)</h3>
+        <p>Quan el Pla Schlieffen va fracassar, tots dos bàndols van optar per la mateixa solució: excavar. Al <strong>front occidental</strong>, ambdós exèrcits van construir una xarxa densa de <strong>trinxeres</strong> que s'estenia ininterrompudament des de la costa belga del mar del Nord fins a la frontera suïssa: uns <strong>700 quilòmetres</strong> de fosses de fang, filferrades de pues i mort. Va ser la fase més llarga i sagnant de la guerra, i la que ha quedat gravada per sempre en la memòria col·lectiva.</p>
+        <p>Les trinxeres eren complexos sistemes defensius: una primera línia on estaven els soldats en primera instància, una segona línia de suport, i una tercera de reserva, totes connectades per passadissos. Entre les trinxeres de cada bàndol hi havia la <strong>terra de ningú</strong>: una franja de centenars de metres plena de filferrades, clots d'obusos, fang i cadàvers que ningú no recollia. Sortir de les trinxeres per atacar aquesta terra de ningú era suïcida: les metralladores feien el seu treball en qüestió de segons.</p>
+        <p>La conseqüència era que <strong>guanyar uns centenars de metres de territori costava milers de vides</strong>. Era una guerra d'<em>usura</em>: l'objectiu no era derrotar l'enemic en batalla campal, sinó esgotar-lo fins que no pogués continuar. I les baixes eren enormes, a tots dos costats.</p>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/primeraguerramundial11.jpg" alt="Soldats a les trinxeres de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Soldats a les trinxeres del front occidental. Font: Buxaweb.</div>
+        </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <span class="stat-num">700k</span>
+            <span class="stat-label">Morts a Verdun (1916)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">1M</span>
+            <span class="stat-label">Baixes al Somme (1916)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">57.000</span>
+            <span class="stat-label">Britànics morts en un sol dia (1/7/1916)</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-num">700 km</span>
+            <span class="stat-label">Longitud del front occidental</span>
+          </div>
+        </div>
+
+        <h4>La batalla de Verdun (febrer–desembre 1916)</h4>
+        <p>Verdun és el símbol per excel·lència de la guerra de trinxeres. Alemanya va llançar una ofensiva monumental sobre aquesta plaça forta francesa amb un objectiu explícit: no tant conquerir-la com <em>«sagnar blanc»</em> l'exèrcit francès fins a l'extenuació, obligant França a llançar totes les seves reserves a la batalla. El resultat va ser un infern mutu: els dos exèrcits van perdre al voltant de <strong>700.000 homes</strong> en deu mesos de combat continu. Ni un bàndol ni l'altre va guanyar territori significatiu. Els soldats francesos van batejar Verdun com «<em>el molidor de carn</em>».</p>
+
+        <h4>La batalla del Somme (juliol–novembre 1916)</h4>
+        <p>Per alleugerir la pressió sobre Verdun, Gran Bretanya va llançar una gran ofensiva al riu Somme. El primer dia, <strong>l'1 de juliol de 1916</strong>, l'exèrcit britànic va patir <strong>57.470 baixes</strong> —morts i ferits— en un sol dia: el pitjor dia de la seva història militar. En total, la batalla del Somme va costar prop d'<strong>un milió de baixes</strong> entre tots dos bàndols, en quatre mesos. Va ser aquí on els britànics van usar per primera vegada els <strong>tancs</strong>.</p>
+
+        <h4>Les noves armes: la guerra industrial</h4>
+        <p>La Primera Guerra Mundial va ser la primera en desplegar armes industrials a gran escala, amb una capacitat de destrucció mai vista fins aleshores:</p>
+        <ul>
+          <li><strong>La metralladora</strong> va canviar radicalment la guerra. Un sol soldat amb una metralladora podia detenir l'avanç d'una companyia sencera. Els atacs frontals a les trinxeres eren suïcides: els soldats havien de córrer cent metres a camp obert mentre les metralladores disparaven 400–600 bales per minut.</li>
+          <li><strong>L'artilleria pesada</strong> era el gran matador de la guerra: causava entre el 60 i el 70% de totes les baixes. Els obusos podien pesar centenars de quilos i crear clots de vuit metres de diàmetre. Bateries d'artilleria disparaven durant dies sencers —els bombardejos previs als grans atacs podien durar una setmana— però sovint sense aconseguir destruir les posicions enemigues protegides per la profunditat de les trinxeres.</li>
+          <li><strong>El gas de combat</strong> va ser introduït pels alemanys el 1915 a la batalla d'Ypres. El clor i, posteriorment, el gas mostassa causaven morts lentes i atroces: cremades als pulmons, ceguesa, ampolles a la pell. El gas mostassa era especialment terrible perquè podia romandre al sòl durant dies i penetrava la roba i les màscares antigàs primitives. La seva introducció va ser considerada un crim de guerra, però tots els bàndols el van acabar usant.</li>
+          <li><strong>Els tancs</strong> van ser introduïts pels britànics al Somme el 1916, però eren mecànicament poc fiables i poc maniobrables en el fang de les trinxeres. El seu potencial no es va explotar plenament fins al final de la guerra.</li>
+          <li><strong>L'aviació</strong> va néixer com a reconeixement —els avions sobrevolen les línies enemigues per fotografiar posicions— però aviat van desenvolupar-se avions de combat i bombarders. Al final de la guerra, les grans potències tenien forces aèries de milers d'avions. Eren, però, molt vulnerables i les baixes entre pilots eren altíssimes.</li>
+          <li><strong>Els submarins</strong> alemanys (U-boots) van ser l'arma que va acabar per fer entrar els EUA a la guerra. Alemanya va declarar una zona de guerra submarina al voltant de les Illes Britàniques i va enfonsar qualsevol vaixell que s'hi acostés, fins i tot els neutrals. El 1915, van enfonsar el transatlàntic britànic <em>Lusitania</em>, amb 1.198 civils a bord, incloent 128 nord-americans.</li>
+        </ul>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/reclutament-2.jpg" alt="Reclutament massiu durant la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">La guerra total: reclutament massiu de soldats a tots els països bel·ligerants. Font: Buxaweb.</div>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">La primera guerra total</span>
+          <p>La Primera Guerra Mundial va ser la <strong>primera guerra total</strong> de la Història: no eren exèrcits professionals lluitant entre ells, sinó societats senceres mobilitzades. Cada aspecte de la vida civil quedava subordinat a l'esforç bèl·lic. Les fàbriques es reconvertien per produir obusos i fusells. Les dones assumien els llocs de treball dels homes mobilitzats. Els governs racionaven els aliments. La propaganda saturava la premsa, els cartells i el cinema per mantenir la moral. Era una guerra entre nacions, no entre exèrcits.</p>
+        </div>
+
+        <h3 id="s3-3">Fase 3 — La crisi del 1917 i el col·lapse de les potències centrals</h3>
+        <p>L'any 1917 va ser el punt d'inflexió de la guerra, però en dos sentits oposats que van acabar decantant la balança cap als aliats.</p>
+
+        <h4>Rússia abandona la guerra</h4>
+        <p>Rússia portava tres anys d'una guerra catastròfica per al règim tsarista: milions de morts, un exèrcit desmoralitzat, fam a les ciutats i un tsar incapaç de governar. El <strong>febrer del 1917</strong>, una onada de protestes a Petrograd —la capital— es va convertir en revolució quan l'exèrcit es va negar a disparar contra la multitud. El tsar <strong>Nicolau II</strong> va abdicar. Un Govern Provisional liberal va prendre el poder, però va cometre l'error fatal de continuar la guerra —una decisió que la població no li perdonaria.</p>
+        <p>El <strong>octubre del 1917</strong>, els <strong>bolxevics</strong> de Lenin i Trotski, amb la consigna de «pau, terra i pa», van derrocar el Govern Provisional i van prendre el poder. Una de les primeres decisions va ser negociar la sortida de la guerra, que es va materialitzar al <strong>Tractat de Brest-Litovsk</strong> (març de 1918): Rússia cedia enormes territoris a Alemanya —Polònia, Finlàndia, els estats bàltics, Ucraïna— a canvi de la pau. Alemanya podia ara concentrar tots els seus recursos al front occidental.</p>
+
+        <h4>Els Estats Units entren en guerra</h4>
+        <p>Però mentre Rússia sortia, els <strong>Estats Units</strong> entraven. La guerra submarina alemanya havia enfonsat vaixells nord-americans. El <strong>Telegrama Zimmermann</strong> (gener de 1917) —un missatge secret en el qual Alemanya proposava a Mèxic atacar els EUA a canvi de recuperar Texas i altres estats— va ser interceptat pels britànics i publicat a la premsa nord-americana, provocant un escàndol. El president <strong>Woodrow Wilson</strong> va declarar la guerra l'abril del 1917.</p>
+        <p>L'entrada dels EUA va ser decisiva: dos milions de soldats frescos i ben equipats van arribar a Europa al llarg del 1917 i 1918, mentre les tropes europees portaven quatre anys de guerra i estaven al límit de les seves forces. La balança s'inclinava clarament cap als aliats.</p>
+
+        <h4>El col·lapse final</h4>
+        <p>Amb els reforços nord-americans, les ofensives alemanyes de la primavera del 1918 —el darrer intent desesperat d'un exèrcit exhaust— van ser aturades. L'exèrcit alemany retrocedia. A l'est i al sud, l'Imperi Austrohongarès i l'Imperi Otomà s'estaven desintegrant sota la pressió dels aliats i de les revoltes interiors. Bulgària va signar l'armistici el 29 de setembre. Turquia el 30 d'octubre. Àustria-Hongria el 3 de novembre.</p>
+        <p>A Alemanya, la derrota militar s'acompanyava d'una revolució interior: els mariners de Kiel i Hamburg es van amotinar, els consells d'obrers i soldats (inspirats en els soviets russos) prenien el control de les ciutats. El Kaiser <strong>Guillem II</strong> va abdicar el 9 de novembre. Es proclamava la República. Dos dies després, l'<strong>11 de novembre de 1918</strong>, a les 11h del matí, els representants del nou govern alemany signaven l'armistici a un vagó de tren al bosc de Compiègne. A les línies del front, els canons s'aturaven. La guerra havia acabat.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S4: REVOLUCIÓ RUSSA ─── -->
+      <section class="section" id="s4">
+        <span class="section-num">Secció 04</span>
+        <h2>La Revolució Russa (1917)</h2>
+        <p>La Revolució Russa mereix una atenció específica: és un dels grans esdeveniments del segle XX i les seves conseqüències van anar molt més enllà de la Primera Guerra Mundial, definint la política mundial durant tot el segle.</p>
+
+        <h4>Context: la Rússia dels tsars</h4>
+        <p>La Rússia de 1914 era un <strong>imperi autocràtic i endarrerit</strong>: el <strong>80%</strong> de la població eren camperols que vivien en condicions de misèria, amb una industrialització molt més tardana i menor que l'Europa occidental. El <strong>tsar Nicolau II</strong> governava per dret diví, sense cap control democràtic ni parlament efectiu. Ja el 1905, la revolució de l'any anterior havia obligat el tsar a concessions mínimes —una Duma (parlament) sense poders reals. El «Diumenge Sagnant» del 1905, quan les tropes zaristes van massacrar una manifestació pacífica davant el Palau d'Hivern, havia mostrat la brutalitat d'un règim incapaç de reformar-se.</p>
+
+        <h4>Les dues revolucions de 1917</h4>
+        <p><strong>Febrer 1917 — La caiguda del tsar:</strong> Tres anys de guerra catastròfica havien portat Rússia al límit. Les baixes eren milionàries. L'exèrcit estava desmoralitzat. Les ciutats patien escassetat d'aliments. El febrer del 1917, una vaga de dones tèxtils a Petrograd es va convertir en una insurrecció general quan els regiments enviats a reprimir-la es van unir als manifestants. El tsar Nicolau II va abdicar el 2 de març. Un <strong>Govern Provisional</strong> de liberals i socialistes moderats va prendre el poder. El gran error va ser decidir continuar la guerra.</p>
+        <p><strong>Octubre 1917 — La revolució bolxevic:</strong> Durant vuit mesos, el Govern Provisional va anar perdent suport a mesura que la guerra continuava i les condicions empitjoraven. Els <strong>bolxevics</strong> —el partit de Lenin, disciplinat i ben organitzat— van anar guanyant influència als <strong>soviets</strong> (consells d'obrers i soldats) de les grans ciutats. La consigna era senzilla i poderosa: <em>«Pau, terra i pa»</em>. La nit del 24 al 25 d'octubre (segons el calendari rus), els bolxevics van prendre el control dels ponts, les estacions i els edificis clau de Petrograd. El Govern Provisional, assetjat al Palau d'Hivern, va caure sense gairebé resistència. Era el <strong>primer Estat obrer de la Història</strong>.</p>
+
+        <div class="info-box">
+          <span class="info-label">Mesures immediates i Guerra Civil</span>
+          <p>Els bolxevics van actuar de seguida: pau amb Alemanya (Tractat de Brest-Litovsk, 1918), repartiment de les terres entre els camperols, nacionalització de la gran indústria. Però la consolidació del poder va ser dramàtica: una <strong>Guerra Civil</strong> (1918–21) va enfrontar els bolxevics («rojos») contra una coalició de forces reaccionàries («blancs») recolzada per <strong>14 potències estrangeres</strong> —Gran Bretanya, França, EUA, Japó, entre altres— que van enviar tropes i material. Els bolxevics van guanyar, però al preu d'un cost humà enorme i d'un endureciment del règim que marcarà tota la història soviètica posterior.</p>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S5: PAU ─── -->
+      <section class="section" id="s5">
+        <span class="section-num">Secció 05</span>
+        <h2>La pau de Versalles i les seves conseqüències</h2>
+
+        <p>Quan els canons van emmudir el novembre de 1918, calia reconstruir un ordre internacional en ruïnes. Les negociacions de pau que van seguir van ser un dels fracassos diplomàtics més grans de la Història: en lloc de garantir una pau duradora, van sembrar les llavors de la Segona Guerra Mundial.</p>
+
+        <h3 id="s5-1">5.1. La Conferència de Pau de París (1919)</h3>
+        <p>Les negociacions es van celebrar a París a partir del gener del 1919. Les decisions les prenien en realitat els <strong>«Quatre Grans»</strong>: el president nord-americà <strong>Woodrow Wilson</strong>, el primer ministre francès <strong>Georges Clemenceau</strong>, el primer ministre britànic <strong>David Lloyd George</strong> i el primer ministre italià <strong>Vittorio Orlando</strong>. Alemanya <strong>no va ser convidada a les negociacions</strong>: simplement se li va presentar el tractat per signar-lo, com un dictat, no un acord.</p>
+        <p>Hi havia tensions profundes entre els aliats. Wilson portava el seu programa de <strong>Catorze Punts</strong>: una pau sense vencedors ni vençuts, el dret a l'autodeterminació dels pobles, i la creació d'una Societat de Nacions. Clemenceau, que havia vist França devastada dues vegades en menys de cinquanta anys, volia una pau punitiva que fes impossible que Alemanya tornés a ser una amenaça. Lloyd George estava al mig: personalment moderat, però amb una opinió pública britànica que exigia que Alemanya pagués. Clemenceau va imposar la seva visió en gran mesura.</p>
+
+        <h3 id="s5-2">5.2. El Tractat de Versalles i les seves clàusules</h3>
+        <p>El <strong>Tractat de Versalles</strong>, signat el 28 de juny de 1919 —exactament cinc anys després de l'atemptat de Sarajevo—, imposava condicions molt dures a Alemanya:</p>
+        <ul>
+          <li><strong>Clàusula de culpabilitat (art. 231):</strong> Alemanya era declarada <em>única culpable</em> de la guerra i de tots els danys causats. Aquesta clàusula era el fonament «legal» de totes les penalitzacions que seguien, però era historiogràficament injusta —la responsabilitat de la guerra era compartida entre totes les potències.</li>
+          <li><strong>Pèrdua de territoris:</strong> Alsàcia-Lorena tornava a França. El corredor de Danzig i part de la Prússia occidental anaven a la nova Polònia, aïllant la Prússia Oriental de la resta d'Alemanya. Slesvig al nord anava a Dinamarca. En total, Alemanya perdia el 13% del seu territori i el 10% de la seva població.</li>
+          <li><strong>Pèrdua de totes les colònies</strong> d'ultramar, que passaven a ser administrades pels aliats sota mandat de la futura Societat de Nacions.</li>
+          <li><strong>Limitació militar drástica:</strong> L'exèrcit quedava reduït a <strong>100.000 homes</strong>, sense tancs, artilleria pesada ni aviació militar. La marina quedava drasticament reduïda, sense submarins.</li>
+          <li><strong>Reparacions de guerra:</strong> El 1921, la comissió de reparacions va fixar la quantitat en <strong>132.000 milions de marcs d'or</strong>. Alemanya no va acabar de pagar fins al 2010.</li>
+        </ul>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/primeraguerramundial2.jpg" alt="Europa abans i després de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El nou mapa d'Europa: quatre imperis han desaparegut i neixen nous estats. Font: Buxaweb.</div>
+        </div>
+
+        <div class="warn-box">
+          L'economista britànic <strong>John Maynard Keynes</strong> havia participat en les negociacions com a assessor del govern britànic. Va quedar tan horroritzat per les condicions imposades que va dimitir i va publicar el 1919 <em>Les conseqüències econòmiques de la pau</em>, on advertia que Versalles condemnava Alemanya a la ruïna econòmica i que, inevitablement, generaria una nova guerra en menys de vint anys. Pocs el van escoltar aleshores. Va tenir raó.
+        </div>
+
+        <h3 id="s5-3">5.3. Per què Versalles va engendrar el nazisme</h3>
+        <p>Les condicions de Versalles van tenir un efecte devastador sobre la psicologia política alemanya. La <strong>clàusula de culpabilitat</strong> era percebuda com una injustícia flagrant per la gran majoria dels alemanys, que sabien que la responsabilitat de la guerra havia estat compartida. Les <strong>reparacions</strong> van contribuir a la hiperinflació catastròfica dels anys 20 (el 1923, un dòlar equivalia a 4,2 bilions de marcs). La <strong>humiliació territorial</strong> i la prohibició de tenir un exèrcit digne generaven ressentiment.</p>
+        <p>Tot això va crear un <strong>caldo de cultiu perfecte</strong> per a moviments polítics extremistes que prometien venjar la derrota i recuperar la grandesa nacional. Adolf Hitler va construir el seu ascens polític precisament sobre l'explotació d'aquest ressentiment. La llegenda de la «<em>punyalada per l'esquena</em>» —la idea que Alemanya no havia perdut militarment sinó que havia estat traïda per socialistes i jueus a la rereguarda— era una mentida, però una mentida que molts alemanys van voler creure. Versalles va convertir Hitler de líder d'un grup marginal en un polític amb suport de masses.</p>
+
+        <div class="img-wrap">
+          <img src="https://www.buxaweb.cat/images/fronteresdespresIGM.gif" alt="El nou mapa europeu després de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El nou mapa d'Europa après del Tractat de Versalles i els tractats annexos. Font: Buxaweb.</div>
+        </div>
+
+        <h3 id="s5-4">5.4. Les conseqüències globals de la guerra</h3>
+
+        <div class="table-wrap">
+          <table>
+            <tr>
+              <th>Àmbit</th>
+              <th>Conseqüències</th>
+            </tr>
+            <tr>
+              <td><strong>Demogràfic</strong></td>
+              <td>~17 milions de morts militars i ~7 milions de civils. A més, la <em>grip espanyola</em> (1918–19) aprofita les poblacions debilitades i mata entre 50 i 100 milions de persones a tot el món.</td>
+            </tr>
+            <tr>
+              <td><strong>Polític</strong></td>
+              <td>Caiguda de 4 imperis: Rus (1917), Alemany, Austrohongarès i Otomà (1918). Sorgeixen nous estats: Polònia, Txecoslovàquia, Iugoslàvia, Finlàndia, Hongria, Àustria, els estats bàltics. El mapa d'Europa és irreconeixible.</td>
+            </tr>
+            <tr>
+              <td><strong>Econòmic</strong></td>
+              <td>Fi de l'hegemonia econòmica europea. Els EUA, que havien venut armes i materials a crèdit durant tota la guerra, emergeixen com a gran creditor del món. Europa passarà els anys 20 pagant deutes nord-americans.</td>
+            </tr>
+            <tr>
+              <td><strong>Social</strong></td>
+              <td>Les dones havien substituït els homes a les fàbriques, als transports i a les oficines. El seu retorn al rol domèstic anterior era difícilment acceptable. Segueix un avanç significatiu del sufragi femení: Gran Bretanya el 1918, Alemanya el 1918, EUA el 1920.</td>
+            </tr>
+            <tr>
+              <td><strong>Institucional</strong></td>
+              <td>Creació de la <strong>Societat de Nacions</strong> (1919): primer intent d'organisme internacional de seguretat col·lectiva. Fracassarà per l'absència dels EUA (el Senat va rebutjar la ratificació) i la manca de poder executiu per fer complir les seves decisions.</td>
+            </tr>
+            <tr>
+              <td><strong>A llarg termini</strong></td>
+              <td>La humiliació de Versalles + la Gran Depressió del 1929 = ascens del nazisme. La Segona Guerra Mundial (1939–45) és, en molts aspectes, la continuació directa d'una Primera Guerra Mundial mal tancada. El període 1914–1945 s'ha descrit sovint com una sola «guerra dels trenta anys» amb un interval de pau tensa.</td>
+            </tr>
+          </table>
+        </div>
+
+      </section>
+
+    </div><!-- /panel-apunts -->
+
+    <!-- ═══════════════════════════════════
+         TAB 2: EIX CRONOLÒGIC
+    ═══════════════════════════════════ -->
+    <div class="tab-panel" id="panel-cronologia">
+
+      <p style="font-size:0.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'Courier Prime',monospace;letter-spacing:0.04em;">Els fets marcats en <span style="color:var(--blue);font-weight:700;">blau</span> són els més importants per entendre el curs de la guerra.</p>
+
+      <div class="crono">
+
+        <div class="crono-group">
+          <div class="crono-group-label">Antecedents</div>
+
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">1882</span>
+            <div class="crono-event">Triple Aliança</div>
+            <div class="crono-desc">Alemanya, Àustria-Hongria i Itàlia signen el pacte de defensa mútua. Itàlia l'abandonarà el 1915.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">1904–1907</span>
+            <div class="crono-event">Triple Entesa</div>
+            <div class="crono-desc">França, Gran Bretanya i Rússia formalitzen la seva aliança. Europa queda dividida en dos blocs armats.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">1905 i 1911</span>
+            <div class="crono-event">Crisis del Marroc</div>
+            <div class="crono-desc">Alemanya desafia França per l'hegemonia al Marroc. Les dues crisis es resolen diplomàticament però deixen una gran desconfiança.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">1912–1913</span>
+            <div class="crono-event">Guerres balcàniques</div>
+            <div class="crono-desc">Grècia, Bulgària, Sèrbia i Montenegro ataquen l'Imperi Otomà. La victòria enforteix Sèrbia i preocupa Àustria-Hongria.</div>
+          </div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">L'esclat (1914)</div>
+
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">28 de juny 1914</span>
+            <div class="crono-event">Atemptat de Sarajevo</div>
+            <div class="crono-desc">Gavrilo Princip assassina l'arxiduc Francesc Ferran d'Àustria. Comença la «crisi de juliol».</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">28 jul – 4 ago 1914</span>
+            <div class="crono-event">Inici oficial de la guerra</div>
+            <div class="crono-desc">En cascada: Àustria declara la guerra a Sèrbia, Rússia mobilitza, Alemanya declara la guerra a Rússia i França, envaeix Bèlgica, i Gran Bretanya entra en guerra.</div>
+          </div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">Guerra de moviments (1914)</div>
+
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">Agost–setembre 1914</span>
+            <div class="crono-event">Fracàs del Pla Schlieffen · Batalla del Marne</div>
+            <div class="crono-desc">Els franco-britànics aturen l'avenç alemany. Els fronts comencen a immobilitzar-se. Comença la guerra de trinxeres.</div>
+          </div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">Guerra de trinxeres (1915–1916)</div>
+
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">1915</span>
+            <div class="crono-event">Itàlia canvia de bàndol</div>
+            <div class="crono-desc">Abandona la Triple Aliança i entra en guerra al costat dels aliats, temptada per promeses territorials (Tractat de Londres).</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">Feb–des 1916</span>
+            <div class="crono-event">Batalla de Verdun — «el molidor de carn»</div>
+            <div class="crono-desc">La batalla més llarga de la guerra. ~700.000 morts en deu mesos. Cap dels dos exèrcits guanya territori significatiu. El símbol de l'absurd de la guerra de trinxeres.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">Jul–nov 1916</span>
+            <div class="crono-event">Batalla del Somme</div>
+            <div class="crono-desc">1 milió de baixes en quatre mesos. El 1 de juliol de 1916, Gran Bretanya perd 57.000 homes en un sol dia. Primera utilització dels tancs.</div>
+          </div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">La crisi del 1917</div>
+
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">Febrer 1917</span>
+            <div class="crono-event">Revolució de Febrer a Rússia</div>
+            <div class="crono-desc">El tsar Nicolau II abdica. El Govern Provisional continua la guerra. El malestar popular creix.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">Abril 1917</span>
+            <div class="crono-event">Els EUA entren en guerra</div>
+            <div class="crono-desc">La guerra submarina alemanya i el Telegrama Zimmermann fan decidir Wilson. Dos milions de soldats nord-americans canviaran la balança.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">Octubre 1917</span>
+            <div class="crono-event">Revolució d'Octubre a Rússia</div>
+            <div class="crono-desc">Lenin i els bolxevics prenen el poder. Consigna: «pau, terra i pa». Rússia negocia la sortida de la guerra.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">Març 1918</span>
+            <div class="crono-event">Tractat de Brest-Litovsk</div>
+            <div class="crono-desc">Rússia abandona la guerra cedint enormes territoris. Alemanya pot concentrar-se al front occidental. Però els reforços nord-americans ja arriben.</div>
+          </div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">La pau (1918–1919)</div>
+
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">11 novembre 1918</span>
+            <div class="crono-event">Armistici. Fi de la guerra</div>
+            <div class="crono-desc">A les 11h del dia 11 del mes 11, els canons del front occidental s'aturen. A Alemanya s'ha proclamat la República. Les potències centrals han perdut.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">Juny 1919</span>
+            <div class="crono-event">Tractat de Versalles</div>
+            <div class="crono-desc">Condicions humiliants per a Alemanya. Pèrdua de territoris, reparacions enormes, limitació militar. La llavor del nazisme queda plantada.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">1919</span>
+            <div class="crono-event">Societat de Nacions</div>
+            <div class="crono-desc">Primer organisme internacional de seguretat. Fracassarà per l'absència dels EUA (el Senat rebutja la ratificació) i la manca de poder executiu.</div>
+          </div>
+        </div>
+
+      </div><!-- /crono -->
+    </div><!-- /panel-cronologia -->
+
+    <!-- ═══════════════════════════════════
+         TAB 3: LA HISTÒRIA, ARA
+    ═══════════════════════════════════ -->
+    <div class="tab-panel" id="panel-ara">
+
+      <div class="ara-intro">
+        <p><strong>La Primera Guerra Mundial no és història lluny de nosaltres.</strong> Les seves causes, dinàmiques i conseqüències ressonen amb força al món d'avui. Aquestes activitats et proposen fer la connexió entre el passat i el present, usant eines d'anàlisi històrica sobre la realitat actual.</p>
+      </div>
+
+      <!-- TASCA 1 -->
+      <div class="task-block">
+        <div class="task-header">
+          <h3>1. Estem al llindar d'una Tercera Guerra Mundial?</h3>
+          <span class="task-badge">Anàlisi crítica</span>
+        </div>
+        <div class="task-body">
+          <p>El 1914, cap govern europeu volia una guerra mundial. Però el sistema d'aliances, el militarisme i les tensions acumulades van convertir un incident local en una catàstrofe global. Molts analistes actuals fan la mateixa pregunta: <strong>tenim avui condicions similars a les del 1914?</strong></p>
+          <p>Pensa en conflictes actuals: la guerra d'Ucraïna, les tensions al Pròxim Orient, la rivalitat EUA–Xina al Pacífic, la proliferació nuclear...</p>
+          <ol class="task-steps">
+            <li>Llegiu dues notícies recents sobre un conflicte internacional actiu (Ucraïna, Gaza, Mar de la Xina del Sud...) de fonts diverses. Podeu usar <em>elpais.com</em>, <em>bbc.com/mundo</em> o <em>elnacional.cat</em>.</li>
+            <li>Identifiqueu si hi ha avui alguna de les 4 «A» de la IGM: aliances rígides, cursa d'armaments, rivalitat imperial per recursos, nacionalismes exacerbats.</li>
+            <li>Debateu en grups: <em>En quins aspectes la situació d'avui s'assembla al 1914? En quins és radicalment diferent?</em> Tingueu en compte el paper de l'ONU respecte a la Societat de Nacions, i l'existència de les armes nuclears.</li>
+            <li>Escriviu individualment una breu anàlisi (10–15 línies) argumentant si creieu que hi ha o no risc real de guerra mundial. Useu evidències concretes dels apunts i de les notícies.</li>
+          </ol>
+          <div class="debate-box">
+            <span class="debate-label">Punt de debat</span>
+            <p>El 1914, la gent creia que la guerra seria curta i victoriosa. Cap soldat imaginava que estaria a les trinxeres quatre anys. Quin paper juga la <em>percepció errònia del risc</em> en l'escalada bèl·lica? Passa avui?</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TASCA 2 -->
+      <div class="task-block">
+        <div class="task-header">
+          <h3>2. La guerra als ulls dels soldats: fonts primàries</h3>
+          <span class="task-badge">Fonts primàries</span>
+        </div>
+        <div class="task-body">
+          <p>Els apunts expliquen dates i batalles. Però com vivia la guerra el soldat ras a les trinxeres? Treballar amb fonts primàries —cartes, diaris, fotografies— ens permet humanitzar la Història i entendre-la des de dins.</p>
+          <ol class="task-steps">
+            <li>Busca a internet un fragment d'una carta de soldat de la Primera Guerra Mundial. En trobaràs en català, castellà i anglès. Pots buscar «carta soldado Primera Guerra Mundial» o «letters from the trenches WWI 1914».</li>
+            <li>Identifica: Qui escriu? A qui? Quina data? Quins elements de la vida a les trinxeres descriu? Quina emoció dominant transmet?</li>
+            <li>Compara amb el que diuen els apunts sobre les condicions de la guerra de trinxeres. Coincideix? La font primària afegeix alguna cosa que els apunts no expliquen?</li>
+            <li>Reflexió escrita: <em>Com canvia la teva comprensió de la guerra llegir-la en primera persona?</em></li>
+          </ol>
+        </div>
+      </div>
+
+      <!-- TASCA 3 -->
+      <div class="task-block">
+        <div class="task-header">
+          <h3>3. Propaganda de guerra: ahir i avui</h3>
+          <span class="task-badge">Anàlisi de media</span>
+        </div>
+        <div class="task-body">
+          <p>La Primera Guerra Mundial va ser la primera en usar la <strong>propaganda massiva</strong> com a arma: cartells, premsa, cinema. L'objectiu era convèncer la població civil que la guerra era justa i necessària, i que l'enemic era bèstia i dolent. Avui, les xarxes socials han substituït els cartells —però la lògica és la mateixa.</p>
+          <ol class="task-steps">
+            <li>Cerca a Google Images dos cartells de propaganda de la Primera Guerra Mundial: un de britànic o nord-americà, un d'alemany o austrohongarès. Analitza: Quines emocions volen provocar? Com representen l'enemic? A qui s'adrecen?</li>
+            <li>Cerca ara un exemple recent de propaganda o desinformació en un conflicte actual. Pot ser un vídeo manipulat, una notícia falsa o una imatge fora de context. Pots usar <em>maldita.es</em> o <em>verificat.cat</em> per trobar exemples documentats.</li>
+            <li>Debateu: Quines tècniques es repeteixen entre 1914 i avui? Quines son noves? La desinformació digital és més o menys perillosa que la propaganda de 1914?</li>
+          </ol>
+          <div class="debate-box">
+            <span class="debate-label">Reflexió crítica</span>
+            <p>Durant la Primera Guerra Mundial, gairebé cap diari va informar de manera objectiva. Governs i premsa cooperaven per mantenir la moral. Avui la «infosfera» és molt més fragmentada —però no necessàriament més objectiva. <em>Com pots saber quan una informació sobre un conflicte és fiable?</em></p>
+          </div>
+        </div>
+      </div>
+
+      <!-- TASCA 4 -->
+      <div class="task-block">
+        <div class="task-header">
+          <h3>4. Versalles i les paus impossibles</h3>
+          <span class="task-badge">Joc de rol</span>
+        </div>
+        <div class="task-body">
+          <p>El Tractat de Versalles (1919) va ser tan humiliant per a Alemanya que va sembrar la llavor del nazisme i de la Segona Guerra Mundial. És un cas d'estudi sobre <strong>com no fer la pau</strong>. Però fer una pau «justa» tampoc és senzill: els vencedors tenien les seves pròpies demandes i poblacions a satisfer.</p>
+          <ol class="task-steps">
+            <li>En grups de 5, representeu cadascun un actor de la postguerra: Alemanya, França, Gran Bretanya, els EUA (Wilson), i els nous estats de l'Europa de l'est.</li>
+            <li>Cada grup prepara les seves demandes: Quin territori vols? Quines reparacions demanes? Quines garanties de seguretat necessites? Quins drets per als pobles sense estat?</li>
+            <li>Simuleu una conferència de pau i intenteu arribar a un acord que tothom pugui acceptar sense humiliar ningú.</li>
+            <li>Reflexió final: <em>Per quin motiu el Tractat de Versalles va ser tan dur? Va ser possible una altra pau? Compareu el vostre resultat amb el Tractat real.</em></li>
+          </ol>
+        </div>
+      </div>
+
+    </div><!-- /panel-ara -->
+
+  </main><!-- /content -->
+</div><!-- /page-wrap -->
+
+<footer class="site-footer">
+  <span>T04 · Primera Guerra Mundial · Història 4t ESO</span>
+  <nav class="footer-nav">
+    <a href="t03_imperialisme.html">← Tema 03</a>
+    <a href="index.html">Índex</a>
+    <a href="t05_entreguerres.html">Tema 05 →</a>
+  </nav>
+</footer>
+
+<script>
+  // ── TAB SWITCHING ──
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    btn.classList.add('active');
+    if (name === 'cronologia') animateCrono();
+    if (name === 'apunts') revealSections();
+    window.scrollTo({ top: document.querySelector('.tabs-bar').offsetTop - 56, behavior: 'smooth' });
+  }
+
+  // ── SCROLL REVEAL ──
+  function revealSections() {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06 });
+    document.querySelectorAll('#panel-apunts .section').forEach(s => observer.observe(s));
+  }
+
+  // ── CRONO ANIMATION ──
+  function animateCrono() {
+    document.querySelectorAll('.crono-entry').forEach((el, i) => {
+      setTimeout(() => el.classList.add('vis'), i * 55);
+    });
+  }
+
+  // ── SCROLL SPY ──
+  const tocLinks = document.querySelectorAll('#toc-apunts a');
+  const sectionObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        tocLinks.forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`#toc-apunts a[href="#${entry.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+
+  document.querySelectorAll('.section[id], h3[id], h4[id]').forEach(s => sectionObs.observe(s));
+
+  // ── INIT ──
+  revealSections();
+</script>
+</body>
+</html>
