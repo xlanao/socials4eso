@@ -42,7 +42,6 @@
   .tab-btn.active::after { opacity: 1; }
 
   .page-wrap { max-width: calc(var(--sidebar-w) + var(--content-max) + 64px); margin: 0 auto; display: grid; grid-template-columns: var(--sidebar-w) 1fr; align-items: start; }
-
   .sidebar { position: sticky; top: 56px; padding: 40px 24px 40px 0; max-height: calc(100vh - 56px); overflow-y: auto; scrollbar-width: none; }
   .sidebar::-webkit-scrollbar { display: none; }
   .sidebar-title { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
@@ -85,17 +84,16 @@
   .warn-box::before { content: 'ATENCIÓ — '; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: var(--ink); font-weight: 700; display: block; margin-bottom: 6px; }
 
   .pullquote { border-left: 3px solid var(--ink); padding: 12px 0 12px 22px; margin: 28px 0; }
-  .pullquote p { font-family: 'Spectral', serif; font-style: italic; font-size: 1.05rem; color: var(--ink-soft); line-height: 1.65; font-weight: 300; margin: 0; }
+  .pullquote p { font-family: 'Spectral', serif; font-style: italic; font-size: 1.05rem; color: var(--ink-soft); line-height: 1.65; font-weight: 300; margin: 0 0 8px; }
+  .pullquote cite { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); font-style: normal; }
 
-  /* ── CARD GRID ── */
   .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 24px 0; }
   .card-item { padding: 20px 18px; border-right: 1px solid var(--line-faint); }
   .card-item:last-child { border-right: none; }
   .card-num { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 700; color: var(--blue); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 8px; }
-  .card-title { font-family: 'Spectral', serif; font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
-  .card-body { font-size: 0.84rem; color: var(--ink-faint); font-weight: 300; line-height: 1.55; }
+  .card-title { font-family: 'Spectral', serif; font-size: 0.97rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+  .card-body { font-size: 0.84rem; color: var(--ink-faint); font-weight: 300; line-height: 1.6; }
 
-  /* ── TASK ── */
   .task-block { margin-bottom: 40px; border: 1px solid var(--ink); }
   .task-header { background: var(--ink); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
   .task-header h3 { margin: 0; font-family: 'Spectral', serif; font-size: 1rem; font-weight: 600; color: var(--paper); }
@@ -110,7 +108,6 @@
   .debate-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); display: block; margin-bottom: 6px; font-weight: 700; }
   .debate-box p { font-style: italic; font-size: 0.9rem; }
 
-  /* ── CRONO ── */
   .crono { border-left: 1px solid var(--line); padding-left: 28px; margin-top: 8px; }
   .crono-group { margin-bottom: 36px; }
   .crono-group-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); background: var(--paper-off); display: inline-block; padding: 4px 10px; margin-bottom: 18px; position: relative; left: -38px; border: 1px solid var(--line-faint); }
@@ -156,14 +153,14 @@
     <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 00</div>
     <div class="topic-num-badge">Tema 00 — Conceptes i mètode</div>
     <h1>Introducció a <em>la història</em></h1>
-    <p class="topic-subtitle">Què és · Per a què serveix · Com la construïm · Per què importa</p>
+    <p class="topic-subtitle">Què és · Per a què serveix · Com la construïm · Per imaginar futurs alternatius</p>
   </div>
 </div>
 
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('apunts', this)">APUNTS</button>
-  <button class="tab-btn" onclick="switchTab('cronologia', this)">EIX CRONOLÒGIC</button>
-  <button class="tab-btn" onclick="switchTab('ara', this)">LA HISTÒRIA, ARA</button>
+  <button class="tab-btn" onclick="switchTab('periodes', this)">PERÍODES HISTÒRICS</button>
+  <button class="tab-btn" onclick="switchTab('activitats', this)">ACTIVITATS</button>
 </div>
 
 <div class="page-wrap">
@@ -173,12 +170,18 @@
       <li><a href="#s1">1. Què és la història?</a></li>
       <li class="toc-sub"><a href="#s1-1">1.1 Més que dates</a></li>
       <li class="toc-sub"><a href="#s1-2">1.2 Un camp de batalla</a></li>
-      <li><a href="#s2">2. Relat oficial i memòries silenciades</a></li>
+      <li><a href="#s2">2. El relat oficial i les memòries silenciades</a></li>
+      <li class="toc-sub"><a href="#s2-1">2.1 La història dels vencedors</a></li>
+      <li class="toc-sub"><a href="#s2-2">2.2 Qui queda en silenci</a></li>
       <li><a href="#s3">3. La història com a eina crítica</a></li>
+      <li class="toc-sub"><a href="#s3-1">3.1 Descobrir alternatives</a></li>
+      <li class="toc-sub"><a href="#s3-2">3.2 Els drets com a conquesta</a></li>
       <li><a href="#s4">4. La memòria i el futur</a></li>
+      <li class="toc-sub"><a href="#s4-1">4.1 Arxiu de futurs possibles</a></li>
+      <li class="toc-sub"><a href="#s4-2">4.2 Memòria democràtica</a></li>
       <li><a href="#s5">5. Conceptes bàsics</a></li>
-      <li class="toc-sub"><a href="#s5-1">5.1 Temps i periodització</a></li>
-      <li class="toc-sub"><a href="#s5-2">5.2 Fonts</a></li>
+      <li class="toc-sub"><a href="#s5-1">5.1 El temps i la periodització</a></li>
+      <li class="toc-sub"><a href="#s5-2">5.2 Les fonts</a></li>
       <li class="toc-sub"><a href="#s5-3">5.3 Causes i conseqüències</a></li>
     </ul>
   </nav>
@@ -192,24 +195,30 @@
         <span class="section-num">Secció 01</span>
         <h2>Què és la història?</h2>
 
-        <h3 id="s1-1">1.1. Més que un conjunt de dates</h3>
-        <p>La majoria de la gent associa la història amb dates, noms de reis i batalles per memoritzar. Però la història no és —o no hauria de ser— un catàleg de fets ordenats. És la disciplina que intenta comprendre per què les societats han canviat, quines forces han impulsat les transformacions, qui s'ha beneficiat d'elles i qui les ha pagat.</p>
+        <h3 id="s1-1">1.1. Molt més que un conjunt de dates</h3>
+        <p>Quan la majoria de gent pensa en la história, pensa en dates, noms de reis i batalles que cal memoritzar per a un examen. Però la história no és —o no hauria de ser— un catàleg de fets ordenats cronològicament. És la disciplina que intenta comprendre el passat humà en la seva complexitat: per qué les societats han canviat de la manera que ho han fet, quines forces han impulsat les transformacions, qui s'ha beneficiat d'elles i qui les ha pagat, quins camins es van prendre i quins van quedar tancats per sempre.</p>
+        <p>Fer história no és transcriure el que va passar. És <strong>interpretar-ho</strong>: seleccionar, ordenar, relacionar i donar sentit a uns fets que sempre podrien explicar-se d'una altra manera. Dos historiadors honests que analitzen els mateixos documents poden arribar a conclusions molt diferents sobre les causes d'una guerra, sobre qui en va ser responsable, o sobre qui va sortir-ne beneficiat. Això no significa que totes les interpretacions siguin igual de vàlides: la história té mètodes, evidències i criteris de rigor. Però sí que significa que <strong>cap relat del passat és neutral</strong>.</p>
 
         <div class="def-box">
-          <span class="def-label">Definició</span>
-          <p>La <strong>història</strong> és la disciplina que estudia el passat humà a partir de fonts i evidències, amb l'objectiu de comprendre com i per què les societats han canviat al llarg del temps, i quin significat té aquest passat per al present.</p>
+          <span class="def-label">Definició operativa</span>
+          <p>La <strong>história</strong> és la disciplina que estudia el passat humà a partir de fonts i evidències, amb l'objectiu de comprendre com i per qué les societats han canviat, i quin significat té aquest passat per al present i per al futur que volem construir.</p>
         </div>
 
-        <p>La clau és l'última part: <em>quin significat té per al present</em>. La història no és una activitat de museu. Les desigualtats actuals, les fronteres dels estats, els drets que tenim —o que no tenim— i les guerres d'avui tenen arrels en decisions preses en el passat. Ignorar la història és no entendre el present.</p>
+        <p>La clau és l'última part: el passat té significat per al <em>futur que volem construir</em>. La história no és una activitat de museu destinada a conservar curiositats del passat. És una eina per entendre el món on vivim i per imaginar alternatives al que existeix. Les desigualtats actuals, les fronteres dels estats, els drets que tenim o que no tenim, les guerres d'avui: tot té arrels en decisions preses en el passat, decisions que en el seu moment van semblar inevitables però que eren simplement una opció entre diverses possibles.</p>
 
-        <h3 id="s1-2">1.2. Un camp de batalla</h3>
-        <p>La història és sempre una <strong>construcció</strong>: no hi ha un relat únic i objectiu del passat. Hi ha moltes narracions possibles, i la que s'imposa en cada moment no depèn de qui diu la veritat, sinó de qui té poder per fer sentir la seva versió.</p>
+        <h3 id="s1-2">1.2. Un camp de batalla entre narracions</h3>
+        <p>Una de les idees més importants que treballarem al llarg del curs és que la <strong>história és sempre una construcció</strong>. No hi ha un relat únic, objectiu i definitiu del passat. Hi ha moltes narracions possibles del mateix passat, i la que s'imposa en cada moment no depèn necessàriament de qui diu la veritat, sinó de qui té poder per fer sentir la seva versió: qui controla les editorials, els museus, els llibres de text, les estàtues de les places.</p>
 
         <div class="pullquote">
-          <p>«La història no és un conjunt de dades i dates. No és un relat lineal que ens porta inevitablement fins al present. És un camp de batalla en el qual diferents memòries i narracions xoquen.»</p>
+          <p>«La história no és un conjunt de dades i dates. No és un relat lineal que ens porta inevitablement fins al present. És un camp de batalla en el qual diferents memòries i narracions xoquen.»</p>
         </div>
 
-        <p>Penseu en com s'explica la conquesta d'Amèrica a Espanya i als països llatinoamericans. O com el colonialisme europeu apareix als llibres de text europeus i als africans. No és que algú menteixi necessàriament: és que <strong>des d'on mires canvia el que veus</strong>.</p>
+        <p>Penseu en com s'explica la conquesta d'Amèrica a Espanya i als països llatinoamericans. O com el colonialisme europeu apareix als llibres de text europeus i als africans. O com la Guerra Civil espanyola es relata des de perspectives familiars molt diferents. No és que algú menteixi necessàriament: és que <strong>des d'on mires, canvia el que veus</strong>. I el poder de decidir des d'on es mira és un poder polític de primer ordre.</p>
+
+        <div class="info-box">
+          <span class="info-label">Per qué importa saber-ho</span>
+          <p>Si entenem que la história és una construcció i no una veritat objectiva, ens tornem lectors crítics de qualsevol relat sobre el passat —inclosos els llibres de text, les pel·lícules históricques, els discursos polítics que invoquen «la nostra história». Aprendre história, ben entesa, és aprendre a no acceptar passivament la versió dels poderosos.</p>
+        </div>
       </section>
 
       <hr class="section-divider">
@@ -218,41 +227,66 @@
         <span class="section-num">Secció 02</span>
         <h2>El relat oficial i les memòries silenciades</h2>
 
-        <p>Durant segles, la història que s'ha ensenyat a les escoles ha estat principalment la dels poderosos: reis, generals, homes blancs europeus. Les seves victòries es presentaven com a progressos de la humanitat. Quan el passat es presenta com un camí lògic i inevitable cap al present, s'està fent una tria política: es diu que l'ordre actual és l'únic possible, que és el resultat natural de la marxa de la Història. S'està <strong>legitimant el que existeix</strong>.</p>
+        <h3 id="s2-1">2.1. La história dels vencedors</h3>
+        <p>Durant segles, la história que s'ha ensenyat a les escoles ha estat principalment la dels poderosos: reis, emperadors, grans generals, homes blancs europeus. Les seves decisions, guerres i conquestes omplien els llibres de text. Les seves victòries es presentaven com a progressos de tota la humanitat. El seu punt de vista era el punt de vista «neutral» i «objectiu».</p>
+        <p>Però aquesta história «oficial» té un problema fonamental: <strong>presenta el present com el resultat inevitable del passat</strong>. Com si tot hagués hagut de passar exactament com ha passat. Com si el capitalisme, les fronteres actuals, la distribució de la riquesa al món, i l'ordre polític existent fossin el resultat natural de la marxa de la História, i no el resultat de decisions concretes, de lluites i de rapinyes molt particulars. Quan la história es narra com un camí inevitable cap al present, s'està fent una tria política molt clara: s'està dient que l'ordre actual és l'únic possible.</p>
 
         <div class="card-grid">
           <div class="card-item">
             <span class="card-num">Problema 01</span>
             <div class="card-title">Justificació del present</div>
-            <div class="card-body">El present es presenta com l'única conclusió possible, esborrant les alternatives derrotades.</div>
+            <div class="card-body">El present es presenta com l'única conclusió possible de la História. Esborren les alternatives derrotades, els camins no presos, les possibilitats que van quedar tancades.</div>
           </div>
           <div class="card-item">
             <span class="card-num">Problema 02</span>
-            <div class="card-title">Camí inevitable</div>
-            <div class="card-body">S'eliminen els conflictes i els moments en què les coses podien haver anat d'una altra manera.</div>
+            <div class="card-title">Eliminació del conflicte</div>
+            <div class="card-body">La história oficial tendeix a suavitzar els conflictes de classe, les resistències i les lluites. Les coses «van passar», sense que ningú les volgués activament o s'hi oposés.</div>
           </div>
           <div class="card-item">
             <span class="card-num">Problema 03</span>
-            <div class="card-title">Silenci de les víctimes</div>
-            <div class="card-body">La història de les classes populars, les dones i els pobles colonitzats queda en segon pla o desapareix.</div>
+            <div class="card-title">Legitimació de l'ordre</div>
+            <div class="card-body">Quan la história dels vencedors s'ensenya com a veritat universal, es converteix en un instrument de legitimació de qui mana. El passat justifica el present.</div>
           </div>
         </div>
 
-        <p>El historiador Enzo Traverso parla de les <strong>«memòries silenciades»</strong>: aquells fragments del passat que la memòria oficial oculta o minimitza perquè qüestionen la versió dominant. Recuperar-les no és un acte de nostàlgia: és un acte crític que ens ajuda a veure el passat —i el present— d'una manera més completa i honesta.</p>
+        <h3 id="s2-2">2.2. Qui queda en silenci</h3>
+        <p>Si hi ha un relat oficial dels vencedors, vol dir que hi ha altres relats que no es conten, o que es conten molt menys. La história de les classes populars, de les dones, dels pobles colonitzats, dels treballadors, dels vençuts en guerres civils. No és que no hagin existit: és que durant molt de temps no tenien veu per explicar la seva versió, o els que la tenien no consideraven que valgués la pena escoltar-los.</p>
+        <p>El historiador Enzo <strong>Traverso</strong> parla de les <em>«memòries silenciades»</em>: aquells fragments del passat que la memòria oficial tendeix a ocultar o minimitzar perquè qüestionen la versió dominant. Recuperar-les no és un acte de nostàlgia ni de revenja. És un acte crític i polític que ens ajuda a veure el passat —i el present— d'una manera més completa i honesta, i que ens obre la possibilitat d'imaginar futurs que no siguin simplement la prolongació del que ja hi ha.</p>
+
+        <div class="warn-box">
+          Recuperar les memòries silenciades no significa que qualsevol versió del passat sigui igual de vàlida. La história té mètodes, fonts i criteris d'evidència. No tot és «una opinió». Però sí que significa que hem d'estar alerta sobre <em>qui parla</em>, <em>qui queda en silenci</em> i <em>quins interessos serveix</em> qualsevol relat que llegim o escoltem sobre el passat.
+        </div>
       </section>
 
       <hr class="section-divider">
 
       <section class="section" id="s3">
         <span class="section-num">Secció 03</span>
-        <h2>La història com a eina crítica</h2>
+        <h2>La història com a eina crítica i d'emancipació</h2>
 
-        <p>Si la història pot ser usada per justificar l'ordre existent, també pot ser usada per <strong>qüestionar-lo</strong>. Quan estudiem el passat amb ulls crítics, descobrim que moltes coses que avui ens semblen naturals o inevitables —desigualtats, fronteres, jerarquies socials— són construccions humanes, resultat de decisions i lluites concretes, i que per tant poden canviar.</p>
-        <p>La jornada laboral de vuit hores, les vacances pagades, la baixa per malaltia: cada un d'aquests drets va ser el resultat d'una lluita en la qual molta gent va arriscar la feina i a vegades la llibertat. Conèixer aquesta història no és nostàlgia: és entendre d'on venim i per quin motiu cal defensar el que tenim. I la historia continua: el debat sobre els drets dels treballadors de plataformes digitals avui és directament la continuació d'aquelles lluites del segle XIX.</p>
+        <h3 id="s3-1">3.1. Descobrir que les coses podrien ser d'una altra manera</h3>
+        <p>Si la história pot ser usada per justificar l'ordre existent, també pot ser usada per tot el contrari: per <strong>qüestionar-lo</strong> i per obrir la imaginació política cap a alternatives que semblen impossibles fins que resulten inevitables. Quan estudiem el passat amb ulls crítics, descobrim que moltes coses que avui ens semblen naturals o inevitables —les desigualtats, les fronteres, les jerarquies socials, la manera com s'organitza el treball— són en realitat <strong>construccions humanes</strong>, resultat de decisions i lluites concretes, i que per tant poden canviar.</p>
+        <p>La história crítica ens permet fer tres preguntes poderoses davant qualsevol ordre social:</p>
+        <ul>
+          <li><em>Com va arribar a ser així?</em> — Quines decisions, quines lluites i quins interessos han creat el que existeix.</li>
+          <li><em>Qui en surt beneficiat i qui en paga el cost?</em> — Tota institució, llei o pràctica social afavoreix uns actors i en perjudica d'altres.</li>
+          <li><em>Podria ser d'una altra manera?</em> — El passat ens mostra que moltes coses que semblaven eternes van canviar, i que molts canvis que semblaven impossibles es van produir.</li>
+        </ul>
+
+        <div class="pullquote">
+          <p>«Qui controla el passat controla el futur; qui controla el present controla el passat.»</p>
+          <cite>George Orwell, 1984</cite>
+        </div>
+
+        <p>Aquesta frase d'Orwell no és una exageració. Els règims autoritaris de tots els temps —des del nazisme fins als estalinisme, des dels feixismes europeus fins als autoritarismes contemporanis— han invertit enormes recursos en reescriure la história: eliminar figures del registre históric, canviar noms de carrers, controlar els llibres de text, cremar arxius. Ho fan perquè saben que qui controla el relat del passat, controla la comprensió del present i l'horitzó del futur.</p>
+
+        <h3 id="s3-2">3.2. Els drets no van caure del cel: la história com a prova</h3>
+        <p>Un exemple concret i poderós: els drets laborals. La jornada laboral de vuit hores, les vacances pagades, la baixa per malaltia, la pensió de jubilació, la prohibició del treball infantil. Molts joves d'avui donen per fet que sempre ha estat així. Però no: a les primeres dècades de la industrialització (segles XVIII i XIX), les jornades eren de dotze a setze hores, el treball infantil era la norma, i no existia cap protecció social.</p>
+        <p>Cada un d'aquests drets va ser el resultat d'una lluita concreta, d'homes i dones que van arriscar la seva feina i a vegades la seva llibertat per aconseguir-los, contra la resistència ferotge dels patrons i dels governs. Conèixer aquesta história és fonamental per dues raons: primera, per entendre <em>d'on venim</em> i valorar el que tenim; i segona, per entendre que <strong>els drets no es regalen: es conquesten i es defensen</strong>. I la história del present continua: el debat sobre els drets dels treballadors de plataformes digitals avui és directament la continuació d'aquelles lluites del segle XIX.</p>
 
         <div class="info-box">
-          <span class="info-label">La història és útil quan...</span>
-          <p>... ens permet veure que el món podria ser diferent, que res no estava escrit per endavant, i que els drets que considerem normals van ser conquestes de moviments que van lluitar per ells.</p>
+          <span class="info-label">La história com a brúixola, no com a museu</span>
+          <p>La história és útil no quan ens fa sentir orgullosos del passat o quan justifica el present, sinó quan ens permet veure que el món podria ser diferent del que és, que res no estava escrit per endavant, i que els canvis que semblen impossibles a vegades es produeixen quan prou gent s'organitza per aconseguir-los. La história com a brúixola per navegar cap a futurs millors, no com a museu per conservar el que hi ha.</p>
         </div>
       </section>
 
@@ -260,10 +294,16 @@
 
       <section class="section" id="s4">
         <span class="section-num">Secció 04</span>
-        <h2>La memòria i el futur</h2>
+        <h2>La memòria com a porta cap al futur</h2>
 
-        <p>Traverso proposa una idea potent: la memòria no serveix només per mirar enrere, sinó per <strong>obrir possibilitats cap endavant</strong>. Les lluites del passat que van fracassar no han desaparegut del tot. Viuen en la memòria com un <em>arxiu de futurs no realitzats</em>: propostes per a una societat diferent que, en el seu moment, no es van imposar, però que poden inspirar les lluites del present.</p>
-        <p>Un exemple proper: el debat sobre la <strong>Llei de Memòria Democràtica</strong> a Espanya. La discussió sobre la retirada de símbols franquistes i la recuperació de la memòria de les víctimes no és sobre el passat —és sobre el present. No es tracta d'esborrar la história: és decidir <strong>quin passat volem recordar públicament</strong> i quins valors volem transmetre com a societat.</p>
+        <h3 id="s4-1">4.1. L'arxiu de futurs no realitzats</h3>
+        <p>Una de les idees més potents de Traverso és que la memòria no serveix només per mirar enrere, sinó per <strong>obrir possibilitats cap endavant</strong>. El passat no conté només el que va triomfar: conté també tot el que va ser derrotat. Moviments polítics aixafats, revolucions fallides, projectes socials que no es van realitzar, utopies que els seus contemporanis van considerar impossibles i que la história va ofegar. Aquests projectes derrotats no han desaparegut del tot: viuen en la memòria com un <em>«arxiu de futurs no realitzats»</em>.</p>
+        <p>Recuperar la memòria d'aquells que van lluitar per una societat més justa i van ser derrotats no és un exercici de nostàlgia. És mantenir viva la possibilitat que les coses podrien ser d'una altra manera. La Revolució Haitiana (1804), la primera revolució esclavista exitosa de la história, va demostrar que un canvi que semblava completament impossible —que els esclaus vencessin les potències colonials— podia produir-se. El sufragi universal, les jornades de vuit hores, els drets LGBTQ+: totes van ser utopies abans de convertir-se en drets. La memòria d'aquells que les van defensar quan semblaven impossibles ens recorda que <strong>els límits del possible no els marca la naturalesa, sinó la correlació de forces en cada moment históric</strong>.</p>
+
+        <h3 id="s4-2">4.2. La memòria democràtica a Espanya: un exemple proper</h3>
+        <p>El debat sobre la <strong>Llei de Memòria Democràtica</strong> a Espanya és un exemple perfecte de com la memòria histórica no és un assumpte del passat: és una batalla del present sobre quins valors volem que defineixin la nostra convivència.</p>
+        <p>Espanya va sortir del franquisme el 1978 amb un pacte de silenci: no es jutjaria els crims de la dictadura, les víctimes no rebrien reconeixement oficial, les fosses comunes dels afusellats republicans seguirien sense excavar. Durant dècades, carrers i places van continuar portant noms de generals franquistes. El debat sobre la retirada d'aquests símbols i la recuperació de la memòria de les víctimes no és sobre el passat: és sobre el present. <strong>Qui decideix quines figures mereixes ser homenatjades a l'espai públic, decideix quins valors la societat considera dignes d'admiració.</strong></p>
+        <p>Traverso diria que rescatar les memòries oblidades de les víctimes és fonamental no per revenja, sinó perquè una societat que no reconeix els seus crims corre el risc de repetir-los. La memòria de les víctimes és un antídot contra la normalització de la violència política.</p>
       </section>
 
       <hr class="section-divider">
@@ -272,161 +312,189 @@
         <span class="section-num">Secció 05</span>
         <h2>Conceptes bàsics per treballar la història</h2>
 
-        <h3 id="s5-1">5.1. El temps i la periodització</h3>
-        <p>El temps históric no es mesura en minuts, sinó en <strong>períodes i processos</strong>. La divisió en Edat Antiga, Edat Mitjana, Edat Moderna i Edat Contemporània no existeix «de veritat»: la construïm nosaltres per organitzar el coneixement. Per tant, sempre cal preguntar-se: qui va decidir on comença i on acaba cada període? Hi ha canvis molt lents (transformacions econòmiques, demogràfiques) i fets molt ràpids (revolucions, guerres) que poden canviar el rumb de la história en qüestió de dies.</p>
+        <h3 id="s5-1">5.1. El temps históric i la periodització</h3>
+        <p>El temps históric no es mesura en minuts, sinó en <strong>períodes, èpoques i processos</strong>. Un canvi que en física duaria una fracció de segon pot trigar segles en História. I al revés: un fet puntual —un assassinat, una crisi financera, un discurs— pot canviar el rumb de la História de forma permanent.</p>
+        <p>La divisió convencional en <strong>Edat Antiga, Edat Mitjana, Edat Moderna i Edat Contemporània</strong> no existeix «de veritat» en la realitat: la construïm nosaltres per poder organitzar el coneixement. Aquestes divisions reflecteixen la perspectiva europea i occidental. Per a moltes cultures no europees, els moments de ruptura clau eren completament diferents. Per tant, cal preguntar-se: <em>qui va decidir on comença i on acaba cada període? Quins fets es consideren prou importants per marcar una època? Quins fets queden invisibilitzats?</em></p>
+        <p>L'historiador Fernand Braudel distingia entre tres ritmes del temps históric: els <strong>esdeveniments</strong> (de curta durada: batalles, tractats, revolucions), els <strong>cicles</strong> (de mitjana durada: conjuntures econòmiques, tendències polítiques) i les <strong>estructures</strong> (de llarga durada: el clima, la geografia, les mentalitats). Entendre la história exigeix moure's entre els tres nivells.</p>
 
-        <h3 id="s5-2">5.2. Les fonts</h3>
-        <p>Com sabem el que sabem del passat? A través de les <strong>fonts históriques</strong>: documents, objectes, lleis, fotografies, cartes, entrevistes. Les fonts no parlen soles: cal interpretar-les i contextualitzar-les. Cap font és neutral —un diari d'empresa mostra les preocupacions dels propietaris, no dels treballadors. Per això els historiadors sempre pregunten: <em>qui va produir aquest document, per a qui, amb quin objectiu?</em></p>
+        <h3 id="s5-2">5.2. Les fonts histórics: com sabem el que sabem?</h3>
+        <p>Com sabem el que sabem del passat? A través de les <strong>fonts histórics</strong>: tot allò que ens dóna informació sobre el passat. Les fonts no parlen soles: cal interpretar-les, contextualitzar-les i sotmetre-les a crítica. Una carta escrita per un rei descriu el món des del punt de vista del rei. Un registre d'empresa mostra les preocupacions dels propietaris, no dels treballadors. Una pintura de batalla gloriosa oculta el fang, el patiment i la violència de la guerra real. Per això els historiadors sempre pregunten: <em>qui va produir aquest document, per a qui, amb quin objectiu i en quin context?</em></p>
 
         <div class="def-box">
-          <span class="def-label">Fonts primàries i secundàries</span>
-          <p><strong>Fonts primàries:</strong> produïdes en el moment que volem estudiar. Cartes, lleis, objectes, fotografies, testimonis directes.</p>
-          <p><strong>Fonts secundàries:</strong> interpretacions del passat elaborades posteriorment. Llibres d'história, articles acadèmics, documentals.</p>
+          <span class="def-label">Tipus de fonts</span>
+          <p><strong>Fonts primàries:</strong> produïdes en el moment que volem estudiar. Cartes, lleis, contractes, fotografies, objectes, monedes, entrevistes a testimonis directes, diaris personals.</p>
+          <p><strong>Fonts secundàries:</strong> interpretacions o anàlisis del passat elaborades per investigadors posteriors. Llibres d'história, articles acadèmics, documentals. Es basen en fonts primàries però les interpreten des d'una perspectiva pròpia.</p>
+          <p><strong>Fonts orals:</strong> testimonis i tradicions transmesos verbalment. Fonamentals per a cultures sense escriptura o per a la história recent, on els testimonis directes encara viuen.</p>
         </div>
 
-        <h3 id="s5-3">5.3. Causes i conseqüències</h3>
-        <p>La pregunta central de la história és <em>per qué va passar?</em> Els historiadors distingeixen entre <strong>causes estructurals</strong> —processos lents i profunds que creen les condicions per a un esdeveniment— i <strong>detonants</strong> —el fet concret que l'encén. L'assassinat de Sarajevo no va «causar» la Primera Guerra Mundial: va ser l'espurna que va encendre un polvorí carregat durant dècades. Sense el polvorí, l'espurna no hauria fet res.</p>
+        <h3 id="s5-3">5.3. Causes, detonants i conseqüències</h3>
+        <p>La pregunta central de la história és <em>per qué va passar?</em> La resposta gairebé mai és senzilla. Els historiadors distingeixen entre diverses escales de causalitat:</p>
+        <ul>
+          <li><strong>Causes estructurals o de fons:</strong> processos lents i profunds que creen les condicions per a un esdeveniment. Les desigualtats acumulades durant dècades que creen el terreny per a una revolució. El canvi climàtic o demogràfic que transforma les estructures econòmiques. No expliquen per qué una cosa passa <em>en aquell moment concret</em>, però expliquen per qué era possible.</li>
+          <li><strong>Detonants:</strong> el fet concret que encén la pólvora. L'assassinat d'un arxiduc, una collita dolenta, un discurs. El detonant no és la «causa» en el sentit profund: és l'espurna que encén un polvorí ja carregat. Sense el polvorí, l'espurna no hauria fet res.</li>
+          <li><strong>Conseqüències:</strong> el que passa a curt, mitjà i llarg termini. Les conseqüències sovint superen les intencions dels actors. Cap dels governs europeus que va iniciar la Primera Guerra Mundial pretenia causar 17 milions de morts i la desaparició de quatre imperis.</li>
+        </ul>
 
         <div class="info-box">
-          <span class="info-label">Clau per a tot el curs</span>
-          <p>Al llarg del curs veureu que cada gran esdeveniment s'entén millor distingint les causes profundes del detonant puntual. Aprendre a fer aquesta distinció és aprendre a pensar históricament.</p>
+          <span class="info-label">La distinció que usarem tot el curs</span>
+          <p>Veureu que aquesta distinció entre <strong>causes estructurals</strong> i <strong>detonants</strong> reapareix a cada tema. L'assassinat de Sarajevo no va «causar» la Primera Guerra Mundial: va encendre les tensions acumulades durant dècades. El Crac del 29 no va «causar» el nazisme: va destapar les contradiccions d'una pau de Versalles que condemnava Alemanya a la humiliació. Aprendre a fer aquesta distinció és aprendre a pensar históricament.</p>
         </div>
       </section>
 
     </div><!-- /panel-apunts -->
 
-    <!-- ═══ TAB 2: CRONOLOGIA ═══ -->
-    <div class="tab-panel" id="panel-cronologia">
-      <p style="font-size:0.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'DM Mono',monospace;letter-spacing:0.04em;">Les grans divisions de la Història occidental, i els períodes que cobrirà aquest curs.</p>
+    <!-- ═══ TAB 2: PERÍODES HISTÒRICS ═══ -->
+    <div class="tab-panel" id="panel-periodes">
+
+      <p style="font-size:0.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'DM Mono',monospace;letter-spacing:0.04em;">Les grans divisions de la Història occidental i els períodes que cobrirà aquest curs. Recorda: aquestes divisions les hem construïdes nosaltres — podrien ser d'una altra manera.</p>
 
       <div class="crono">
         <div class="crono-group">
-          <div class="crono-group-label">Les quatre edats de la Història</div>
+          <div class="crono-group-label">Les quatre edats de la Història occidental</div>
           <div class="crono-entry">
             <div class="crono-dot"></div>
             <span class="crono-year">Fins al 476 dC</span>
             <div class="crono-event">Edat Antiga</div>
-            <div class="crono-desc">De les primeres civilitzacions escrites (Mesopotàmia, Egipte) fins a la caiguda de l'Imperi Romà d'Occident.</div>
+            <div class="crono-desc">De les primeres civilitzacions escrites (Mesopotàmia, Egipte) fins a la caiguda de l'Imperi Romà d'Occident. Les primeres ciutats, estats, religions monoteistes i imperis de gran escala.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot"></div>
             <span class="crono-year">476 – 1492</span>
             <div class="crono-event">Edat Mitjana</div>
-            <div class="crono-desc">Del feudalisme europeu a les primeres expansions marítimes. Europa, el món islàmic i les civilitzacions asiàtiques i americanes coexisteixen amb poc contacte.</div>
+            <div class="crono-desc">Del feudalisme europeu a les primeres expansions marítimes. Europa, el món islàmic —que durant segles és intel·lectualment dominant— i les grans civilitzacions asiàtiques i americanes coexisteixen amb poc contacte entre elles.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot"></div>
             <span class="crono-year">1492 – 1789</span>
             <div class="crono-event">Edat Moderna</div>
-            <div class="crono-desc">La conquesta d'Amèrica, la Reforma Protestant, l'absolutisme i la Il·lustració. L'Antic Règim arriba al límit de les seves contradiccions.</div>
+            <div class="crono-desc">La conquesta d'Amèrica, la Reforma Protestant, l'absolutisme monàrquic, el comerç atlàntic d'esclaus i la Il·lustració. Europa comença a dominar el comerç mundial. L'Antic Règim porta les seves contradiccions al límit.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">1789 – avui</span>
-            <div class="crono-event">Edat Contemporània — el nostre curs</div>
-            <div class="crono-desc">De la Revolució Francesa fins al present. Industrialització, imperialisme, guerres mundials, totalitarismes, Guerra Freda i globalització.</div>
+            <div class="crono-event">Edat Contemporània — el contingut d'aquest curs</div>
+            <div class="crono-desc">De la Revolució Francesa fins al present. Industrialització, imperialisme, guerres mundials, totalitarismes, descolonització, Guerra Freda i globalització. El món que habiteu ha estat forjat en aquest període.</div>
           </div>
         </div>
 
         <div class="crono-group">
-          <div class="crono-group-label">Els temes del curs</div>
+          <div class="crono-group-label">Temes del curs — Edat Contemporània</div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">Segles XVII–XVIII</span>
-            <div class="crono-event">Antic Règim i Revolució Francesa</div>
-            <div class="crono-desc">Societat estamental, comerç triangular i esclavitud, Il·lustració i Revolució de 1789.</div>
+            <div class="crono-event">T01 · Antic Règim i Revolució Francesa</div>
+            <div class="crono-desc">Societat estamental, comerç triangular i esclavitud atlàntica, Il·lustració i la Revolució de 1789 que posa fi a l'Antic Règim.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">1760 – 1870</span>
-            <div class="crono-event">Revolució Industrial</div>
-            <div class="crono-desc">La fàbrica, la màquina de vapor, el ferrocarril. Naixement del capitalisme industrial i del moviment obrer.</div>
+            <div class="crono-event">T02 · La Revolució Industrial</div>
+            <div class="crono-desc">La fàbrica, la màquina de vapor, el ferrocarril. Naixement del capitalisme industrial i del proletariat. Les primeres lluites obreres per drets que avui donem per fet.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">1870 – 1914</span>
-            <div class="crono-event">Imperialisme europeu</div>
-            <div class="crono-desc">Repartiment d'Àfrica i Àsia. La Conferència de Berlín. El polvorí que portarà a la Gran Guerra.</div>
+            <div class="crono-event">T03 · L'Imperialisme europeu</div>
+            <div class="crono-desc">Repartiment d'Àfrica i Àsia. La Conferència de Berlín. Les guerres de l'Opi. El Congo de Leopold II. El polvorí que portarà a la Gran Guerra.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">1914 – 1918</span>
-            <div class="crono-event">Primera Guerra Mundial</div>
-            <div class="crono-desc">17 milions de morts. Cauen quatre imperis. Versalles planta les llavors del nazisme.</div>
+            <div class="crono-event">T04 · La Primera Guerra Mundial</div>
+            <div class="crono-desc">17 milions de morts. La guerra de trinxeres. Cauen quatre imperis. La Revolució Russa. Versalles planta les llavors del nazisme.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">1919 – 1939</span>
-            <div class="crono-event">Entreguerres i feixismes</div>
-            <div class="crono-desc">El Crac del 29, la Gran Depressió i l'ascens de Mussolini i Hitler.</div>
+            <div class="crono-event">T05 · Entreguerres i feixismes europeus</div>
+            <div class="crono-desc">El Crac del 29, la Gran Depressió i l'ascens de Mussolini i Hitler. Els feixismes com a resposta reaccionària a la crisi del capitalisme.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">1939 – 1945</span>
-            <div class="crono-event">Segona Guerra Mundial</div>
-            <div class="crono-desc">70–85 milions de morts. L'Holocaust. La bomba atòmica. El món es divideix en dos blocs.</div>
+            <div class="crono-event">T06 · La Segona Guerra Mundial</div>
+            <div class="crono-desc">70–85 milions de morts. L'Holocaust. La bomba atòmica. El món queda dividit en dos blocs enfrontats.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">1898 – 1978</span>
-            <div class="crono-event">Història d'Espanya</div>
-            <div class="crono-desc">De la Setmana Tràgica a la Transició. La República, la Guerra Civil, el Franquisme i la democràcia.</div>
+            <div class="crono-event">T07 · Història d'Espanya</div>
+            <div class="crono-desc">De la Setmana Tràgica a la Transició. La República, la Guerra Civil, el Franquisme i la democràcia. La memòria que encara no hem acabat de digerir.</div>
           </div>
           <div class="crono-entry">
             <div class="crono-dot key"></div>
             <span class="crono-year">1945 – 1991</span>
-            <div class="crono-event">Guerra Freda</div>
-            <div class="crono-desc">EUA vs. URSS. La cursa armamentista. La caiguda del Mur de Berlín.</div>
+            <div class="crono-event">T08 · La Guerra Freda</div>
+            <div class="crono-desc">EUA vs. URSS. La cursa armamentista nuclear. La descolonització. La caiguda del Mur de Berlín i el final del segle XX.</div>
           </div>
         </div>
       </div>
-    </div><!-- /panel-cronologia -->
+    </div><!-- /panel-periodes -->
 
-    <!-- ═══ TAB 3: LA HISTÒRIA, ARA ═══ -->
-    <div class="tab-panel" id="panel-ara">
+    <!-- ═══ TAB 3: ACTIVITATS ═══ -->
+    <div class="tab-panel" id="panel-activitats">
 
       <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off);">
-        <p style="font-size:0.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7;">Una de les idees centrals d'aquest tema és que la história no explica com <em>havia de ser</em> el present. Les coses podrien haver anat d'una altra manera. Comencem el curs amb una activitat que posa aquesta idea en pràctica.</p>
+        <p style="font-size:0.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7;">Una de les idees centrals d'aquest tema és que la história no explica com <em>havia de ser</em> el present. Les coses podrien haver anat d'una altra manera. Comencem el curs amb activitats que posen en pràctica aquesta idea.</p>
       </div>
 
       <div class="task-block">
         <div class="task-header">
-          <h3>I si...? Imaginació histórica</h3>
+          <h3>1. I si...? La força de la contrafactualitat</h3>
           <span class="task-badge">Grups de 4–5</span>
         </div>
         <div class="task-body">
-          <p>Trieu un dels escenaris alternatius que segueixen. En grups, imagineu com seria avui el món si aquell fet hagués estat diferent. No es tracta de fer ciència-ficció: es tracta de pensar quines cadenes causals haurien canviat, quins actors haurien guanyat o perdut poder, quines estructures s'haurien mantingut o transformat.</p>
+          <p>Els historiadors utilitzen el pensament contrafactual per entendre la causalitat: si un determinat fet no hagués passat, com hauria canviat el curs de la história? No es tracta de fer ciència-ficció, sinó d'aïllar quines causes van ser determinants. Apliqueu-ho al present: trieu un dels escenaris que segueixen i analitzeu quines cadenes causals haurien canviat, quins actors haurien guanyat o perdut, i com seria diferent el món d'avui.</p>
           <ul class="task-steps">
-            <li><span class="step-num">A</span><span>Si la pandèmia del COVID-19 no hagués passat mai. Quines estructures sanitàries, econòmiques i polítiques serien diferents?</span></li>
-            <li><span class="step-num">B</span><span>Si no hagués existit mai Instagram, ni TikTok, ni xarxes similars. Com seria diferent la política? La identitat dels joves? Les relacions?</span></li>
-            <li><span class="step-num">C</span><span>Si s'hagués declarat la independència de Catalunya amb èxit el 2017. Quin impacte hauria tingut a Espanya i a Europa?</span></li>
-            <li><span class="step-num">D</span><span>Si encara visquéssim en una dictadura que perdurés des de l'època de Franco. Quines lleis i drets no existirien?</span></li>
-            <li><span class="step-num">E</span><span>Si el desastre de la DANA hagués ocorregut a l'àrea de Barcelona causant milers de morts. Com hauria canviat el debat sobre el canvi climàtic?</span></li>
+            <li><span class="step-num">A</span><span>Si la pandèmia del COVID-19 no hagués passat mai. Quines estructures sanitàries, econòmiques i polítiques serien avui diferents? Quines desigualtats s'haurien mantingut invisibles?</span></li>
+            <li><span class="step-num">B</span><span>Si no hagués existit mai Instagram, TikTok ni xarxes socials similars. Com seria diferent la política? La identitat dels joves? El consum? La salut mental?</span></li>
+            <li><span class="step-num">C</span><span>Si s'hagués declarat la independència de Catalunya amb èxit el 2017. Quin impacte hauria tingut sobre Espanya, la UE i el propi moviment independentista?</span></li>
+            <li><span class="step-num">D</span><span>Si encara visquéssim en una dictadura que perdurés des de Franco. Quines lleis, drets i institucions no existirien? Com afectaria la vostra vida concreta?</span></li>
+            <li><span class="step-num">E</span><span>Si el desastre de la DANA hagués ocorregut a l'àrea metropolitana de Barcelona causant milers de morts. Com hauria canviat el debat sobre el canvi climàtic i la gestió del territori a Espanya?</span></li>
           </ul>
           <div class="debate-box">
             <span class="debate-label">Reflexió final</span>
-            <p>Per qué és útil fer-nos preguntes del tipus «i si...»? Qué ens ensenyen sobre la diferència entre <em>causes estructurals</em> i <em>detonants</em> concrets?</p>
+            <p>Per qué és útil fer-nos preguntes del tipus «i si...»? Qué ens diuen sobre la diferència entre <em>causes estructurals</em> (que fan possibles els fets) i <em>detonants</em> (que els fan passar en aquell moment concret)? I sobre la idea que el present podria ser d'una altra manera?</p>
           </div>
         </div>
       </div>
 
       <div class="task-block">
         <div class="task-header">
-          <h3>Qui explica la história del teu barri?</h3>
+          <h3>2. Qui explica la história del teu barri?</h3>
+          <span class="task-badge">Individual + posada en comú</span>
+        </div>
+        <div class="task-body">
+          <p>Els carrers, places i monuments de les nostres ciutats conten una história: la de qui va tenir el poder de decidir qué i qui es recorda. L'espai públic és un relat del passat construït per aquells que van tenir poder per construir-lo. Analitzem l'entorn més proper amb ulls histórics.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Busca el nom del teu carrer o d'un carrer proper. Qui era la persona o qué commemorava? Quan es va posar el nom? Qui va prendre la decisió?</span></li>
+            <li><span class="step-num">02</span><span>Hi ha al teu barri algun monument, placa o mural que faci referència a la história? A qui homenatja? De quina época és? Qui el va encarregar?</span></li>
+            <li><span class="step-num">03</span><span>Busca si hi ha alguna controvèrsia sobre noms de carrers o monuments al teu municipi relacionada amb la memòria histórica (símbols franquistes, personatges discutits...).</span></li>
+            <li><span class="step-num">04</span><span>Reflexió: Quines memòries estan representades a l'espai públic del teu entorn? Qui queda absent? Si tu poguessis posar nom a un carrer o erigir un monument, a qui escolliríes? Per qué?</span></li>
+          </ul>
+          <div class="debate-box">
+            <span class="debate-label">Per la posada en comú</span>
+            <p>Quin patró emergeix de les vostres recerques individuals? Quins tipus de persones apareixen als espais públics? Quins tipus de persones hi queden absents? Qué ens diu això sobre quines memòries la nostra societat ha decidit honorar?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header">
+          <h3>3. Llegir una notícia com un historiador</h3>
           <span class="task-badge">Individual</span>
         </div>
         <div class="task-body">
-          <p>Els carrers i monuments de les nostres ciutats conten una história: la de qui va tenir el poder de decidir qué i qui es recorda. Analitzem l'entorn amb ulls histórics.</p>
+          <p>Les eines que usem per analitzar el passat —qui parla, qui queda en silenci, quins interessos hi ha darrere d'un relat— s'apliquen igualment al present. Les notícies d'avui seran les fonts primàries dels historiadors del futur. Practiquem llegir-les amb ull crític.</p>
           <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca el nom del teu carrer o d'un carrer proper. Qui era la persona o qué commemorava? Quan es va posar el nom?</span></li>
-            <li><span class="step-num">02</span><span>Hi ha al teu barri algun monument o placa que faci referència a la história? A qui homenatja? De quina época és?</span></li>
-            <li><span class="step-num">03</span><span>Busca si hi ha alguna controvèrsia sobre noms de carrers o monuments al teu municipi relacionada amb la memòria histórica.</span></li>
-            <li><span class="step-num">04</span><span>Reflexió: quines veus estan representades a l'espai públic del teu entorn? Qui queda absent? Qui hauria de tenir un carrer que ara no en té?</span></li>
+            <li><span class="step-num">01</span><span>Busca la mateixa notícia en dos mitjans de comunicació diferent (per exemple, un de cada orientació política). Pot ser sobre qualsevol tema d'actualitat: una vaga, una llei polèmica, un conflicte internacional.</span></li>
+            <li><span class="step-num">02</span><span>Compara: Quins fets mencionen tots dos? Quins fets menciona un i l'altre no? Quines paraules trien per descriure els mateixos actors? Qui té veu en cada article?</span></li>
+            <li><span class="step-num">03</span><span>Reflexió: Podries reconstruir els fets bàsics a partir d'una sola font? Qué necessitaries saber sobre el mitjà (qui el finança, quina línia editorial té) per valorar el que et diu?</span></li>
           </ul>
         </div>
       </div>
 
-    </div><!-- /panel-ara -->
+    </div><!-- /panel-activitats -->
 
   </main>
 </div>
@@ -445,7 +513,7 @@
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('panel-' + name).classList.add('active');
     btn.classList.add('active');
-    if (name === 'cronologia') animateCrono();
+    if (name === 'periodes') animateCrono();
     if (name === 'apunts') revealSections();
     window.scrollTo({ top: document.querySelector('.tabs-bar').offsetTop - 56, behavior: 'smooth' });
   }
