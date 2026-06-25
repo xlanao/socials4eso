@@ -68,6 +68,31 @@
   .pullquote{border-left:3px solid var(--ink);padding:12px 0 12px 22px;margin:28px 0}
   .pullquote p{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft);line-height:1.65;font-weight:300;margin:0 0 6px}
   .pullquote cite{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-style:normal}
+  /* colonies grid */
+  .colonies{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);margin:22px 0}
+  .colonia{padding:20px 16px;border-right:1px solid var(--line-faint)}
+  .colonia:last-child{border-right:none}
+  .colonia-tag{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px;font-weight:700}
+  .colonia-title{font-family:'Spectral',serif;font-size:.97rem;font-weight:600;color:var(--ink);margin-bottom:6px;line-height:1.3}
+  .colonia-body{font-size:.83rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  .colonia-ex{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-soft);margin-top:6px;display:block;letter-spacing:.04em}
+  /* powers table */
+  .powers{display:grid;grid-template-columns:1fr;gap:0;border:1px solid var(--line);margin:22px 0}
+  .power-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1px solid var(--line-faint)}
+  .power-row:last-child{border-bottom:none}
+  .power-name{padding:14px 16px;border-right:1px solid var(--line-faint);background:var(--paper-off)}
+  .power-flag{font-size:1.2rem;display:block;margin-bottom:3px}
+  .power-label{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.06em;color:var(--ink);display:block}
+  .power-size{font-family:'DM Mono',monospace;font-size:.65rem;color:var(--blue);display:block;margin-top:3px}
+  .power-desc{padding:14px 16px;font-size:.87rem;color:var(--ink-soft);font-weight:300;line-height:1.6}
+  /* explorers */
+  .explorer-list{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin:22px 0}
+  .explorer{padding:16px;border-right:1px solid var(--line-faint);border-bottom:1px solid var(--line-faint)}
+  .explorer:nth-child(2n){border-right:none}
+  .explorer:nth-last-child(-n+2){border-bottom:none}
+  .explorer-name{font-family:'Spectral',serif;font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:3px}
+  .explorer-dates{font-family:'DM Mono',monospace;font-size:.68rem;color:var(--blue);letter-spacing:.06em;display:block;margin-bottom:5px}
+  .explorer-body{font-size:.83rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
   /* causes grid */
   .causes-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin:22px 0}
   .causa{padding:18px 16px;border-right:1px solid var(--line-faint);border-bottom:1px solid var(--line-faint)}
@@ -156,16 +181,22 @@
       <li class="toc-sub"><a href="#s1-1">1.1 Electricitat i petroli</a></li>
       <li class="toc-sub"><a href="#s1-2">1.2 Taylorisme i fordisme</a></li>
       <li class="toc-sub"><a href="#s1-3">1.3 Concentració del capital</a></li>
-      <li><a href="#s2">2. L'imperialisme</a></li>
+      <li><a href="#s2">2. L'imperialisme: definició i causes</a></li>
       <li class="toc-sub"><a href="#s2-1">2.1 Definició i causes</a></li>
       <li class="toc-sub"><a href="#s2-2">2.2 La ideologia imperial</a></li>
-      <li><a href="#s3">3. El repartiment d'Àfrica</a></li>
-      <li class="toc-sub"><a href="#s3-1">3.1 La Conferència de Berlín</a></li>
-      <li class="toc-sub"><a href="#s3-2">3.2 El Congo de Leopold II</a></li>
-      <li><a href="#s4">4. L'imperialisme a Àsia</a></li>
-      <li class="toc-sub"><a href="#s4-1">4.1 L'Índia britànica</a></li>
-      <li class="toc-sub"><a href="#s4-2">4.2 Les guerres de l'Opi</a></li>
-      <li><a href="#s5">5. Conseqüències</a></li>
+      <li><a href="#s3">3. La colonització: tipus i formes</a></li>
+      <li class="toc-sub"><a href="#s3-1">3.1 Exploració i conquesta</a></li>
+      <li class="toc-sub"><a href="#s3-2">3.2 Tipus de colònies</a></li>
+      <li class="toc-sub"><a href="#s3-3">3.3 L'administració colonial</a></li>
+      <li><a href="#s4">4. El repartiment d'Àfrica</a></li>
+      <li class="toc-sub"><a href="#s4-1">4.1 La Conferència de Berlín</a></li>
+      <li class="toc-sub"><a href="#s4-2">4.2 Les potències i els seus imperis</a></li>
+      <li class="toc-sub"><a href="#s4-3">4.3 El Congo de Leopold II</a></li>
+      <li class="toc-sub"><a href="#s4-4">4.4 Conflictes entre potències</a></li>
+      <li><a href="#s5">5. L'imperialisme a Àsia</a></li>
+      <li class="toc-sub"><a href="#s5-1">5.1 L'Índia britànica</a></li>
+      <li class="toc-sub"><a href="#s5-2">5.2 Les guerres de l'Opi</a></li>
+      <li><a href="#s6">6. Conseqüències</a></li>
     </ul>
   </nav>
 
@@ -261,32 +292,70 @@
       <!-- S3 -->
       <section class="section" id="s3">
         <span class="section-num">Secció 03</span>
-        <h2>El repartiment d'Àfrica</h2>
+        <h2>La colonització: exploració, conquesta i administració</h2>
 
-        <h3 id="s3-1">3.1. La Conferència de Berlín (1884–85)</h3>
-        <p>L'any 1884, el canceller alemany Bismarck va convocar a Berlín una conferència de les grans potències europees per regular el repartiment d'Àfrica i evitar conflictes entre elles mentre el feien. Hi van participar Gran Bretanya, França, Alemanya, Bèlgica, Portugal, Espanya, Itàlia, Països Baixos, Àustria-Hongria, Dinamarca, Suècia, Rússia, l'Imperi Otomà i els Estats Units. <strong>Cap africà va ser convidat.</strong></p>
-        <p>La conferència va establir les regles del joc: per reclamar un territori africà, calia «ocupació efectiva» (presència militar real) i notificar-ho a les altres potències. En els trenta anys següents, les potències van enviar expedicions militars a tots els racons del continent. El resultat va ser el <strong>«escramblement per Àfrica»</strong> (<em>Scramble for Africa</em>): la divisió de pràcticament tot el continent en colònies europees.</p>
-        <p>Les fronteres traçades a Berlín eren <strong>línies rectes sobre un mapa</strong>, sense cap relació amb les realitats geogràfiques, ètniques, lingüístiques o polítiques d'Àfrica. Tallaven per la meitat grups ètnics que portaven segles vivint junts i ajuntaven en el mateix territori poblacions que eren enemigues. Aquestes fronteres arbitràries van deixar un llegat d'inestabilitat que explica, en gran mesura, molts dels conflictes africans actuals.</p>
+        <p>Abans de parlar del repartiment d'Àfrica i Àsia, cal entendre com funcionava el procés colonial: com les potències europees passaven de l'exploració a la conquesta, i com organitzaven els territoris ocupats. No tots els territoris colonials s'administraven igual, i entendre les diferències ens ajuda a comprendre el llegat que han deixat.</p>
 
-        <div class="img-wrap">
-          <img src="images/africa_scramble.gif" alt="Repartiment d'Àfrica 1880-1913" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">El «Scramble for Africa» (1880–1913): l'expansió colonial europea a Àfrica en tres dècades. El continent passa de ser majoritàriament autònom a estar pràcticament tot en mans d'Europa. Font: Wikimedia Commons (domini públic).</div>
+        <h3 id="s3-1">3.1. L'exploració prèvia a la conquesta</h3>
+        <p>A mitjan segle XIX, l'interior d'Àfrica era pràcticament desconegut per als europeus. Les costes africanes eren conegudes des del segle XV, però l'interior del continent —amb el seu clima tropical i les seves malalties— havia resistit tota penetració estable. Fins als anys 1850, les epidèmies de malària feien la mortalitat europea a l'interior tan alta que cap expedició no podia establir-s'hi de forma permanent.</p>
+        <p>Dos factors van canviar la situació. Primer: la <strong>quinina</strong>, el medicament que prevenia la malària, es va popularitzar com a tractament eficaç entre els anys 1840–1870. Sense quinina, l'imperialisme africà hauria estat impossible. Segon: els nous <strong>vaixells de vapor</strong> podien remuntar rius com el Níger, el Congo o el Zambezi, obrint l'interior des dels seus grans cursos fluvials.</p>
+        <p>A partir dels anys 1850, una sèrie d'expedicions científiques i religioses van cartografiar l'interior africà, preparant el terreny per a la conquesta posterior:</p>
+
+        <div class="explorer-list">
+          <div class="explorer">
+            <div class="explorer-name">David Livingstone</div>
+            <span class="explorer-dates">Britànic · 1841–1873</span>
+            <div class="explorer-body">Missioner i explorador escocès. Va recórrer el centre i el sud d'Àfrica durant trenta anys, descobrint les cataractes Victoria (1855) i grans parts del Congo. Va ser el principal defensor de l'abolició de l'esclavitud àrab a l'Àfrica oriental. Quan es va perdre el rastre, el periodista Henry Morton Stanley el va anar a buscar (1871): <em>«Dr. Livingstone, I presume?»</em></div>
+          </div>
+          <div class="explorer">
+            <div class="explorer-name">Henry Morton Stanley</div>
+            <span class="explorer-dates">Britànic-americà · 1841–1904</span>
+            <div class="explorer-body">Periodista i aventurer. Va travessar Àfrica d'est a oest seguint el riu Congo (1874–77), demostrant que era navegable en gran part del seu recorregut. Les seves cròniques van despertar l'interès de Leopold II, que el va contractar per establir estacions al Congo. Va ser un dels instruments de la colonització més ràpida de l'Àfrica central.</div>
+          </div>
+          <div class="explorer">
+            <div class="explorer-name">René Caillié</div>
+            <span class="explorer-dates">Francès · 1799–1838</span>
+            <div class="explorer-body">Primer europeu a arribar a Tombuctú i tornar viu (1828), disfressat de musulmà. Els seus relats sobre el Sahel i el Níger van obrir la porta a les expedicions franceses a l'Àfrica occidental.</div>
+          </div>
+          <div class="explorer">
+            <div class="explorer-name">Heinrich Barth</div>
+            <span class="explorer-dates">Alemany · 1821–1865</span>
+            <div class="explorer-body">Va recórrer el Sahara i el Sudan occidental (1850–55), produint una obra de cinc volums amb cartografia detallada. Les seves exploracions van ser clau per a les ambicions colonials alemanyes al Camerun i Namíbia.</div>
+          </div>
         </div>
 
-        <h3 id="s3-2">3.2. El Congo de Leopold II: genocidi amb cara de rei</h3>
-        <p>El cas del <strong>Congo</strong> és el més extrem i millor documentat dels crims colonials a Àfrica. Leopol II, rei de Bèlgica, va aconseguir a la Conferència de Berlín que el Congo —un territori de 2,3 milions de km² amb desenes de milions d'habitants— fos reconegut com a la seva <strong>propietat personal</strong>, no com a colònia del govern belga. El va batejar «Estat Lliure del Congo», una denominació que era una ironia brutal.</p>
-        <p>L'objectiu era l'explotació del <strong>cautxú</strong>, que havia disparat el seu preu amb la demanda dels pneumàtics. El sistema que va implantar Leopold era simple i terrorífic: cada aldea tenia una quota de cautxú que havia de lliurar. Si no la complia, els agents de Leopold mutilaven els habitants. La mutilació de mans es va convertir en l'instrument de control per excel·lència: els soldats havien de lliurar mans amputades com a prova que havien gastat les seves bales en el servei de la companyia, i no en la caça. Piràmides de mans amputades van ser fotografiades i van acabar arribant a la premsa europea.</p>
+        <p>Un cop conegut el territori, la <strong>conquesta va ser relativament ràpida</strong>. La superioritat militar europea era aclaparadora: els exèrcits colonials disposaven de fusells de repetició i metralladores (la Maxim, inventada el 1884, disparava 600 trets per minut) mentre que la majoria de pobles africans combatien amb armes tradicionals. Alguns pobles van resistir amb ferocitat —els zulus, els ashanti, els etíops a la batalla d'Adwa (1896)—, però la majoria van ser derrotats. Els europeus van explotar hàbilment les rivalitats entre ètnies i regnes locals, aliant-se amb uns per sotmetre'n d'altres.</p>
 
-        <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Congomutilation.jpg" alt="Víctimes de les mutilacions al Congo de Leopold II" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Nsala, un pare congolès, contempla la mà i el peu de la seva filla de cinc anys, mutilada pels agents de la companyia de Leopold II (1904). La foto va ser distribuïda pels activistes abolicionistes per denunciar els crims. Font: Wikimedia Commons (domini públic).</div>
+        <h3 id="s3-2">3.2. Tipus de colònies</h3>
+        <p>No tots els territoris colonials s'organitzaven de la mateixa manera. Buxaweb distingeix tres grans models d'organització colonial:</p>
+
+        <div class="colonies">
+          <div class="colonia">
+            <span class="colonia-tag">Model 01</span>
+            <div class="colonia-title">Colònies d'explotació</div>
+            <div class="colonia-body">La metròpoli s'hi instal·la exclusivament per extreure riquesa. No hi ha intenció de poblar-les de forma permanent amb europeus. El govern és colonial directe. L'economia s'orienta completament cap a l'exportació de matèries primeres: minerals, productes agrícoles, cautxú.</div>
+            <span class="colonia-ex">Ex: Congo belga, Nigèria britànica, Guinea francesa</span>
+          </div>
+          <div class="colonia">
+            <span class="colonia-tag">Model 02</span>
+            <div class="colonia-title">Colònies de poblament</div>
+            <div class="colonia-body">Reben colons europeus que s'hi estableixen de forma permanent, desplaçant o subordinant la població autòctona. L'economia combinava explotació de recursos i agricultura de colons. La població autòctona quedava desposseïda de les millors terres i relegada a reserves o treball forçat.</div>
+            <span class="colonia-ex">Ex: Àfrica del Sud, Algèria, Kenya, Rhodèsia</span>
+          </div>
+          <div class="colonia">
+            <span class="colonia-tag">Model 03</span>
+            <div class="colonia-title">Protectorats</div>
+            <div class="colonia-body">El territori manté formalment el seu govern autòcton (un sultan, un rei), però sota control efectiu de la potència europea. La metròpoli controla la política exterior, les duanes i les decisions estratègiques. La forma menys costosa de controlar un territori sense administrar-lo directament.</div>
+            <span class="colonia-ex">Ex: Marroc, Egipte, Tunísia, Afganistan</span>
+          </div>
         </div>
 
-        <p>L'escriptor Joseph Conrad, que va viatjar al Congo el 1890, va deixar-ne un retrat literari a <em>El cor de les tenebres</em> (1899). El periodista Edmund Morel i l'activista Roger Casement van documentar sistemàticament els crims i van crear una campanya internacional de denúncia. El 1908, la pressió internacional va forçar Leopold II a cedir el Congo al govern belga, però els crims van continuar sota altra forma. L'estimació de morts oscil·la entre <strong>5 i 10 milions de persones</strong>.</p>
+        <h3 id="s3-3">3.3. L'administració colonial i l'aculturació</h3>
+        <p>Totes les colònies van imposar una doble transformació: econòmica i cultural. Econòmicament, l'economia colonial es va restructurar al servei de la metròpoli: grans plantacions d'exportació, impostos forçats per obligar els indígenes a treballar als circuits colonials, destrucció de l'artesania local per competència dels productes industrials importats. Culturalment, les escoles colonials ensenyaven la llengua de la metròpoli, les missions substituïen les religions locals, i les estructures polítiques autòctones eren deslegitimades. El resultat va ser una profunda <strong>aculturació</strong> que va fer perdre la identitat a molts pobles colonitzats.</p>
 
-        <div class="pullquote">
-          <p>«Entraren en la foscor, i en el fons d'aquella foscor no van trobar res més que tenebres. Al cor d'un país enorme, el cor de les tenebres.»</p>
-          <cite>Joseph Conrad, El cor de les tenebres (1899)</cite>
+        <div class="info-box">
+          <span class="info-label">Infraestructures colonials: un avenç per a qui?</span>
+          <p>Les potències colonials van construir ports, ferrocarrils i hospitals a les seves colònies. Però els ferrocarrils no connectaven les poblacions entre elles: connectaven les mines i les plantacions amb els ports d'exportació. Les infraestructures estaven dissenyades per facilitar l'extracció de riquesa, no per al desenvolupament local. Quan els colonitzadors se'n van anar, van deixar economies depenents d'un sol producte d'exportació.</p>
         </div>
       </section>
 
@@ -295,20 +364,70 @@
       <!-- S4 -->
       <section class="section" id="s4">
         <span class="section-num">Secció 04</span>
-        <h2>L'imperialisme a Àsia</h2>
+        <h2>El repartiment d'Àfrica</h2>
 
-        <h3 id="s4-1">4.1. L'Índia: la joia de la Corona britànica</h3>
-        <p>L'<strong>Índia</strong> va ser la colònia més valuosa i emblemàtica de l'imperialisme britànic. La seva conquesta va ser progressiva: la British East India Company (una empresa privada) havia anat expandint el seu control territorial des del segle XVII. El 1858, arran de la gran revolta índia de 1857 (els britànics la van anomenar «Motí dels Sipais»), el govern britànic va assumir el control directe. La reina Victòria va ser proclamada «Emperadriu de l'Índia» el 1876.</p>
-        <p>El colonialisme britànic a l'Índia va tenir efectes econòmics devastadors. La <strong>indústria tèxtil índia</strong> —que havia estat una de les més avançades del món i havia vestit una part significativa de la humanitat— va ser sistemàticament destruïda: les manufactures britàniques entraven a l'Índia sense aranzels mentre els teixits indis pagaven impostos altíssims a Gran Bretanya. L'Índia va passar de ser exportadora de teixits a ser importadora de productes britànics i exportadora de cotó cru. Un dels primers actes de desobediència de Gandhi el 1930 va ser la <em>Marxa de la Sal</em>: una protesta contra el monopoli britànic de la sal, un producte de primera necessitat.</p>
-
-        <h3 id="s4-2">4.2. Les guerres de l'Opi a la Xina: guerra per vendre drogues</h3>
-        <p>El cas de la <strong>Xina</strong> i les Guerres de l'Opi és potser el cas més cínic de l'imperialisme europeu. Gran Bretanya tenia un problema comercial: li agradava el te xinès, la porcel·lana i la seda, però la Xina no volia comprar res britànic. La balança comercial era deficitària per als britànics. La solució que van trobar va ser vendre <strong>opi</strong> als xinesos: una droga molt addictiva produïda a les plantacions britàniques de l'Índia.</p>
-        <p>Quan l'emperador xinès va intentar prohibir el comerç d'opi (1839), Gran Bretanya va declarar la guerra. Les forces britàniques, amb tecnologia militar molt superior, van guanyar fàcilment. El resultat van ser els <strong>«tractats desiguals»</strong>: la Xina havia de pagar una indemnització enorme, obrir nous ports al comerç britànic, cedir Hong Kong i legalitzar el comerç d'opi. Una segona guerra (1856–60), en la qual van participar també els francesos, va ampliar les humiliacions. El poder imperial xinès, mil·lenari, quedava prostrat davant de les canoneres europees.</p>
+        <h3 id="s4-1">4.1. La Conferència de Berlín (1884–85)</h3>
+        <p>L'any 1884, el canceller alemany Bismarck va convocar a Berlín una conferència per regular la conquesta d'Àfrica i evitar que les rivalitats colonials acabessin en guerra entre europeus. Hi van participar catorze potències. <strong>Cap africà va ser convidat, consultat ni informat.</strong></p>
+        <p>La conferència va establir dues regles: per reclamar un territori africà, cal demostrar «ocupació efectiva» —presència militar real— i notificar-ho a les altres potències. En els vint-i-cinc anys següents, les potències van enviar expedicions militars a tots els racons del continent. El resultat: el <strong>«Scramble for Africa»</strong>. El 1880, Europa controlava el 10% d'Àfrica; el 1914, el 90%. L'única excepció significativa: Etiòpia, que va derrotar els italians a Adwa (1896).</p>
+        <p>Les fronteres traçades a Berlín eren <strong>línies rectes sobre un mapa</strong>, sense cap relació amb les realitats geogràfiques, ètniques o polítiques del continent. Tallaven grups ètnics que portaven segles convivint i ajuntaven en el mateix territori poblacions que eren enemigues. Aquest llegat explica en gran mesura molts dels conflictes africans actuals.</p>
 
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a0/British_vessels_on_the_Canton_river.jpg" alt="Vaixells britànics al riu Cantó durant la Primera Guerra de l'Opi" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Vaixells britànics al riu Cantó durant la Primera Guerra de l'Opi (1839–42). La superioritat naval britànica va forçar la Xina a acceptar el comerç d'opi. Font: Wikimedia Commons (domini públic).</div>
+          <img src="images/africa_scramble.gif" alt="Repartiment d'Àfrica 1880-1913" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El «Scramble for Africa» (1880–1913): en trenta anys, pràcticament tot el continent africà queda sota control colonial europeu. Font: Wikimedia Commons (domini públic).</div>
         </div>
+
+        <h3 id="s4-2">4.2. Les potències colonials i els seus imperis a Àfrica</h3>
+
+        <div class="powers">
+          <div class="power-row">
+            <div class="power-name"><span class="power-flag">🇬🇧</span><span class="power-label">Gran Bretanya</span><span class="power-size">L'imperi més gran</span></div>
+            <div class="power-desc">Gran Bretanya tenia l'imperi africà més extens, estructurat al voltant del control de les rutes comercials marítimes. El gran projecte era el <strong>«Cape to Cairo»</strong>: un corredor continu de territoris britànics des del Cap de Bona Esperança fins a Egipte. Territoris principals: Egipte (ocupat el 1882), Sudan, Kenya, Uganda, Nigèria, Ghana (Costa d'Or), Àfrica del Sud i Rhodèsia. Personatge clau: <strong>Cecil Rhodes</strong>, magnat dels diamants i impulsor de l'expansió cap al nord.</div>
+          </div>
+          <div class="power-row">
+            <div class="power-name"><span class="power-flag">🇫🇷</span><span class="power-label">França</span><span class="power-size">Àfrica occidental i nord</span></div>
+            <div class="power-desc">El segon gran imperi colonial africà. El projecte francès era horitzontal: un corredor d'est a oest a través del Sahel, des de Senegal fins al Mar Roig. Territoris: Algèria (conquistada el 1830), Tunísia, Marroc, Mauritània, Senegal, Mali, Burkina Faso, Txad, Gabon, Madagascar. El projecte va xocar frontalment amb el britànic a l'<strong>incident de Fashoda</strong> (1898), a la vora del Nil.</div>
+          </div>
+          <div class="power-row">
+            <div class="power-name"><span class="power-flag">🇩🇪</span><span class="power-label">Alemanya</span><span class="power-size">Potència tardana</span></div>
+            <div class="power-desc">Alemanya va arribar tard al repartiment. Va aconseguir: Camerun, Togo, Àfrica Occidental Alemanya (Namíbia) i Àfrica Oriental Alemanya (Tanzània, Rwanda, Burundi). Al <strong>genocidi Herero i Nama</strong> (1904–1908) a Namíbia —primer genocidi documentat del segle XX— va matar entre 50.000 i 100.000 persones en resposta a una revolta. Va perdre totes les colònies africanes com a resultat de la Primera Guerra Mundial.</div>
+          </div>
+          <div class="power-row">
+            <div class="power-name"><span class="power-flag">🇧🇪</span><span class="power-label">Bèlgica</span><span class="power-size">El Congo de Leopold</span></div>
+            <div class="power-desc">Bèlgica tenia una sola colònia però immensa: el Congo (2,3 milions de km², 80 vegades Bèlgica). Inicialment propietat personal del rei Leopold II —no de l'Estat belga—, el Congo va ser el teatre del crim colonial més documentat del període. El 1908 el govern belga va assumir el control sota pressió internacional, però l'explotació va continuar.</div>
+          </div>
+          <div class="power-row">
+            <div class="power-name"><span class="power-flag">🇵🇹</span><span class="power-label">Portugal</span><span class="power-size">Herència atlàntica</span></div>
+            <div class="power-desc">La potència colonial més antiga, present a les costes africanes des del segle XV, però la més feble econòmicament. Territoris: Angola, Moçambic, Guinea-Bissau, Cap Verd, São Tomé. Portugal va ser l'última potència a descolonitzar (1974–75), arran de la Revolució dels Clavells.</div>
+          </div>
+          <div class="power-row">
+            <div class="power-name"><span class="power-flag">🇮🇹</span><span class="power-label">Itàlia</span><span class="power-size">Ambicions frustrades</span></div>
+            <div class="power-desc">Va intentar conquistar Etiòpia i va ser durament derrotada a la <strong>batalla d'Adwa</strong> (1896) —una de les úniques victòries militars d'un país africà sobre una potència colonial. Va aconseguir Líbia (als turcs, 1911), Eritrea i Somàlia. La humiliació d'Adwa deixà una ferida en l'orgull nacional italià que el feixisme de Mussolini explorarà a fons.</div>
+          </div>
+          <div class="power-row">
+            <div class="power-name"><span class="power-flag">🇪🇸</span><span class="power-label">Espanya</span><span class="power-size">Presència marginal</span></div>
+            <div class="power-desc">Espanya, en plena decadència imperial (havia perdut Cuba, Puerto Rico i les Filipines el 1898), va aconseguir territoris marginals: el Marroc espanyol (nord), el Sàhara Occidental, la Guinea Equatorial i Ceuta i Melilla. El Marroc seria el territori on Franco consolidaria el seu poder militar abans del cop del 1936.</div>
+          </div>
+        </div>
+
+        <h3 id="s4-3">4.3. El Congo de Leopold II: genocidi amb cara de rei</h3>
+        <p>Leopold II, rei dels belgues, va aconseguir a la Conferència de Berlín que el Congo fos reconegut com a la seva <strong>propietat personal</strong>. Argumentà que hi enviaria missions civilitzadores i lluitaria contra l'esclavitud àrab. El va batejar «Estat Lliure del Congo»: una ironia brutal.</p>
+        <p>L'objectiu real era el <strong>cautxú</strong>, que havia disparat el seu preu per la demanda de pneumàtics. El sistema era simple i terrorífic: cada aldea havia de lliurar una quota setmanal. Si no la complia, els agents de la <em>Force Publique</em> executaven ostatges, cremaven aldees i —el detall que va causar l'escàndol internacional— <strong>amputaven mans</strong> als treballadors i als seus familiars. Les mans amputades eren la prova que els soldats havien gastat les seves bales al servei de la companyia, no en la caça. Piràmides de mans fotografiades van arribar a la premsa europea.</p>
+
+        <div class="img-wrap">
+          <img src="images/congo_mutilation.jpg" alt="Víctimes de les mutilacions al Congo de Leopold II, 1904" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Nsala, un pare congolès, contempla la mà i el peu de la seva filla de cinc anys, mutilada pels agents de Leopold II (1904). La foto va ser distribuïda pels abolicionistes i va causar escàndol internacional. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <p>El periodista <strong>Edmund Morel</strong> i el diplomàtic <strong>Roger Casement</strong> van documentar els crims i crear una campanya de denúncia internacional. El 1908, Leopold II va cedir el Congo al govern belga. L'estimació de morts oscil·la entre <strong>5 i 10 milions de persones</strong> en vint-i-tres anys.</p>
+
+        <div class="pullquote">
+          <p>«Entraren en la foscor, i en el fons d'aquella foscor no van trobar res més que tenebres. Al cor d'un país enorme, el cor de les tenebres.»</p>
+          <cite>Joseph Conrad, El cor de les tenebres (1899)</cite>
+        </div>
+
+        <h3 id="s4-4">4.4. Conflictes entre potències colonials a Àfrica</h3>
+        <p>La carrera per Àfrica va generar tensions importants entre les pròpies potències europees. L'<strong>incident de Fashoda</strong> (1898) va ser el moment de màxima tensió entre Gran Bretanya i França: una expedició francesa i una britànica es van trobar al Sudan, sobre el Nil. Durant mesos, els dos exèrcits es van encarar. La crisi va acabar diplomàticament: França va cedir, reconeixent el control britànic del Sudan. Va ser una humiliació per a França —però va evitar la guerra.</p>
+        <p>Les <strong>Guerres dels Bòers</strong> (1880–81 i 1899–1902) van enfrontar Gran Bretanya amb els bòers —colons d'origen holandès a Transvaal i l'Estat Lliure d'Orange— quan el descobriment de diamants i or va fer que Gran Bretanya volgués controlar aquells territoris. La Segona Guerra Bòer (1899–1902) va ser especialment brutal: els britànics van crear els primers <strong>camps de concentració moderns</strong> per internar la població civil bòer, on van morir desenes de milers de persones. Gran Bretanya va guanyar però amb un cost enorme en vides i reputació.</p>
       </section>
 
       <hr class="section-divider">
@@ -316,43 +435,45 @@
       <!-- S5 -->
       <section class="section" id="s5">
         <span class="section-num">Secció 05</span>
+        <h2>L'imperialisme a Àsia</h2>
+
+        <h3 id="s5-1">5.1. L'Índia: la joia de la Corona britànica</h3>
+        <p>L'<strong>Índia</strong> va ser la colònia més valuosa de l'imperialisme britànic. La British East India Company havia anat expandint el control territorial des del segle XVII. El 1858, arran de la gran revolta índia de 1857 (el Motí dels Sipais), el govern britànic va assumir el control directe. La reina Victòria va ser proclamada «Emperadriu de l'Índia» el 1876.</p>
+        <p>El colonialisme britànic va tenir efectes econòmics devastadors. La <strong>indústria tèxtil índia</strong> —una de les més avançades del món— va ser destruïda: les manufactures britàniques entraven a l'Índia sense aranzels mentre els teixits indis pagaven impostos altíssims. L'Índia va passar d'exportadora de teixits a importadora de productes britànics i exportadora de cotó cru. Un dels primers actes de desobediència de Gandhi el 1930 va ser la <em>Marxa de la Sal</em>: una protesta contra el monopoli britànic de la sal.</p>
+
+        <h3 id="s5-2">5.2. Les guerres de l'Opi a la Xina</h3>
+        <p>Gran Bretanya tenia un problema comercial: li agradava el te, la porcel·lana i la seda xinesa, però la Xina no volia comprar res britànic. La solució: vendre <strong>opi</strong> als xinesos —una droga addictiva produïda a les plantacions britàniques de l'Índia. Quan l'emperador va intentar prohibir-ne el comerç (1839), Gran Bretanya va declarar la guerra. Els <strong>«tractats desiguals»</strong> van obligar la Xina a cedir Hong Kong, obrir ports, pagar indemnitzacions i legalitzar l'opi. Una segona guerra (1856–60) va ampliar les humiliacions.</p>
+
+        <div class="img-wrap">
+          <img src="images/opium_war.jpg" alt="Vaixells britànics al riu Cantó durant la Primera Guerra de l'Opi" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Vaixells britànics al riu Cantó durant la Primera Guerra de l'Opi (1839–42). La superioritat naval britànica va forçar la Xina a acceptar el comerç d'opi. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- S6 -->
+      <section class="section" id="s6">
+        <span class="section-num">Secció 06</span>
         <h2>Conseqüències de l'imperialisme</h2>
 
-        <p>L'imperialisme va tenir conseqüències enormes, tant per als països colonitzats com per a l'ordre mundial posterior. Algunes d'elles es noten fins avui:</p>
+        <p>L'imperialisme va tenir conseqüències enormes, tant per als països colonitzats com per a l'ordre mundial posterior. Algunes es noten fins avui:</p>
 
         <div class="table-wrap">
           <table>
             <tr><th>Àmbit</th><th>Conseqüències</th></tr>
-            <tr>
-              <td><strong>Demogràfic i humà</strong></td>
-              <td>Genocidis (Congo, Namíbia), famines induïdes per la destrucció de les economies locals, epidèmies causades pel contacte forçat amb poblacions europees. L'estimació de morts directes i indirectes del colonialisme és de desenes de milions de persones.</td>
-            </tr>
-            <tr>
-              <td><strong>Econòmic</strong></td>
-              <td>Les economies colonials es van estructurar per exportar matèries primeres cap a Europa i importar manufactures europees. Aquesta estructura de dependència —produir el que Europa necessita, no el que la pròpia societat necessita— va deixar les economies africanes i asiàtiques en una posició de debilitat estructural que en molts casos persisteix avui.</td>
-            </tr>
-            <tr>
-              <td><strong>Polític</strong></td>
-              <td>Les fronteres arbitràries traçades a Berlín van crear estats que agrupaven pobles enemies o dividien grups que s'haurien d'haver mantingut units. Molts dels conflictes armats actuals a l'Àfrica subsahariana (Etiòpia, Sudan, RDC, Somàlia...) tenen arrels directes en les decisions de 1884.</td>
-            </tr>
-            <tr>
-              <td><strong>Cultural i identitari</strong></td>
-              <td>Les missions van destruir cultures, religions i idiomes locals. Les elits colonitzades van ser educades en les cultures dels colonitzadors, creant identitats dividides. La descolonització del segle XX va ser tant política com cultural.</td>
-            </tr>
-            <tr>
-              <td><strong>Migració actual</strong></td>
-              <td>La pobresa estructural del Sud Global —que genera les migracions cap a Europa que dominen el debat polític actual— no és el resultat de la «mala sort» o de factors culturals: és, en gran mesura, la conseqüència acumulada de segles de depredació colonial i d'un ordre econòmic internacional construït al servei dels interessos dels antics colonitzadors.</td>
-            </tr>
-            <tr>
-              <td><strong>Causa de la Primera Guerra Mundial</strong></td>
-              <td>La rivalitat imperial entre Gran Bretanya, Alemanya i França va ser una de les causes estructurals (la «I» del MAIN) que van fer possible l'esclat de la Gran Guerra el 1914. L'imperialisme va crear tensions entre les potències europees que la diplomàcia no va poder contenir.</td>
-            </tr>
+            <tr><td><strong>Demogràfic i humà</strong></td><td>Genocidis (Congo, Namíbia), famines induïdes per la destrucció de les economies locals, epidèmies. L'estimació de morts directes i indirectes del colonialisme és de desenes de milions de persones.</td></tr>
+            <tr><td><strong>Econòmic</strong></td><td>Les economies colonials es van estructurar per exportar matèries primeres cap a Europa. Aquesta estructura de dependència va deixar les economies africanes i asiàtiques en una posició de debilitat estructural que en molts casos persisteix avui.</td></tr>
+            <tr><td><strong>Polític</strong></td><td>Les fronteres arbitràries de Berlín van crear estats que agrupaven pobles enemics o dividien grups cohesionats. Molts conflictes armats actuals a Àfrica (Sudan, RDC, Somàlia...) tenen arrels directes en les decisions de 1884–85.</td></tr>
+            <tr><td><strong>Cultural</strong></td><td>Les missions van destruir cultures, religions i idiomes locals. Les elits colonitzades van ser educades en les cultures dels colonitzadors, creant identitats dividides. La descolonització del segle XX va ser tant política com cultural.</td></tr>
+            <tr><td><strong>Migració actual</strong></td><td>La pobresa del Sud Global —que genera les migracions cap a Europa— no és el resultat de la «mala sort»: és, en gran mesura, la conseqüència acumulada de segles de depredació colonial i d'un ordre econòmic internacional construït al servei dels antics colonitzadors.</td></tr>
+            <tr><td><strong>Causa de la 1a GM</strong></td><td>La rivalitat imperial entre Gran Bretanya, Alemanya i França va ser una de les causes estructurals (la «I» del MAIN) que van fer possible l'esclat de la Gran Guerra el 1914.</td></tr>
           </table>
         </div>
 
         <div class="info-box">
           <span class="info-label">El neocolonialisme avui</span>
-          <p>El colonialisme formal va acabar amb la descolonització dels anys 50–70. Però molts analistes parlen de <strong>neocolonialisme</strong>: formes de dependència econòmica que reprodueixen les lògiques del colonialisme sense ocupació militar directa. Les multinacionals que extrauen minerals d'Àfrica (coltan per als teus dispositius electrònics, cobalt per a les bateries dels cotxes elèctrics, or) paguen royalties mínimes, contaminen el territori i envien els beneficis als seus països d'origen. El Fons Monetari Internacional i el Banc Mundial imposen condicions als préstecs als països del Sud que els obliguen a privatitzar serveis públics i obrir els seus mercats. La relació de poder ha canviat de forma; la seva essència, menys del que sembla.</p>
+          <p>El colonialisme formal va acabar amb la descolonització dels anys 50–70. Però les lògiques de dependència persisteixen: les multinacionals extrauen minerals d'Àfrica (coltan per als teus dispositius, cobalt per a les bateries elèctriques) pagant royalties mínimes. El FMI imposa condicions als préstecs als països del Sud que els obliguen a privatitzar serveis públics. La relació de poder ha canviat de forma; la seva essència, menys del que sembla.</p>
         </div>
       </section>
 
