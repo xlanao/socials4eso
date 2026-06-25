@@ -7,173 +7,132 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #111111; --ink-soft: #444444; --ink-faint: #8a8a8a;
-    --paper: #ffffff; --paper-off: #fafaf9;
-    --line: #111111; --line-soft: #cfcfcc; --line-faint: #e6e5e1;
-    --blue: #0057b8; --blue-light: #e8f0fa; --blue-mid: #c0d6f5;
-    --sidebar-w: 250px; --content-max: 740px;
-  }
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body { font-family: 'Spectral', Georgia, serif; background: var(--paper); color: var(--ink); line-height: 1.75; font-size: 16.5px; font-weight: 400; }
-
-  .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
-  .nav-left { display: flex; align-items: center; }
-  .nav-back { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 0; border-right: 1px solid var(--line-faint); margin-right: 14px; transition: color 0.15s; }
-  .nav-back:hover { color: var(--ink); }
-  .nav-brand { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); text-decoration: none; font-weight: 700; }
-  .nav-meta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-faint); letter-spacing: 0.06em; }
-
-  .topic-hero { background: var(--paper); border-bottom: 1px solid var(--line); padding: 52px 48px 44px; }
-  .topic-hero-inner { max-width: calc(var(--sidebar-w) + var(--content-max) + 64px); margin: 0 auto; }
-  .topic-breadcrumb { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 22px; }
-  .topic-breadcrumb a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
-  .topic-breadcrumb a:hover { opacity: 0.6; }
-  .topic-num-badge { display: inline-flex; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
-  .topic-hero h1 { font-family: 'Spectral', serif; font-size: clamp(1.7rem, 3.6vw, 2.6rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.18; color: var(--ink); margin-bottom: 14px; }
-  .topic-hero h1 em { font-style: italic; font-weight: 400; }
-  .topic-subtitle { font-family: 'DM Mono', monospace; color: var(--ink-soft); font-size: 0.82rem; letter-spacing: 0.03em; }
-
-  .tabs-bar { background: var(--paper); border-bottom: 1px solid var(--line); padding: 0 48px; display: flex; }
-  .tab-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); border: none; background: none; padding: 15px 22px; cursor: pointer; position: relative; transition: color 0.15s; }
-  .tab-btn::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 1px; background: var(--blue); opacity: 0; transition: opacity 0.15s; }
-  .tab-btn:hover { color: var(--ink-soft); }
-  .tab-btn.active { color: var(--ink); font-weight: 700; }
-  .tab-btn.active::after { opacity: 1; }
-
-  .page-wrap { max-width: calc(var(--sidebar-w) + var(--content-max) + 64px); margin: 0 auto; display: grid; grid-template-columns: var(--sidebar-w) 1fr; align-items: start; }
-
-  .sidebar { position: sticky; top: 56px; padding: 40px 24px 40px 0; max-height: calc(100vh - 56px); overflow-y: auto; scrollbar-width: none; }
-  .sidebar::-webkit-scrollbar { display: none; }
-  .sidebar-title { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
-  .toc { list-style: none; }
-  .toc a { display: block; padding: 5px 0 5px 14px; font-family: 'Spectral', serif; font-size: 0.83rem; color: var(--ink-faint); text-decoration: none; border-left: 1px solid var(--line-faint); transition: all 0.15s; line-height: 1.4; }
-  .toc a:hover { color: var(--ink); border-left-color: var(--ink-soft); }
-  .toc a.active { color: var(--blue); border-left: 2px solid var(--blue); font-weight: 600; }
-  .toc .toc-sub a { padding-left: 28px; font-size: 0.78rem; font-style: italic; }
-  .sidebar-sep { height: 1px; background: var(--line-faint); margin: 16px 0; }
-
-  .content { padding: 48px 0 100px 40px; border-left: 1px solid var(--line); min-width: 0; }
-  .tab-panel { display: none; }
-  .tab-panel.active { display: block; }
-
-  .section { margin-bottom: 64px; padding-top: 8px; opacity: 0; transform: translateY(12px); transition: opacity 0.45s ease, transform 0.45s ease; }
-  .section.visible { opacity: 1; transform: none; }
-  .section-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; display: block; }
-  h2 { font-family: 'Spectral', serif; font-size: 1.65rem; font-weight: 600; color: var(--ink); margin-bottom: 26px; line-height: 1.3; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
-  h3 { font-family: 'Spectral', serif; font-size: 1.18rem; font-weight: 600; color: var(--ink); margin: 40px 0 14px; }
-  h4 { font-family: 'Spectral', serif; font-size: 0.95rem; font-weight: 600; font-style: italic; color: var(--ink-soft); margin: 28px 0 10px; }
-  p { margin-bottom: 14px; color: var(--ink-soft); font-weight: 300; }
-  p:last-child { margin-bottom: 0; }
-  strong { color: var(--ink); font-weight: 700; }
-  em { font-style: italic; }
-  ul, ol { padding-left: 22px; margin-bottom: 14px; }
-  li { margin-bottom: 6px; color: var(--ink-soft); font-weight: 300; line-height: 1.6; }
-  .section-divider { border: none; border-top: 1px solid var(--line); margin: 52px 0; }
-
-  .def-box { border: 1px solid var(--ink); padding: 18px 20px; margin: 20px 0; }
-  .def-box .def-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; display: block; font-weight: 700; }
-  .def-box p { margin: 0 0 8px; font-size: 0.95rem; }
-  .def-box p:last-child { margin: 0; }
-
-  .info-box { border-left: 3px solid var(--blue); background: var(--blue-light); padding: 16px 20px; margin: 22px 0; }
-  .info-box .info-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; display: block; font-weight: 700; }
-  .info-box p { margin: 0 0 8px; font-size: 0.93rem; }
-  .info-box p:last-child { margin: 0; }
-
-  .warn-box { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 16px 4px; margin: 22px 0; font-size: 0.93rem; color: var(--ink-soft); }
-  .warn-box::before { content: 'PER ENTENDRE-HO BÉ — '; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: var(--ink); font-weight: 700; display: block; margin-bottom: 6px; }
-
-  .img-wrap { margin: 24px 0; border: 1px solid var(--line-soft); }
-  .img-wrap img { width: 100%; height: auto; display: block; }
-  .img-cap { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.04em; color: var(--ink-faint); padding: 8px 12px; border-top: 1px solid var(--line-faint); background: var(--paper-off); }
-
-  /* ── ESTAMENTS ── */
-  .estaments { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0; border: 1px solid var(--line); margin: 24px 0; }
-  .estament { padding: 20px 16px; border-right: 1px solid var(--line-faint); }
-  .estament:last-child { border-right: none; }
-  .estament-label { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 8px; padding-bottom: 8px; border-bottom: 2px solid; display: block; }
-  .estament.noblesa .estament-label { color: var(--blue); border-color: var(--blue); }
-  .estament.clergat .estament-label { color: var(--ink-soft); border-color: var(--line-soft); }
-  .estament.poble .estament-label { color: var(--ink); border-color: var(--ink); }
-  .estament-pct { font-family: 'DM Mono', monospace; font-size: 1.3rem; font-weight: 700; color: var(--blue); display: block; margin-bottom: 4px; line-height: 1; }
-  .estament-body { font-size: 0.84rem; color: var(--ink-faint); font-weight: 300; line-height: 1.55; }
-
-  /* ── STATS ── */
-  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid var(--line); margin: 24px 0; }
-  .stat-item { padding: 18px 14px; text-align: center; border-right: 1px solid var(--line-faint); }
-  .stat-item:last-child { border-right: none; }
-  .stat-num { font-family: 'DM Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--blue); display: block; line-height: 1; margin-bottom: 5px; }
-  .stat-label { font-family: 'DM Mono', monospace; font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); display: block; line-height: 1.4; }
-
-  /* ── PULLQUOTE ── */
-  .pullquote { border-left: 3px solid var(--ink); padding: 12px 0 12px 22px; margin: 28px 0; }
-  .pullquote p { font-family: 'Spectral', serif; font-style: italic; font-size: 1.05rem; color: var(--ink-soft); line-height: 1.65; font-weight: 300; margin: 0 0 6px; }
-  .pullquote cite { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-faint); font-style: normal; }
-
-  /* ── RUTES TRIANGULAR ── */
-  .rutes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 22px 0; }
-  .ruta { padding: 20px 16px; border-right: 1px solid var(--line-faint); }
-  .ruta:last-child { border-right: none; }
-  .ruta-num { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 6px; }
-  .ruta-title { font-family: 'Spectral', serif; font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
-  .ruta-body { font-size: 0.83rem; color: var(--ink-faint); font-weight: 300; line-height: 1.55; }
-
-  /* ── ETAPES REVOLUCIÓ ── */
-  .etapes { border-left: 1px solid var(--line); padding-left: 24px; margin: 22px 0; }
-  .etapa { position: relative; margin-bottom: 24px; }
-  .etapa::before { content: ''; position: absolute; left: -29px; top: 7px; width: 8px; height: 8px; border-radius: 50%; background: var(--paper); border: 1px solid var(--ink); }
-  .etapa.clau::before { background: var(--blue); border-color: var(--blue); width: 10px; height: 10px; left: -30px; top: 6px; }
-  .etapa-data { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 3px; }
-  .etapa-title { font-family: 'Spectral', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 5px; line-height: 1.3; }
-  .etapa-body { font-size: 0.88rem; color: var(--ink-faint); font-weight: 300; line-height: 1.55; }
-
-  /* ── CRONO TAB ── */
-  .crono { border-left: 1px solid var(--line); padding-left: 28px; margin-top: 8px; }
-  .crono-group { margin-bottom: 36px; }
-  .crono-group-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); background: var(--paper-off); display: inline-block; padding: 4px 10px; margin-bottom: 18px; position: relative; left: -38px; border: 1px solid var(--line-faint); }
-  .crono-entry { position: relative; margin-bottom: 24px; opacity: 0; transform: translateX(-6px); transition: opacity 0.38s ease, transform 0.38s ease; }
-  .crono-entry.vis { opacity: 1; transform: none; }
-  .crono-dot { position: absolute; left: -33px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--paper); border: 1px solid var(--ink); }
-  .crono-dot.key { background: var(--blue); border-color: var(--blue); width: 10px; height: 10px; left: -34px; top: 5px; }
-  .crono-year { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 2px; }
-  .crono-event { font-family: 'Spectral', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 3px; line-height: 1.3; }
-  .crono-desc { font-size: 0.88rem; color: var(--ink-faint); font-weight: 300; line-height: 1.55; }
-
-  /* ── TASK ── */
-  .task-block { margin-bottom: 40px; border: 1px solid var(--ink); }
-  .task-header { background: var(--ink); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
-  .task-header h3 { margin: 0; font-family: 'Spectral', serif; font-size: 1rem; font-weight: 600; color: var(--paper); }
-  .task-badge { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.4); color: rgba(255,255,255,0.7); white-space: nowrap; }
-  .task-body { padding: 22px 24px; }
-  .task-body p { font-size: 0.93rem; color: var(--ink-soft); margin-bottom: 10px; font-weight: 300; }
-  .task-steps { list-style: none; padding: 0; margin: 12px 0 0; }
-  .task-steps li { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; font-size: 0.88rem; color: var(--ink-soft); font-weight: 300; line-height: 1.6; border-bottom: 1px dotted var(--line-faint); padding-bottom: 10px; }
-  .task-steps li:last-child { border-bottom: none; padding-bottom: 0; }
-  .task-steps li .step-num { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 700; color: var(--blue); padding-top: 3px; flex-shrink: 0; min-width: 18px; }
-  .debate-box { border-top: 1px solid var(--line-soft); margin-top: 16px; padding-top: 14px; }
-  .debate-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); display: block; margin-bottom: 6px; font-weight: 700; }
-  .debate-box p { font-style: italic; font-size: 0.9rem; }
-
-  /* ── FOOTER ── */
-  .site-footer { border-top: 1px solid var(--line); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; color: var(--ink-faint); font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; max-width: calc(var(--sidebar-w) + var(--content-max) + 64px); margin: 0 auto; }
-  .footer-nav { display: flex; gap: 20px; }
-  .footer-nav a { color: var(--ink-faint); text-decoration: none; transition: color 0.15s; }
-  .footer-nav a:hover { color: var(--ink); }
-
-  @media (max-width: 860px) {
-    .page-wrap { grid-template-columns: 1fr; }
-    .sidebar { display: none; }
-    .content { padding: 32px 22px 60px; border-left: none; }
-    .estaments, .rutes { grid-template-columns: 1fr; }
-    .estament, .ruta { border-right: none; border-bottom: 1px solid var(--line-faint); }
-    .estament:last-child, .ruta:last-child { border-bottom: none; }
-    .stats { grid-template-columns: 1fr 1fr; }
-    .topic-hero, .tabs-bar { padding-left: 22px; padding-right: 22px; }
-    .nav { padding: 0 22px; }
-    .nav-meta { display: none; }
-    .site-footer { padding: 20px 22px; flex-direction: column; gap: 10px; }
+  :root{--ink:#111111;--ink-soft:#444444;--ink-faint:#8a8a8a;--paper:#ffffff;--paper-off:#fafaf9;--line:#111111;--line-soft:#cfcfcc;--line-faint:#e6e5e1;--blue:#0057b8;--blue-light:#e8f0fa;--blue-mid:#c0d6f5;--sidebar-w:250px;--content-max:740px}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Spectral',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:16.5px;font-weight:400}
+  .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav-left{display:flex;align-items:center}
+  .nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-decoration:none;display:flex;align-items:center;gap:8px;padding:6px 14px 6px 0;border-right:1px solid var(--line-faint);margin-right:14px;transition:color .15s}
+  .nav-back:hover{color:var(--ink)}
+  .nav-brand{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;font-weight:700}
+  .nav-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-faint);letter-spacing:.06em}
+  .topic-hero{background:var(--paper);border-bottom:1px solid var(--line);padding:52px 48px 44px}
+  .topic-hero-inner{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .topic-breadcrumb{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+  .topic-breadcrumb a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+  .topic-num-badge{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  .topic-hero h1{font-family:'Spectral',serif;font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:600;letter-spacing:-.01em;line-height:1.18;color:var(--ink);margin-bottom:14px}
+  .topic-hero h1 em{font-style:italic;font-weight:400}
+  .topic-subtitle{font-family:'DM Mono',monospace;color:var(--ink-soft);font-size:.82rem;letter-spacing:.03em}
+  .tabs-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:0 48px;display:flex}
+  .tab-btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);border:none;background:none;padding:15px 22px;cursor:pointer;position:relative;transition:color .15s}
+  .tab-btn::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--blue);opacity:0;transition:opacity .15s}
+  .tab-btn:hover{color:var(--ink-soft)}.tab-btn.active{color:var(--ink);font-weight:700}.tab-btn.active::after{opacity:1}
+  .page-wrap{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto;display:grid;grid-template-columns:var(--sidebar-w) 1fr;align-items:start}
+  .sidebar{position:sticky;top:56px;padding:40px 24px 40px 0;max-height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none}
+  .sidebar::-webkit-scrollbar{display:none}
+  .sidebar-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .toc{list-style:none}
+  .toc a{display:block;padding:5px 0 5px 14px;font-family:'Spectral',serif;font-size:.83rem;color:var(--ink-faint);text-decoration:none;border-left:1px solid var(--line-faint);transition:all .15s;line-height:1.4}
+  .toc a:hover{color:var(--ink);border-left-color:var(--ink-soft)}.toc a.active{color:var(--blue);border-left:2px solid var(--blue);font-weight:600}
+  .toc .toc-sub a{padding-left:28px;font-size:.78rem;font-style:italic}
+  .content{padding:48px 0 100px 40px;border-left:1px solid var(--line);min-width:0}
+  .tab-panel{display:none}.tab-panel.active{display:block}
+  .section{margin-bottom:64px;padding-top:8px;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+  .section.visible{opacity:1;transform:none}
+  .section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:block}
+  h2{font-family:'Spectral',serif;font-size:1.65rem;font-weight:600;color:var(--ink);margin-bottom:26px;line-height:1.3;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  h3{font-family:'Spectral',serif;font-size:1.18rem;font-weight:600;color:var(--ink);margin:40px 0 14px}
+  h4{font-family:'Spectral',serif;font-size:.95rem;font-weight:600;font-style:italic;color:var(--ink-soft);margin:28px 0 10px}
+  p{margin-bottom:14px;color:var(--ink-soft);font-weight:300}p:last-child{margin-bottom:0}
+  strong{color:var(--ink);font-weight:700}em{font-style:italic}
+  ul,ol{padding-left:22px;margin-bottom:14px}
+  li{margin-bottom:6px;color:var(--ink-soft);font-weight:300;line-height:1.6}
+  .section-divider{border:none;border-top:1px solid var(--line);margin:52px 0}
+  .def-box{border:1px solid var(--ink);padding:18px 20px;margin:20px 0}
+  .def-box .def-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:block;font-weight:700}
+  .def-box p{margin:0 0 8px;font-size:.95rem}.def-box p:last-child{margin:0}
+  .info-box{border-left:3px solid var(--blue);background:var(--blue-light);padding:16px 20px;margin:22px 0}
+  .info-box .info-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;display:block;font-weight:700}
+  .info-box p{margin:0 0 8px;font-size:.93rem}.info-box p:last-child{margin:0}
+  .warn-box{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 4px;margin:22px 0;font-size:.93rem;color:var(--ink-soft)}
+  .warn-box::before{content:'PER ENTENDRE-HO BÉ — ';font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--ink);font-weight:700;display:block;margin-bottom:6px}
+  .img-wrap{margin:24px 0;border:1px solid var(--line-soft)}
+  .img-wrap img{width:100%;height:auto;display:block}
+  .img-cap{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.04em;color:var(--ink-faint);padding:8px 12px;border-top:1px solid var(--line-faint);background:var(--paper-off)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);margin:24px 0}
+  .stat-item{padding:18px 14px;text-align:center;border-right:1px solid var(--line-faint)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-family:'DM Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--blue);display:block;line-height:1;margin-bottom:5px}
+  .stat-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);display:block;line-height:1.4}
+  .pullquote{border-left:3px solid var(--ink);padding:12px 0 12px 22px;margin:28px 0}
+  .pullquote p{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft);line-height:1.65;font-weight:300;margin:0 0 6px}
+  .pullquote cite{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-style:normal}
+  .estaments{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;border:1px solid var(--line);margin:22px 0}
+  .estament{padding:20px 16px;border-right:1px solid var(--line-faint)}
+  .estament:last-child{border-right:none}
+  .estament-label{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px;padding-bottom:8px;border-bottom:2px solid;display:block}
+  .estament.noblesa .estament-label{color:var(--blue);border-color:var(--blue)}
+  .estament.clergat .estament-label{color:var(--ink-soft);border-color:var(--line-soft)}
+  .estament.poble .estament-label{color:var(--ink);border-color:var(--ink)}
+  .estament-pct{font-family:'DM Mono',monospace;font-size:1.3rem;font-weight:700;color:var(--blue);display:block;margin-bottom:4px;line-height:1}
+  .estament-body{font-size:.84rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  .rutes{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);margin:22px 0}
+  .ruta{padding:20px 16px;border-right:1px solid var(--line-faint)}
+  .ruta:last-child{border-right:none}
+  .ruta-num{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:6px}
+  .ruta-title{font-family:'Spectral',serif;font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:6px}
+  .ruta-body{font-size:.83rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  /* Etapes revolució */
+  .etapes{border-left:1px solid var(--line);padding-left:24px;margin:22px 0}
+  .etapa{position:relative;margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid var(--line-faint)}
+  .etapa:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .etapa::before{content:'';position:absolute;left:-29px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
+  .etapa.clau::before{background:var(--blue);border-color:var(--blue);width:10px;height:10px;left:-30px;top:6px}
+  .etapa-data{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:3px}
+  .etapa-title{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.3}
+  .etapa-body{font-size:.88rem;color:var(--ink-faint);font-weight:300;line-height:1.6}
+  .etapa-body p{margin-bottom:8px;font-size:.88rem;color:var(--ink-faint);font-weight:300}
+  .etapa-body p:last-child{margin-bottom:0}
+  /* crono */
+  .crono{border-left:1px solid var(--line);padding-left:28px;margin-top:8px}
+  .crono-group{margin-bottom:36px}
+  .crono-group-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-off);display:inline-block;padding:4px 10px;margin-bottom:18px;position:relative;left:-38px;border:1px solid var(--line-faint)}
+  .crono-entry{position:relative;margin-bottom:24px;opacity:0;transform:translateX(-6px);transition:opacity .38s ease,transform .38s ease}
+  .crono-entry.vis{opacity:1;transform:none}
+  .crono-dot{position:absolute;left:-33px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
+  .crono-dot.key{background:var(--blue);border-color:var(--blue);width:10px;height:10px;left:-34px;top:5px}
+  .crono-year{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:2px}
+  .crono-event{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:3px;line-height:1.3}
+  .crono-desc{font-size:.88rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  /* task */
+  .task-block{margin-bottom:40px;border:1px solid var(--ink)}
+  .task-header{background:var(--ink);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+  .task-header h3{margin:0;font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--paper)}
+  .task-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);white-space:nowrap}
+  .task-body{padding:22px 24px}
+  .task-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300}
+  .task-steps{list-style:none;padding:0;margin:12px 0 0}
+  .task-steps li{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.6;border-bottom:1px dotted var(--line-faint);padding-bottom:10px}
+  .task-steps li:last-child{border-bottom:none;padding-bottom:0}
+  .task-steps li .step-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:18px}
+  .debate-box{border-top:1px solid var(--line-soft);margin-top:16px;padding-top:14px}
+  .debate-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:6px;font-weight:700}
+  .debate-box p{font-style:italic;font-size:.9rem}
+  .site-footer{border-top:1px solid var(--line);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;color:var(--ink-faint);font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.06em;max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .footer-nav{display:flex;gap:20px}
+  .footer-nav a{color:var(--ink-faint);text-decoration:none;transition:color .15s}
+  .footer-nav a:hover{color:var(--ink)}
+  @media(max-width:860px){
+    .page-wrap{grid-template-columns:1fr}.sidebar{display:none}
+    .content{padding:32px 22px 60px;border-left:none}
+    .estaments,.rutes{grid-template-columns:1fr}
+    .estament,.ruta{border-right:none;border-bottom:1px solid var(--line-faint)}
+    .estament:last-child,.ruta:last-child{border-bottom:none}
+    .stats{grid-template-columns:1fr 1fr}
+    .topic-hero,.tabs-bar{padding-left:22px;padding-right:22px}
+    .nav{padding:0 22px}.nav-meta{display:none}
+    .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
   }
 </style>
 </head>
@@ -192,40 +151,37 @@
     <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 01</div>
     <div class="topic-num-badge">Tema 01 — Segles XVII–XVIII</div>
     <h1>L'Antic Règim i la <em>Revolució Francesa</em></h1>
-    <p class="topic-subtitle">La societat estamental · El comerç triangular · La Il·lustració · 1789</p>
+    <p class="topic-subtitle">La societat estamental · El comerç triangular · La Il·lustració · 1789 · Napoleó</p>
   </div>
 </div>
 
 <div class="tabs-bar">
-  <button class="tab-btn active" onclick="switchTab('apunts', this)">APUNTS</button>
-  <button class="tab-btn" onclick="switchTab('cronologia', this)">EIX CRONOLÒGIC</button>
-  <button class="tab-btn" onclick="switchTab('ara', this)">LA HISTÒRIA, ARA</button>
+  <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
+  <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
 </div>
 
 <div class="page-wrap">
-
   <nav class="sidebar">
     <div class="sidebar-title">Continguts</div>
     <ul class="toc" id="toc-apunts">
       <li><a href="#s1">1. L'Antic Règim</a></li>
       <li class="toc-sub"><a href="#s1-1">1.1 La societat estamental</a></li>
-      <li class="toc-sub"><a href="#s1-2">1.2 La monarquia absoluta</a></li>
+      <li class="toc-sub"><a href="#s1-2">1.2 Economia i política</a></li>
       <li class="toc-sub"><a href="#s1-3">1.3 La Il·lustració</a></li>
-      <li><a href="#s2">2. El comerç triangular i l'esclavitud</a></li>
+      <li><a href="#s2">2. El comerç triangular</a></li>
       <li class="toc-sub"><a href="#s2-1">2.1 Les tres rutes</a></li>
       <li class="toc-sub"><a href="#s2-2">2.2 La Middle Passage</a></li>
-      <li class="toc-sub"><a href="#s2-3">2.3 L'esclavitud i el capitalisme</a></li>
-      <li class="toc-sub"><a href="#s2-4">2.4 L'abolició</a></li>
+      <li class="toc-sub"><a href="#s2-3">2.3 Esclavitud i capitalisme</a></li>
       <li><a href="#s3">3. La Revolució Francesa</a></li>
       <li class="toc-sub"><a href="#s3-1">3.1 Les causes</a></li>
-      <li class="toc-sub"><a href="#s3-2">3.2 Les etapes</a></li>
-      <li class="toc-sub"><a href="#s3-3">3.3 Les conseqüències</a></li>
+      <li class="toc-sub"><a href="#s3-2">3.2 Les etapes (1789–1799)</a></li>
+      <li class="toc-sub"><a href="#s3-3">3.3 L'era napoleònica</a></li>
+      <li class="toc-sub"><a href="#s3-4">3.4 El llegat</a></li>
     </ul>
   </nav>
 
   <main class="content">
-
-    <!-- ═══ TAB 1: APUNTS ═══ -->
     <div class="tab-panel active" id="panel-apunts">
 
       <!-- ─── S1: ANTIC RÈGIM ─── -->
@@ -233,84 +189,67 @@
         <span class="section-num">Secció 01</span>
         <h2>L'Antic Règim</h2>
 
-        <p>Per entendre per què la Revolució Francesa va sacsejar Europa de dalt a baix, primer cal entendre el món que va destruir: l'<strong>Antic Règim</strong>. Era un sistema on la política, l'economia i la societat s'organitzaven al voltant de dos principis que avui ens semblen arcaics però que durant segles van ser considerats naturals i divins: el <strong>poder absolut del rei</strong> i la <strong>divisió hereditària de la societat en estaments</strong>. Néixer en un estament significava que el destí estava pràcticament decidit des del primer dia de vida.</p>
+        <p>Per entendre la violència i la profunditat de la Revolució Francesa, primer cal entendre el món que va destruir: l'<strong>Antic Règim</strong>. Era un sistema on política, economia i societat s'organitzaven al voltant de dos principis: el <strong>poder absolut del rei</strong> i la <strong>divisió hereditària de la societat en estaments</strong>. Néixer en un estament determinava pràcticament tot: els drets que tenies, els impostos que pagaves, les feines que podies exercir i el futur dels teus fills.</p>
 
         <h3 id="s1-1">1.1. La societat estamental</h3>
-        <p>La societat de l'Antic Règim estava organitzada en tres <strong>estaments</strong> jurídics, és a dir, grups definits per la llei, no per la riquesa. El que distingia els estaments no era tant el que tenies, sinó on havies nascut.</p>
+        <p>La societat de l'Antic Règim estava dividida en tres <strong>estaments</strong> jurídics —grups definits per la llei, no per la riquesa. El que distingia els estaments no era el que tenies, sinó on havies nascut. I el que els separava no era només el prestigi: era el sistema fiscal, que carregava tot el pes sobre els qui menys tenien i exemptava els qui més tenien.</p>
 
         <div class="estaments">
           <div class="estament noblesa">
             <span class="estament-label">Noblesa</span>
             <span class="estament-pct">~2%</span>
-            <div class="estament-body">Hereus de títols hereditaris. Exempts d'impostos. Propietaris de la major part de la terra. Monopolitzaven els càrrecs militars i polítics.</div>
+            <div class="estament-body">Hereus de títols hereditaris. Exempts d'impostos. Propietaris de la major part de la terra. Monopolitzaven els càrrecs militars, judicials i polítics. La seva riquesa venia dels drets feudals que els camperols havien de pagar.</div>
           </div>
           <div class="estament clergat">
             <span class="estament-label">Clergat</span>
             <span class="estament-pct">~1%</span>
-            <div class="estament-body">Bisbes, abats i rectors. Exempts d'impostos. Controlaven l'educació, els hospitals i una enorme riquesa immobiliària. Legitimaven el poder reial.</div>
+            <div class="estament-body">Bisbes, abats i rectors. Exempts d'impostos. Controlaven l'educació, els hospitals i una enorme riquesa immobiliària. Cobraven el delme (10% de la collita). Legitimaven el poder reial: «el rei governa per gràcia de Déu».</div>
           </div>
           <div class="estament poble">
             <span class="estament-label">Tercer Estat</span>
             <span class="estament-pct">~97%</span>
-            <div class="estament-body">Tots els altres: des dels grans comerciants burgesos fins als camperols més pobres. Pagaven tots els impostos, delmes i drets feudals que els altres no pagaven.</div>
+            <div class="estament-body">Tots els altres: des dels grans banquers burgesos fins als jornalers sense terra. Pagaven tots els impostos, delmes i drets feudals que els altres dos estaments no pagaven. La seva submissió fiscal sostenia tot el sistema.</div>
           </div>
         </div>
 
-        <p>Dins del Tercer Estat, la divisió era enorme. La <strong>burgesia</strong> —comerciants, advocats, metges, banquers— havia acumulat una riquesa considerable gràcies al comerç i les professions liberals. Però malgrat el seu poder econòmic, estava exclosa del poder polític, que era reservat a la noblesa. Aquesta contradicció —tenir diners però no tenir poder— seria una de les causes clau de la Revolució. El <strong>camperolat</strong>, la gran majoria de la població, vivia en condicions molt precàries: pagava impostos al rei, delmes a l'Església i drets feudals al senyor. Les males collites podien significar literalment la mort per fam.</p>
+        <p>Dins del Tercer Estat, la divisió era enorme. La <strong>burgesia</strong> —comerciants, advocats, metges, banquers— havia acumulat riquesa considerable gràcies al comerç i les professions liberals, especialment a través del comerç colonial. Però malgrat el seu poder econòmic creixent, estava exclosa del poder polític, reservat a la noblesa. Aquesta contradicció —tenir diners però no tenir poder— seria una de les causes clau de la Revolució. Al fons de l'escala, el <strong>camperolat</strong> —la gran majoria de la població— vivia en condicions molt precàries: pagava impostos al rei, delmes a l'Església i drets feudals al senyor. Les males collites podien significar literalment la mort per fam.</p>
 
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Fotothek_df_tg_0000302_Allegorie_%5E_Gesellschaft_%5E_Stand.jpg" alt="Al·legoria de la societat estamental de l'Antic Règim" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Al·legoria de l'Antic Règim: el Tercer Estat carrega amb el pes de la noblesa i el clergat. Font: Wikimedia Commons (domini públic).</div>
+          <img src="images/estaments_alegoria.jpg" alt="Al·legoria de la societat estamental de l'Antic Règim" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Al·legoria de l'Antic Règim: el Tercer Estat carrega amb el pes del clergat i la noblesa. Una imatge que circulava als anys previs a la Revolució. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
-        <h4>Característiques econòmiques de l'Antic Règim</h4>
-        <p>L'economia de l'Antic Règim era fonamentalment <strong>agrícola i senyorial</strong>. La terra era la principal font de riquesa, i la major part estava en mans de la noblesa i l'Església. El camperolat, que conreava la terra, estava sotmès a un complex sistema de càrregues:</p>
-        <ul>
-          <li><strong>Drets feudals:</strong> pagaments al senyor per l'ús de la terra, dels molins, dels forns i dels ponts. En molts llocs, el camperol no podia ni abandonar la terra sense permís del senyor.</li>
-          <li><strong>El delme:</strong> el 10% de la collita que s'entregava obligatòriament a l'Església.</li>
-          <li><strong>Impostos reials:</strong> la talla i altres tributs que finançaven les guerres i la cort.</li>
-          <li><strong>Prestacions personals:</strong> treball gratuït per al senyor uns dies a l'any (<em>corvées</em> a França).</li>
-        </ul>
-        <p>L'economia estava organitzada sota principis <strong>mercantilistes</strong>: l'Estat regulava el comerç per acumular or i plata (metalls preciosos = riquesa nacional). Els <strong>gremis</strong> controlaven l'artesania urbana: ningú podia produir o vendre un producte sense pertànyer al gremi corresponent, i els gremis fixaven els preus, les condicions de treball i quants artesans podien exercir. La burgesia comercial creixia, però topava contínuament amb les restriccions del sistema gremial i els privilegis de la noblesa.</p>
-        <p>Al llarg del segle XVIII, el <strong>comerç colonial i atlàntic</strong> va generar una riquesa nova que escapava parcialment a aquest sistema. Ciutats com Bordeus, Bristol, Cadis o Amsterdam van prosperar gràcies al comerç amb les colònies. Aquesta nova riquesa commercial va reforçar la burgesia i va agreujar la contradicció entre el seu poder econòmic i la seva exclusió política.</p>
+        <h3 id="s1-2">1.2. Estructura econòmica i política de l'Antic Règim</h3>
 
-        <h4>Característiques polítiques: l'absolutisme i les seves limitacions</h4>
-        <p>La monarquia absoluta concentrava tot el poder en la figura del rei, però «absolut» no significava il·limitat en la pràctica. Existien <strong>limitacions de fet</strong> que frenaven el poder reial:</p>
-        <ul>
-          <li><strong>La noblesa</strong> controlava els territoris locals i resistia qualsevol intent de centralització que reduís els seus privilegis.</li>
-          <li><strong>L'Església</strong> tenia els seus propis tribunals (la Inquisició), les seves finances i la seva xarxa d'influència sobre la població.</li>
-          <li><strong>Els parlaments i corts</strong> (estaments medievals) conservaven en molts països certs drets de veto sobre impostos nous.</li>
-          <li><strong>Els costums i furs locals</strong> feien que les lleis reials s'aplicassin de manera molt desigual als territoris.</li>
-        </ul>
-        <p>La <strong>Versalles</strong> de Lluís XIV és el símbol per excel·lència de l'absolutisme: un palau enorme on el rei va concentrar físicament la noblesa per controlar-la, convertint els nobles en cortesans dependents de la seva gràcia. «L'Estat soc jo» (<em>L'État, c'est moi</em>) resumia la pretensió: no hi havia distinció entre la persona del rei i l'autoritat de l'Estat.</p>
+        <h4>L'economia senyorial i els seus límits</h4>
+        <p>L'economia de l'Antic Règim era fonamentalment <strong>agrícola i senyorial</strong>. La terra —principal font de riquesa— estava en mans de la noblesa i l'Església. El camperolat, que la conreava, estava sotmès a un sistema de càrregues que deixava poc marge per a res més que la supervivència: drets feudals al senyor per l'ús de la terra, molins i forns; el delme (10% de la collita) a l'Església; impostos reials; i, a França, prestacions personals de treball gratuït (<em>corvées</em>).</p>
+        <p>El comerç estava regulat sota principis <strong>mercantilistes</strong>: l'Estat controlava les importacions i exportacions per acumular metalls preciosos. Els <strong>gremis</strong> regulaven l'artesania: preus, producció i accés a les professions. Però al llarg del segle XVIII, el <strong>comerç colonial</strong> —incloent el comerç d'esclaus— havia generat una nova riquesa que escapava parcialment a aquest sistema i enfortia una burgesia cada cop més poderosa i cada cop més impatient amb les seves restriccions.</p>
 
-        <h4>Característiques socials: una societat rígida però en canvi</h4>
-        <p>La rigidesa estamental no impedia que la societat de l'Antic Règim estigués en transformació. Alguns factors clau de canvi social:</p>
-        <ul>
-          <li><strong>Creixement demogràfic:</strong> la població europea va créixer significativament al llarg del segle XVIII, cosa que va incrementar la pressió sobre la terra i els recursos, i va augmentar la massa de persones sense terres ni feina estable.</li>
-          <li><strong>Urbanització:</strong> les ciutats creixien, especialment les ports i capitals comercials. A les ciutats, les categories estamentals eren menys rígides i la burgesia podia ascendir econòmicament.</li>
-          <li><strong>El paper de les dones:</strong> a l'Antic Règim, les dones de totes les classes estaven legalment subordinades als homes (pare o marit). No podien signar contractes, tenir propietats o exercir professions liberals sense permís masculí. Tanmateix, a les classes populars, les dones treballaven al camp, als mercats i als tallers, contribuint essencialment a la supervivència familiar.</li>
-          <li><strong>Les crisis de subsistència:</strong> males collites + augment demogràfic + especulació amb el gra = fam i revoltes. Les crisis de subsistència eren recurrents i constituïen el principal factor desestabilitzador del sistema. La de 1788 a França va ser directament el detonant de la Revolució.</li>
-        </ul>
+        <h4>La monarquia absoluta i els seus límits reals</h4>
+        <p>Al capdamunt del sistema, el rei concentrava tots els poders —legislatiu, executiu i judicial— sense constitució ni parlament que el limités. La seva legitimitat venia de Déu: era el vicari de la voluntat divina a la Terra. La frase atribuïda a Lluís XIV —<em>«L'Estat soc jo»</em>— captura l'essència de l'absolutisme.</p>
+        <p>Però «absolut» no significava omnipotent en la pràctica. La noblesa controlava els territoris locals i resistia qualsevol centralització que reduís els seus privilegis. L'Església tenia els seus propis tribunals i finances. Les tradicions i furs locals feien que les lleis reials s'apliquessin de manera molt desigual. I el propi sistema fiscal era un fre al poder reial: com que la noblesa i el clergat no pagaven impostos, el rei depenia gairebé exclusivament del Tercer Estat per finançar les guerres. Quan les guerres multiplicaven el deute, el rei necessitava impostos nous —però la noblesa es negava a contribuir. Aquest bloqueig fiscal serà el detonant immediat de la convocatòria dels Estats Generals i, amb ells, de la Revolució.</p>
 
-        <h3 id="s1-2">1.2. La monarquia absoluta</h3>
-        <p>Al capdamunt de la piràmide, el <strong>rei</strong> concentrava tots els poders: legislatiu, executiu i judicial. No hi havia constitució ni parlament que el limités. La seva legitimitat venia de Déu —<em>dret diví</em>— i no del consentiment del poble. La frase atribuïda a Lluís XIV de França —<em>«L'Estat soc jo»</em>— captura perfectament l'essència de l'absolutisme: el rei no governa en nom de l'Estat, <em>és</em> l'Estat.</p>
-        <p>Durant el segle XVIII va sorgir el <strong>despotisme il·lustrat</strong>: monarques que, influïts per les idees de la Il·lustració, van intentar modernitzar els seus estats sense tocar les bases del poder absolut. El seu lema podia ser: <em>«Tot per al poble, però sense el poble»</em>. Reformes des de dalt, controlades, sense mai qüestionar qui manava.</p>
+        <div class="img-wrap">
+          <img src="images/versailles.jpg" alt="El Palau de Versalles, símbol de l'absolutisme de Lluís XIV" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El Palau de Versalles, construït per Lluís XIV com a símbol del poder absolut i com a mecanisme de control de la noblesa: concentrant-la a la cort, el rei la vigilava i la feia dependent de la seva gràcia. Font: Wikimedia Commons (domini públic).</div>
+        </div>
 
         <h3 id="s1-3">1.3. La Il·lustració: la raó contra el poder diví</h3>
-        <p>Al llarg del segle XVIII, un moviment intel·lectual va posar en qüestió tots els principis de l'Antic Règim: la <strong>Il·lustració</strong>. La idea central era que la raó humana, i no la tradició ni la religió, havia de ser el fonament de la societat i el poder. Si el rei no governa per mandat diví sinó per conveni humà, el poble pot revocar-li el poder. Aquesta idea va ser un terratrèmol intel·lectual.</p>
+        <p>Al llarg del segle XVIII, un moviment intel·lectual va posar en qüestió tots els principis de l'Antic Règim: la <strong>Il·lustració</strong>. La idea central era que la <strong>raó humana</strong>, i no la tradició ni la religió, havia de ser el fonament de la societat i el poder. Si el rei no governa per mandat diví sinó per conveni humà, el poble pot revocar-li el poder. Aquesta idea simple va ser un terratrèmol.</p>
 
         <div class="def-box">
           <span class="def-label">Pensadors clau de la Il·lustració</span>
-          <p><strong>Montesquieu</strong> (<em>L'Esperit de les Lleis</em>, 1748): defensa la <strong>separació de poders</strong> en legislatiu, executiu i judicial per evitar el despotisme. Influència directa en les constitucions modernes.</p>
-          <p><strong>Rousseau</strong> (<em>El Contracte Social</em>, 1762): la <strong>sobirania rau en el poble</strong>, no en el rei. El poder és una delegació temporal que el poble pot retirar. Influència radical en la Revolució Francesa.</p>
-          <p><strong>Voltaire</strong>: defensa la <strong>llibertat de consciència</strong> i critica ferotgement la intolerància religiosa i l'absolutisme. Escriu amb ironia i causticitat.</p>
-          <p><strong>Diderot i d'Alembert</strong>: dirigeixen l'<strong>Enciclopèdia</strong> (1751–1772), un projecte de divulgació del coneixement que subverteix l'autoritat de l'Església i de la tradició.</p>
+          <p><strong>Montesquieu</strong> (<em>L'Esperit de les Lleis</em>, 1748): defensa la <strong>separació de poders</strong> en legislatiu, executiu i judicial per evitar el despotisme. Influència directa en totes les constitucions modernes, inclosa la dels EUA (1787).</p>
+          <p><strong>Rousseau</strong> (<em>El Contracte Social</em>, 1762): la <strong>sobirania rau en el poble</strong>. El poder és una delegació temporal que la societat pot recuperar quan el governant no compleix el seu contracte. La seva influència sobre els jacobins serà determinant.</p>
+          <p><strong>Voltaire</strong>: defensa la <strong>llibertat de consciència</strong> i critica ferotgement la intolerància religiosa i l'absolutisme. Escriu amb ironia i causticitat, dirigint-se a les classes cultes.</p>
+          <p><strong>Diderot i d'Alembert</strong>: dirigeixen l'<strong>Enciclopèdia</strong> (28 volums, 1751–1772), un projecte de divulgació del coneixement que subverteix l'autoritat de l'Església i posa la raó per sobre de la revelació.</p>
         </div>
 
+        <p>Les idees il·lustrades van circular principalment entre les classes benestants —burgesia i sectors de la noblesa—, als salons parisins i les lòges maçòniques. El camperolat analfabet no llegia Rousseau. Però les idees van armar intel·lectualment la burgesia per articular les seves aspiracions polítiques i van erosionar la legitimitat de l'ordre existent entre les elits.</p>
+
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/1/1e/Encyclopedie_de_D%27Alembert_et_Diderot_-_Premiere_Page_-_ENC_1-NA5.jpg" alt="Primera pàgina de l'Enciclopèdia de Diderot i d'Alembert" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Primera pàgina de l'<em>Encyclopédie</em> de Diderot i d'Alembert (1751). Un dels projectes intel·lectuals més ambiciosos de la Història. Font: Wikimedia Commons (domini públic).</div>
+          <img src="images/encyclopedie.jpg" alt="Primera pàgina de l'Enciclopèdia de Diderot i d'Alembert" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Primera pàgina de l'<em>Encyclopédie</em> de Diderot i d'Alembert (1751). El projecte intel·lectual més ambiciós de la Il·lustració: la raó humana per sobre de qualsevol autoritat divina o tradicional. Font: Wikimedia Commons (domini públic).</div>
         </div>
       </section>
 
@@ -319,89 +258,59 @@
       <!-- ─── S2: COMERÇ TRIANGULAR ─── -->
       <section class="section" id="s2">
         <span class="section-num">Secció 02</span>
-        <h2>El comerç triangular i l'esclavitud</h2>
+        <h2>El comerç triangular i l'esclavitud atlàntica</h2>
 
-        <p>Al mateix temps que els filòsofs il·lustrats escrivien sobre la llibertat i els drets naturals de l'home, una altra realitat recorria els oceans: <strong>el comerç atlàntic d'esclaus</strong>. Parlar de l'Antic Règim sense parlar d'aquest sistema seria contar una historia incompleta, perquè l'esclavitud no era una anomalia al marge del sistema econòmic de l'època: era un dels seus pilars fonamentals.</p>
+        <p>Al mateix temps que els filòsofs il·lustrats escrivien sobre la llibertat i els drets naturals de l'home, una altra realitat recorria els oceans: el <strong>comerç atlàntic d'esclaus</strong>. Parlar de l'Antic Règim sense parlar d'aquest sistema seria contar una história incompleta: l'esclavitud no era una anomalia als marges de l'economia europea del segle XVIII. Era un dels seus motors fonamentals.</p>
 
         <h3 id="s2-1">2.1. Les tres rutes del comerç triangular</h3>
-        <p>Entre els segles XVI i XIX, les potències europees van construir un sistema comercial que connectava tres continents i que es basava en l'explotació d'éssers humans. S'anomena <strong>comerç triangular</strong> per la forma que dibuixa sobre el mapa de l'Atlàntic:</p>
+        <p>Entre els segles XVI i XIX, les potències europees van construir un sistema comercial que connectava tres continents i que s'anomenava <strong>comerç triangular</strong> per la forma que dibuixava sobre el mapa de l'Atlàntic:</p>
 
         <div class="rutes">
           <div class="ruta">
             <span class="ruta-num">Ruta 1 — Europa → Àfrica</span>
             <div class="ruta-title">Manufactures per persones</div>
-            <div class="ruta-body">Els vaixells europeus partien de ports com Bristol, Nantes o Lisboa carregats de tèxtils, armes, pólvora, alcohol i altres manufactures. A les costes d'Àfrica Occidental, intercanviaven aquestes mercaderies per persones capturades o comprades a traficants locals.</div>
+            <div class="ruta-body">Vaixells europeus partien de ports com Bristol, Nantes o Lisboa carregats de tèxtils, armes, pólvora i alcohol. A les costes d'Àfrica Occidental intercanviaven aquestes mercaderies per persones capturades o comprades a traficants locals.</div>
           </div>
           <div class="ruta">
             <span class="ruta-num">Ruta 2 — Àfrica → Amèrica</span>
             <div class="ruta-title">La Middle Passage</div>
-            <div class="ruta-body">El trajecte més infame: milers de persones encadenades i amuntegades als vaixells, travessant l'Atlàntic en condicions d'una crueltat inimaginable. Mortalitat del 15–25% en alguns viatges. La denominació «Pas del Mig» fa referència al segon tram del triangle.</div>
+            <div class="ruta-body">El trajecte més infame: milers de persones encadenades i amuntegades als vaixells, travessant l'Atlàntic en condicions de crueltat extrema. Mortalitat del 15–25% en alguns viatges. Anomenat «Pas del Mig» perquè era el segon tram del triangle.</div>
           </div>
           <div class="ruta">
             <span class="ruta-num">Ruta 3 — Amèrica → Europa</span>
             <div class="ruta-title">Productes de plantació</div>
-            <div class="ruta-body">Sucre, tabac, cotó, cacau, arròs i índigo —tots produïts per mà d'obra esclava a les plantacions del Carib i del continent americà— tornaven a Europa, on generaven enormes beneficis per als comerciants i les elits colonials.</div>
+            <div class="ruta-body">Sucre, tabac, cotó, cacau, arròs —tots produïts per mà d'obra esclava a les plantacions del Carib i del continent americà— tornaven a Europa, generant enormes beneficis per als comerciants i les elits colonials.</div>
           </div>
         </div>
 
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/Triangular_trade.png" alt="Mapa del comerç triangular atlàntic" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="images/triangular_trade.png" alt="Mapa del comerç triangular atlàntic" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Mapa esquemàtic del comerç triangular atlàntic: Europa, Àfrica i Amèrica connectades per tres rutes comercials basades en l'esclavitud. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <h3 id="s2-2">2.2. La Middle Passage: el viatge de l'horror</h3>
-        <p>El segon tram del triangle —el creuament de l'Atlàntic amb persones esclavitzades a bord— és un dels episodis més sinistres de la História humana. Les condicions a bord dels vaixells negrers eren deliberadament inhumanes: els capitans aprofitaven cada centímetre de l'embarcació per col·locar-hi el màxim de persones possible, sabent que un percentatge moriria i calculant que la mort d'alguns no afectava el negoci sempre que n'arribessin prou vius per ser venuts.</p>
-
-        <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2b/Slaveshipposter.jpg" alt="Diagrama de l'interior d'un vaixell negrer, 1788" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Diagrama de l'interior del vaixell negrer <em>Brooks</em> (1788), publicat pels abolicionistes britànics per mostrar les condicions del transport d'esclaus. Cada figura representa una persona. Font: Wikimedia Commons (domini públic).</div>
-        </div>
-
-        <p>Les persones estaven encadenades de dos en dos, estirades sobre taulons de fusta amb tan poc espai que no podien asseure's. La falta de ventilació, la calor, la manca de sanitat i la propagació de malalties feien que molts no arribessin vius a l'altra banda. Els qui gosaven resistir eren brutalment castigats. Alguns preferien llançar-se al mar. Historiadors estimen que <strong>més d'un milió de persones van morir durant les travesses</strong>, sense comptar les que morien abans d'embarcar o immediatament després d'arribar.</p>
+        <p>El creuament de l'Atlàntic amb persones esclavitzades a bord és un dels episodis més sinistres de la História humana. Les condicions eren deliberadament inhumanes: els capitans aprofitaven cada centímetre per col·locar-hi el màxim de persones possible, sabent que un percentatge moriria i calculant que la mort d'alguns no afectava el negoci mentre n'arribessin prou vius per ser venuts.</p>
+        <p>Les persones estaven encadenades de dos en dos, estirades sobre taulons de fusta amb tan poc espai que no podien asseure's. Falta de ventilació, calor extrema, propagació de malalties, violència constant. Els qui gosaven resistir eren brutalment castigats. Alguns preferien llançar-se al mar. Historiadors estimen que <strong>més d'un milió de persones van morir durant les travesses</strong>, sense comptar els morts en el procés de captura a Àfrica o els que morien poc després d'arribar.</p>
 
         <div class="stats">
-          <div class="stat-item">
-            <span class="stat-num">12,5M</span>
-            <span class="stat-label">Africans deportats (s. XVI–XIX)</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">+1M</span>
-            <span class="stat-label">Morts durant la travessa</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">15–25%</span>
-            <span class="stat-label">Mortalitat en alguns vaixells</span>
-          </div>
-          <div class="stat-item">
-            <span class="stat-num">400 anys</span>
-            <span class="stat-label">Durada del comerç atlàntic</span>
-          </div>
+          <div class="stat-item"><span class="stat-num">12,5M</span><span class="stat-label">Africans deportats (s. XVI–XIX)</span></div>
+          <div class="stat-item"><span class="stat-num">+1M</span><span class="stat-label">Morts durant la travessa</span></div>
+          <div class="stat-item"><span class="stat-num">15–25%</span><span class="stat-label">Mortalitat en alguns vaixells</span></div>
+          <div class="stat-item"><span class="stat-num">400 anys</span><span class="stat-label">Durada del comerç atlàntic</span></div>
+        </div>
+
+        <div class="img-wrap">
+          <img src="images/slave_ship.jpg" alt="Diagrama de l'interior d'un vaixell negrer, 1788" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Diagrama del vaixell negrer <em>Brooks</em> (1788), publicat pels abolicionistes britànics. Cada figura representa una persona. La imatge va commoure l'opinió pública europea i va accelerar el moviment abolicionista. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <h3 id="s2-3">2.3. L'esclavitud com a fonament del capitalisme modern</h3>
-        <p>La historiografia durant molt de temps va presentar el comerç d'esclaus com una aberració moral en els marges de l'economia europea. Avui sabem que era exactament al contrari: <strong>l'esclavitud era un element constitutiu del sistema econòmic</strong> que va fer possible la prosperitat europea dels segles XVII i XVIII i que va finançar directament la Revolució Industrial.</p>
-        <p>Les grans fortunes de ciutats com Bristol, Liverpool i Nantes —que van finançar les primeres fàbriques, les ferrovies i els bancs— estaven directament vinculades al comerç d'esclaus i a les plantacions. El cotó que alimentava les fàbriques tèxtils de Lancashire era produït per esclaus al sud dels Estats Units. El sucre que enriquia els comerciants europeus era collit per esclaus al Carib. Separar la riquesa d'Europa de l'esclavitud africana és una ficció que la historia no suporta.</p>
+        <p>L'esclavitud atlàntica no era una aberració moral en els marges de l'economia europea: era un <strong>element constitutiu</strong> del sistema econòmic que va fer possible la prosperitat europea del segle XVIII i que va finançar directament la Revolució Industrial. Les grans fortunes de ciutats com Bristol, Liverpool i Nantes —que finançarien les primeres fàbriques i els primers bancs moderns— estaven directament vinculades al comerç d'esclaus. El cotó que alimentaria les fàbriques tèxtils de Lancashire era produït per esclaus als Estats Units. El sucre que enriquia els comerciants europeus era collit per esclaus al Carib.</p>
+        <p>Hi ha una paradoxa dolorosa al cor de la Revolució Francesa: mentre a París es proclamaven els «drets naturals de l'home», a Saint-Domingue (l'actual Haití), la colònia francesa més rica, centenars de milers de persones esclavitzades produïen el sucre que finançava la prosperitat francesa. La Declaració dels Drets de l'Home de 1789 no va mencionar els esclaus. Quan la Convenció va abolir l'esclavitud el 1794 —pressionada per la revolució esclava a Haití—, Napoleó la va reinstaurar el 1802.</p>
 
         <div class="info-box">
           <span class="info-label">Una connexió que sovint s'oblida</span>
-          <p>Quan estudiem la Revolució Industrial al tema 2, parlarem de com Gran Bretanya es va industrialitzar gràcies al cotó. El que rarament s'explica és que aquell cotó era collit per persones esclavitzades. La prosperitat que va permetre la industrialització europea no es pot entendre sense l'esclavitud. Reconèixer-ho no és «política»: és rigor históric.</p>
-        </div>
-
-        <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Slave_Auction.png" alt="Subhasta d'esclaus als Estats Units, segle XIX" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Il·lustració d'una subhasta d'esclaus als Estats Units (s. XIX). Les persones eren comprades i venudes com a mercaderies, separades de les seves famílies. Font: Wikimedia Commons (domini públic).</div>
-        </div>
-
-        <h3 id="s2-4">2.4. L'abolició: per què i com va arribar</h3>
-        <p>L'abolició del comerç d'esclaus i posteriorment de l'esclavitud va arribar de manera gradual al llarg del segle XIX, però no va ser únicament resultat de la bondat moral de les elits europees. Va ser una combinació de tres factors:</p>
-        <ul>
-          <li><strong>Les revoltes esclaves:</strong> la <strong>Revolució Haitiana</strong> (1791–1804) és el cas més emblemàtic. A la colònia francesa de Saint-Domingue (avui Haití), els esclaus es van revoltar, van derrotar els exèrcits napoleònics i van proclamar la primera república negra de la História. Va ser una senyal inequívoca que el sistema no podia mantenir-se indefinidament per la força.</li>
-          <li><strong>El moviment abolicionista:</strong> activistes com William Wilberforce a Gran Bretanya o Frederick Douglass als EUA van dur la lluita als parlaments i a l'opinió pública. La difusió d'imatges com el diagrama del vaixell negrer va commoure les societats europees.</li>
-          <li><strong>El canvi econòmic:</strong> quan la industrialització va fer el treball assalariat més eficient que el treball esclau en determinats sectors, les elits econòmiques van deixar de defensar l'esclavitud amb tanta convicció.</li>
-        </ul>
-
-        <div class="warn-box">
-          Haití, el primer país que va abolir l'esclavitud a través d'una revolució dels esclaus mateixos, va haver de pagar a França una «indemnització» per la pèrdua de les seves «propietats» (els esclaus) durant 122 anys, fins al 1947. És a dir: les víctimes van acabar pagant als seus antics opressors. Haití segueix sent el país més pobre de l'hemisferi occidental.
+          <p>Quan al tema 2 parlem de com Gran Bretanya es va industrialitzar gràcies al cotó, el que rarament s'explica és que aquell cotó era collit per persones esclavitzades. La prosperitat que va permetre la industrialització europea no es pot entendre sense l'esclavitud atlàntica. Reconèixer-ho no és ideologia: és rigor históric.</p>
         </div>
       </section>
 
@@ -410,243 +319,221 @@
       <!-- ─── S3: REVOLUCIÓ FRANCESA ─── -->
       <section class="section" id="s3">
         <span class="section-num">Secció 03</span>
-        <h2>La Revolució Francesa (1789–1799)</h2>
+        <h2>La Revolució Francesa (1789–1799) i l'era napoleònica</h2>
 
-        <p>La Revolució Francesa és un dels grans punts d'inflexió de la História moderna. Va posar fi a l'Antic Règim a França i va estendre per tot Europa les idees de llibertat, igualtat i sobirania popular. Però va ser també un procés profundament contradictori: una revolució que proclamava els drets universals de l'home mentre mantenia l'esclavitud a les colònies, que parlava d'igualtat mentre excloïa les dones, i que va acabar en un bany de sang i, paradoxalment, en el poder d'un general.</p>
+        <p>La Revolució Francesa és un dels grans punts d'inflexió de la História moderna. Va posar fi a l'Antic Règim a França i va estendre per tot Europa les idees de llibertat, igualtat i sobirania popular. Però va ser un procés extraordinàriament violent, complex i contradictori: va passar per fases molt diverses, va devorar molts dels seus propis protagonistes, i va acabar en el poder d'un general que va exportar les seves idees a punta de baioneta.</p>
 
-        <h3 id="s3-1">3.1. Les causes</h3>
-        <p>La Revolució no va esclatar de sobte. Era el resultat de tensions acumulades durant dècades:</p>
+        <h3 id="s3-1">3.1. Les causes: per què el 1789?</h3>
+        <p>Les tensions entre els estaments existien des de feia molt de temps. Per qué van esclatar precisament el 1789? La confluència de causes estructurals i detonants immediats explica per qué el sistema va col·lapsar en aquell moment concret.</p>
         <ul>
-          <li><strong>Crisi financera de la monarquia:</strong> França estava arruïnada per les guerres, incloent el suport a la Revolució Americana (1775–1783). El rei necessitava imposar nous tributs, però la noblesa s'hi negava als Estats Generals.</li>
-          <li><strong>Males collites i fam:</strong> la collita de 1788 va ser catastròfica. El pa —aliment bàsic de les classes populars— es va encarir fins a ser inaccessible per a moltes famílies. La fam és un factor revolucionari de primer ordre.</li>
-          <li><strong>La burgesia exclosa del poder:</strong> els comerciants, advocats i professionals tenien diners però no poder polític. Les idees il·lustrades els donaven el marc per reclamar-lo.</li>
-          <li><strong>Les idees il·lustrades:</strong> Rousseau, Montesquieu i Voltaire havien erosionat la legitimitat del poder absolut. La Revolució Americana havia demostrat que una altra organització del poder era possible.</li>
+          <li><strong>Crisi financera de la monarquia:</strong> França estava arruïnada per dècades de guerres costoses, incloent el suport a la Revolució Americana (1775–1783). El deute era insostenible. Lluís XVI necessitava imposar nous tributs, però la noblesa —que n'estava exempta— es negava a contribuir als Estats Generals.</li>
+          <li><strong>Males collites i fam:</strong> la collita de 1788 va ser catastròfica. El pa —aliment bàsic de les classes populars, que hi dedicaven fins al 90% dels seus ingressos— es va encarir fins a ser inaccessible. La fam és un factor revolucionari de primer ordre: les masses hambregades no analitzen la filosofia política, però surten al carrer.</li>
+          <li><strong>La burgesia exclosa del poder:</strong> els comerciants, advocats i professionals tenien diners i educació però no poder polític. Les idees il·lustrades els donaven el marc ideològic per reclamar-lo: si la sobirania rau en la nació, per qué la nació no té veu al govern?</li>
+          <li><strong>La crisi de legitimitat de la monarquia:</strong> Lluís XVI era un rei indecís i mal assessorat. La seva esposa, Maria Antonieta, era percebuda com a frívola i pro-austríaca. El contrast entre l'ostentació de Versalles i la misèria del poble era cada vegada més difícil de justificar ideològicament.</li>
         </ul>
 
+        <h3 id="s3-2">3.2. Les etapes de la Revolució (1789–1799)</h3>
+        <p>La Revolució Francesa no va ser un procés lineal ni uniforme. Va passar per fases radicalment diferents, cada una amb els seus actors, la seva lògica i les seves víctimes. Entendre per qué cada fase va donar pas a la següent és entendre la dinàmica revolucionària.</p>
+
+        <div class="etapes">
+
+          <div class="etapa clau">
+            <span class="etapa-data">Maig–Agost 1789 — La revolució burgesa</span>
+            <div class="etapa-title">Els Estats Generals, la Bastilla i la Declaració</div>
+            <div class="etapa-body">
+              <p>El rei convoca els <strong>Estats Generals</strong> per resoldre la crisi fiscal, però el Tercer Estat exigeix vot per cap (no per estament). Davant el bloqueig, el Tercer Estat es proclama <strong>Assemblea Nacional</strong> i jura no dissoldre's fins a donar una constitució a França (Jurament del Joc de la Pilota, 20 de juny).</p>
+              <p>El <strong>14 de juliol de 1789</strong>, el poble de París assalta la <strong>Bastilla</strong> —la presó-fortalesa que simbolitzava el poder absolut—, en resposta a la concentració de tropes reials als voltants de la capital. La revolta s'estén al camp: els camperols ataquen els castells dels nobles i cremen els registres dels drets feudals (la «Grande Peur»). L'agost, l'Assemblea aboleix els privilegis feudals i aprova la <strong>Declaració dels Drets de l'Home i del Ciutadà</strong>. La burgesia ha pres el control polític que li negava l'Antic Règim.</p>
+            </div>
+          </div>
+
+          <div class="etapa">
+            <span class="etapa-data">1789–1792 — La monarquia constitucional</span>
+            <div class="etapa-title">El rei accepta els límits... i els traeix</div>
+            <div class="etapa-body">
+              <p>La Constitució de 1791 estableix una monarquia constitucional: el rei conserva el poder executiu però el Parlament legisla. El sufragi, però, és <strong>censatari</strong>: només voten els homes amb prou propietat. La majoria del Tercer Estat que ha fet la Revolució queda exclosa de la política.</p>
+              <p>Lluís XVI accepta la constitució però secretament sol·licita ajuda a les potències estrangeres (Àustria i Prússia, on regnen els seus parents) per restaurar l'absolutisme. Quan intenta fugir a l'estranger per unir-se als exèrcits estrangers (Fuga de Varennes, juny 1791) i és interceptat, perd tota credibilitat. Les potències absolutistes europees ataquen França per ofegar la Revolució, cosa que radicalitzarà el procés.</p>
+            </div>
+          </div>
+
+          <div class="etapa clau">
+            <span class="etapa-data">1792–1793 — La Primera República i la guerra</span>
+            <div class="etapa-title">La República, la guerra exterior i la crisi interior</div>
+            <div class="etapa-body">
+              <p>El setembre de 1792, la República és proclamada. Les tropes revolucionàries, malgrat la seva desorganització inicial, aturen els exèrcits prussians a la batalla de <strong>Valmy</strong> (20 de setembre). L'exèrcit francès, animat per la idea de defensar la llibertat contra el despotisme, resulta ser molt més efectiu del que ningú esperava.</p>
+              <p>El gener de <strong>1793</strong>, el rei <strong>Lluís XVI és guillotinat</strong> a la plaça de la Revolució de París. La notícia escandalitza les monarquies europees i n'afegeix noves a la coalició contra França. Simultàniament, a l'interior creix la contrarrevolució: a la <strong>Vendée</strong> (oest de França), una revolta camperola i catòlica desafia el govern de París. França és atacada per fora i per dins.</p>
+            </div>
+          </div>
+
+          <div class="etapa clau">
+            <span class="etapa-data">1793–1794 — La fase jacobina i el Terror</span>
+            <div class="etapa-title">Robespierre, els sans-culottes i la República en perill</div>
+            <div class="etapa-body">
+              <p>Davant la doble amenaça —guerra exterior i contrarrevolució interior—, el Comitè de Salut Pública, dominat per Maximilien <strong>Robespierre</strong> i els <strong>jacobins</strong>, pren mesures d'excepció. El Comitè governa de facto França amb poders gairebé dictatorials: decreta la mobilització general (la <em>levée en masse</em>, que crea un exèrcit de masses de 800.000 homes), controla els preus dels aliments i executa els enemics de la Revolució.</p>
+              <p>Les classes populars urbanes, els <em>sans-culottes</em> (literalment «sense calces», símbol dels qui no portaven la moda aristocràtica), pressionen des de baix per mesures més radicals: control dels preus del pa, redistribució de la riquesa, igualtat social real. Robespierre cavalca aquesta pressió popular però mai no la satisfà plenament.</p>
+              <p>El «<strong>Terror</strong>» executa entre 16.000 i 40.000 persones (les estimacions varien) en menys d'un any: nobles, clergues, contrarevolucionaris, però també rivals polítics dels jacobins i, finalment, els propis líders jacobins que Robespierre considera perillosos. El Terror devora els seus fills.</p>
+            </div>
+          </div>
+
+          <div class="etapa">
+            <span class="etapa-data">Juliol 1794 — El Termidor</span>
+            <div class="etapa-title">La burgesia frena la revolució</div>
+            <div class="etapa-body">
+              <p>El 9 Termidor (27 de juliol de 1794), un cop d'Estat parlamentari derroca Robespierre, que és guillotinat l'endemà. El «Termidor» marca el final de la fase radical: la burgesia moderada elimina el seu propi sector més extremista i recondueix la Revolució cap a la defensa de la propietat i l'ordre.</p>
+              <p>Les mesures de control dels preus s'aboleixen. La persecució dels contrarevolucionaris s'atura. El radicalisme popular dels <em>sans-culottes</em> és suprimit per la força. La Revolució «es domestica»: ha abolit els privilegis feudals i ha establert la igualtat jurídica i el mercat lliure, que és el que la burgesia volia. Les aspiracions de les classes populars queden ajornades indefinidament.</p>
+            </div>
+          </div>
+
+          <div class="etapa">
+            <span class="etapa-data">1795–1799 — El Directori</span>
+            <div class="etapa-title">Cinc anys d'inestabilitat</div>
+            <div class="etapa-body">
+              <p>El Directori (cinc directors que governen col·legialment) intenta estabilitzar França, però és un règim feble, corrupte i incapaç de resoldre els problemes estructurals: inflació, deute, guerra contínua a l'exterior. Les eleccions produeixen majories indesitjades que el Directori anul·la per la força. L'exèrcit, que s'ha convertit en el gran guanyador de la Revolució (ha conquerit Itàlia, els Països Baixos i Egipte), comença a ser l'àrbitre de la política. Els generals, entre ells un jove cors anomenat <strong>Napoleó Bonaparte</strong>, es converteixen en figures de primer pla.</p>
+            </div>
+          </div>
+
+          <div class="etapa clau">
+            <span class="etapa-data">Novembre 1799 — El 18 Brumari</span>
+            <div class="etapa-title">Napoleó pren el poder</div>
+            <div class="etapa-body">
+              <p>El 18 Brumari (9 de novembre de 1799), el general Napoleó Bonaparte dona un cop d'estat i dissol els consells legislatius. S'instaura el <strong>Consolat</strong>, amb Napoleó com a Primer Cònsol. En teoria, una república; en la pràctica, una dictadura personal amb elements del parlamentarisme de façana. La Revolució ha acabat.</p>
+            </div>
+          </div>
+
+        </div>
+
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a7/Prise_de_la_Bastille.jpg" alt="La presa de la Bastilla, 14 de juliol de 1789" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="images/bastilla.jpg" alt="La presa de la Bastilla, 14 de juliol de 1789" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">La presa de la Bastilla, 14 de juliol de 1789. La presó era el símbol del poder absolut. La seva caiguda va encendre la revolució a tot França. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
-        <h3 id="s3-2">3.2. Les etapes de la Revolució</h3>
-        <p>La Revolució Francesa no va ser un procés lineal. Va passar per fases molt diverses, cada una amb els seus actors i la seva lògica pròpia:</p>
-
-        <div class="etapes">
-          <div class="etapa clau">
-            <span class="etapa-data">1789 — La revolució burgesa</span>
-            <div class="etapa-title">Presa de la Bastilla i Declaració dels Drets</div>
-            <div class="etapa-body">El 14 de juliol, el poble de París assalta la Bastilla. L'Assemblea Nacional aboleix els privilegis feudals i proclama la Declaració dels Drets de l'Home i del Ciutadà. La burgesia pren el control polític que li havia negat l'Antic Règim.</div>
-          </div>
-          <div class="etapa">
-            <span class="etapa-data">1791–1792 — Monarquia constitucional</span>
-            <div class="etapa-title">El rei accepta una constitució... i traeix</div>
-            <div class="etapa-body">Lluís XVI accepta una constitució que limita el seu poder, però secretament demana ajuda a les potències estrangeres per restaurar l'absolutisme. Quan es descobreix la seva traïció, la Revolució es radicalitza.</div>
-          </div>
-          <div class="etapa clau">
-            <span class="etapa-data">1792–1794 — La fase jacobina</span>
-            <div class="etapa-title">La República i el Terror</div>
-            <div class="etapa-body">Es proclama la República. El rei és guillotinat (1793). Els <em>jacobins</em> de Robespierre, pressionats pels <em>sans-culottes</em> (classes populars), imposen mesures radicals per fer front a la guerra exterior i als contrarevolucionaris interiors. El «Terror» executa milers de persones, incloent finalment el propi Robespierre.</div>
-          </div>
-          <div class="etapa">
-            <span class="etapa-data">1794 — El Termidor</span>
-            <div class="etapa-title">La burgesia frena la revolució</div>
-            <div class="etapa-body">La burgesia moderada elimina Robespierre (el «Termidor»). La revolució «es domestica»: es garanteixen la propietat privada i el mercat lliure, però s'acaben les mesures de redistribució populars. El radicalisme de baix és suprimit.</div>
-          </div>
-          <div class="etapa clau">
-            <span class="etapa-data">1799 — Napoleó</span>
-            <div class="etapa-title">El cop d'estat del 18 Brumari</div>
-            <div class="etapa-body">El general Napoleó Bonaparte dona un cop d'estat i es fa amb el poder. Fi de la República, inici del Consolat i de l'Imperi. Però les idees de la Revolució —nació, constitució, codi civil, igualtat davant la llei— s'estendran per Europa amb els seus exèrcits.</div>
-          </div>
+        <div class="img-wrap">
+          <img src="images/guillotina.jpg" alt="L'execució de Lluís XVI, 21 de gener de 1793" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">L'execució de Lluís XVI a la plaça de la Revolució de París, 21 de gener de 1793. La guillotina, inventada per humanitzar les execucions, es va convertir en el símbol del Terror. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
-        <h3 id="s3-3">3.3. Les conseqüències: una revolució amb límits</h3>
-        <p>La Revolució Francesa és sovint presentada com el triomf universal dels drets humans. Val la pena matisar-ho:</p>
+        <h3 id="s3-3">3.3. L'era napoleònica (1799–1815)</h3>
+        <p>Napoleó Bonaparte és una de les figures més fascinants i contradictòries de la História moderna. Cors de naixement, oficiat format a França, va ascendir meteòricament gràcies a la Revolució —que, en destruir la noblesa militar, va obrir l'exèrcit al talent mèrit. Va ser primer un brillant general republicà, després Primer Cònsol, i finalment <strong>Emperador dels Francesos</strong> (des de 1804), en una cerimònia en la qual va prendre la corona de mans del Papa i es la va posar ell mateix, en un gest que volia dir que el seu poder no venia de Déu sinó d'ell mateix.</p>
 
-        <div class="def-box">
-          <span class="def-label">Qui quedava fora de la Declaració dels Drets</span>
-          <p><strong>Les dones:</strong> la Declaració dels Drets de l'Home i del Ciutadà (1789) no mencionava les dones. <strong>Olympe de Gouges</strong> va escriure el 1791 una <em>Declaració dels Drets de la Dona i de la Ciutadana</em> demanant la plena igualtat. Ningú la va escoltar. Va ser guillotinada el 1793.</p>
-          <p><strong>Els esclaus de les colònies:</strong> la Declaració proclamava que «tots els homes neixen lliures i iguals». Però als territoris colonials francesos, l'esclavitud va continuar. Va ser la Revolució Haitiana —protagonitzada pels mateixos esclaus— la que va forçar la primera abolició el 1794 (revocada per Napoleó el 1802).</p>
-          <p><strong>Els pobres sense propietat:</strong> el sufragi era censatari: només podien votar els qui tenien prou propietat. La majoria del Tercer Estat, paradoxalment, quedava exclosa de la política.</p>
-        </div>
+        <h4>El Codi Napoleònic: la Revolució en forma de llei</h4>
+        <p>La gran aportació duradora de Napoleó no van ser les seves victòries militars, sinó el <strong>Codi Civil Napoleònic</strong> (1804): una codificació sistemàtica del dret que establia la igualtat jurídica de tots els ciutadans davant la llei, la llibertat de contracte, la llibertat de religió i la protecció de la propietat privada. Va ser la Revolució Francesa cristal·litzada en forma jurídica. El Codi napoleònic va ser adoptat o va influenciar directament els sistemes jurídics de la major part d'Europa i de molts països llatinoamericans. En molts aspectes, continuem vivint sota el seu llegat.</p>
 
-        <p>La Revolució Francesa va ser una revolució de la burgesia, per a la burgesia. Va abolir els privilegis feudals però va garantir la propietat privada i el mercat lliure. Va ser un pas gegantí endavant respecte a l'Antic Règim, però va deixar moltes de les demandes de les classes populars sense respondre. Les lluites per la igualtat real continuarien al llarg del segle XIX.</p>
+        <h4>Les guerres napoleòniques i l'exportació de les idees revolucionàries</h4>
+        <p>Durant quinze anys, els exèrcits francesos van conquerir pràcticament tota Europa continental. Però les guerres napoleòniques van tenir un efecte paradoxal: van exportar les idees de la Revolució als territoris ocupats. Els codis civils, l'abolició dels privilegis feudals, la igualtat jurídica, la idea de nació van anar acompanyant les tropes franceses. A Espanya, la constitució de Cadis del 1812 —elaborada mentre Napoleó hi imposava el seu germà rei— va beure directament d'aquestes idees.</p>
+        <p>Però la conquesta napoleònica va despertar també una reacció: el <strong>nacionalisme</strong> dels pobles ocupats. A Espanya, Prússia, Rússia, Àustria, els sentiments patriòtics contra l'ocupació francesa van mobilitzar masses que no haurien lluitat mai per les monarquies absolutes. El nacionalisme, una de les forces polítiques centrals del segle XIX i XX, va néixer en bona mesura de la resistència a Napoleó.</p>
+
+        <h4>La caiguda: Rússia, Leipzig i Waterloo</h4>
+        <p>La campanya de Rússia el 1812 va ser el punt d'inflexió. Napoleó va envair Rússia amb 600.000 homes; en va tornar menys de 100.000. La <em>Grande Armée</em> va ser destruïda no tant per les batalles com pel fred rus, les malalties i la tàctica d'evasió i crema de la terra dels russos. Debilitat, Napoleó va ser derrotat a la Batalla de les Nacions a Leipzig (1813) per una coalició europea, va abdicar el 1814 i va ser exiliat a l'illa d'Elba. Va fugir, va tornar al poder pels Cent Dies, i va ser derrotat definitivament a <strong>Waterloo</strong> (1815) pel duc de Wellington i els prussians. Va ser exiliat a l'illa de Santa Helena, a l'Atlàntic Sud, on va morir el 1821.</p>
 
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Declaracion_de_los_Derechos_del_Hombre.jpg" alt="Declaració dels Drets de l'Home i del Ciutadà, 1789" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">La Declaració dels Drets de l'Home i del Ciutadà (1789). Un document fundacional de la democràcia moderna —però amb límits molt concrets. Font: Wikimedia Commons (domini públic).</div>
+          <img src="images/napoleon.jpg" alt="Napoleon Bonaparte al seu despatx, pintura de Jacques-Louis David" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Napoleó Bonaparte al seu despatx de les Tulleries, pintura de Jacques-Louis David (1812). Combina l'herència revolucionària (Codi Civil) amb el poder personal absolut. Font: Wikimedia Commons (domini públic).</div>
         </div>
+
+        <h3 id="s3-4">3.4. El llegat: una revolució amb límits</h3>
+        <p>La Revolució Francesa és sovint presentada com el triomf universal dels drets humans. Cal matisar-ho honestament.</p>
+
+        <div class="def-box">
+          <span class="def-label">Qui quedava fora de la Declaració dels Drets (1789)</span>
+          <p><strong>Les dones:</strong> la Declaració dels Drets de l'Home i del Ciutadà no les mencionava. <strong>Olympe de Gouges</strong> va escriure el 1791 la <em>Declaració dels Drets de la Dona i de la Ciutadana</em>, exigint la plena igualtat. Va ser guillotinada el 1793. El sufragi femení a França no arribarà fins al 1944.</p>
+          <p><strong>Els esclaus de les colònies:</strong> la Declaració proclamava que «tots els homes neixen lliures i iguals». Però als territoris colonials francesos l'esclavitud va continuar. Va ser la revolta dels esclaus a Saint-Domingue —la Revolució Haitiana (1791–1804)— la que va forçar l'abolició provisional de 1794. Napoleó la va reinstaurar el 1802.</p>
+          <p><strong>Els pobres sense propietat:</strong> el sufragi censatari excloïa de la política la majoria del Tercer Estat. La «igualtat» proclamada era jurídica, no econòmica. La propietat privada era sagrada; la redistribució de la riquesa, impensable.</p>
+        </div>
+
+        <p>La Revolució Francesa va ser, en essència, una revolució de la burgesia que va abolir els privilegis feudals i va establir les bases del capitalisme modern: igualtat jurídica, mercat lliure, propietat privada garantida. Va ser un pas gegantí endavant respecte a l'Antic Règim —però va deixar moltes de les demandes de les classes populars sense respondre. Les lluites per la igualtat real continuarien al llarg dels segles XIX i XX.</p>
+
+        <div class="img-wrap">
+          <img src="images/declaracio_drets.jpg" alt="Declaració dels Drets de l'Home i del Ciutadà, 1789" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">La Declaració dels Drets de l'Home i del Ciutadà (1789). Un document fundacional de la democràcia liberal moderna —amb les contradiccions que el text anterior ha descrit. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
       </section>
 
     </div><!-- /panel-apunts -->
 
     <!-- ═══ TAB 2: CRONOLOGIA ═══ -->
     <div class="tab-panel" id="panel-cronologia">
-
-      <p style="font-size:0.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'DM Mono',monospace;letter-spacing:0.04em;">Els fets marcats en <span style="color:var(--blue);font-weight:700;">blau</span> són els moments de ruptura més importants del període.</p>
-
+      <p style="font-size:.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'DM Mono',monospace;letter-spacing:.04em;">Els fets marcats en <span style="color:var(--blue);font-weight:700;">blau</span> són els moments de ruptura principals.</p>
       <div class="crono">
-
         <div class="crono-group">
-          <div class="crono-group-label">L'Antic Règim</div>
-          <div class="crono-entry">
-            <div class="crono-dot"></div>
-            <span class="crono-year">Segles XVI–XVIII</span>
-            <div class="crono-event">El comerç triangular atlàntic</div>
-            <div class="crono-desc">Les potències europees (Portugal, Espanya, Gran Bretanya, França, Països Baixos) construeixen un sistema comercial basat en la deportació forçada d'africans cap a les Amèriques. Més de 12,5 milions de persones seran esclavitzades al llarg de quatre segles.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot"></div>
-            <span class="crono-year">1648–1715</span>
-            <div class="crono-event">Apogeu de l'absolutisme — Lluís XIV</div>
-            <div class="crono-desc">El Rei Sol representa la màxima expressió del poder absolut a Europa. Versalles és construït com a símbols del seu poder. França és la gran potència continental.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot"></div>
-            <span class="crono-year">1751–1772</span>
-            <div class="crono-event">L'Enciclopèdia de Diderot i d'Alembert</div>
-            <div class="crono-desc">28 volums que reuneixen el coneixement humà i qüestionen l'autoritat de la religió i la tradició. L'Antic Règim intentarà prohibir-la, sense èxit.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot key"></div>
-            <span class="crono-year">1776</span>
-            <div class="crono-event">Revolució Americana</div>
-            <div class="crono-desc">Les colònies britàniques d'Amèrica del Nord declaren la independència basant-se en idees il·lustrades (Locke, Montesquieu). Demostren que una altra organització del poder és possible. Inspira directament la Revolució Francesa.</div>
-          </div>
+          <div class="crono-group-label">L'Antic Règim i els seus crítics</div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Segles XVI–XVIII</span><div class="crono-event">El comerç triangular atlàntic</div><div class="crono-desc">Potències europees deporten forçosament africans a les Amèriques. Més de 12,5 milions de persones seran esclavitzades al llarg de quatre segles. La riquesa generada finança la industrialització europea.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1648–1715</span><div class="crono-event">Apogeu de l'absolutisme — Lluís XIV</div><div class="crono-desc">El Rei Sol representa la màxima expressió del poder absolut a Europa. Versalles és construït per controlar la noblesa i simbolitzar el poder reial. França és la gran potència continental.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1748–1762</span><div class="crono-event">Montesquieu i Rousseau: la Il·lustració madura</div><div class="crono-desc">«L'Esperit de les Lleis» (Montesquieu, 1748) i «El Contracte Social» (Rousseau, 1762) proporcionen el marc intel·lectual per qüestionar el poder absolut i fundar-ne un de nou basat en la sobirania popular.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1751–1772</span><div class="crono-event">L'Enciclopèdia de Diderot i d'Alembert</div><div class="crono-desc">28 volums que divulguen el coneixement i qüestionen l'autoritat de la religió. L'Antic Règim intenta prohibir-la. No ho aconsegueix.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1776</span><div class="crono-event">Revolució Americana i Declaració d'Independència</div><div class="crono-desc">Les colònies britàniques d'Amèrica es declaren independents invocant els drets naturals (Locke, Montesquieu). Demostren que un altre ordre polític és possible. França hi envia tropes —i s'endeuta enormement per finançar-ho.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1788</span><div class="crono-event">Collita catastròfica i crisi fiscal</div><div class="crono-desc">La pitjor collita en dècades dispara el preu del pa. Simultàniament, la monarquia és al borde de la fallida per les guerres. Lluís XVI convoca els Estats Generals. El detonant de la Revolució ja és en marxa.</div></div>
         </div>
-
         <div class="crono-group">
-          <div class="crono-group-label">La Revolució Francesa (1789–1799)</div>
-          <div class="crono-entry">
-            <div class="crono-dot"></div>
-            <span class="crono-year">Maig 1789</span>
-            <div class="crono-event">Reunió dels Estats Generals</div>
-            <div class="crono-desc">Lluís XVI convoca els Estats Generals per primera vegada des de 1614, per resoldre la crisi fiscal. El Tercer Estat exigeix representació proporcional. La confrontació és immediata.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot key"></div>
-            <span class="crono-year">14 juliol 1789</span>
-            <div class="crono-event">Presa de la Bastilla</div>
-            <div class="crono-desc">El poble de París assalta la presó-fortalesa de la Bastilla, símbol del poder absolut. Data nacional de França des d'aleshores. La revolta s'estén a tot el país: els camperols ataquen els senyors feudals.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot key"></div>
-            <span class="crono-year">Agost 1789</span>
-            <div class="crono-event">Declaració dels Drets de l'Home i del Ciutadà</div>
-            <div class="crono-desc">Llibertat, igualtat, sobirania popular, separació de poders. Un document fundacional de la democràcia liberal moderna, però que exclou les dones, els esclaus i els pobres sense propietat.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot"></div>
-            <span class="crono-year">1791</span>
-            <div class="crono-event">Olympe de Gouges — Declaració dels Drets de la Dona</div>
-            <div class="crono-desc">En resposta a l'exclusió de les dones de la Declaració oficial, Olympe de Gouges reclama la plena igualtat política i civil de les dones. Serà guillotinada el 1793.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot key"></div>
-            <span class="crono-year">1791–1804</span>
-            <div class="crono-event">Revolució Haitiana</div>
-            <div class="crono-desc">A la colònia francesa de Saint-Domingue, els esclaus es revolten sota el lideratge de Toussaint Louverture. Derrotaran els exèrcits napoleònics i proclamaran la primera república negra de la Història: Haití (1804).</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot key"></div>
-            <span class="crono-year">Gener 1793</span>
-            <div class="crono-event">Execució de Lluís XVI</div>
-            <div class="crono-desc">El rei és guillotinat. Europa monàrquica queda escandalitzada. Les potències estrangeres (Àustria, Prússia) ataquen França, la qual cosa radicalitza la Revolució.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot"></div>
-            <span class="crono-year">1793–1794</span>
-            <div class="crono-event">El Terror — Robespierre</div>
-            <div class="crono-desc">El Comitè de Salut Pública de Robespierre governa amb mà de ferro: milers d'execucions en nom de la Revolució. El propi Robespierre serà guillotinat el juliol de 1794 (el Termidor).</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot key"></div>
-            <span class="crono-year">Novembre 1799</span>
-            <div class="crono-event">Cop de Napoleó Bonaparte (18 Brumari)</div>
-            <div class="crono-desc">El general napoleó dóna un cop d'estat i assumeix el poder com a Primer Cònsol. Fi de la República. Les idees de la Revolució, però, s'estendran per Europa amb els seus exèrcits.</div>
-          </div>
+          <div class="crono-group-label">La Revolució (1789–1799)</div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">14 juliol 1789</span><div class="crono-event">Presa de la Bastilla</div><div class="crono-desc">El poble de París assalta la presó-fortalesa símbols del poder absolut. La revolta s'estén a tot el país. Data nacional de França.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Agost 1789</span><div class="crono-event">Declaració dels Drets de l'Home i del Ciutadà</div><div class="crono-desc">Llibertat, igualtat, sobirania popular, separació de poders. Document fundacional de la democràcia liberal —que exclou dones, esclaus i pobres sense propietat.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1791</span><div class="crono-event">Olympe de Gouges: Declaració dels Drets de la Dona</div><div class="crono-desc">En resposta a l'exclusió de les dones, Olympe de Gouges reclama la plena igualtat política. Serà guillotinada el 1793.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1791–1804</span><div class="crono-event">Revolució Haitiana</div><div class="crono-desc">Els esclaus de Saint-Domingue es revolten. Derrotaran els exèrcits napoleònics i proclamaran Haití com a primera república negra de la Història (1804). La primera revolució esclava victoriosa de la modernitat.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Gener 1793</span><div class="crono-event">Execució de Lluís XVI</div><div class="crono-desc">El rei és guillotinat. Europa monàrquica queda escandalitzada. Les potències estrangeres ataquen França, radicalitzant la Revolució.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1793–1794</span><div class="crono-event">El Terror de Robespierre</div><div class="crono-desc">El Comitè de Salut Pública governa amb mà de ferro. Milers d'execucions. El propi Robespierre serà guillotinat el juliol de 1794 (el Termidor). La Revolució devora els seus fills.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Novembre 1799</span><div class="crono-event">Cop del 18 Brumari — Napoleó pren el poder</div><div class="crono-desc">Fi de la República. Inici del Consolat. Les idees de la Revolució continuaran —però sota el control d'un líder militar.</div></div>
         </div>
-
         <div class="crono-group">
-          <div class="crono-group-label">L'abolició de l'esclavitud</div>
-          <div class="crono-entry">
-            <div class="crono-dot key"></div>
-            <span class="crono-year">1807</span>
-            <div class="crono-event">Gran Bretanya aboleix el comerç d'esclaus</div>
-            <div class="crono-desc">El Parlament britànic prohibeix el tràfic d'esclaus (no l'esclavitud en si). La Royal Navy comença a interceptar vaixells negrers. L'esclavitud a les colònies britàniques s'abolirà el 1833.</div>
-          </div>
-          <div class="crono-entry">
-            <div class="crono-dot key"></div>
-            <span class="crono-year">1865</span>
-            <div class="crono-event">Abolició als Estats Units</div>
-            <div class="crono-desc">La 13a esmena a la Constitució dels EUA aboleix l'esclavitud, com a resultat de la Guerra Civil (1861–65). Quatre milions de persones queden alliberades. La lluita pels drets civils, però, continuarà durant un segle més.</div>
-          </div>
+          <div class="crono-group-label">L'era napoleònica (1799–1815)</div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1804</span><div class="crono-event">Napoleó s'autoproclama Emperador · Codi Civil</div><div class="crono-desc">Codi Civil Napoleònic: igualtat jurídica, llibertat de contracte, propietat privada garantida. La Revolució en forma de llei, adoptada per mig món. Simultàniament, Napoleó es corona Emperador.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1805–1812</span><div class="crono-event">Apogeu i expansió de l'Imperi</div><div class="crono-desc">Victòries d'Austerlitz, Iena, Wagram. França controla directa o indirectament tota l'Europa continental excepte Gran Bretanya i Rússia. Les idees revolucionàries s'estenen amb les tropes.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1812</span><div class="crono-event">Desastre de la campanya de Rússia</div><div class="crono-desc">600.000 soldats entren a Rússia. Menys de 100.000 en tornen. El fred, les malalties i la tàctica russa destrueixen la Grande Armée. El punt d'inflexió de l'Imperi.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1814–1815</span><div class="crono-event">Derrotes, abdicació i exili · Waterloo</div><div class="crono-desc">Derrotat a Leipzig (1813), Napoleó abdica (1814) i és exiliat a Elba. Torna els Cent Dies, és derrotat a Waterloo (1815) per Wellington i els prussians. Exiliat a Santa Helena, on mor el 1821.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1815</span><div class="crono-event">Congrés de Viena: la Restauració</div><div class="crono-desc">Les potències guanyadores (Gran Bretanya, Àustria, Prússia, Rússia) reordenen Europa intentant restaurar l'ordre pre-revolucionari. Però les idees de 1789 no poden ser desinfades: les revolucions liberals de 1830 i 1848 en seran la prova.</div></div>
         </div>
-
       </div>
     </div><!-- /panel-cronologia -->
 
-    <!-- ═══ TAB 3: LA HISTÓRIA, ARA ═══ -->
+    <!-- ═══ TAB 3: LA HISTORIA, ARA ═══ -->
     <div class="tab-panel" id="panel-ara">
-
-      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off);">
-        <p style="font-size:0.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7;">L'Antic Règim i la Revolució Francesa no són fets tancats al passat. La desigualtat estructural, el racisme i el debat sobre qui mereix tenir drets plens continuen sent qüestions del present. Aquests activitats proposen establir la connexió.</p>
+      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
+        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">L'Antic Règim i la Revolució Francesa no són fets tancats al passat. La desigualtat estructural, el debat sobre qui mereix quins drets, i la connexió entre esclavitud i riquesa contemporània continuen sent qüestions vives.</p>
       </div>
 
       <div class="task-block">
-        <div class="task-header">
-          <h3>1. Per a qui eren els drets de la Revolució?</h3>
-          <span class="task-badge">Anàlisi de fonts</span>
-        </div>
+        <div class="task-header"><h3>1. Per a qui eren els drets de la Revolució?</h3><span class="task-badge">Anàlisi de fonts</span></div>
         <div class="task-body">
-          <p>La Declaració dels Drets de l'Home i del Ciutadà (1789) proclamava que «tots els homes neixen lliures i iguals». Però Olympe de Gouges va escriure el 1791 la seva pròpia Declaració dels Drets de la Dona denunciant l'exclusió de les dones. I a Haití, els esclaus van haver de prendre la llibertat per la força. Examinem les contradiccions.</p>
+          <p>La Declaració dels Drets de l'Home (1789) proclamava que «tots els homes neixen lliures i iguals». Però Olympe de Gouges va denunciar que les dones quedaven excloses; i a Haití, els esclaus van haver de prendre la llibertat per la força. Les contradiccions de la Revolució ens diuen molt sobre les contradiccions del liberalisme en general.</p>
           <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca en línia la Declaració dels Drets de l'Home (1789) i llegeix els primers cinc articles. Qui és el «home» del qual es parla? Es mencionen les dones o els esclaus?</span></li>
-            <li><span class="step-num">02</span><span>Busca un fragment de la Declaració dels Drets de la Dona d'Olympe de Gouges (1791). Compara el seu article 1 amb l'article 1 de la Declaració original. Quina diferència hi ha?</span></li>
-            <li><span class="step-num">03</span><span>Reflexió: Si la Revolució proclamava la llibertat de «tots els homes», per qué va caldre que els esclaus de Haití es revoltessin per aconseguir-la? Qué ens diu això sobre com funcionaven els «drets universals» en la pràctica?</span></li>
-            <li><span class="step-num">04</span><span>Debateu: «La Revolució Francesa va ser una revolució universal o una revolució de la burgesia blanca europea?» Argumenteu amb fets concrets.</span></li>
+            <li><span class="step-num">01</span><span>Llegeix els primers cinc articles de la Declaració dels Drets de l'Home (1789). Qui és el «home» del qual parla? Es mencionen les dones o els esclaus en algun moment?</span></li>
+            <li><span class="step-num">02</span><span>Busca un fragment de la Declaració dels Drets de la Dona d'Olympe de Gouges (1791). Compara l'article 1 de cada declaració. Quina diferència hi ha? Per qué creus que la de Gouges va ser ignorada i ella guillotinada?</span></li>
+            <li><span class="step-num">03</span><span>La Revolució Haitiana (1791–1804) va ser la primera revolució en la qual els propis esclaus van alliberar-se per la força. Per qué creus que aquest episodi apareix tan poc als llibres de text europeus? Qué significa invisibilitzar-lo?</span></li>
+            <li><span class="step-num">04</span><span>Debat: «La Revolució Francesa va ser una revolució universal o una revolució de la burgesia blanca europea que va usar un llenguatge universal per legitimar interessos particulars?»</span></li>
           </ul>
           <div class="debate-box">
-            <span class="debate-label">Punt de debat</span>
-            <p>Avui, drets que semblaven universals quan es van proclamar (vot, educació, sanitat) continuen sent desiguals segons l'origen, el gènere o la classe social. En quins aspectes el debat sobre «qui mereix quins drets» continua vigent?</p>
+            <span class="debate-label">Connexió present</span>
+            <p>Avui, drets que semblaven universals quan es van proclamar (vot, educació, sanitat) continuen sent desiguals segons l'origen, el gènere o la classe. En quins aspectes el debat sobre «qui mereix quins drets» continua sent viu al segle XXI?</p>
           </div>
         </div>
       </div>
 
       <div class="task-block">
-        <div class="task-header">
-          <h3>2. L'esclavitud i el present: reparacions i memòria</h3>
-          <span class="task-badge">Connexió present</span>
-        </div>
+        <div class="task-header"><h3>2. L'esclavitud i el present: reparacions i memòria</h3><span class="task-badge">Connexió present</span></div>
         <div class="task-body">
-          <p>El comerç d'esclaus va enriquir Europa durant segles. Les conseqüències d'aquell sistema —la pobresa estructural d'Àfrica i el Carib, el racisme sistèmic— continuen afectant milions de persones avui. El debat sobre les reparacions és una de les qüestions polítiques més vives del moment.</p>
+          <p>El comerç d'esclaus va enriquir Europa durant segles. Les conseqüències —la pobresa estructural d'Àfrica i el Carib, el racisme sistèmic— continuen afectant milions de persones avui. El debat sobre les reparacions és una de les qüestions polítiques més vives del moment.</p>
           <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca la notícia: «Haití va pagar a França durant 122 anys per la seva independència». Explica amb les teves paraules el que va passar i per qué és rellevant avui.</span></li>
-            <li><span class="step-num">02</span><span>Cerca el debat actual sobre reparacions per l'esclavitud (pot ser al Regne Unit, als EUA o a la UE). Quins arguments es fan a favor? Quins en contra?</span></li>
-            <li><span class="step-num">03</span><span>La city de Londres, Bristol i Liverpool van prosperar gràcies al comerç d'esclaus. Hi ha avui monuments, edificis o institucions que porten el nom de traficants d'esclaus? (Pots buscar el cas de la Colston Statue a Bristol, 2020).</span></li>
-            <li><span class="step-num">04</span><span>Debat: «Les generacions actuals haurien de pagar per crims comesos fa segles?» Argumenteu posicions diverses.</span></li>
+            <li><span class="step-num">01</span><span>Busca la notícia sobre Haití i França: per obtenir el reconeixement de la seva independència (1825), Haití va haver de pagar a França una indemnització de 150 milions de francs (per compensar els propietaris d'esclaus «per la pèrdua de les seves propietats»). Va trigar 122 anys a acabar de pagar. Haití és avui el país més pobre de l'hemisferi occidental. Explica la connexió.</span></li>
+            <li><span class="step-num">02</span><span>Busca el cas de l'estàtua de Colston a Bristol (2020): una multitud va llençar al mar l'estàtua d'un traficant d'esclaus. Quins arguments es van donar a favor i en contra? Quin és el teu criteri?</span></li>
+            <li><span class="step-num">03</span><span>Debat: «Les generacions actuals haurien de pagar per crims comesos fa segles?» Construïu dos arguments: un a favor i un en contra, ambdós amb fets concrets.</span></li>
           </ul>
         </div>
       </div>
 
       <div class="task-block">
-        <div class="task-header">
-          <h3>3. La desigualtat avui: som tan lluny de l'Antic Règim?</h3>
-          <span class="task-badge">Reflexió crítica</span>
-        </div>
+        <div class="task-header"><h3>3. La desigualtat avui: som lluny de l'Antic Règim?</h3><span class="task-badge">Reflexió crítica</span></div>
         <div class="task-body">
-          <p>A l'Antic Règim, la riquesa i el poder s'heretaven de pare a fill per la sola raó del naixement. La Revolució Francesa va proclamar la igualtat formal davant la llei. Però, fins a quin punt la desigualtat actual s'assembla a la de l'Antic Règim?</p>
+          <p>A l'Antic Règim, la riquesa i el poder s'heretaven de pare a fill per la sola raó del naixement. La Revolució Francesa va proclamar la igualtat formal davant la llei. Però la igualtat jurídica i la igualtat real no són el mateix. Fins a quin punt la desigualtat actual s'assembla a la de l'Antic Règim?</p>
           <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca l'últim informe d'Oxfam sobre desigualtat global. Quina proporció de la riquesa mundial posseeix l'1% més ric? Compara-la amb la concentració de riquesa a l'Antic Règim.</span></li>
-            <li><span class="step-num">02</span><span>A l'Antic Règim, la posició social s'heretava. Avui, quin percentatge de la riquesa s'hereta? Cerca dades sobre mobilitat social a Espanya o a Europa.</span></li>
-            <li><span class="step-num">03</span><span>Reflexió final: En quins aspectes la societat actual s'ha allunyat de l'Antic Règim? En quins aspectes s'hi assembla més del que sembla?</span></li>
+            <li><span class="step-num">01</span><span>Busca l'últim informe d'Oxfam sobre desigualtat global. Quina proporció de la riquesa mundial posseeix l'1% més ric? Compara-la amb la concentració de riquesa a l'Antic Règim (noblesa + clergat = ~3% de la població controlant la major part de la terra).</span></li>
+            <li><span class="step-num">02</span><span>A l'Antic Règim, la posició social s'heretava. Avui, busca dades sobre mobilitat social a Espanya: quin percentatge de fills de famílies del decil inferior acaben al decil superior en edat adulta?</span></li>
+            <li><span class="step-num">03</span><span>Reflexió final: En quins aspectes la societat actual s'ha allunyat de l'Antic Règim? En quins aspectes s'hi assembla més del que sembla a primera vista?</span></li>
           </ul>
           <div class="debate-box">
             <span class="debate-label">Per pensar</span>
-            <p>La Revolució Francesa va abolir els privilegis jurídics de la noblesa. Però avui existeixen privilegis de fet —connexions, herència, accés a educació de qualitat— que reprodueixen desigualtats semblants sense una llei que les estableixi explícitament. Això és diferent de l'Antic Règim o és el mateix amb un altre nom?</p>
+            <p>La Revolució Francesa va abolir els privilegis <em>jurídics</em> de la noblesa. Però avui existeixen privilegis <em>de fet</em> —connexions, herència, accés a educació de qualitat, capital social— que reprodueixen desigualtats similars sense una llei explícita que les estableixi. És això diferent de l'Antic Règim o és el mateix mecanisme amb un nom diferent?</p>
           </div>
         </div>
       </div>
-
     </div><!-- /panel-ara -->
 
   </main>
@@ -662,27 +549,25 @@
 </footer>
 
 <script>
-  function switchTab(name, btn) {
-    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.getElementById('panel-' + name).classList.add('active');
+  function switchTab(name,btn){
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('panel-'+name).classList.add('active');
     btn.classList.add('active');
-    if (name === 'cronologia') animateCrono();
-    if (name === 'apunts') revealSections();
-    window.scrollTo({ top: document.querySelector('.tabs-bar').offsetTop - 56, behavior: 'smooth' });
+    if(name==='cronologia')animateCrono();
+    if(name==='apunts')revealSections();
+    window.scrollTo({top:document.querySelector('.tabs-bar').offsetTop-56,behavior:'smooth'});
   }
-  function revealSections() {
-    const obs = new IntersectionObserver((e) => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: 0.06 });
-    document.querySelectorAll('#panel-apunts .section').forEach(s => obs.observe(s));
+  function revealSections(){
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.06});
+    document.querySelectorAll('#panel-apunts .section').forEach(s=>obs.observe(s));
   }
-  function animateCrono() {
-    document.querySelectorAll('.crono-entry').forEach((el, i) => { setTimeout(() => el.classList.add('vis'), i * 55); });
-  }
-  const tocLinks = document.querySelectorAll('#toc-apunts a');
-  const sObs = new IntersectionObserver((e) => {
-    e.forEach(x => { if (x.isIntersecting) { tocLinks.forEach(a => a.classList.remove('active')); const l = document.querySelector(`#toc-apunts a[href="#${x.target.id}"]`); if (l) l.classList.add('active'); } });
-  }, { rootMargin: '-20% 0px -70% 0px' });
-  document.querySelectorAll('.section[id], h3[id]').forEach(s => sObs.observe(s));
+  function animateCrono(){document.querySelectorAll('.crono-entry').forEach((el,i)=>{setTimeout(()=>el.classList.add('vis'),i*55)})}
+  const tocLinks=document.querySelectorAll('#toc-apunts a');
+  const sObs=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting){tocLinks.forEach(a=>a.classList.remove('active'));const l=document.querySelector(`#toc-apunts a[href="#${x.target.id}"]`);if(l)l.classList.add('active')}})
+  },{rootMargin:'-20% 0px -70% 0px'});
+  document.querySelectorAll('.section[id],h3[id]').forEach(s=>sObs.observe(s));
   revealSections();
 </script>
 </body>
