@@ -573,15 +573,13 @@
   .task-body p { font-size: 0.93rem; color: var(--ink-soft); margin-bottom: 12px; font-weight: 300; }
   .task-steps {
     list-style: none;
-    counter-reset: steps;
     padding: 0;
     margin: 14px 0 0;
   }
   .task-steps li {
-    counter-increment: steps;
-    display: grid;
-    grid-template-columns: 28px 1fr;
-    gap: 0 12px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
     margin-bottom: 10px;
     font-size: 0.88rem;
     color: var(--ink-soft);
@@ -591,13 +589,14 @@
     padding-bottom: 10px;
   }
   .task-steps li:last-child { border-bottom: none; padding-bottom: 0; }
-  .task-steps li::before {
-    content: counter(steps);
+  .task-steps li .step-num {
     font-family: 'DM Mono', monospace;
     font-size: 0.72rem;
     font-weight: 700;
     color: var(--blue);
-    padding-top: 2px;
+    padding-top: 3px;
+    flex-shrink: 0;
+    min-width: 18px;
   }
   .debate-box {
     border-top: 1px solid var(--line-soft);
@@ -749,8 +748,8 @@
         <p>Però sota la superfície s'acumulaven tensions enormes. La prosperitat era profundament desigual: les classes obreres vivien en condicions molt precàries. Les rivalitats imperialistes s'intensificaven a mesura que s'esgotaven els territoris per repartir. I les grans potències s'armaven a ritme accelerat alhora que construïen aliances cada vegada més rígides. Europa era com un polvorí carregat: només calia una espurna.</p>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/tensionsIGM.jpg" alt="Les tensions internacionals a Europa el 1914" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Les tensions internacionals a Europa el 1914. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/Europe_1914.jpg/800px-Europe_1914.jpg" alt="Les tensions internacionals a Europa el 1914" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Europa el 1914: l'equilibri de potències abans de l'esclat. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <h3 id="s1-2">1.2. Les causes: MAIN</h3>
@@ -789,8 +788,8 @@
         </div>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/aliancesIGM-2.jpg" alt="Les aliances internacionals abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">El sistema d'aliances internacionals a Europa. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Map_Europe_alliances_1914-en.svg/800px-Map_Europe_alliances_1914-en.svg.png" alt="Les aliances internacionals abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El sistema d'aliances: Triple Aliança vs. Triple Entesa. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <h4 id="s1-i">I — Imperialisme</h4>
@@ -804,8 +803,8 @@
         <p>D'altra banda, el <strong>nacionalisme de les grans potències</strong>: a França, el revanxisme per la pèrdua d'Alsàcia-Lorena a mans d'Alemanya el 1871 era una ferida oberta. A Alemanya, el sentiment que el país mereixia un «lloc al sol» —un paper dominant al món— alimentava les ambicions expansionistes. A tots els països, els diaris i els polítics explotaven el patriotisme per guanyar vots i justificar les despeses militars.</p>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/balcanspreguerra.gif" alt="El conflicte dels Balcans abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">El «polvorí dels Balcans»: l'escenari on es van creuar totes les tensions. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Balkan_Wars_Map.png/800px-Balkan_Wars_Map.png" alt="El conflicte dels Balcans abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Les guerres balcàniques (1912-13), preludi de la Gran Guerra. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <div class="info-box">
@@ -826,8 +825,8 @@
         <p>El context és important: Sarajevo era una ciutat de l'Imperi Austrohongarès amb una gran població eslava que simpatitzava amb Sèrbia. La visita de l'arxiduc es produïa just el Dia de Sant Vitus, una data de gran significació nacional per als serbis. Hi havia hagut avisos previs d'un possible atemptat, però la seguretat era mínima. Un primer grup d'atacants ja havia llançat una granada contra el comboi aquell matí, però havia fallat. Princip els va trobar per casualitat quan el cotxe de Francesc Ferran feia un gir equivocat i s'havia aturat a uns metres d'ell.</p>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/atemptatsarajevo.jpg" alt="L'atemptat de Sarajevo, 1914" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">L'atemptat de Sarajevo, 28 de juny de 1914. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Sarajevo_assassination_sites.jpg/800px-Sarajevo_assassination_sites.jpg" alt="L'atemptat de Sarajevo, 1914" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Mapa de Sarajevo amb els llocs de l'atemptat del 28 de juny de 1914. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <div class="warn-box">
@@ -862,8 +861,8 @@
         <p>Al <strong>front oriental</strong>, els russos van mobilitzar-se més ràpidament del previst i van penetrar a la Prússia Oriental alemanya. Alemanya els va derrotar de forma contundent a la <strong>batalla de Tannenberg</strong> (agost de 1914), però el front oriental va ser sempre molt més fluid i dinàmic que l'occidental.</p>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/europaIGM.gif" alt="Europa durant la Primera Guerra Mundial: fronts de combat" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Europa durant la Primera Guerra Mundial: els dos grans fronts de combat. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Western_front_1917b.jpg/800px-Western_front_1917b.jpg" alt="Europa durant la Primera Guerra Mundial: fronts de combat" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El front occidental el 1917: trinxeres de Suïssa fins al mar del Nord. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <h3 id="s3-2">Fase 2 — La guerra de trinxeres (1915–1916)</h3>
@@ -872,8 +871,8 @@
         <p>La conseqüència era que <strong>guanyar uns centenars de metres de territori costava milers de vides</strong>. Era una guerra d'<em>usura</em>: l'objectiu no era derrotar l'enemic en batalla campal, sinó esgotar-lo fins que no pogués continuar. I les baixes eren enormes, a tots dos costats.</p>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/primeraguerramundial11.jpg" alt="Soldats a les trinxeres de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Soldats a les trinxeres del front occidental. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Cheshire_Regiment_trench_Somme_1916_%28higher_res%29.png/800px-Cheshire_Regiment_trench_Somme_1916_%28higher_res%29.png" alt="Soldats a les trinxeres de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Soldats britànics a les trinxeres del Somme, 1916. Imperial War Museum. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <div class="stats">
@@ -913,8 +912,8 @@
         </ul>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/reclutament-2.jpg" alt="Reclutament massiu durant la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">La guerra total: reclutament massiu de soldats a tots els països bel·ligerants. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6f/Kitchener-poster.jpg/500px-Kitchener-poster.jpg" alt="Reclutament massiu durant la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Cartell de reclutament britànic (Lord Kitchener, 1914): «Your Country Needs YOU». Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <div class="info-box">
@@ -983,8 +982,8 @@
         </ul>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/primeraguerramundial2.jpg" alt="Europa abans i després de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">El nou mapa d'Europa: quatre imperis han desaparegut i neixen nous estats. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Europe_1923_map_en.png/800px-Europe_1923_map_en.png" alt="Europa abans i després de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El nou mapa d'Europa el 1923, desprès de Versalles i els tractats de pau. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <div class="warn-box">
@@ -996,8 +995,8 @@
         <p>Tot això va crear un <strong>caldo de cultiu perfecte</strong> per a moviments polítics extremistes que prometien venjar la derrota i recuperar la grandesa nacional. Adolf Hitler va construir el seu ascens polític precisament sobre l'explotació d'aquest ressentiment. La llegenda de la «<em>punyalada per l'esquena</em>» —la idea que Alemanya no havia perdut militarment sinó que havia estat traïda per socialistes i jueus a la rereguarda— era una mentida, però una mentida que molts alemanys van voler creure. Versalles va convertir Hitler de líder d'un grup marginal en un polític amb suport de masses.</p>
 
         <div class="img-wrap">
-          <img src="https://www.buxaweb.cat/images/fronteresdespresIGM.gif" alt="El nou mapa europeu després de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">El nou mapa d'Europa après del Tractat de Versalles i els tractats annexos. Font: Buxaweb.</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Europe_1919_borders.svg/800px-Europe_1919_borders.svg.png" alt="El nou mapa europeu després de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Les noves fronteres europees fixades pels tractats de pau de 1919. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <h3 id="s5-4">5.4. Les conseqüències globals de la guerra</h3>
@@ -1201,12 +1200,12 @@
         <div class="task-body">
           <p>El 1914, cap govern europeu volia una guerra mundial. Però el sistema d'aliances, el militarisme i les tensions acumulades van convertir un incident local en una catàstrofe global. Molts analistes actuals fan la mateixa pregunta: <strong>tenim avui condicions similars a les del 1914?</strong></p>
           <p>Pensa en conflictes actuals: la guerra d'Ucraïna, les tensions al Pròxim Orient, la rivalitat EUA–Xina al Pacífic, la proliferació nuclear...</p>
-          <ol class="task-steps">
-            <li>Llegiu dues notícies recents sobre un conflicte internacional actiu (Ucraïna, Gaza, Mar de la Xina del Sud...) de fonts diverses. Podeu usar <em>elpais.com</em>, <em>bbc.com/mundo</em> o <em>elnacional.cat</em>.</li>
-            <li>Identifiqueu si hi ha avui alguna de les 4 «A» de la IGM: aliances rígides, cursa d'armaments, rivalitat imperial per recursos, nacionalismes exacerbats.</li>
-            <li>Debateu en grups: <em>En quins aspectes la situació d'avui s'assembla al 1914? En quins és radicalment diferent?</em> Tingueu en compte el paper de l'ONU respecte a la Societat de Nacions, i l'existència de les armes nuclears.</li>
-            <li>Escriviu individualment una breu anàlisi (10–15 línies) argumentant si creieu que hi ha o no risc real de guerra mundial. Useu evidències concretes dels apunts i de les notícies.</li>
-          </ol>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Llegiu dues notícies recents sobre un conflicte internacional actiu (Ucraïna, Gaza, Mar de la Xina del Sud...) de fonts diverses. Podeu usar <em>elpais.com</em>, <em>bbc.com/mundo</em> o <em>elnacional.cat</em>.</span></li>
+            <li><span class="step-num">02</span><span>Identifiqueu si hi ha avui alguna de les causes MAIN: aliances rígides, cursa d'armaments, rivalitat imperial per recursos, nacionalismes exacerbats.</span></li>
+            <li><span class="step-num">03</span><span>Debateu en grups: <em>En quins aspectes la situació d'avui s'assembla al 1914? En quins és radicalment diferent?</em> Tingueu en compte el paper de l'ONU respecte a la Societat de Nacions, i l'existència de les armes nuclears.</span></li>
+            <li><span class="step-num">04</span><span>Escriviu individualment una breu anàlisi (10–15 línies) argumentant si creieu que hi ha o no risc real de guerra mundial. Useu evidències concretes dels apunts i de les notícies.</span></li>
+          </ul>
           <div class="debate-box">
             <span class="debate-label">Punt de debat</span>
             <p>El 1914, la gent creia que la guerra seria curta i victoriosa. Cap soldat imaginava que estaria a les trinxeres quatre anys. Quin paper juga la <em>percepció errònia del risc</em> en l'escalada bèl·lica? Passa avui?</p>
@@ -1222,12 +1221,12 @@
         </div>
         <div class="task-body">
           <p>Els apunts expliquen dates i batalles. Però com vivia la guerra el soldat ras a les trinxeres? Treballar amb fonts primàries —cartes, diaris, fotografies— ens permet humanitzar la Història i entendre-la des de dins.</p>
-          <ol class="task-steps">
-            <li>Busca a internet un fragment d'una carta de soldat de la Primera Guerra Mundial. En trobaràs en català, castellà i anglès. Pots buscar «carta soldado Primera Guerra Mundial» o «letters from the trenches WWI 1914».</li>
-            <li>Identifica: Qui escriu? A qui? Quina data? Quins elements de la vida a les trinxeres descriu? Quina emoció dominant transmet?</li>
-            <li>Compara amb el que diuen els apunts sobre les condicions de la guerra de trinxeres. Coincideix? La font primària afegeix alguna cosa que els apunts no expliquen?</li>
-            <li>Reflexió escrita: <em>Com canvia la teva comprensió de la guerra llegir-la en primera persona?</em></li>
-          </ol>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Busca a internet un fragment d'una carta de soldat de la Primera Guerra Mundial. En trobaràs en català, castellà i anglès. Pots buscar «carta soldado Primera Guerra Mundial» o «letters from the trenches WWI 1914».</span></li>
+            <li><span class="step-num">02</span><span>Identifica: Qui escriu? A qui? Quina data? Quins elements de la vida a les trinxeres descriu? Quina emoció dominant transmet?</span></li>
+            <li><span class="step-num">03</span><span>Compara amb el que diuen els apunts sobre les condicions de la guerra de trinxeres. Coincideix? La font primària afegeix alguna cosa que els apunts no expliquen?</span></li>
+            <li><span class="step-num">04</span><span>Reflexió escrita: <em>Com canvia la teva comprensió de la guerra llegir-la en primera persona?</em></span></li>
+          </ul>
         </div>
       </div>
 
@@ -1239,11 +1238,11 @@
         </div>
         <div class="task-body">
           <p>La Primera Guerra Mundial va ser la primera en usar la <strong>propaganda massiva</strong> com a arma: cartells, premsa, cinema. L'objectiu era convèncer la població civil que la guerra era justa i necessària, i que l'enemic era bèstia i dolent. Avui, les xarxes socials han substituït els cartells —però la lògica és la mateixa.</p>
-          <ol class="task-steps">
-            <li>Cerca a Google Images dos cartells de propaganda de la Primera Guerra Mundial: un de britànic o nord-americà, un d'alemany o austrohongarès. Analitza: Quines emocions volen provocar? Com representen l'enemic? A qui s'adrecen?</li>
-            <li>Cerca ara un exemple recent de propaganda o desinformació en un conflicte actual. Pot ser un vídeo manipulat, una notícia falsa o una imatge fora de context. Pots usar <em>maldita.es</em> o <em>verificat.cat</em> per trobar exemples documentats.</li>
-            <li>Debateu: Quines tècniques es repeteixen entre 1914 i avui? Quines son noves? La desinformació digital és més o menys perillosa que la propaganda de 1914?</li>
-          </ol>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Cerca a Google Images dos cartells de propaganda de la Primera Guerra Mundial: un de britànic o nord-americà, un d'alemany o austrohongarès. Analitza: quines emocions volen provocar? Com representen l'enemic? A qui s'adrecen?</span></li>
+            <li><span class="step-num">02</span><span>Cerca ara un exemple recent de propaganda o desinformació en un conflicte actual. Pot ser un vídeo manipulat, una notícia falsa o una imatge fora de context. Pots usar <em>maldita.es</em> o <em>verificat.cat</em> per trobar exemples documentats.</span></li>
+            <li><span class="step-num">03</span><span>Debateu: quines tècniques es repeteixen entre 1914 i avui? Quines són noves? La desinformació digital és més o menys perillosa que la propaganda de 1914?</span></li>
+          </ul>
           <div class="debate-box">
             <span class="debate-label">Reflexió crítica</span>
             <p>Durant la Primera Guerra Mundial, gairebé cap diari va informar de manera objectiva. Governs i premsa cooperaven per mantenir la moral. Avui la «infosfera» és molt més fragmentada —però no necessàriament més objectiva. <em>Com pots saber quan una informació sobre un conflicte és fiable?</em></p>
@@ -1259,12 +1258,12 @@
         </div>
         <div class="task-body">
           <p>El Tractat de Versalles (1919) va ser tan humiliant per a Alemanya que va sembrar la llavor del nazisme i de la Segona Guerra Mundial. És un cas d'estudi sobre <strong>com no fer la pau</strong>. Però fer una pau «justa» tampoc és senzill: els vencedors tenien les seves pròpies demandes i poblacions a satisfer.</p>
-          <ol class="task-steps">
-            <li>En grups de 5, representeu cadascun un actor de la postguerra: Alemanya, França, Gran Bretanya, els EUA (Wilson), i els nous estats de l'Europa de l'est.</li>
-            <li>Cada grup prepara les seves demandes: Quin territori vols? Quines reparacions demanes? Quines garanties de seguretat necessites? Quins drets per als pobles sense estat?</li>
-            <li>Simuleu una conferència de pau i intenteu arribar a un acord que tothom pugui acceptar sense humiliar ningú.</li>
-            <li>Reflexió final: <em>Per quin motiu el Tractat de Versalles va ser tan dur? Va ser possible una altra pau? Compareu el vostre resultat amb el Tractat real.</em></li>
-          </ol>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>En grups de 5, representeu cadascun un actor de la postguerra: Alemanya, França, Gran Bretanya, els EUA (Wilson), i els nous estats de l'Europa de l'est.</span></li>
+            <li><span class="step-num">02</span><span>Cada grup prepara les seves demandes: quin territori vols? Quines reparacions demanes? Quines garanties de seguretat necessites? Quins drets per als pobles sense estat?</span></li>
+            <li><span class="step-num">03</span><span>Simuleu una conferència de pau i intenteu arribar a un acord que tothom pugui acceptar sense humiliar ningú.</span></li>
+            <li><span class="step-num">04</span><span>Reflexió final: <em>Per quin motiu el Tractat de Versalles va ser tan dur? Va ser possible una altra pau? Compareu el vostre resultat amb el Tractat real.</em></span></li>
+          </ul>
         </div>
       </div>
 

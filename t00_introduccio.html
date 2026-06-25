@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T00 · Introducció a la història — Història 4t ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111; --ink-soft: #444444; --ink-faint: #8a8a8a;
+    --paper: #ffffff; --paper-off: #fafaf9;
+    --line: #111111; --line-soft: #cfcfcc; --line-faint: #e6e5e1;
+    --blue: #0057b8; --blue-light: #e8f0fa; --blue-mid: #c0d6f5;
+    --sidebar-w: 250px; --content-max: 740px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Spectral', Georgia, serif; background: var(--paper); color: var(--ink); line-height: 1.75; font-size: 16.5px; font-weight: 400; }
+
+  .nav { position: sticky; top: 0; z-index: 100; background: rgba(255,255,255,0.94); backdrop-filter: blur(6px); border-bottom: 1px solid var(--line); padding: 0 48px; display: flex; align-items: center; justify-content: space-between; height: 56px; }
+  .nav-left { display: flex; align-items: center; }
+  .nav-back { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-faint); text-decoration: none; display: flex; align-items: center; gap: 8px; padding: 6px 14px 6px 0; border-right: 1px solid var(--line-faint); margin-right: 14px; transition: color 0.15s; }
+  .nav-back:hover { color: var(--ink); }
+  .nav-brand { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink); text-decoration: none; font-weight: 700; }
+  .nav-meta { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--ink-faint); letter-spacing: 0.06em; }
+
+  .topic-hero { background: var(--paper); border-bottom: 1px solid var(--line); padding: 52px 48px 44px; }
+  .topic-hero-inner { max-width: calc(var(--sidebar-w) + var(--content-max) + 64px); margin: 0 auto; }
+  .topic-breadcrumb { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 22px; }
+  .topic-breadcrumb a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--ink); }
+  .topic-num-badge { display: inline-flex; align-items: center; gap: 10px; font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 14px; }
+  .topic-hero h1 { font-family: 'Spectral', serif; font-size: clamp(1.7rem, 3.6vw, 2.6rem); font-weight: 600; letter-spacing: -0.01em; line-height: 1.18; color: var(--ink); margin-bottom: 14px; }
+  .topic-hero h1 em { font-style: italic; font-weight: 400; }
+  .topic-subtitle { font-family: 'DM Mono', monospace; color: var(--ink-soft); font-size: 0.82rem; letter-spacing: 0.03em; }
+
+  .tabs-bar { background: var(--paper); border-bottom: 1px solid var(--line); padding: 0 48px; display: flex; }
+  .tab-btn { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--ink-faint); border: none; background: none; padding: 15px 22px; cursor: pointer; position: relative; transition: color 0.15s; }
+  .tab-btn::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 1px; background: var(--blue); opacity: 0; transition: opacity 0.15s; }
+  .tab-btn:hover { color: var(--ink-soft); }
+  .tab-btn.active { color: var(--ink); font-weight: 700; }
+  .tab-btn.active::after { opacity: 1; }
+
+  .page-wrap { max-width: calc(var(--sidebar-w) + var(--content-max) + 64px); margin: 0 auto; display: grid; grid-template-columns: var(--sidebar-w) 1fr; align-items: start; }
+
+  .sidebar { position: sticky; top: 56px; padding: 40px 24px 40px 0; max-height: calc(100vh - 56px); overflow-y: auto; scrollbar-width: none; }
+  .sidebar::-webkit-scrollbar { display: none; }
+  .sidebar-title { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 16px; padding-bottom: 8px; border-bottom: 1px solid var(--line); }
+  .toc { list-style: none; }
+  .toc a { display: block; padding: 5px 0 5px 14px; font-family: 'Spectral', serif; font-size: 0.83rem; color: var(--ink-faint); text-decoration: none; border-left: 1px solid var(--line-faint); transition: all 0.15s; line-height: 1.4; }
+  .toc a:hover { color: var(--ink); border-left-color: var(--ink-soft); }
+  .toc a.active { color: var(--blue); border-left: 2px solid var(--blue); font-weight: 600; }
+  .toc .toc-sub a { padding-left: 28px; font-size: 0.78rem; font-style: italic; }
+  .sidebar-sep { height: 1px; background: var(--line-faint); margin: 16px 0; }
+
+  .content { padding: 48px 0 100px 40px; border-left: 1px solid var(--line); min-width: 0; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .section { margin-bottom: 64px; padding-top: 8px; opacity: 0; transform: translateY(12px); transition: opacity 0.45s ease, transform 0.45s ease; }
+  .section.visible { opacity: 1; transform: none; }
+  .section-num { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--blue); margin-bottom: 10px; display: block; }
+  h2 { font-family: 'Spectral', serif; font-size: 1.65rem; font-weight: 600; color: var(--ink); margin-bottom: 26px; line-height: 1.3; padding-bottom: 16px; border-bottom: 1px solid var(--line); }
+  h3 { font-family: 'Spectral', serif; font-size: 1.18rem; font-weight: 600; color: var(--ink); margin: 40px 0 14px; }
+  h4 { font-family: 'Spectral', serif; font-size: 0.95rem; font-weight: 600; font-style: italic; color: var(--ink-soft); margin: 28px 0 10px; }
+  p { margin-bottom: 14px; color: var(--ink-soft); font-weight: 300; }
+  p:last-child { margin-bottom: 0; }
+  strong { color: var(--ink); font-weight: 700; }
+  em { font-style: italic; }
+  ul, ol { padding-left: 22px; margin-bottom: 14px; }
+  li { margin-bottom: 6px; color: var(--ink-soft); font-weight: 300; line-height: 1.6; }
+  .section-divider { border: none; border-top: 1px solid var(--line); margin: 52px 0; }
+
+  .def-box { border: 1px solid var(--ink); padding: 18px 20px; margin: 20px 0; }
+  .def-box .def-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); margin-bottom: 8px; display: block; font-weight: 700; }
+  .def-box p { margin: 0 0 8px; font-size: 0.95rem; }
+  .def-box p:last-child { margin: 0; }
+
+  .info-box { border-left: 3px solid var(--blue); background: var(--blue-light); padding: 16px 20px; margin: 22px 0; }
+  .info-box .info-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--blue); margin-bottom: 8px; display: block; font-weight: 700; }
+  .info-box p { margin: 0 0 8px; font-size: 0.93rem; }
+  .info-box p:last-child { margin: 0; }
+
+  .warn-box { border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); padding: 16px 4px; margin: 22px 0; font-size: 0.93rem; color: var(--ink-soft); }
+  .warn-box::before { content: 'ATENCIÓ — '; font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; color: var(--ink); font-weight: 700; display: block; margin-bottom: 6px; }
+
+  .pullquote { border-left: 3px solid var(--ink); padding: 12px 0 12px 22px; margin: 28px 0; }
+  .pullquote p { font-family: 'Spectral', serif; font-style: italic; font-size: 1.05rem; color: var(--ink-soft); line-height: 1.65; font-weight: 300; margin: 0; }
+
+  /* ── CARD GRID ── */
+  .card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border: 1px solid var(--line); margin: 24px 0; }
+  .card-item { padding: 20px 18px; border-right: 1px solid var(--line-faint); }
+  .card-item:last-child { border-right: none; }
+  .card-num { font-family: 'DM Mono', monospace; font-size: 0.7rem; font-weight: 700; color: var(--blue); letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .card-title { font-family: 'Spectral', serif; font-size: 0.95rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+  .card-body { font-size: 0.84rem; color: var(--ink-faint); font-weight: 300; line-height: 1.55; }
+
+  /* ── TASK ── */
+  .task-block { margin-bottom: 40px; border: 1px solid var(--ink); }
+  .task-header { background: var(--ink); padding: 14px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .task-header h3 { margin: 0; font-family: 'Spectral', serif; font-size: 1rem; font-weight: 600; color: var(--paper); }
+  .task-badge { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.14em; text-transform: uppercase; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.4); color: rgba(255,255,255,0.7); white-space: nowrap; }
+  .task-body { padding: 22px 24px; }
+  .task-body p { font-size: 0.93rem; color: var(--ink-soft); margin-bottom: 10px; font-weight: 300; }
+  .task-steps { list-style: none; padding: 0; margin: 12px 0 0; }
+  .task-steps li { display: flex; gap: 12px; align-items: flex-start; margin-bottom: 10px; font-size: 0.88rem; color: var(--ink-soft); font-weight: 300; line-height: 1.6; border-bottom: 1px dotted var(--line-faint); padding-bottom: 10px; }
+  .task-steps li:last-child { border-bottom: none; padding-bottom: 0; }
+  .task-steps li .step-num { font-family: 'DM Mono', monospace; font-size: 0.72rem; font-weight: 700; color: var(--blue); padding-top: 3px; flex-shrink: 0; min-width: 18px; }
+  .debate-box { border-top: 1px solid var(--line-soft); margin-top: 16px; padding-top: 14px; }
+  .debate-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--ink-faint); display: block; margin-bottom: 6px; font-weight: 700; }
+  .debate-box p { font-style: italic; font-size: 0.9rem; }
+
+  /* ── CRONO ── */
+  .crono { border-left: 1px solid var(--line); padding-left: 28px; margin-top: 8px; }
+  .crono-group { margin-bottom: 36px; }
+  .crono-group-label { font-family: 'DM Mono', monospace; font-size: 9px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink-faint); background: var(--paper-off); display: inline-block; padding: 4px 10px; margin-bottom: 18px; position: relative; left: -38px; border: 1px solid var(--line-faint); }
+  .crono-entry { position: relative; margin-bottom: 24px; opacity: 0; transform: translateX(-6px); transition: opacity 0.38s ease, transform 0.38s ease; }
+  .crono-entry.vis { opacity: 1; transform: none; }
+  .crono-dot { position: absolute; left: -33px; top: 6px; width: 8px; height: 8px; border-radius: 50%; background: var(--paper); border: 1px solid var(--ink); }
+  .crono-dot.key { background: var(--blue); border-color: var(--blue); width: 10px; height: 10px; left: -34px; top: 5px; }
+  .crono-year { font-family: 'DM Mono', monospace; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--blue); display: block; margin-bottom: 2px; }
+  .crono-event { font-family: 'Spectral', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 3px; line-height: 1.3; }
+  .crono-desc { font-size: 0.88rem; color: var(--ink-faint); font-weight: 300; line-height: 1.55; }
+
+  .site-footer { border-top: 1px solid var(--line); padding: 24px 48px; display: flex; justify-content: space-between; align-items: center; color: var(--ink-faint); font-family: 'DM Mono', monospace; font-size: 9.5px; letter-spacing: 0.06em; max-width: calc(var(--sidebar-w) + var(--content-max) + 64px); margin: 0 auto; }
+  .footer-nav { display: flex; gap: 20px; }
+  .footer-nav a { color: var(--ink-faint); text-decoration: none; transition: color 0.15s; }
+  .footer-nav a:hover { color: var(--ink); }
+
+  @media (max-width: 860px) {
+    .page-wrap { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .content { padding: 32px 22px 60px; border-left: none; }
+    .card-grid { grid-template-columns: 1fr; }
+    .card-item { border-right: none; border-bottom: 1px solid var(--line-faint); }
+    .card-item:last-child { border-bottom: none; }
+    .topic-hero, .tabs-bar { padding-left: 22px; padding-right: 22px; }
+    .nav { padding: 0 22px; }
+    .nav-meta { display: none; }
+    .site-footer { padding: 20px 22px; flex-direction: column; gap: 10px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-back" href="index.html">← Índex</a>
+    <span class="nav-brand">Història 4t ESO</span>
+  </div>
+  <span class="nav-meta">T00 · Introducció a la història</span>
+</nav>
+
+<div class="topic-hero">
+  <div class="topic-hero-inner">
+    <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 00</div>
+    <div class="topic-num-badge">Tema 00 — Conceptes i mètode</div>
+    <h1>Introducció a <em>la història</em></h1>
+    <p class="topic-subtitle">Què és · Per a què serveix · Com la construïm · Per què importa</p>
+  </div>
+</div>
+
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('apunts', this)">APUNTS</button>
+  <button class="tab-btn" onclick="switchTab('cronologia', this)">EIX CRONOLÒGIC</button>
+  <button class="tab-btn" onclick="switchTab('ara', this)">LA HISTÒRIA, ARA</button>
+</div>
+
+<div class="page-wrap">
+  <nav class="sidebar">
+    <div class="sidebar-title">Continguts</div>
+    <ul class="toc" id="toc-apunts">
+      <li><a href="#s1">1. Què és la història?</a></li>
+      <li class="toc-sub"><a href="#s1-1">1.1 Més que dates</a></li>
+      <li class="toc-sub"><a href="#s1-2">1.2 Un camp de batalla</a></li>
+      <li><a href="#s2">2. Relat oficial i memòries silenciades</a></li>
+      <li><a href="#s3">3. La història com a eina crítica</a></li>
+      <li><a href="#s4">4. La memòria i el futur</a></li>
+      <li><a href="#s5">5. Conceptes bàsics</a></li>
+      <li class="toc-sub"><a href="#s5-1">5.1 Temps i periodització</a></li>
+      <li class="toc-sub"><a href="#s5-2">5.2 Fonts</a></li>
+      <li class="toc-sub"><a href="#s5-3">5.3 Causes i conseqüències</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- ═══ TAB 1: APUNTS ═══ -->
+    <div class="tab-panel active" id="panel-apunts">
+
+      <section class="section" id="s1">
+        <span class="section-num">Secció 01</span>
+        <h2>Què és la història?</h2>
+
+        <h3 id="s1-1">1.1. Més que un conjunt de dates</h3>
+        <p>La majoria de la gent associa la història amb dates, noms de reis i batalles per memoritzar. Però la història no és —o no hauria de ser— un catàleg de fets ordenats. És la disciplina que intenta comprendre per què les societats han canviat, quines forces han impulsat les transformacions, qui s'ha beneficiat d'elles i qui les ha pagat.</p>
+
+        <div class="def-box">
+          <span class="def-label">Definició</span>
+          <p>La <strong>història</strong> és la disciplina que estudia el passat humà a partir de fonts i evidències, amb l'objectiu de comprendre com i per què les societats han canviat al llarg del temps, i quin significat té aquest passat per al present.</p>
+        </div>
+
+        <p>La clau és l'última part: <em>quin significat té per al present</em>. La història no és una activitat de museu. Les desigualtats actuals, les fronteres dels estats, els drets que tenim —o que no tenim— i les guerres d'avui tenen arrels en decisions preses en el passat. Ignorar la història és no entendre el present.</p>
+
+        <h3 id="s1-2">1.2. Un camp de batalla</h3>
+        <p>La història és sempre una <strong>construcció</strong>: no hi ha un relat únic i objectiu del passat. Hi ha moltes narracions possibles, i la que s'imposa en cada moment no depèn de qui diu la veritat, sinó de qui té poder per fer sentir la seva versió.</p>
+
+        <div class="pullquote">
+          <p>«La història no és un conjunt de dades i dates. No és un relat lineal que ens porta inevitablement fins al present. És un camp de batalla en el qual diferents memòries i narracions xoquen.»</p>
+        </div>
+
+        <p>Penseu en com s'explica la conquesta d'Amèrica a Espanya i als països llatinoamericans. O com el colonialisme europeu apareix als llibres de text europeus i als africans. No és que algú menteixi necessàriament: és que <strong>des d'on mires canvia el que veus</strong>.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <section class="section" id="s2">
+        <span class="section-num">Secció 02</span>
+        <h2>El relat oficial i les memòries silenciades</h2>
+
+        <p>Durant segles, la història que s'ha ensenyat a les escoles ha estat principalment la dels poderosos: reis, generals, homes blancs europeus. Les seves victòries es presentaven com a progressos de la humanitat. Quan el passat es presenta com un camí lògic i inevitable cap al present, s'està fent una tria política: es diu que l'ordre actual és l'únic possible, que és el resultat natural de la marxa de la Història. S'està <strong>legitimant el que existeix</strong>.</p>
+
+        <div class="card-grid">
+          <div class="card-item">
+            <span class="card-num">Problema 01</span>
+            <div class="card-title">Justificació del present</div>
+            <div class="card-body">El present es presenta com l'única conclusió possible, esborrant les alternatives derrotades.</div>
+          </div>
+          <div class="card-item">
+            <span class="card-num">Problema 02</span>
+            <div class="card-title">Camí inevitable</div>
+            <div class="card-body">S'eliminen els conflictes i els moments en què les coses podien haver anat d'una altra manera.</div>
+          </div>
+          <div class="card-item">
+            <span class="card-num">Problema 03</span>
+            <div class="card-title">Silenci de les víctimes</div>
+            <div class="card-body">La història de les classes populars, les dones i els pobles colonitzats queda en segon pla o desapareix.</div>
+          </div>
+        </div>
+
+        <p>El historiador Enzo Traverso parla de les <strong>«memòries silenciades»</strong>: aquells fragments del passat que la memòria oficial oculta o minimitza perquè qüestionen la versió dominant. Recuperar-les no és un acte de nostàlgia: és un acte crític que ens ajuda a veure el passat —i el present— d'una manera més completa i honesta.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <section class="section" id="s3">
+        <span class="section-num">Secció 03</span>
+        <h2>La història com a eina crítica</h2>
+
+        <p>Si la història pot ser usada per justificar l'ordre existent, també pot ser usada per <strong>qüestionar-lo</strong>. Quan estudiem el passat amb ulls crítics, descobrim que moltes coses que avui ens semblen naturals o inevitables —desigualtats, fronteres, jerarquies socials— són construccions humanes, resultat de decisions i lluites concretes, i que per tant poden canviar.</p>
+        <p>La jornada laboral de vuit hores, les vacances pagades, la baixa per malaltia: cada un d'aquests drets va ser el resultat d'una lluita en la qual molta gent va arriscar la feina i a vegades la llibertat. Conèixer aquesta història no és nostàlgia: és entendre d'on venim i per quin motiu cal defensar el que tenim. I la historia continua: el debat sobre els drets dels treballadors de plataformes digitals avui és directament la continuació d'aquelles lluites del segle XIX.</p>
+
+        <div class="info-box">
+          <span class="info-label">La història és útil quan...</span>
+          <p>... ens permet veure que el món podria ser diferent, que res no estava escrit per endavant, i que els drets que considerem normals van ser conquestes de moviments que van lluitar per ells.</p>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <section class="section" id="s4">
+        <span class="section-num">Secció 04</span>
+        <h2>La memòria i el futur</h2>
+
+        <p>Traverso proposa una idea potent: la memòria no serveix només per mirar enrere, sinó per <strong>obrir possibilitats cap endavant</strong>. Les lluites del passat que van fracassar no han desaparegut del tot. Viuen en la memòria com un <em>arxiu de futurs no realitzats</em>: propostes per a una societat diferent que, en el seu moment, no es van imposar, però que poden inspirar les lluites del present.</p>
+        <p>Un exemple proper: el debat sobre la <strong>Llei de Memòria Democràtica</strong> a Espanya. La discussió sobre la retirada de símbols franquistes i la recuperació de la memòria de les víctimes no és sobre el passat —és sobre el present. No es tracta d'esborrar la história: és decidir <strong>quin passat volem recordar públicament</strong> i quins valors volem transmetre com a societat.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <section class="section" id="s5">
+        <span class="section-num">Secció 05</span>
+        <h2>Conceptes bàsics per treballar la història</h2>
+
+        <h3 id="s5-1">5.1. El temps i la periodització</h3>
+        <p>El temps históric no es mesura en minuts, sinó en <strong>períodes i processos</strong>. La divisió en Edat Antiga, Edat Mitjana, Edat Moderna i Edat Contemporània no existeix «de veritat»: la construïm nosaltres per organitzar el coneixement. Per tant, sempre cal preguntar-se: qui va decidir on comença i on acaba cada període? Hi ha canvis molt lents (transformacions econòmiques, demogràfiques) i fets molt ràpids (revolucions, guerres) que poden canviar el rumb de la história en qüestió de dies.</p>
+
+        <h3 id="s5-2">5.2. Les fonts</h3>
+        <p>Com sabem el que sabem del passat? A través de les <strong>fonts históriques</strong>: documents, objectes, lleis, fotografies, cartes, entrevistes. Les fonts no parlen soles: cal interpretar-les i contextualitzar-les. Cap font és neutral —un diari d'empresa mostra les preocupacions dels propietaris, no dels treballadors. Per això els historiadors sempre pregunten: <em>qui va produir aquest document, per a qui, amb quin objectiu?</em></p>
+
+        <div class="def-box">
+          <span class="def-label">Fonts primàries i secundàries</span>
+          <p><strong>Fonts primàries:</strong> produïdes en el moment que volem estudiar. Cartes, lleis, objectes, fotografies, testimonis directes.</p>
+          <p><strong>Fonts secundàries:</strong> interpretacions del passat elaborades posteriorment. Llibres d'história, articles acadèmics, documentals.</p>
+        </div>
+
+        <h3 id="s5-3">5.3. Causes i conseqüències</h3>
+        <p>La pregunta central de la história és <em>per qué va passar?</em> Els historiadors distingeixen entre <strong>causes estructurals</strong> —processos lents i profunds que creen les condicions per a un esdeveniment— i <strong>detonants</strong> —el fet concret que l'encén. L'assassinat de Sarajevo no va «causar» la Primera Guerra Mundial: va ser l'espurna que va encendre un polvorí carregat durant dècades. Sense el polvorí, l'espurna no hauria fet res.</p>
+
+        <div class="info-box">
+          <span class="info-label">Clau per a tot el curs</span>
+          <p>Al llarg del curs veureu que cada gran esdeveniment s'entén millor distingint les causes profundes del detonant puntual. Aprendre a fer aquesta distinció és aprendre a pensar históricament.</p>
+        </div>
+      </section>
+
+    </div><!-- /panel-apunts -->
+
+    <!-- ═══ TAB 2: CRONOLOGIA ═══ -->
+    <div class="tab-panel" id="panel-cronologia">
+      <p style="font-size:0.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'DM Mono',monospace;letter-spacing:0.04em;">Les grans divisions de la Història occidental, i els períodes que cobrirà aquest curs.</p>
+
+      <div class="crono">
+        <div class="crono-group">
+          <div class="crono-group-label">Les quatre edats de la Història</div>
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">Fins al 476 dC</span>
+            <div class="crono-event">Edat Antiga</div>
+            <div class="crono-desc">De les primeres civilitzacions escrites (Mesopotàmia, Egipte) fins a la caiguda de l'Imperi Romà d'Occident.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">476 – 1492</span>
+            <div class="crono-event">Edat Mitjana</div>
+            <div class="crono-desc">Del feudalisme europeu a les primeres expansions marítimes. Europa, el món islàmic i les civilitzacions asiàtiques i americanes coexisteixen amb poc contacte.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot"></div>
+            <span class="crono-year">1492 – 1789</span>
+            <div class="crono-event">Edat Moderna</div>
+            <div class="crono-desc">La conquesta d'Amèrica, la Reforma Protestant, l'absolutisme i la Il·lustració. L'Antic Règim arriba al límit de les seves contradiccions.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">1789 – avui</span>
+            <div class="crono-event">Edat Contemporània — el nostre curs</div>
+            <div class="crono-desc">De la Revolució Francesa fins al present. Industrialització, imperialisme, guerres mundials, totalitarismes, Guerra Freda i globalització.</div>
+          </div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">Els temes del curs</div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">Segles XVII–XVIII</span>
+            <div class="crono-event">Antic Règim i Revolució Francesa</div>
+            <div class="crono-desc">Societat estamental, comerç triangular i esclavitud, Il·lustració i Revolució de 1789.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">1760 – 1870</span>
+            <div class="crono-event">Revolució Industrial</div>
+            <div class="crono-desc">La fàbrica, la màquina de vapor, el ferrocarril. Naixement del capitalisme industrial i del moviment obrer.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">1870 – 1914</span>
+            <div class="crono-event">Imperialisme europeu</div>
+            <div class="crono-desc">Repartiment d'Àfrica i Àsia. La Conferència de Berlín. El polvorí que portarà a la Gran Guerra.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">1914 – 1918</span>
+            <div class="crono-event">Primera Guerra Mundial</div>
+            <div class="crono-desc">17 milions de morts. Cauen quatre imperis. Versalles planta les llavors del nazisme.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">1919 – 1939</span>
+            <div class="crono-event">Entreguerres i feixismes</div>
+            <div class="crono-desc">El Crac del 29, la Gran Depressió i l'ascens de Mussolini i Hitler.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">1939 – 1945</span>
+            <div class="crono-event">Segona Guerra Mundial</div>
+            <div class="crono-desc">70–85 milions de morts. L'Holocaust. La bomba atòmica. El món es divideix en dos blocs.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">1898 – 1978</span>
+            <div class="crono-event">Història d'Espanya</div>
+            <div class="crono-desc">De la Setmana Tràgica a la Transició. La República, la Guerra Civil, el Franquisme i la democràcia.</div>
+          </div>
+          <div class="crono-entry">
+            <div class="crono-dot key"></div>
+            <span class="crono-year">1945 – 1991</span>
+            <div class="crono-event">Guerra Freda</div>
+            <div class="crono-desc">EUA vs. URSS. La cursa armamentista. La caiguda del Mur de Berlín.</div>
+          </div>
+        </div>
+      </div>
+    </div><!-- /panel-cronologia -->
+
+    <!-- ═══ TAB 3: LA HISTÒRIA, ARA ═══ -->
+    <div class="tab-panel" id="panel-ara">
+
+      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off);">
+        <p style="font-size:0.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7;">Una de les idees centrals d'aquest tema és que la história no explica com <em>havia de ser</em> el present. Les coses podrien haver anat d'una altra manera. Comencem el curs amb una activitat que posa aquesta idea en pràctica.</p>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header">
+          <h3>I si...? Imaginació histórica</h3>
+          <span class="task-badge">Grups de 4–5</span>
+        </div>
+        <div class="task-body">
+          <p>Trieu un dels escenaris alternatius que segueixen. En grups, imagineu com seria avui el món si aquell fet hagués estat diferent. No es tracta de fer ciència-ficció: es tracta de pensar quines cadenes causals haurien canviat, quins actors haurien guanyat o perdut poder, quines estructures s'haurien mantingut o transformat.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">A</span><span>Si la pandèmia del COVID-19 no hagués passat mai. Quines estructures sanitàries, econòmiques i polítiques serien diferents?</span></li>
+            <li><span class="step-num">B</span><span>Si no hagués existit mai Instagram, ni TikTok, ni xarxes similars. Com seria diferent la política? La identitat dels joves? Les relacions?</span></li>
+            <li><span class="step-num">C</span><span>Si s'hagués declarat la independència de Catalunya amb èxit el 2017. Quin impacte hauria tingut a Espanya i a Europa?</span></li>
+            <li><span class="step-num">D</span><span>Si encara visquéssim en una dictadura que perdurés des de l'època de Franco. Quines lleis i drets no existirien?</span></li>
+            <li><span class="step-num">E</span><span>Si el desastre de la DANA hagués ocorregut a l'àrea de Barcelona causant milers de morts. Com hauria canviat el debat sobre el canvi climàtic?</span></li>
+          </ul>
+          <div class="debate-box">
+            <span class="debate-label">Reflexió final</span>
+            <p>Per qué és útil fer-nos preguntes del tipus «i si...»? Qué ens ensenyen sobre la diferència entre <em>causes estructurals</em> i <em>detonants</em> concrets?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header">
+          <h3>Qui explica la história del teu barri?</h3>
+          <span class="task-badge">Individual</span>
+        </div>
+        <div class="task-body">
+          <p>Els carrers i monuments de les nostres ciutats conten una história: la de qui va tenir el poder de decidir qué i qui es recorda. Analitzem l'entorn amb ulls histórics.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Busca el nom del teu carrer o d'un carrer proper. Qui era la persona o qué commemorava? Quan es va posar el nom?</span></li>
+            <li><span class="step-num">02</span><span>Hi ha al teu barri algun monument o placa que faci referència a la história? A qui homenatja? De quina época és?</span></li>
+            <li><span class="step-num">03</span><span>Busca si hi ha alguna controvèrsia sobre noms de carrers o monuments al teu municipi relacionada amb la memòria histórica.</span></li>
+            <li><span class="step-num">04</span><span>Reflexió: quines veus estan representades a l'espai públic del teu entorn? Qui queda absent? Qui hauria de tenir un carrer que ara no en té?</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /panel-ara -->
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>T00 · Introducció a la història · 4t ESO</span>
+  <nav class="footer-nav">
+    <a href="index.html">Índex</a>
+    <a href="t01_antic_regim.html">Tema 01 →</a>
+  </nav>
+</footer>
+
+<script>
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    btn.classList.add('active');
+    if (name === 'cronologia') animateCrono();
+    if (name === 'apunts') revealSections();
+    window.scrollTo({ top: document.querySelector('.tabs-bar').offsetTop - 56, behavior: 'smooth' });
+  }
+  function revealSections() {
+    const obs = new IntersectionObserver((e) => { e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); }); }, { threshold: 0.06 });
+    document.querySelectorAll('#panel-apunts .section').forEach(s => obs.observe(s));
+  }
+  function animateCrono() {
+    document.querySelectorAll('.crono-entry').forEach((el, i) => { setTimeout(() => el.classList.add('vis'), i * 55); });
+  }
+  const tocLinks = document.querySelectorAll('#toc-apunts a');
+  const sObs = new IntersectionObserver((e) => {
+    e.forEach(x => { if (x.isIntersecting) { tocLinks.forEach(a => a.classList.remove('active')); const l = document.querySelector(`#toc-apunts a[href="#${x.target.id}"]`); if (l) l.classList.add('active'); } });
+  }, { rootMargin: '-20% 0px -70% 0px' });
+  document.querySelectorAll('.section[id], h3[id]').forEach(s => sObs.observe(s));
+  revealSections();
+</script>
+</body>
+</html>
