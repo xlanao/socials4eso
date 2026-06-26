@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T05 · El Període d'Entreguerres i els Feixismes — Història 4t ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#111111;--ink-soft:#444444;--ink-faint:#8a8a8a;--paper:#ffffff;--paper-off:#fafaf9;--line:#111111;--line-soft:#cfcfcc;--line-faint:#e6e5e1;--blue:#0057b8;--blue-light:#e8f0fa;--blue-mid:#c0d6f5;--sidebar-w:250px;--content-max:740px}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Spectral',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:16.5px;font-weight:400}
+  .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav-left{display:flex;align-items:center}
+  .nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-decoration:none;display:flex;align-items:center;gap:8px;padding:6px 14px 6px 0;border-right:1px solid var(--line-faint);margin-right:14px;transition:color .15s}
+  .nav-back:hover{color:var(--ink)}
+  .nav-brand{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;font-weight:700}
+  .nav-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-faint);letter-spacing:.06em}
+  .topic-hero{background:var(--paper);border-bottom:1px solid var(--line);padding:52px 48px 44px}
+  .topic-hero-inner{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .topic-breadcrumb{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+  .topic-breadcrumb a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+  .topic-num-badge{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  .topic-hero h1{font-family:'Spectral',serif;font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:600;letter-spacing:-.01em;line-height:1.18;color:var(--ink);margin-bottom:14px}
+  .topic-hero h1 em{font-style:italic;font-weight:400}
+  .topic-subtitle{font-family:'DM Mono',monospace;color:var(--ink-soft);font-size:.82rem;letter-spacing:.03em}
+  .tabs-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:0 48px;display:flex}
+  .tab-btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);border:none;background:none;padding:15px 22px;cursor:pointer;position:relative;transition:color .15s}
+  .tab-btn::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--blue);opacity:0;transition:opacity .15s}
+  .tab-btn:hover{color:var(--ink-soft)}.tab-btn.active{color:var(--ink);font-weight:700}.tab-btn.active::after{opacity:1}
+  .page-wrap{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto;display:grid;grid-template-columns:var(--sidebar-w) 1fr;align-items:start}
+  .sidebar{position:sticky;top:56px;padding:40px 24px 40px 0;max-height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none}
+  .sidebar::-webkit-scrollbar{display:none}
+  .sidebar-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .toc{list-style:none}
+  .toc a{display:block;padding:5px 0 5px 14px;font-family:'Spectral',serif;font-size:.83rem;color:var(--ink-faint);text-decoration:none;border-left:1px solid var(--line-faint);transition:all .15s;line-height:1.4}
+  .toc a:hover{color:var(--ink);border-left-color:var(--ink-soft)}.toc a.active{color:var(--blue);border-left:2px solid var(--blue);font-weight:600}
+  .toc .toc-sub a{padding-left:28px;font-size:.78rem;font-style:italic}
+  .content{padding:48px 0 100px 40px;border-left:1px solid var(--line);min-width:0}
+  .tab-panel{display:none}.tab-panel.active{display:block}
+  .section{margin-bottom:64px;padding-top:8px;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+  .section.visible{opacity:1;transform:none}
+  .section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:block}
+  h2{font-family:'Spectral',serif;font-size:1.65rem;font-weight:600;color:var(--ink);margin-bottom:26px;line-height:1.3;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  h3{font-family:'Spectral',serif;font-size:1.18rem;font-weight:600;color:var(--ink);margin:40px 0 14px}
+  h4{font-family:'Spectral',serif;font-size:.95rem;font-weight:600;font-style:italic;color:var(--ink-soft);margin:28px 0 10px}
+  p{margin-bottom:14px;color:var(--ink-soft);font-weight:300}p:last-child{margin-bottom:0}
+  strong{color:var(--ink);font-weight:700}em{font-style:italic}
+  ul,ol{padding-left:22px;margin-bottom:14px}
+  li{margin-bottom:6px;color:var(--ink-soft);font-weight:300;line-height:1.6}
+  .section-divider{border:none;border-top:1px solid var(--line);margin:52px 0}
+  .def-box{border:1px solid var(--ink);padding:18px 20px;margin:20px 0}
+  .def-box .def-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:block;font-weight:700}
+  .def-box p{margin:0 0 8px;font-size:.95rem}.def-box p:last-child{margin:0}
+  .info-box{border-left:3px solid var(--blue);background:var(--blue-light);padding:16px 20px;margin:22px 0}
+  .info-box .info-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;display:block;font-weight:700}
+  .info-box p{margin:0 0 8px;font-size:.93rem}.info-box p:last-child{margin:0}
+  .warn-box{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 4px;margin:22px 0;font-size:.93rem;color:var(--ink-soft)}
+  .warn-box::before{content:'PER ENTENDRE-HO BÉ — ';font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--ink);font-weight:700;display:block;margin-bottom:6px}
+  .img-wrap{margin:24px 0;border:1px solid var(--line-soft)}
+  .img-wrap img{width:100%;height:auto;display:block}
+  .img-cap{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.04em;color:var(--ink-faint);padding:8px 12px;border-top:1px solid var(--line-faint);background:var(--paper-off)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);margin:24px 0}
+  .stat-item{padding:18px 14px;text-align:center;border-right:1px solid var(--line-faint)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-family:'DM Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--blue);display:block;line-height:1;margin-bottom:5px}
+  .stat-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);display:block;line-height:1.4}
+  .pullquote{border-left:3px solid var(--ink);padding:12px 0 12px 22px;margin:28px 0}
+  .pullquote p{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft);line-height:1.65;font-weight:300;margin:0 0 6px}
+  .pullquote cite{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-style:normal}
+  /* comparació feixismes */
+  .compare{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin:22px 0}
+  .compare-col{padding:20px 18px;border-right:1px solid var(--line-faint)}
+  .compare-col:last-child{border-right:none}
+  .compare-header{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid;display:block}
+  .compare-col.italia .compare-header{color:var(--blue);border-color:var(--blue)}
+  .compare-col.alemanya .compare-header{color:var(--ink);border-color:var(--ink)}
+  .compare-col ul{padding-left:16px;margin:0}
+  .compare-col li{font-size:.85rem;color:var(--ink-soft);margin-bottom:7px;font-weight:300;line-height:1.5}
+  /* característiques feixisme */
+  .carac-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin:22px 0}
+  .carac{padding:18px 16px;border-right:1px solid var(--line-faint);border-bottom:1px solid var(--line-faint)}
+  .carac:nth-child(2n){border-right:none}
+  .carac:nth-last-child(-n+2){border-bottom:none}
+  .carac-tag{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:4px}
+  .carac-title{font-family:'Spectral',serif;font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+  .carac-body{font-size:.84rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  /* crono */
+  .crono{border-left:1px solid var(--line);padding-left:28px;margin-top:8px}
+  .crono-group{margin-bottom:36px}
+  .crono-group-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-off);display:inline-block;padding:4px 10px;margin-bottom:18px;position:relative;left:-38px;border:1px solid var(--line-faint)}
+  .crono-entry{position:relative;margin-bottom:26px;opacity:0;transform:translateX(-6px);transition:opacity .38s ease,transform .38s ease}
+  .crono-entry.vis{opacity:1;transform:none}
+  .crono-dot{position:absolute;left:-33px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
+  .crono-dot.key{background:var(--blue);border-color:var(--blue);width:10px;height:10px;left:-34px;top:5px}
+  .crono-year{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:2px}
+  .crono-event{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.3}
+  .crono-desc{font-size:.88rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  /* task */
+  .task-block{margin-bottom:40px;border:1px solid var(--ink)}
+  .task-header{background:var(--ink);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+  .task-header h3{margin:0;font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--paper)}
+  .task-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);white-space:nowrap}
+  .task-body{padding:22px 24px}
+  .task-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300}
+  .task-steps{list-style:none;padding:0;margin:12px 0 0}
+  .task-steps li{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.6;border-bottom:1px dotted var(--line-faint);padding-bottom:10px}
+  .task-steps li:last-child{border-bottom:none;padding-bottom:0}
+  .task-steps li .step-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:18px}
+  .debate-box{border-top:1px solid var(--line-soft);margin-top:16px;padding-top:14px}
+  .debate-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:6px;font-weight:700}
+  .debate-box p{font-style:italic;font-size:.9rem}
+  .site-footer{border-top:1px solid var(--line);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;color:var(--ink-faint);font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.06em;max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .footer-nav{display:flex;gap:20px}
+  .footer-nav a{color:var(--ink-faint);text-decoration:none;transition:color .15s}
+  .footer-nav a:hover{color:var(--ink)}
+  @media(max-width:860px){
+    .page-wrap{grid-template-columns:1fr}.sidebar{display:none}
+    .content{padding:32px 22px 60px;border-left:none}
+    .stats{grid-template-columns:1fr 1fr}
+    .compare,.carac-grid{grid-template-columns:1fr}
+    .compare-col{border-right:none;border-bottom:1px solid var(--line-faint)}
+    .compare-col:last-child{border-bottom:none}
+    .carac{border-right:none}.carac:nth-last-child(-n+2){border-bottom:1px solid var(--line-faint)}.carac:last-child{border-bottom:none}
+    .topic-hero,.tabs-bar{padding-left:22px;padding-right:22px}
+    .nav{padding:0 22px}.nav-meta{display:none}
+    .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-back" href="index.html">← Índex</a>
+    <span class="nav-brand">Història 4t ESO</span>
+  </div>
+  <span class="nav-meta">T05 · El Període d'Entreguerres i els Feixismes</span>
+</nav>
+
+<div class="topic-hero">
+  <div class="topic-hero-inner">
+    <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 05</div>
+    <div class="topic-num-badge">Tema 05 — 1919–1939</div>
+    <h1>El Període d'Entreguerres<br>i els <em>Feixismes Europeus</em></h1>
+    <p class="topic-subtitle">El Crac del 29 · Mussolini i Hitler · La Segona República · Les arrels del present</p>
+  </div>
+</div>
+
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
+  <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
+</div>
+
+<div class="page-wrap">
+  <nav class="sidebar">
+    <div class="sidebar-title">Continguts</div>
+    <ul class="toc" id="toc-apunts">
+      <li><a href="#s1">1. Els feliços anys 20 i el Crac del 29</a></li>
+      <li class="toc-sub"><a href="#s1-1">1.1 Prosperitat i fragilitat oculta</a></li>
+      <li class="toc-sub"><a href="#s1-2">1.2 El Dijous Negre i el mecanisme del col·lapse</a></li>
+      <li class="toc-sub"><a href="#s1-3">1.3 La Gran Depressió</a></li>
+      <li class="toc-sub"><a href="#s1-4">1.4 El New Deal</a></li>
+      <li><a href="#s2">2. El feixisme</a></li>
+      <li class="toc-sub"><a href="#s2-1">2.1 Definició i característiques</a></li>
+      <li class="toc-sub"><a href="#s2-2">2.2 El feixisme italià (Mussolini)</a></li>
+      <li class="toc-sub"><a href="#s2-3">2.3 El nazisme alemany (Hitler)</a></li>
+      <li class="toc-sub"><a href="#s2-4">2.4 La consolidació del poder nazi</a></li>
+      <li class="toc-sub"><a href="#s2-5">2.5 L'antisemitisme i les Lleis de Nuremberg</a></li>
+      <li><a href="#s3">3. La Segona República Espanyola</a></li>
+      <li class="toc-sub"><a href="#s3-1">3.1 Proclamació i reformes</a></li>
+      <li class="toc-sub"><a href="#s3-2">3.2 Les etapes de la República</a></li>
+      <li class="toc-sub"><a href="#s3-3">3.3 El Front Popular i el cop d'estat</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- ═══ TAB 1: APUNTS ═══ -->
+    <div class="tab-panel active" id="panel-apunts">
+
+      <div class="stats" style="margin-bottom:40px">
+        <div class="stat-item"><span class="stat-num">1929</span><span class="stat-label">Any del Crac de Wall Street</span></div>
+        <div class="stat-item"><span class="stat-num">25%</span><span class="stat-label">Taxa d'atur als EUA (1933)</span></div>
+        <div class="stat-item"><span class="stat-num">1933</span><span class="stat-label">Hitler arriba al poder</span></div>
+        <div class="stat-item"><span class="stat-num">1936</span><span class="stat-label">Cop d'estat contra la República</span></div>
+      </div>
+
+      <!-- S1 -->
+      <section class="section" id="s1">
+        <span class="section-num">Secció 01</span>
+        <h2>Els «feliços anys 20», el Crac del 29 i la Gran Depressió</h2>
+
+        <p>Entre els temes anteriors i la Segona Guerra Mundial hi ha dues dècades que ho expliquen tot: els anys 1919–1939. Dues dècades en les quals el capitalisme va viure la seva pitjor crisi fins aleshores, en les quals el feixisme va ascendir com a resposta a aquella crisi, i en les quals les democràcies europees van mostrar la seva fragilitat. Entendre aquest període és entendre com es pot passar d'una societat que el 1919 anhela la pau a una que el 1939 torna a la guerra.</p>
+
+        <h3 id="s1-1">1.1. La prosperitat dels anys 20: creixement real, fragilitat oculta</h3>
+        <p>Als Estats Units, la dècada de 1920 va ser una època d'expansió econòmica real i visible: producció industrial en creixement constant, automòbils, cinema, telèfons i electricitat a les llars de la classe mitjana, jazz als clubs, optimisme generalitzat. Els diaris parlaven d'una «nova era» en la qual el creixement econòmic seria indefinit. Era l'era de la producció en massa fordista que havíem vist al Tema 3.</p>
+        <p>Però sota aquesta prosperitat, tres contradiccions estructurals s'anaven acumulant en silenci, com fissures en un edifici que sembla sòlid.</p>
+        <p>La primera era la <strong>desigualtat extrema</strong>. El creixement dels anys 20 no es distribuïa de manera uniforme: el 5% de la població percebia el 35% de la renda nacional. Les grans empreses multiplicaven els seus beneficis; els salaris dels treballadors pujaven molt menys. En conseqüència, les empreses produïen cada cop més, però la capacitat de compra de la majoria de la gent no creixia al mateix ritme. Sorgeix aquí una contradicció fonamental del sistema: si els treballadors no cobren prou per comprar tot el que produeixen les empreses per a les quals treballen, qui compra la producció? La resposta dels anys 20 va ser el crèdit.</p>
+        <p>La segona era la <strong>bombolla de crèdit i deute</strong>. Per sostenir el consum malgrat els salaris insuficients, es va estendre el crèdit al consum a gran escala: comprar ara i pagar a terminis. Els consumidors compraven electrodomèstics, automòbils i roba a terminis. Les empreses s'expandien amb préstecs bancaris. I els inversors especulaven a la Borsa amb diner prestat. Tot l'edifici econòmic dels anys 20 es sostenia, en bona mesura, sobre un creixent muntanya de deute.</p>
+        <p>La tercera era la <strong>bombolla borsària</strong>. Al llarg dels anys 20, els preus de les accions a la Borsa de Nova York (Wall Street) van pujar any rere any, molt més ràpidament que els beneficis reals de les empreses. La gent comprava accions no perquè les empreses generessin bons resultats, sinó perquè esperava que l'acció valgués més demà del que val avui i poder-la revendre amb guany. Quan el preu d'un actiu puja no perquè valgui més sinó perquè tothom espera que pugarà, tenim una <strong>bombolla especulativa</strong>. Les bombolles sempre esclaten.</p>
+
+        <div class="def-box">
+          <span class="def-label">Com funciona una bombolla especulativa</span>
+          <p>Imagina que una acció de la companyia X val 10 dòlars. Un inversor la compra, no perquè cregui que l'empresa val 10 dòlars, sinó perquè creu que demà en valdrà 12 i la podrà vendre amb benefici. Un altre inversor fa el mateix. La demanda puja i el preu puja a 12, a 15, a 20. Tothom veu que el preu puja i vol comprar per no perdre's el negoci. Molts ho fan amb diner prestat. El preu arriba a 40, a 60, a 100 dòlars... però l'empresa en realitat no ha canviat. Arriba un moment en el qual alguns inversors comencen a dubtar: «potser el preu ja és massa alt». Comencen a vendre. El preu baixa una mica. Altres veuen la baixada i es posen nerviosos. Venen també. La caiguda s'accelera. El pànic s'estén. En qüestió de dies, el preu pot caure de 100 a 20. Qui havia comprat a 80 amb diner prestat, ara ha perdut tot el que tenia i a més deu diners que no pot pagar. Això és el que va passar el 1929, a escala de tota l'economia nord-americana.</p>
+        </div>
+
+        <h3 id="s1-2">1.2. El Dijous Negre i el mecanisme del col·lapse</h3>
+        <p>El <strong>24 d'octubre de 1929</strong> —el «Dijous Negre»— la Borsa de Nova York va col·lapsar. No va ser un fenomen màgic ni imprevisible: era el final inevitable d'una bombolla. Alguns senyals d'alerta havien aparegut les setmanes anteriors, i els primers que es van posar nerviosos van iniciar les vendes. El pànic va ser contagiós i instantani: quan tothom vol vendre alhora i ningú no vol comprar, els preus cauen en picat. En pocs dies, el valor de les accions es va reduir a la meitat. En pocs mesos, alguns havien perdut el 90% del seu valor.</p>
+        <p>El que convertia aquest crac borsari en quelcom catastròfic eren les connexions amb l'economia real. Els inversors havien comprat accions amb diner prestat dels bancs. Quan les accions es van enfonsar, no podien tornar els préstecs. Els bancs, que no recuperaven els diners prestats, van entrar en crisi. Els estalviadors, en pànic, van anar a retirar els seus dipòsits. Els bancs no tenien prou efectiu per atendre totes les retirades alhora i van tancar. <strong>Nou mil bancs nord-americans van fer fallida</strong> entre 1929 i 1933. Les empreses, sense crèdit, no podien produir. Sense producció, acomiadaven treballadors. Sense feina, els treballadors no podien consumir. Menys consum significava menys producció, més acomiadaments, menys consum... una espiral descendents que s'alimentava a si mateixa.</p>
+
+        <div class="img-wrap">
+          <img src="images/wall_street_crash.jpg" alt="Multitud davant la Borsa de Nova York durant el Crac del 29" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Multitud davant la Borsa de Nova York el dia del Crac, octubre de 1929. El pànic s'estenia en minuts: tothom volia vendre alhora i ningú no volia comprar. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s1-3">1.3. La Gran Depressió: la crisi s'estén al món</h3>
+        <p>El Crac del 29 no va ser una crisi americana: es va convertir ràpidament en una crisi mundial. Els bancs nord-americans, en dificultats, van retirar els capitals que tenien invertits a Europa —especialment a Alemanya, que havia estat reconstruïda en bona mesura amb préstecs nord-americans després de la guerra. El sistema bancari europeu va col·lapsar en cascada. El comerç internacional, que necessitava crèdit per funcionar, es va enfonsar. L'economia mundial va entrar en una espiral de deflació i atur que duraria una dècada sencera.</p>
+
+        <div class="stats">
+          <div class="stat-item"><span class="stat-num">15M</span><span class="stat-label">Aturats als EUA (1933)</span></div>
+          <div class="stat-item"><span class="stat-num">25%</span><span class="stat-label">Taxa d'atur als EUA (cim, 1933)</span></div>
+          <div class="stat-item"><span class="stat-num">9.000</span><span class="stat-label">Bancs tancats als EUA</span></div>
+          <div class="stat-item"><span class="stat-num">–30%</span><span class="stat-label">Caiguda del PIB americà</span></div>
+        </div>
+
+        <p>La resposta inicial dels governs va ser l'<strong>austeritat</strong>: reduir la despesa pública per equilibrar els pressupostos, com si l'Estat hagués de comportar-se com una família que retalla despeses quan li falta diners. El raonament semblava lògic en la vida quotidiana. A escala macroeconòmica era exactament el contrari del que calia: si el sector privat gastava menys i l'Estat també gastava menys, no quedava ningú que sostingués la demanda. L'austeritat va aprofundir la crisi, no la va solucionar. Milions de persones es van trobar sense feina, sense estalvis i sense cap xarxa de seguretat social. A les grans ciutats nord-americanes, llargues files de gent esperaven sopes populars. Al camp, famílies senceres eren desnonades de terres que havien treballat tota la vida. La misèria era generalitzada i visible.</p>
+
+        <div class="img-wrap">
+          <img src="images/great_depression_usa.jpg" alt="La mare migrant de Dorothea Lange, icona de la Gran Depressió" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">«La mare migrant» (Dorothea Lange, 1936): Florence Owens Thompson, 32 anys, amb els seus fills en un camp de temporers de Califòrnia. Havia perdut la collita als camps i no tenia diners per menjar. La fotografia més icònica de la Gran Depressió. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s1-4">1.4. El New Deal: quan l'Estat intervé</h3>
+        <p>El 1933, el nou president nord-americà <strong>Franklin D. Roosevelt</strong> va proposar el <strong>New Deal</strong> («nou acord»): un conjunt massiu d'inversions públiques en infraestructures i serveis, regulació del sistema bancari, programes d'assegurança de desocupació i noves lleis laborals. Per primera vegada, l'Estat nord-americà intervenia a gran escala en l'economia. Es construïren preses, carreteres, escoles, hospitals; es plantaren boscos; es creà la seguretat social. L'objectiu era senzill: si el sector privat no crea feina, que ho faci l'Estat; si la gent té feina, tindrà ingressos; si té ingressos, consumirà; si consumeix, les empreses produiran i contractaran més treballadors.</p>
+        <p>El New Deal estava inspirat en les idees de l'economista britànic <strong>John Maynard Keynes</strong>: en temps de crisi l'Estat ha d'actuar com a «demandant de darrer recurs», gastant diner públic per estimular l'economia quan el sector privat no ho fa, fins i tot assumint dèficit pressupostari. Era la inversió teòrica de l'austeritat. Va funcionar parcialment: l'atur va baixar però no va desaparèixer fins a la mobilització per a la guerra el 1941.</p>
+
+        <div class="info-box">
+          <span class="info-label">Una contradicció que es repeteix</span>
+          <p>La crisi de 1929 va néixer de la mateixa contradicció que apareixia al Tema 2: els treballadors produeixen riquesa però no cobren prou per comprar-la tota. El gap s'omple amb deute fins que el deute col·lapsa. Quan el 2008 va esclatar una nova crisi financera global —nascuda de la mateixa lògica especulativa, ara al mercat hipotecari— la resposta europea va ser l'austeritat, exactament igual que el 1929. Les conseqüències polítiques —ascens de l'extrema dreta a molts països europeus— han recordat incòmodament els anys 30. La lliçó no s'ha après.</p>
+        </div>
+
+        <div class="warn-box">
+          A Europa, on les democràcies eren febles, la memòria de Versalles estava molt viva i la Revolució Russa de 1917 —que vam estudiar al Tema 4— havia demostrat que el sistema podia ser enrunat des de baix, la Gran Depressió va tenir un efecte polític devastador. La misèria i la desesperació van alimentar moviments polítics extrems que prometien solucions ràpides i bocs expiatoris còmodes. El feixisme va ser la resposta que les classes dominants europees van triar per evitar el que més temien: que a Itàlia o Alemanya passés el que havia passat a Rússia.
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- S2 -->
+      <section class="section" id="s2">
+        <span class="section-num">Secció 02</span>
+        <h2>El feixisme europeu</h2>
+
+        <p>El feixisme és un dels fenòmens polítics més importants del segle XX i, alhora, un dels més mal compresos. Sovint es presenta com un fenomen «irracional» o «extrem», com si fos exterior i aliè a la política «normal». En realitat, el feixisme va ser una resposta deliberada i racional —des del punt de vista dels qui la van finançar— a la crisi del capitalisme i a l'amenaça que el moviment obrer representava per a l'ordre social establert.</p>
+
+        <h3 id="s2-1">2.1. Definició i característiques del feixisme</h3>
+        <p>El feixisme és un moviment polític d'extrema dreta que va sorgir a Europa en el context de la crisi de l'entreguerres. Els seus ideòlegs el presentaven com una «tercera via» entre el capitalisme liberal i el comunisme. En la pràctica, era una forma d'autoritarisme que protegia els interessos del gran capital alhora que mobilitzava les masses amb un nacionalisme agressiu.</p>
+
+        <div class="carac-grid">
+          <div class="carac">
+            <span class="carac-tag">Tret 01</span>
+            <div class="carac-title">Nacionalisme agressiu i militarisme</div>
+            <div class="carac-body">La nació per sobre de tot: l'individu no té drets propis, sinó obligacions envers la comunitat nacional. La guerra és glorificada com a font de virtut i de grandesa. El militarisme impregna la cultura, l'estètica i la política.</div>
+          </div>
+          <div class="carac">
+            <span class="carac-tag">Tret 02</span>
+            <div class="carac-title">Culte al líder carismàtic</div>
+            <div class="carac-body">El Führer (Hitler), el Duce (Mussolini), el Caudillo (Franco). El líder encarna la voluntat de la nació i no pot ser qüestionat. La democràcia és substituïda per la identificació emocional entre les masses i el seu líder.</div>
+          </div>
+          <div class="carac">
+            <span class="carac-tag">Tret 03</span>
+            <div class="carac-title">Violència com a instrument polític</div>
+            <div class="carac-body">Paramilitars (SA i SS nazis, Camisses Negres italianes, Falange espanyola) per intimidar, agredir i assassinar els oponents. La violència no és un mitjà provisional: és part constitutiva del projecte feixista.</div>
+          </div>
+          <div class="carac">
+            <span class="carac-tag">Tret 04</span>
+            <div class="carac-title">Rebuig del marxisme i de la democràcia</div>
+            <div class="carac-body">Els sindicats són prohibits, els partits d'esquerres dissolt, els dirigents obrers empresonats o assassinats. Però la propietat privada i el gran capital es mantenen: el feixisme no és «socialisme nacional», és la destrucció del moviment obrer.</div>
+          </div>
+          <div class="carac">
+            <span class="carac-tag">Tret 05</span>
+            <div class="carac-title">Corporativisme i control de l'economia</div>
+            <div class="carac-body">L'Estat controla sindicats i grans empreses però manté la propietat privada. El «corporativisme» feixista pretén eliminar la lluita de classes substituint-la per la «col·laboració» entre capital i treball sota la tutela de l'Estat. En la pràctica, és una dictadura de les empreses amb maquillatge estatal.</div>
+          </div>
+          <div class="carac">
+            <span class="carac-tag">Tret 06</span>
+            <div class="carac-title">Racisme i antisemitisme (especialment el nazisme)</div>
+            <div class="carac-body">El nazisme hi afegeix un ingredient decisiu: la ideologia racial. L'«ari» i el «jueu» com a categories biològiques que determinen el valor de les persones. El racisme no és un apèndix del nazisme: n'és el nucli, la seva característica més específica i la que conduirà a l'Holocaust.</div>
+          </div>
+        </div>
+
+        <h3 id="s2-2">2.2. El feixisme italià: Mussolini i la marxa sobre Roma (1922)</h3>
+        <p>El primer règim feixista va sorgir a <strong>Itàlia</strong>. Itàlia havia sortit de la Primera Guerra Mundial en una situació contradictòria: havia lluitat al costat dels vencedors, però els Tractats de pau li havien donat molt menys del que esperava (la «victòria mutilada»). Alhora, el «Bienni Roig» (1919–20) havia vist una onada de vagues, ocupació de fàbriques i mobilització obrera sense precedents. La burgesia italiana temia una revolució comunista a l'estil de la Russa.</p>
+        <p><strong>Benito Mussolini</strong>, exsocialista i periodista, va fundar el 1919 els <em>Fasci di Combattimento</em> —d'on vindria el nom «feixisme»—, grups paramilitars que atacaven sindicats, cooperatives i seus de partits d'esquerres. El <strong>gran capital italià, l'exèrcit i la monarquia el van finançar i tolerar</strong>: era útil per aixafar el moviment obrer. El 1922, Mussolini va organitzar la «<strong>Marxa sobre Roma</strong>»: milers de militants feixistes van mobilitzar-se cap a la capital. El rei Víctor Manuel III, en lloc de resistir, va nomenar Mussolini Primer Ministre. En pocs anys, Mussolini va abolir els partits, la premsa lliure i els sindicats independents, instaurant una dictadura d'un sol partit: el <strong>Duce</strong> («el Guia») governava per decret.</p>
+
+        <div class="img-wrap">
+          <img src="images/mussolini_march_rome.jpg" alt="La Marxa sobre Roma, octubre de 1922" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">La Marxa sobre Roma, octubre de 1922. Mussolini (al centre, davant) desfila amb els seus militants camises negres. El rei en lloc de dissoldre'ls, el va nomenar Primer Ministre. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s2-3">2.3. El nazisme alemany: Hitler arriba al poder (1933)</h3>
+        <p>A <strong>Alemanya</strong>, la cadena causal que porta al nazisme és clara: la <strong>humiliació de Versalles</strong> + la <strong>hiperinflació</strong> dels anys 20 + la <strong>Gran Depressió</strong> = caldo de cultiu perfecte. El 1923, una marca alemanya valia 4,2 bilions de marcs: l'hiperinflació havia destruït els estalvis de la classe mitjana d'un dia per l'altre. Quan el 1929 va arribar la Gran Depressió, Alemanya va ser especialment colpejada: sis milions d'aturats el 1932.</p>
+        <p>En aquest context, <strong>Adolf Hitler</strong> i el seu Partit Nacionalsocialista Obrer Alemany (NSDAP) van créixer explosivament. Hitler era un agitador polític brillant que explotava el ressentiment per la derrota, l'antisemitisme tradicional alemany i la por al comunisme. El seu programa oferia bocs expiatoris simples (els jueus, els comunistes, els «traïdors» de la República de Weimar) i prometes grandioses (restaurar la grandesa alemanya, acabar amb l'atur, crear un gran Reich). No va arribar al poder per un cop d'estat: va arribar per les urnes i les maniobres dels conservadors que el van subestimar.</p>
+
+        <div class="warn-box">
+          El gran capital alemany —Thyssen, Krupp, la banca alemanya, IG Farben— va <strong>finançar activament el NSDAP</strong> en els primers anys 30. No ho van fer per convicció ideològica, sinó per càlcul: Hitler era útil per aixafar els sindicats, reduir els salaris, eliminar el Partit Comunista i el Socialdemòcrata, i eliminar les regulacions laborals. Van pensar que podrien controlar-lo. No van poder.
+        </div>
+
+        <div class="img-wrap">
+          <img src="images/nazi_rally_nuremberg.jpg" alt="Concentració del partit nazi a Nuremberg" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Concentració massiva del NSDAP a Nuremberg, anys 30. La posada en escena nazi —torxes, uniformes, masses ordenades— era deliberadament dissenyada per substituir l'argument racional per l'emoció i la identificació col·lectiva. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s2-4">2.4. La consolidació del poder nazi (1933–1935)</h3>
+        <p>El <strong>30 de gener de 1933</strong>, el president Hindenburg va nomenar Hitler Canceller. En menys de dos anys, Hitler va desmantellar completament la democràcia de Weimar:</p>
+        <ul>
+          <li><strong>Febrer 1933 — L'incendi del Reichstag:</strong> el parlament alemany va cremar en circumstàncies mai del tot aclarides. Hitler va acusar els comunistes i va obtenir poders d'emergència. Les llibertats civils van ser suspeses.</li>
+          <li><strong>Març 1933 — La Llei Habilitant:</strong> el Reichstag va votar per 441 a 84 delegar tots els seus poders legislatius a Hitler per quatre anys. La democràcia es va suïcidar en votació.</li>
+          <li><strong>Maig 1933 — Crema de llibres:</strong> a les places de les universitats alemanyes, les SA van cremar milers de llibres d'autors jueus, marxistes, pacifistes i «poc alemanys».</li>
+          <li><strong>1933–34 — Destrucció dels sindicats i partits:</strong> els sindicats van ser dissolts i els seus locals ocupats, els seus dirigents arrestats. Tots els partits polítics excepte el NSDAP van ser prohibits.</li>
+          <li><strong>Juny 1934 — La Nit dels Ganivets Llargs:</strong> Hitler va liquidar les SA —les seves pròpies milícies— i els seus dirigents (Röhm), que eren percebuts com un perill per a l'estament militar tradicional. A partir d'aquí, les SS de Himmler seran el principal instrument repressiu del règim.</li>
+          <li><strong>Agost 1934 — Führer:</strong> mort Hindenburg, Hitler va acumular els càrrecs de Canceller i President de la República. Alemanya és ara una dictadura personal.</li>
+        </ul>
+
+        <h3 id="s2-5">2.5. L'antisemitisme i les Lleis de Nuremberg (1935)</h3>
+        <p>L'antisemitisme —l'odi als jueus— no va ser inventat pels nazis. Tenia segles de tradició a Europa, arrelat en la cultura cristiana i en prejucis econòmics. Però el nazisme el va convertir en el centre de la seva ideologia i li va donar una justificació pseudocientífica: la teoria de les «races» i la superioritat «ària».</p>
+        <p>A partir del 1933, el règim nazi va iniciar un procés gradual d'exclusió i persecució dels jueus alemanys. El 1935, les <strong>Lleis de Nuremberg</strong> van establir legalment la discriminació racial: els jueus perdien la ciutadania alemanya, no podien casar-se amb «aris», no podien exercir nombroses professions. Eren, legalment, ciutadans de segona classe. El <strong>9 de novembre de 1938</strong>, la <strong>Kristallnacht</strong> («Nit dels Vidres Trencats»): les SA van assaltar i destruir milers de negocis, sinagogues i cases de jueus a tot Alemanya. Desenes de persones van morir, milers van ser arrestades i enviades a camps de concentració. La violència fins aleshores majoritàriament verbal i legal es materialitzava en terror físic sistemàtic.</p>
+
+        <div class="img-wrap">
+          <img src="images/kristallnacht.jpg" alt="Restes d'un negoci jueu destruït durant la Kristallnacht, novembre de 1938" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Restes d'un negoci jueu destruït durant la Kristallnacht, 9–10 de novembre de 1938. Prop de 7.500 negocis jueus van ser saquejats i 1.400 sinagogues cremades a tot Alemanya. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="compare">
+          <div class="compare-col italia">
+            <span class="compare-header">Feixisme italià — Mussolini</span>
+            <ul>
+              <li>Sorgeix del «Bienni Roig» i la por comunista (1919–20)</li>
+              <li>Marxa sobre Roma i nomenament de Mussolini (1922)</li>
+              <li>Dictadura personal consolidada el 1926</li>
+              <li>Corporativisme: l'Estat controla capital i treball</li>
+              <li>Nacionalisme imperialista (annexió Etiòpia, 1935–36)</li>
+              <li>Antisemitisme adoptà tardanament (Lleis racials, 1938), influència nazi</li>
+              <li>Menys obsessió racial que el nazisme</li>
+            </ul>
+          </div>
+          <div class="compare-col alemanya">
+            <span class="compare-header">Nazisme alemany — Hitler</span>
+            <ul>
+              <li>Sorgeix de la humiliació de Versalles + hiperinflació + Gran Depressió</li>
+              <li>Arriba al poder per les urnes (1933) i la Llei Habilitant</li>
+              <li>Dictadura totalitària consolidada en menys de dos anys</li>
+              <li>Economia de guerra: rearmament massiu des de 1933</li>
+              <li>Lebensraum: expansió cap a l'est (espai vital per als «aris»)</li>
+              <li>Antisemitisme com a nucli ideològic: Lleis de Nuremberg (1935), Kristallnacht (1938), Holocaust (1941–45)</li>
+              <li>Obsessió racial total: jerarquia de races, eugenèsia</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- S3 -->
+      <section class="section" id="s3">
+        <span class="section-num">Secció 03</span>
+        <h2>La Segona República Espanyola (1931–1936)</h2>
+
+        <p>Mentre a Itàlia i Alemanya el feixisme guanyava posicions, Espanya vivia el seu primer intent seriós de democràcia moderna. La <strong>Segona República</strong> va ser un experiment breu i intens que va intentar transformar un dels països europeus més conservadors, més desiguals i amb estructures de poder més reaccionàries del continent. Va fracassar, però no per manca de legitimitat democràtica: va fracassar perquè les elits que perdien poder van recórrer a un cop d'estat militar.</p>
+
+        <h3 id="s3-1">3.1. La proclamació i el programa reformador</h3>
+        <p>El <strong>14 d'abril de 1931</strong>, la República va ser proclamada sense violència: el rei Alfons XIII va marxar a l'exili quan els resultats municipals van mostrar un suport massiu als partits republicans i socialistes a les grans ciutats. Era la primera vegada en segles que Espanya canviava de règim políticament, sense revolució.</p>
+        <p>El programa de la República era ambiciós. Volia transformar les estructures fonamentals d'un país que continuava amb una estructura social gairebé d'Antic Règim: una Església catòlica amb poder desproporcionat sobre l'educació i la vida pública, un exèrcit hiperinflat i polititzat, uns grans terratinents al sud que pràcticament posseïen tot el camp andalús i extremeny mentre milions de jornalers malvivien en condicions de misèria, i cap tradició democràtica consolidada.</p>
+
+        <div class="img-wrap">
+          <img src="images/spanish_republic.jpg" alt="Proclamació de la Segona República Espanyola, 14 d'abril de 1931" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Proclamació de la Segona República Espanyola a Madrid, 14 d'abril de 1931. Multituds al carrer celebren la fi de la monarquia. La transició va ser pacífica. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="def-box">
+          <span class="def-label">Les grans reformes de la Segona República</span>
+          <p><strong>Separació Església-Estat:</strong> educació laica, matrimoni civil, divorci legal. L'Església perdia el monopoli sobre l'ensenyament i l'estat civil.</p>
+          <p><strong>Reforma agrària:</strong> expropiació de les grans propietats no conreades per distribuir-les entre els jornalers. Va ser tímida i lenta, i no va satisfer les expectatives del camperolat del sud.</p>
+          <p><strong>Estatuts d'autonomia:</strong> Catalunya va aconseguir l'Estatut de 1932, amb un govern propi (la Generalitat). El País Basc va tenir el seu estatut el 1936.</p>
+          <p><strong>Drets de les dones:</strong> sufragi femení aprovat el 1931, gràcies especialment a la diputada Clara Campoamor. Per primera vegada, les dones podien votar i presentar-se a les eleccions.</p>
+          <p><strong>Reforma militar:</strong> reducció de l'exèrcit sobredimensionat i eliminació dels rangs honorífics excessius. Creà enemistat entre els militars conservadors.</p>
+        </div>
+
+        <h3 id="s3-2">3.2. Les etapes de la República: avenços i retrocessos</h3>
+        <p>La República va viure en cinc anys tres etapes polítiques molt diferenciades, un signe de la seva inestabilitat profunda:</p>
+
+        <h4>El bienni progressista (1931–1933): el govern d'Azaña</h4>
+        <p>Els primers dos anys, el govern de coalició de republicans d'esquerra i socialistes (liderat per Manuel <strong>Azaña</strong>) va intentar aplicar les reformes del programa republicà. Va ser una etapa de gran activitat legislativa, però les reformes van ser executades a mitges i van generar molta resistència: l'Església i la dreta s'hi oposaven ferotgement, i el moviment anarquista (molt fort a Catalunya i Andalusia) considerava que eren insuficients. El 1932, un sector de l'exèrcit va intentar un cop d'estat (pronunciamiento del general Sanjurjo) que va fracassar.</p>
+
+        <h4>El bienni negre (1933–1935): la dreta al poder</h4>
+        <p>Les eleccions de novembre de 1933 van donar la victòria a una coalició de dretes (encapçalada per la <strong>CEDA</strong> de Gil Robles). Les reformes van ser paralitzades, algunes revertides. Les tensions van escalar. L'<strong>octubre de 1934</strong>, els miners asturians i les organitzacions obreres van proclamar una insurrecció revolucionària (la «Revolució d'Astúries»). El govern va enviar l'exèrcit colonial del Marroc, comandat per <strong>Franco</strong>, per reprimir-la. La repressió va ser brutal: milers de morts, desenes de milers de detinguts. Espanya estava clar que estava al límit de la guerra civil.</p>
+
+        <h4>El Front Popular (febrer 1936) i el camí al cop</h4>
+        <p>Les eleccions de febrer de 1936 van donar la victòria al <strong>Front Popular</strong>, una coalició d'esquerres (republicans, socialistes, comunistes). La dreta va acusar frau sense cap base real i va refusar acceptar el resultat. En els mesos següents, la violència política s'incrementava: assassinats de dirigents d'ambdós bàndols, incendis d'esglésies, vagues. Una part de l'exèrcit preparava el cop d'estat. El <strong>17–18 de juliol de 1936</strong>, les tropes dels generals Franco, Mola, Sanjurjo i Queipo de Llano es van aixecar contra el govern legítim de la República. Espanya entrava a la Guerra Civil.</p>
+
+        <h3 id="s3-3">3.3. Per qué va fracassar la República?</h3>
+        <p>La Segona República va intentar reformar en cinc anys unes estructures de poder que s'havien consolidat durant segles. La contradicció fonamental era que volia canviar l'Estat des d'un Estat que les forces reaccionàries (exèrcit, Església, terratinents) controlaven en bona mesura des de dins.</p>
+        <p>Les causes del fracàs es poden resumir en tres nivells. Primer, la <strong>resistència de les elits</strong>: els grans terratinents, l'Església, l'exèrcit i la gran burgesia van resistir les reformes i van acabar optant per la violència militar quan no van poder frenar-les democràticament. Segon, la <strong>divisió de l'esquerra</strong>: socialistes, comunistes, anarquistes i republicans eren incapaços d'actuar conjuntament i es desgastaven en disputes internes. Tercer, el <strong>context internacional</strong>: Alemanya i Itàlia donaven suport als rebels, mentre les democràcies occidentals (Gran Bretanya i França) s'autoexcloïen per la política de no-intervenció. Espanya va ser la primera batalla de la Segona Guerra Mundial, i va perdre-la tres anys abans que la guerra fos oficial.</p>
+
+        <div class="info-box">
+          <span class="info-label">Clara Campoamor i el vot femení</span>
+          <p>El <strong>sufragi femení</strong> del 1931 va ser una de les conquestes més importants de la República —i una de les més discutides. Paradoxalment, algunes diputades republicanes (com Victoria Kent) s'hi van oposar per por que les dones, suposadament sota influència de l'Església, volessin en favor de la dreta. <strong>Clara Campoamor</strong> va defensar-lo amb un argument simple: o es creu en la democràcia per a tothom o no se'n creu. Va guanyar el debat, i les dones van votar per primera vegada el novembre de 1933. El resultat va anar a la dreta, però el vot femení va ser un factor menor en una victòria que tenia moltes causes.</p>
+        </div>
+      </section>
+
+    </div><!-- /panel-apunts -->
+
+    <!-- ═══ TAB 2: CRONOLOGIA ═══ -->
+    <div class="tab-panel" id="panel-cronologia">
+      <p style="font-size:.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'DM Mono',monospace;letter-spacing:.04em;">Els fets marcats en <span style="color:var(--blue);font-weight:700;">blau</span> són els moments de ruptura principals del període.</p>
+
+      <div class="crono">
+        <div class="crono-group">
+          <div class="crono-group-label">L'herència de la Gran Guerra (1919–1929)</div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1919</span><div class="crono-event">Tractat de Versalles · Weimar · Mussolini funda els Fasci</div><div class="crono-desc">Les condicions humiliants de Versalles planten la llavor del nazisme a Alemanya. La República de Weimar neix feble. A Itàlia, Mussolini funda les seves milícies feixistes enmig del «Bienni Roig».</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1922</span><div class="crono-event">Marxa sobre Roma · Mussolini al poder</div><div class="crono-desc">Les milícies feixistes marxen sobre Roma. El rei Víctor Manuel III nomena Mussolini Primer Ministre. Comença la primera dictadura feixista d'Europa.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1923</span><div class="crono-event">Hiperinflació a Alemanya</div><div class="crono-desc">El marc alemany s'enfonsa: 4,2 bilions de marcs per un dòlar. Els estalvis de la classe mitjana s'evaporen. Hitler intenta un cop d'estat a Munic («Putsch de la Cerveceria») que fracassa. La derrota li ensenya a buscar el poder per les urnes.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1925–1929</span><div class="crono-event">Els «Feliços Anys 20» als EUA · Especulació borsària</div><div class="crono-desc">Prosperitat nord-americana alimentada per especulació financera desregulada. La Borsa puja sense aturar-se. El deute dels consumidors creix. El creixement és real però insostenible.</div></div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">La crisi del capitalisme (1929–1933)</div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">24 octubre 1929</span><div class="crono-event">El Crac de Wall Street — «Dijous Negre»</div><div class="crono-desc">Col·lapse de la Borsa de Nova York. Bilions de dòlars evaporats en dies. Inici de la Gran Depressió, la pitjor crisi econòmica del capitalisme fins aleshores.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1929–1932</span><div class="crono-event">La Gran Depressió s'estén al món</div><div class="crono-desc">El capital nord-americà es retira d'Europa. Col·lapse bancari a Alemanya i Àustria. 15 milions d'aturats als EUA, 6 milions a Alemanya. La resposta d'austeritat aprofundeix la crisi.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">14 abril 1931</span><div class="crono-event">Proclamació de la Segona República Espanyola</div><div class="crono-desc">Alfons XIII marxe a l'exili. Espanya proclama la República pacíficament. Comença l'experiment reformador més ambiciós de la història d'Espanya.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1931</span><div class="crono-event">Sufragi femení a Espanya — Clara Campoamor</div><div class="crono-desc">Espanya aprova el vot de les dones, impulsat per la diputada Clara Campoamor. És una de les primeres democràcies europees a fer-ho.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1933</span><div class="crono-event">Roosevelt i el New Deal als EUA · Hitler Canceller a Alemanya</div><div class="crono-desc">Dues respostes oposades a la crisi: Roosevelt inverteix massivament en despesa pública (New Deal). A Alemanya, Hitler és nomenat Canceller el 30 de gener. En menys d'un any, la democràcia alemanya ha desaparegut.</div></div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">L'ascens nazi i la crisi de la República (1933–1936)</div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Març 1933</span><div class="crono-event">Llei Habilitant — la democràcia alemanya es suïcida</div><div class="crono-desc">El Reichstag vota per 441 a 84 delegar tots els seus poders a Hitler. La democràcia de Weimar, nacuda el 1919, mor en votació. En els mesos següents, tots els partits i sindicats seran prohibits.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Octubre 1934</span><div class="crono-event">Revolució d'Astúries · Repressió de Franco</div><div class="crono-desc">Insurrecció minera i obrera a Astúries. El govern envia l'exèrcit colonial de Marroc, comandat per Franco, a reprimir-la. Milers de morts i detinguts. Espanya s'acosta a la guerra civil.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Setembre 1935</span><div class="crono-event">Lleis de Nuremberg — la discriminació racial es codifica</div><div class="crono-desc">Els jueus alemanys perden la ciutadania, no poden casar-se amb aris ni exercir moltes professions. El racisme es converteix en llei. La gradació de la persecució no fa més que accelerar-se.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Febrer 1936</span><div class="crono-event">Front Popular guanya les eleccions espanyoles</div><div class="crono-desc">La coalició d'esquerres guanya les eleccions. La dreta, incapaç d'acceptar el resultat, acusa frau i prepara el cop d'estat.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Juliol 1936</span><div class="crono-event">Cop d'estat contra la República espanyola</div><div class="crono-desc">Els generals Franco, Mola, Sanjurjo i Queipo de Llano es revolta contra el govern legítim. El cop fracassa a Madrid i Barcelona, però el país queda dividit. Comença la Guerra Civil, que durarà fins al 1939.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Novembre 1938</span><div class="crono-event">La Kristallnacht — la violència oberta contra els jueus</div><div class="crono-desc">Les SA destrueixen milers de negocis i sinagogues jueves a Alemanya i Àustria. Desenes de morts, milers d'arrestats. La persecució legal i verbal es transforma en terror físic massiu. L'Holocaust és el pròxim pas.</div></div>
+        </div>
+      </div>
+    </div><!-- /panel-cronologia -->
+
+    <!-- ═══ TAB 3: LA HISTÓRIA, ARA ═══ -->
+    <div class="tab-panel" id="panel-ara">
+      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
+        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">El feixisme no va sorgir del no-res ni va ser un accident. Va sorgir d'una crisi econòmica, d'una classe política que va fracassar i de les elits que van preferir la dictadura a la democràcia quan la democràcia els era incòmoda. Res d'això és tan aliè al present com podria semblar.</p>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>1. L'extrema dreta avui: hereus del feixisme?</h3><span class="task-badge">Anàlisi comparada</span></div>
+        <div class="task-body">
+          <p>A molts països europeus, partits d'extrema dreta han crescut significativament en els darrers anys: Vox a Espanya, el Rassemblement National a França, Alternativa per a Alemanya (AfD), els Demòcrates de Suècia, el PiS a Polònia, Fidesz a Hongria. Comparteixen alguns elements amb els feixismes dels anys 30 —però no tots. Analitzem les similituds i les diferències.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Busca el programa o les principals propostes d'un partit d'extrema dreta europeu actual (pots triar Vox, Le Pen, AfD o un altre). Identifica quines de les sis característiques del feixisme dels apunts hi apareixen i quines no.</span></li>
+            <li><span class="step-num">02</span><span>Quines diferències importantes trobes respecte als feixismes dels anys 30? (Consideres l'ús de la violència paramilitar, la defensa formal de la democràcia electoral, la posició respecte a la UE i al mercat lliure, l'antisemitisme obert vs. l'islamofòbia...)</span></li>
+            <li><span class="step-num">03</span><span>En quins contextos econòmics i socials han crescut aquests partits? Compara amb el context de crisi en el qual va créixer el feixisme dels anys 30. Quins paral·lelismes trobes? Quines diferències?</span></li>
+            <li><span class="step-num">04</span><span>Debat: «L'extrema dreta actual és feixisme o és una altra cosa?» Construïu dos arguments: un que defensi la continuïtat i un que defensi la diferència.</span></li>
+          </ul>
+          <div class="debate-box">
+            <span class="debate-label">Punt de debat</span>
+            <p>El filòsof Umberto Eco va descriure el 1995 el «ur-feixisme» (el feixisme original) amb catorze trets. D'entre ells: el culte a la tradició, el rebuig de la modernitat, el nacionalisme agressiu, la por a la diferència, la xenofòbia, el menyspreu pels febles, el populisme qualitatiu («el poble contra les elits») i la televisió o les xarxes com a instrument de mobilització emocional. Quants d'aquests trets reconeixeu en partits polítics actuals?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>2. Crisi econòmica i política: el 1929 i el 2008</h3><span class="task-badge">Connexió econòmica</span></div>
+        <div class="task-body">
+          <p>La crisi del 2008 va ser la major des del 1929. Però la resposta política va ser molt diferent: en lloc del New Deal, molts governs europeus van aplicar austeritat. Les conseqüències polítiques —ascens de l'extrema dreta, Brexit, Trump, crisi de les democràcies liberals— han estat significatives. Analitzem la connexió.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Busca com va afectar la crisi del 2008 a Espanya: evolució de l'atur entre 2008 i 2013, retallades en sanitat i educació, desnonaments. Intenta trobar dades concretes (Eurostat, INE, informe Oxfam).</span></li>
+            <li><span class="step-num">02</span><span>En quins anys van créixer significativament Vox a Espanya, el Front Nacional a França, l'AfD a Alemanya? Hi ha correlació amb els anys de crisi i austeritat?</span></li>
+            <li><span class="step-num">03</span><span>Roosevelt va respondre a la crisi del 29 amb el New Deal (inversió massiva, regulació financera, programes socials). Per qué creus que Europa va respondre a la crisi del 2008 amb l'austeritat en lloc d'un «New Deal europeu»? Quins interessos es protegien amb l'austeritat?</span></li>
+          </ul>
+          <div class="debate-box">
+            <span class="debate-label">Reflexió crítica</span>
+            <p>Karl Polanyi, economista hongarès, va escriure el 1944: «El feixisme és la conseqüència del fracàs de les societats de mercat per garantir a la gent un lloc en el món.» Aplica aquesta afirmació tant al context dels anys 30 com al context europeu actual. Creus que és una explicació suficient o parcial?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>3. Drets conquerits i drets amenaçats</h3><span class="task-badge">Reflexió present</span></div>
+        <div class="task-body">
+          <p>La Segona República va introduir a Espanya drets que avui donem per descomptats: el vot femení, el divorci, la separació Església-Estat, l'ensenyament laic. El franquisme els va eliminar. La Transició els va recuperar. Però els drets no estan garantits per sempre: es poden qüestionar, erosionar o eliminar.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Investiga quins drets van ser aprovats per la Segona República que el franquisme va eliminar (vot femení, divorci, estatuts d'autonomia, reforma agrària). Quan van ser recuperats a la Transició?</span></li>
+            <li><span class="step-num">02</span><span>Busca exemples actuals de països democràtics on drets reconeguts han estat retallats o eliminats (dret a l'avortament als EUA el 2022, drets LGTB a Hongria i Polònia, llibertat de premsa a Turquia...). Quines forces polítiques han promogut aquestes restriccions?</span></li>
+            <li><span class="step-num">03</span><span>Reflexió: Clara Campoamor va lluitar per un dret que trigaria quaranta anys a ser restaurat a Espanya. Quin dret actual creus que podries trobar a faltar si desaparegués? Quin creus que és més vulnerable?</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /panel-ara -->
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>T05 · El Període d'Entreguerres i els Feixismes · 4t ESO</span>
+  <nav class="footer-nav">
+    <a href="t04_igm.html">← Tema 04</a>
+    <a href="index.html">Índex</a>
+    <a href="t06_iigm.html">Tema 06 →</a>
+  </nav>
+</footer>
+
+<script>
+  function switchTab(name,btn){
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('panel-'+name).classList.add('active');
+    btn.classList.add('active');
+    if(name==='cronologia')animateCrono();
+    if(name==='apunts')revealSections();
+    window.scrollTo({top:document.querySelector('.tabs-bar').offsetTop-56,behavior:'smooth'});
+  }
+  function revealSections(){
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.06});
+    document.querySelectorAll('#panel-apunts .section').forEach(s=>obs.observe(s));
+  }
+  function animateCrono(){document.querySelectorAll('.crono-entry').forEach((el,i)=>{setTimeout(()=>el.classList.add('vis'),i*55)})}
+  const tocLinks=document.querySelectorAll('#toc-apunts a');
+  const sObs=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting){tocLinks.forEach(a=>a.classList.remove('active'));const l=document.querySelector(`#toc-apunts a[href="#${x.target.id}"]`);if(l)l.classList.add('active')}})
+  },{rootMargin:'-20% 0px -70% 0px'});
+  document.querySelectorAll('.section[id],h3[id]').forEach(s=>sObs.observe(s));
+  revealSections();
+</script>
+</body>
+</html>

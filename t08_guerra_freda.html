@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T08 · La Guerra Freda i el Món Actual — Història 4t ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#111111;--ink-soft:#444444;--ink-faint:#8a8a8a;--paper:#ffffff;--paper-off:#fafaf9;--line:#111111;--line-soft:#cfcfcc;--line-faint:#e6e5e1;--blue:#0057b8;--blue-light:#e8f0fa;--sidebar-w:250px;--content-max:740px}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Spectral',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:16.5px;font-weight:400}
+  .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav-left{display:flex;align-items:center}
+  .nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-decoration:none;display:flex;align-items:center;gap:8px;padding:6px 14px 6px 0;border-right:1px solid var(--line-faint);margin-right:14px;transition:color .15s}
+  .nav-back:hover{color:var(--ink)}
+  .nav-brand{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;font-weight:700}
+  .nav-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-faint);letter-spacing:.06em}
+  .topic-hero{background:var(--paper);border-bottom:1px solid var(--line);padding:52px 48px 44px}
+  .topic-hero-inner{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .topic-breadcrumb{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+  .topic-breadcrumb a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+  .topic-num-badge{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  .topic-hero h1{font-family:'Spectral',serif;font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:600;letter-spacing:-.01em;line-height:1.18;color:var(--ink);margin-bottom:14px}
+  .topic-hero h1 em{font-style:italic;font-weight:400}
+  .topic-subtitle{font-family:'DM Mono',monospace;color:var(--ink-soft);font-size:.82rem;letter-spacing:.03em}
+  .tabs-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:0 48px;display:flex}
+  .tab-btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);border:none;background:none;padding:15px 22px;cursor:pointer;position:relative;transition:color .15s}
+  .tab-btn::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--blue);opacity:0;transition:opacity .15s}
+  .tab-btn:hover{color:var(--ink-soft)}.tab-btn.active{color:var(--ink);font-weight:700}.tab-btn.active::after{opacity:1}
+  .page-wrap{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto;display:grid;grid-template-columns:var(--sidebar-w) 1fr;align-items:start}
+  .sidebar{position:sticky;top:56px;padding:40px 24px 40px 0;max-height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none}
+  .sidebar::-webkit-scrollbar{display:none}
+  .sidebar-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .toc{list-style:none}
+  .toc a{display:block;padding:5px 0 5px 14px;font-family:'Spectral',serif;font-size:.83rem;color:var(--ink-faint);text-decoration:none;border-left:1px solid var(--line-faint);transition:all .15s;line-height:1.4}
+  .toc a:hover{color:var(--ink);border-left-color:var(--ink-soft)}.toc a.active{color:var(--blue);border-left:2px solid var(--blue);font-weight:600}
+  .toc .toc-sub a{padding-left:28px;font-size:.78rem;font-style:italic}
+  .content{padding:48px 0 100px 40px;border-left:1px solid var(--line);min-width:0}
+  .tab-panel{display:none}.tab-panel.active{display:block}
+  .section{margin-bottom:64px;padding-top:8px;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+  .section.visible{opacity:1;transform:none}
+  .section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:block}
+  h2{font-family:'Spectral',serif;font-size:1.65rem;font-weight:600;color:var(--ink);margin-bottom:26px;line-height:1.3;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  h3{font-family:'Spectral',serif;font-size:1.18rem;font-weight:600;color:var(--ink);margin:40px 0 14px}
+  h4{font-family:'Spectral',serif;font-size:.95rem;font-weight:600;font-style:italic;color:var(--ink-soft);margin:28px 0 10px}
+  p{margin-bottom:14px;color:var(--ink-soft);font-weight:300}p:last-child{margin-bottom:0}
+  strong{color:var(--ink);font-weight:700}em{font-style:italic}
+  ul,ol{padding-left:22px;margin-bottom:14px}
+  li{margin-bottom:6px;color:var(--ink-soft);font-weight:300;line-height:1.6}
+  .section-divider{border:none;border-top:1px solid var(--line);margin:52px 0}
+  .def-box{border:1px solid var(--ink);padding:18px 20px;margin:20px 0}
+  .def-box .def-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:block;font-weight:700}
+  .def-box p{margin:0 0 8px;font-size:.95rem}.def-box p:last-child{margin:0}
+  .info-box{border-left:3px solid var(--blue);background:var(--blue-light);padding:16px 20px;margin:22px 0}
+  .info-box .info-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;display:block;font-weight:700}
+  .info-box p{margin:0 0 8px;font-size:.93rem}.info-box p:last-child{margin:0}
+  .warn-box{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 4px;margin:22px 0;font-size:.93rem;color:var(--ink-soft)}
+  .warn-box::before{content:'PER ENTENDRE-HO BÉ — ';font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--ink);font-weight:700;display:block;margin-bottom:6px}
+  .img-wrap{margin:24px 0;border:1px solid var(--line-soft)}
+  .img-wrap img{width:100%;height:auto;display:block}
+  .img-cap{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.04em;color:var(--ink-faint);padding:8px 12px;border-top:1px solid var(--line-faint);background:var(--paper-off)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);margin:24px 0}
+  .stat-item{padding:18px 14px;text-align:center;border-right:1px solid var(--line-faint)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-family:'DM Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--blue);display:block;line-height:1;margin-bottom:5px}
+  .stat-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);display:block;line-height:1.4}
+  .pullquote{border-left:3px solid var(--ink);padding:12px 0 12px 22px;margin:28px 0}
+  .pullquote p{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft);line-height:1.65;font-weight:300;margin:0 0 6px}
+  .pullquote cite{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-style:normal}
+  /* blocs */
+  .blocs{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin:22px 0}
+  .bloc{padding:20px 18px;border-right:1px solid var(--line-faint)}
+  .bloc:last-child{border-right:none}
+  .bloc-header{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid;display:block}
+  .bloc.oest .bloc-header{color:var(--blue);border-color:var(--blue)}
+  .bloc.est .bloc-header{color:var(--ink);border-color:var(--ink)}
+  .bloc ul{padding-left:16px;margin:0}
+  .bloc li{font-size:.85rem;color:var(--ink-soft);margin-bottom:7px;font-weight:300;line-height:1.5}
+  /* neoliberal grid */
+  .neo-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin:22px 0}
+  .neo-item{padding:18px 16px;border-right:1px solid var(--line-faint);border-bottom:1px solid var(--line-faint)}
+  .neo-item:nth-child(2n){border-right:none}
+  .neo-item:nth-last-child(-n+2){border-bottom:none}
+  .neo-tag{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:4px}
+  .neo-title{font-family:'Spectral',serif;font-size:.95rem;font-weight:600;color:var(--ink);margin-bottom:5px}
+  .neo-body{font-size:.84rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  /* crono */
+  .crono{border-left:1px solid var(--line);padding-left:28px;margin-top:8px}
+  .crono-group{margin-bottom:36px}
+  .crono-group-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-off);display:inline-block;padding:4px 10px;margin-bottom:18px;position:relative;left:-38px;border:1px solid var(--line-faint)}
+  .crono-entry{position:relative;margin-bottom:26px;opacity:0;transform:translateX(-6px);transition:opacity .38s ease,transform .38s ease}
+  .crono-entry.vis{opacity:1;transform:none}
+  .crono-dot{position:absolute;left:-33px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
+  .crono-dot.key{background:var(--blue);border-color:var(--blue);width:10px;height:10px;left:-34px;top:5px}
+  .crono-year{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:2px}
+  .crono-event{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.3}
+  .crono-desc{font-size:.88rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  /* task */
+  .task-block{margin-bottom:40px;border:1px solid var(--ink)}
+  .task-header{background:var(--ink);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+  .task-header h3{margin:0;font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--paper)}
+  .task-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);white-space:nowrap}
+  .task-body{padding:22px 24px}
+  .task-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300}
+  .task-steps{list-style:none;padding:0;margin:12px 0 0}
+  .task-steps li{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.6;border-bottom:1px dotted var(--line-faint);padding-bottom:10px}
+  .task-steps li:last-child{border-bottom:none;padding-bottom:0}
+  .task-steps li .step-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:18px}
+  .debate-box{border-top:1px solid var(--line-soft);margin-top:16px;padding-top:14px}
+  .debate-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:6px;font-weight:700}
+  .debate-box p{font-style:italic;font-size:.9rem}
+  .site-footer{border-top:1px solid var(--line);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;color:var(--ink-faint);font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.06em;max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .footer-nav{display:flex;gap:20px}
+  .footer-nav a{color:var(--ink-faint);text-decoration:none;transition:color .15s}
+  .footer-nav a:hover{color:var(--ink)}
+  @media(max-width:860px){
+    .page-wrap{grid-template-columns:1fr}.sidebar{display:none}
+    .content{padding:32px 22px 60px;border-left:none}
+    .stats{grid-template-columns:1fr 1fr}
+    .blocs,.neo-grid{grid-template-columns:1fr}
+    .bloc{border-right:none;border-bottom:1px solid var(--line-faint)}.bloc:last-child{border-bottom:none}
+    .neo-item{border-right:none}.neo-item:nth-last-child(-n+2){border-bottom:1px solid var(--line-faint)}.neo-item:last-child{border-bottom:none}
+    .topic-hero,.tabs-bar{padding-left:22px;padding-right:22px}
+    .nav{padding:0 22px}.nav-meta{display:none}
+    .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-back" href="index.html">← Índex</a>
+    <span class="nav-brand">Història 4t ESO</span>
+  </div>
+  <span class="nav-meta">T08 · La Guerra Freda i el Món Actual</span>
+</nav>
+
+<div class="topic-hero">
+  <div class="topic-hero-inner">
+    <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 08</div>
+    <div class="topic-num-badge">Tema 08 — 1947–Avui</div>
+    <h1>La <em>Guerra Freda</em><br>i el Món Actual</h1>
+    <p class="topic-subtitle">Els dos blocs · Les crises · La fi de la URSS · El neoliberalisme · El present</p>
+  </div>
+</div>
+
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
+  <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
+</div>
+
+<div class="page-wrap">
+  <nav class="sidebar">
+    <div class="sidebar-title">Continguts</div>
+    <ul class="toc" id="toc-apunts">
+      <li><a href="#s1">1. La Guerra Freda (1947–1991)</a></li>
+      <li class="toc-sub"><a href="#s1-1">1.1 Origen i lògica del conflicte</a></li>
+      <li class="toc-sub"><a href="#s1-2">1.2 Els dos blocs</a></li>
+      <li class="toc-sub"><a href="#s1-3">1.3 Crises i conflictes</a></li>
+      <li class="toc-sub"><a href="#s1-4">1.4 Intervencions al Sud Global</a></li>
+      <li><a href="#s2">2. La fi de la Guerra Freda</a></li>
+      <li class="toc-sub"><a href="#s2-1">2.1 Gorbatxov i la reforma</a></li>
+      <li class="toc-sub"><a href="#s2-2">2.2 La caiguda del Mur</a></li>
+      <li class="toc-sub"><a href="#s2-3">2.3 La dissolució de la URSS</a></li>
+      <li><a href="#s3">3. El neoliberalisme global</a></li>
+      <li class="toc-sub"><a href="#s3-1">3.1 Thatcher i Reagan</a></li>
+      <li class="toc-sub"><a href="#s3-2">3.2 Globalització i desigualtat</a></li>
+      <li class="toc-sub"><a href="#s3-3">3.3 La crisi del 2008</a></li>
+      <li><a href="#s3b">Context: La descolonització i el Tercer Món</a></li>
+      <li><a href="#s4">4. El món actual</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <div class="tab-panel active" id="panel-apunts">
+
+      <div class="stats" style="margin-bottom:40px">
+        <div class="stat-item"><span class="stat-num">1947</span><span class="stat-label">Inici de la Guerra Freda</span></div>
+        <div class="stat-item"><span class="stat-num">50+</span><span class="stat-label">Cops de la CIA entre 1947–1991</span></div>
+        <div class="stat-item"><span class="stat-num">1989</span><span class="stat-label">Caiguda del Mur de Berlín</span></div>
+        <div class="stat-item"><span class="stat-num">2008</span><span class="stat-label">Gran Recessió global</span></div>
+      </div>
+
+      <!-- S1 -->
+      <section class="section" id="s1">
+        <span class="section-num">Secció 01</span>
+        <h2>La Guerra Freda (1947–1991)</h2>
+
+        <p>La Segona Guerra Mundial va acabar el 1945, però va deixar el món en una situació nova i inestable: dos antics aliats —els Estats Units i la Unió Soviètica— s'havien convertit en les dues superpotències dominants del planeta, i les seves visions del món eren incompatibles. Durant quaranta-quatre anys, el planeta va viure sota l'amenaça d'una guerra nuclear total que mai no va arribar a produir-se directament entre els dos grans, però que va generar desenes de conflictes per procuració en tot el món. L'anomenem <strong>Guerra Freda</strong> perquè no va ser una guerra calenta entre EUA i URSS: va ser una rivalitat global que mai no va arribar al combat directe entre ells, però que va ser molt calenta per a molts altres pobles.</p>
+
+        <h3 id="s1-1">1.1. Origen i lògica del conflicte</h3>
+        <p>Acabada la guerra, els aliats van dividir les zones d'influència en les conferències de Ialta i Potsdam (1945). L'Exèrcit Roig ocupava Europa Oriental; les forces angloamericanes, Europa Occidental. Ràpidament va quedar clar que la col·laboració de guerra no sobreviuria la pau. Churchill va descriure el 1946 la divisió d'Europa amb la metàfora del <strong>«teló d'acer»</strong>: una barrera que separava l'est del continent, sota control soviètic, de l'oest, sota influència occidental.</p>
+        <p>El 1947, el president nord-americà Truman va formular la <strong>Doctrina Truman</strong>: els EUA «contindran» l'expansió del comunisme arreu del món, donant suport a tots els governs amenaçats per forces comunistes. Era la declaració oficial de la Guerra Freda. El mateix any, el Pla Marshall oferia 12.000 milions de dòlars per reconstruir l'Europa Occidental: l'objectiu econòmic era crear economies pròsperes que resistissin l'atractiu del comunisme.</p>
+
+        <h3 id="s1-2">1.2. Els dos blocs</h3>
+        <p>La Guerra Freda va organitzar el món en dos blocs militars, econòmics i ideològics, cadascun al voltant d'una superpotència:</p>
+
+        <div class="blocs">
+          <div class="bloc oest">
+            <span class="bloc-header">Bloc Occidental — EUA</span>
+            <ul>
+              <li>OTAN (1949): aliança militar atlàntica amb Europa occidental, Canadà i Turquia</li>
+              <li>Capitalisme de mercat i democràcia liberal (formal)</li>
+              <li>Pla Marshall: integració econòmica de l'Europa occidental</li>
+              <li>Bases militars americanes a Europa, Japó, Corea del Sud, Filipines...</li>
+              <li>CIA: intervencionisme encobert en política interna d'altres països</li>
+              <li>Dòlar com a moneda de reserva mundial (acords de Bretton Woods)</li>
+            </ul>
+          </div>
+          <div class="bloc est">
+            <span class="bloc-header">Bloc Oriental — URSS</span>
+            <ul>
+              <li>Pacte de Varsòvia (1955): aliança militar dels països del bloc soviètic</li>
+              <li>Economia planificada d'Estat i règims de partit únic</li>
+              <li>COMECON: integració econòmica del bloc oriental</li>
+              <li>Exèrcit Roig desplegat als països satèl·lits (Polònia, Hongria, RDA, Txecoslovàquia...)</li>
+              <li>KGB: serveis secrets i control intern i extern</li>
+              <li>Doctrina Brezhnev (1968): cap país del bloc pot abandonar el model soviètic</li>
+            </ul>
+          </div>
+        </div>
+
+        <p>Berlín es va convertir en el símbol per excel·lència de la divisió: la capital alemanya estava partida en dos, enmig de la zona soviètica. L'<strong>1 de agost de 1961</strong>, la RDA va aixecar el <strong>Mur de Berlín</strong> per aturar la fugida massiva de ciutadans cap a l'Oest (tres milions havien fugit des de 1949). El Mur va convertir-se en el símbol físic de la Guerra Freda: una barrera de formigó, filferros i zones de la mort que dividia una mateixa ciutat.</p>
+
+        <div class="img-wrap">
+          <img src="images/berlin_wall.jpg" alt="El Mur de Berlín dividint la ciutat" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El Mur de Berlín (construït el 1961), símbol físic de la Guerra Freda. A l'esquerra, Berlín Est (RDA); a la dreta, Berlín Oest (RFA). La zona de la mort impedia qualsevol intent de fuga. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s1-3">1.3. Crises i conflictes de la Guerra Freda</h3>
+        <p>La Guerra Freda mai no va ser un conflicte estàtic: va tenir moments d'alta tensió en els quals el risc d'escalada nuclear era real, i conflictes «en calent» en tercers països on les dues superpotències s'enfrontaven per procuració.</p>
+
+        <h4>La Crisi dels Míssils de Cuba (octubre 1962)</h4>
+        <p>El moment en el qual el món va estar més a prop d'una guerra nuclear. La URSS havia instal·lat míssils nuclears a Cuba —a 150 km de les costes de Florida— en resposta a la presència de míssils americans a Turquia. El president Kennedy va imposar un bloqueig naval a Cuba i va exigir la retirada dels míssils soviètics. Durant tretze dies d'octubre de 1962, els dos blocs van estar al límit. Finalment, un acord secret va resoldre la crisi: la URSS retirava els míssils de Cuba; els EUA es comprometien a no envair Cuba i a retirar els míssils de Turquia (sense anunciar-ho públicament).</p>
+
+        <div class="img-wrap">
+          <img src="images/cuba_missiles.jpg" alt="Kennedy signa la quarantena de Cuba, octubre de 1962" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El president Kennedy signa el decret de quarantena naval de Cuba, octubre de 1962. Tretze dies en els quals el planeta estava a un sol pas de la guerra nuclear. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h4>La Guerra del Vietnam (1955–1975)</h4>
+        <p>La primera gran derrota militar dels EUA en la seva história modern. Vietnam havia estat colònia francesa fins al 1954, quan l'exèrcit comunista de Ho Chi Minh va derrotar França a Dien Bien Phu. El país va quedar dividit en el Vietnam del Nord (comunista) i el Vietnam del Sud (pro-occidental). Els EUA van intervenir progressivament per evitar la reunificació comunista: primer amb assessors, després amb tropes, fins arribar a tenir 500.000 soldats desplegats el 1968. Malgrat la superioritat militar, la guerrilla del Vietcong i l'exèrcit nord-vietnamita van resistir. L'oposició interna als EUA va créixer fins que Nixon va retirar les tropes el 1973. El 1975, el Vietnam del Nord va reunificar el país.</p>
+
+        <div class="img-wrap">
+          <img src="images/vietnam_war.jpg" alt="La nena del napalm, Vietnam 1972" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">«La nena del napalm» (Nick Ut, 1972): Kim Phúc, de 9 anys, fuig d'un atac amb napalm a la carretera. Una de les fotographies més impactants de la Guerra del Vietnam, que va contribuir a canviar l'opinió pública americana. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h4>La Primavera de Praga (1968)</h4>
+        <p>El 1968, Txecoslovàquia va intentar construir un «socialisme de rostre humà» sota el lideratge d'Alexander Dubček: llibertat de premsa, obertura política, reformes econòmiques, mantenint-se dins del bloc soviètic. La URSS va respondre el 20 d'agost de 1968 amb la invasió de Txecoslovàquia per cinc exèrcits del Pacte de Varsòvia. Brezhnev va formular la seva doctrina: cap país del bloc podia permetre's reformes que amenacessin el sistema soviètic. La imatge dels tancs soviètics entrant a Praga va ser un cop dur per a molts comunistes europeus i va accelerar l'«eurocomunisme», que buscava un camí al socialisme independent de Moscou.</p>
+
+        <div class="img-wrap">
+          <img src="images/prague_spring.jpg" alt="Tancs soviètics a Praga, agost de 1968" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Tancs soviètics als carrers de Praga, agost de 1968. La invasió va acabar amb l'experiment del «socialisme de rostre humà» de Dubček. La Doctrina Brezhnev afirmava que cap país del bloc podia sortir del model soviètic. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s1-4">1.4. Intervencions al Sud Global: l'imperialisme de la Guerra Freda</h3>
+        <p>Sota el paraigua ideològic de la «contenció del comunisme», els EUA van intervenir sistemàticament per derrocar governs democràtics que no eren de la seva agrada. La CIA va participar en més de cinquanta cops d'estat entre 1947 i 1991. Tres casos emblemàtics:</p>
+        <ul>
+          <li><strong>Iran (1953):</strong> el primer ministre Mohammed Mossadegh havia nacionalitzat el petroli iranià —fins aleshores en mans de la British Petroleum. La CIA va organitzar el cop que el va derrocar i va restaurar el xa Reza Pahlavi, una dictadura brutal que serviria als interessos occidentals fins a la Revolució Islàmica de 1979.</li>
+          <li><strong>Guatemala (1954):</strong> el president Jacobo Árbenz havia redistribuït terres de la United Fruit Company —una empresa nord-americana— entre els camperols. La CIA va organitzar el cop que el va derrocar. Seguirien dècades de dictadura militar.</li>
+          <li><strong>Xile (11 setembre 1973):</strong> el president Salvador Allende, elegit democràticament el 1970, aplicava un programa socialista moderat. El cop d'estat del general Pinochet —amb suport actiu de Nixon i Kissinger— va instaurar una dictadura que va assassinar milers de persones i va aplicar les primeres polítiques neoliberals de la História, dissenyades pels economistes de Chicago deixebles de Milton Friedman.</li>
+        </ul>
+
+        <div class="warn-box">
+          La Guerra Freda no va ser, com es presenta sovint, un conflicte entre «la llibertat» i «el totalitarisme». Als països del Sud Global, els EUA van defensar repetidament dictadures brutals contra democràcies electes, sempre que les democràcies amenacessin els interessos de les empreses nord-americanes. L'anticomunisme va ser sovint una coartada per defensar el dret de les multinacionals a explotar recursos i mà d'obra barata sense interferències democràtiques.
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- S2 -->
+      <section class="section" id="s2">
+        <span class="section-num">Secció 02</span>
+        <h2>La fi de la Guerra Freda (1985–1991)</h2>
+
+        <p>A mitjan anys 80, la URSS estava en crisi profunda: l'economia planificada havia quedat endarrerida tecnològicament respecte a Occident, la cursa d'armaments era insostenible, i l'afganistan s'estava convertint en el «Vietnam soviètic». El nou líder soviètic que arriaria el 1985 intentaria reformar el sistema des de dins. No va poder controlar el procés que va desencadenar.</p>
+
+        <h3 id="s2-1">2.1. Gorbatxov: perestroika i glasnost</h3>
+        <p>Mikhail <strong>Gorbatxov</strong> (secretari general del PCUS des de 1985) va proposar dues reformes que havien de salvar el sistema soviètic. La <strong><em>perestroika</em></strong> («reestructuració») era una reforma econòmica que introduïa elements de mercat en l'economia planificada. La <strong><em>glasnost</em></strong> («transparència») era una apertura informativa que permetia criticar públicament errors del règim. Gorbatxov creia que les reformes reforçarien el sistema soviètic. El que va provocar va ser el seu col·lapse.</p>
+        <p>La glasnost va permetre que la gent s'assabentés dels crims de Stalin, de la corrupció del PCUS, de les ineficiències del sistema. La perestroika va desestabilitzar l'economia sense crear una alternativa funcional. I a les repúbliques no russes de la URSS, l'apertura va despertar nacionalismes que el sistema havia suprimit durant dècades.</p>
+
+        <div class="img-wrap">
+          <img src="images/gorbatxov.jpg" alt="Mikhail Gorbatxov" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Mikhail Gorbatxov (1987). Va intentar reformar la URSS amb la perestroika i la glasnost. Va guanyar el Nobel de la Pau (1990) per posar fi a la Guerra Freda. La URSS va desaparèixer un any després. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s2-2">2.2. La caiguda del Mur de Berlín (9 novembre 1989)</h3>
+        <p>El <strong>9 de novembre de 1989</strong> va ser una de les nits més importants de la História del segle XX. Durant setmanes, manifestacions massives havien recorregut les ciutats de l'Alemanya Oriental exigint reformes i llibertat de moviment. Aquella nit, un portaveu del govern de la RDA va anunciar —per error de comunicació— que els ciutadans podien creuar lliurement la frontera «immediatament, sense demora». La notícia es va estendre en minuts. Centenars de milers de persones es van dirigir al Mur. Els guàrdies, sense ordres clares i davant la impossibilitat de disparar contra tothom, van obrir els passos. Les masses van pujar al Mur i el van començar a destruir a cops de martell.</p>
+        <p>En les setmanes i mesos següents, els règims comunistes d'Europa Oriental van caure un darrere l'altre: Bulgària, Txecoslovàquia (Revolució de Vellut, liderada per Václav Havel), Romania (Ceauşescu va ser executat per un tribunal sumaríssim), Polònia, Hongria. Va ser la revolució democràtica més extensa d'Europa des de 1848, i va ser en gran part pacífica.</p>
+
+        <div class="img-wrap">
+          <img src="images/berlin_wall_fall.jpg" alt="Caiguda del Mur de Berlín, novembre de 1989" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Berlinesos a sobre del Mur la nit del 9 de novembre de 1989. En hores, el símbol físic de la Guerra Freda era destruït per les pròpies mans dels seus ciutadans. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s2-3">2.3. La dissolució de la URSS (1991)</h3>
+        <p>El <strong>25 de desembre de 1991</strong>, Gorbatxov va renunciar a la presidència de la URSS. La bandera soviètica del Kremlin va ser arriada i substituïda per la bandera russa. La URSS es dissolia en <strong>quinze repúbliques independents</strong>: Rússia, Ucraïna, Bielorússia, els estats bàltics (Estònia, Letònia, Lituània), els països del Caucas (Geòrgia, Armènia, Azerbaidjan) i els estats d'Àsia Central (Kazakhstan, Uzbekistan, Kirguizistan, Tadjikistan, Turkmenistan) i Moldàvia. Acabava un Estat que havia existit des de 1922.</p>
+        <p>El politòleg nord-americà Francis Fukuyama va anunciar l'any 1989 el <strong>«Fi de la História»</strong>: el capitalisme liberal havia guanyat el conflicte entre sistemes i era el model definitiu d'organització política i econòmica. La realitat dels anys posteriors —ascens de la Xina, guerres de Iugoslàvia, autoritarismes diversos, crisi del 2008, ascens de l'extrema dreta— va demostrar que la História estava molt lluny d'haver acabat.</p>
+
+        <div class="info-box">
+          <span class="info-label">La URSS i l'Estat del Benestar: una connexió incòmoda</span>
+          <p>La mera existència de la URSS —malgrat tots els seus crims i dèficits democràtics— va fer que el capitalisme occidental concedís durant les dècades de la postguerra millores socials significatives per evitar que els treballadors s'inclinessin cap al comunisme: l'Estat del Benestar, els drets laborals, l'educació i la sanitat públiques. <strong>La caiguda de la URSS el 1991 coincideix amb la regressió de l'Estat del Benestar.</strong> Sense la competència del model alternatiu, el capitalisme va deixar de sentir la necessitat de ser generós.</p>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- S3 -->
+      <section class="section" id="s3">
+        <span class="section-num">Secció 03</span>
+        <h2>El neoliberalisme global (1979–avui)</h2>
+
+        <p>Paral·lelament a la fi de la Guerra Freda, el capitalisme occidental va viure una transformació profunda en les seves polítiques econòmiques. El «capitalisme amb Estat del Benestar» de la postguerra —que havia combinat mercat lliure amb regulació, grans empreses públiques i protecció social— va ser substituït progressivament per una nova doctrina: el <strong>neoliberalisme</strong>.</p>
+
+        <h3 id="s3-1">3.1. Thatcher i Reagan: la revolució neoliberal</h3>
+        <p>Les dues figures que van incarnar el gir neoliberal van ser la primera ministra britànica <strong>Margaret Thatcher</strong> (1979–1990) i el president nord-americà <strong>Ronald Reagan</strong> (1981–1989). Procedien de tradicions polítiques conservadores però van adoptar les idees dels economistes de l'Escola de Chicago (Milton Friedman) i de l'austríac Friedrich Hayek: el mercat és sempre més eficient que l'Estat, la regulació distorsiona els incentius, i la prosperitat ve de deixar actuar lliurement els mercats.</p>
+
+        <div class="img-wrap">
+          <img src="images/thatcher_reagan.jpg" alt="Margaret Thatcher i Ronald Reagan, 1984" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Margaret Thatcher i Ronald Reagan a Camp David, 1984. Les dues figures emblemes de la revolució neoliberal dels anys 80, que va transformar profundament l'economia política occidental. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="neo-grid">
+          <div class="neo-item">
+            <span class="neo-tag">Principi 01</span>
+            <div class="neo-title">Privatització dels serveis públics</div>
+            <div class="neo-body">Empreses públiques (telecomunicacions, energia, ferrocarrils, habitatge social) passen a mans privades. L'argument: la gestió privada és sempre més eficient. El resultat: beneficis per als accionistes, sovint pitjors serveis per als usuaris i pèrdua de control democràtic sobre serveis essencials.</div>
+          </div>
+          <div class="neo-item">
+            <span class="neo-tag">Principi 02</span>
+            <div class="neo-title">Desregulació financera</div>
+            <div class="neo-body">Eliminació de les regulacions que limitaven l'activitat dels bancs i els mercats financers, implementades als anys 30 com a lliçó del Crac del 29. El resultat: innovació financera que crea productes complexos i opacs, acumulació de risc sistèmic. La crisi del 2008 en va ser la conseqüència directa.</div>
+          </div>
+          <div class="neo-item">
+            <span class="neo-tag">Principi 03</span>
+            <div class="neo-title">Retallades socials i flexibilització laboral</div>
+            <div class="neo-body">Reducció de la despesa en benestar social, debilitament dels sindicats, flexibilització dels contractes laborals, eliminació de drets adquirits pels treballadors. Thatcher va destruir deliberadament el sindicat dels miners en una vaga de tres anys (1984–85) per eliminar el poder obrer organitzat.</div>
+          </div>
+          <div class="neo-item">
+            <span class="neo-tag">Principi 04</span>
+            <div class="neo-title">Baixada d'impostos als rics i a les empreses</div>
+            <div class="neo-body">Reagan va reduir el tipus marginal màxim de l'IRPF del 70% al 28%. L'argument: els rics invertirien més i la riquesa «regalimaria» cap avall (<em>trickle-down economics</em>). El resultat: la desigualtat als EUA ha tornat als nivells dels anys 20. La riquesa va regalimar cap amunt.</div>
+          </div>
+        </div>
+
+        <h3 id="s3-2">3.2. Globalització i desigualtat</h3>
+        <p>El neoliberalisme va anar de la mà de la <strong>globalització econòmica</strong>: la integració progressiva de l'economia mundial en un sol mercat. Les empreses podien ara produir allà on la mà d'obra era més barata i les regulacions més febles, vendre arreu del món i situar els seus beneficis als països amb menys impostos (paradisos fiscals). La globalització va crear riquesa: centenars de milions de persones van sortir de la pobresa extrema a la Xina, l'Índia i altres economies emergents. Però va generar també la desindustrialització de les regions obreres occidentals i va augmentar la desigualtat dins dels països rics.</p>
+        <p>El resultat de quaranta anys de neoliberalisme és inequívoc: <strong>la desigualtat ha crescut a tots els països que han aplicat aquestes polítiques</strong>. El coeficient Gini —la mesura estàndard de la desigualtat— ha pujat als EUA, el Regne Unit, Alemanya i la majoria de països europeus des dels anys 80. L'1% més ric del planeta posseeix avui més riquesa que el 50% inferior. Oxfam documenta cada any que els 8 homes més rics del món posseeixen tanta riquesa com la meitat inferior de la humanitat.</p>
+
+        <h3 id="s3-3">3.3. La crisi del 2008 i les seves conseqüències</h3>
+        <p>La desregulació financera dels anys 80 i 90 va crear les condicions per a la major crisi econòmica des del 1929. Als EUA, els bancs havien concedit hipoteques a persones sense capacitat de pagament (<em>subprime</em>), les havien empaquetades en productes financers complexos (CDO, derivats) i les havien venut per tot el món. Quan el mercat immobiliari nord-americà va col·lapsar el 2007–2008, tota la cadena es va desfer i el sistema bancari global va entrar en crisi.</p>
+        <p>La resposta als EUA (Obama) va ser un paquet d'estímuls. A Europa, la resposta dominant va ser l'<strong>austeritat</strong>: retallades de despesa pública, reducció de salaris als funcionaris, privatitzacions forçades i reducció de serveis socials. Les conseqüències: una recuperació extremament lenta, un augment de la desigualtat, i —igual que als anys 30— una frustració política que l'extrema dreta va saber aprofitar millor que les esquerres.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- S3b: DESCOLONITZACIÓ -->
+      <section class="section" id="s3b">
+        <span class="section-num">Context paral·lel</span>
+        <h2>La descolonització i el Tercer Món (1945–1975)</h2>
+
+        <p>Paral·lelament a la Guerra Freda, el món vivia el procés de <strong>descolonització</strong> —un dels fenòmens més importants del segle XX i que connecta directament amb l'imperialisme que hem estudiat al Tema 3. La guerra havia demostrat la fragilitat i la hipocrisies de les potències colonials: no podien defensar la llibertat a Europa mentre continuaven negant-la a centenars de milions de persones a Àfrica i Àsia.</p>
+
+        <h3 id="s3b-1">Les etapes de la descolonització</h3>
+        <p>La descolonització va passar per tres grans etapes. Entre <strong>1945 i 1955</strong>, la independència va arribar principalment a Àsia: l'Índia i Pakistan (1947, amb una partició que va costar un milió de morts i milions de desplaçats), Birmània (1948), Indonèsia (1949), Líbia (1951). Entre <strong>1956 i 1965</strong>, el torn va ser d'Àfrica: Marroc i Tunísia (1956), Ghana (1957), Guinea (1958), i la gran onada de l'Àfrica negra el 1960 (any en el qual setze països africans es van independitzar). Algeria va obtenir la independència el 1962 després d'una guerra brutal (1954–62) en la qual França va usar la tortura sistemàtica. A partir de <strong>1965</strong>, els darrers territoris colonials: les colonies portugueses (Angola, Moçambic 1975, arran de la Revolució dels Clavells), Zimbàbue (1980), la independència de Namíbia (1990).</p>
+        <p>La descolonització rarament va ser pacífica quan hi havia interessos econòmics importants. França va lluitar a Algeria i Indoxina. Gran Bretanya va reprimir brutalment a Kenya (camps de concentració dels mau mau, 1952–60). Portugal va combatir les guerres colonials fins al 1974. Bèlgica va assassinar Patrice Lumumba al Congo (1961) en col·laboració amb la CIA, poc després de la independència.</p>
+
+        <h3 id="s3b-2">El Tercer Món i la Conferència de Bandung</h3>
+        <p>El 1955, 29 nacions d'Àsia i Àfrica es van reunir a la <strong>Conferència de Bandung</strong> (Indonèsia) per proclamar el seu dret a la no-alineació: ni el bloc americà ni el soviètic. Va néixer el concepte de <strong>«Tercer Món»</strong> —una tercera via entre els dos blocs de la Guerra Freda, que intentava mantenir la sobirania dels nous estats davant la pressió de les superpotències. Figures com Nehru (Índia), Nkrumah (Ghana), Sukarno (Indonèsia) i Nasser (Egipte) van ser els líders del moviment. La independència política, però, sovint va quedar limitada per la dependència econòmica heretada del colonialisme: les estructures econòmiques creades per extreure riquesa per a les metròpolis no es transformaven de la nit al dia.</p>
+
+        <div class="warn-box">
+          La descolonització va crear cinquanta nous estats, la majoria amb les fronteres arbitràries heretes de la Conferència de Berlín de 1884. Sense una transformació de les estructures econòmiques, la independència política va ser en molts casos una independència formal: les ex-metròpolis continuaven controlant el comerç exterior, les matèries primeres i el deute dels nous estats. Quan Buxaweb diu que «l'imperialisme és un fenomen clau per a entendre el món actual», és exactament per això: la desigualtat Nord-Sud que genera les migracions actuals té les seves arrels en el colonialisme del T03 i en la descolonització incompleta del T08.
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- S4 -->
+      <section class="section" id="s4">
+        <span class="section-num">Secció 04</span>
+        <h2>El món actual: desafiaments del present</h2>
+
+        <p>El curs de história que heu fet és, en el fons, el relat de com hem arribat al món en el qual viviu. Les lògiques que hem analitzat —l'imperialisme, el capitalisme financer, les crisis econòmiques com a caldo de cultiu de l'extrema dreta, la desigualtat, el racisme estructural— no han desaparegut. Han canviat de forma, però continuen actives.</p>
+
+        <div class="def-box">
+          <span class="def-label">Quatre desafiaments del present amb arrels históricques</span>
+          <p><strong>1. L'ascens de l'extrema dreta:</strong> com als anys 30, una crisi econòmica (2008) seguida d'austeritat ha generat frustració que l'extrema dreta ha canalitzat contra immigrants, minories i «elits». Trump als EUA, Orbán a Hongria, Le Pen a França, AfD a Alemanya, Vox a Espanya. Comprendre el feixisme dels anys 30 és imprescindible per analitzar aquests fenòmens amb rigor.</p>
+          <p><strong>2. La crisi climàtica:</strong> el canvi climàtic és la conseqüència directa del model energètic capitalista nascut a la Revolució Industrial. Les emissions de CO₂ han crescut un 66% des de 1990. Els països del Sud Global —que menys han contribuït a les emissions— en pateixen les conseqüències més severes. L'imperialisme climàtic és una continuació de l'imperialisme del segle XIX amb altres formes.</p>
+          <p><strong>3. Les desigualtats estructurals:</strong> de gènere (bretxa salarial, violència masclista, treball de cures no remunerat), de raça (herència del colonialisme i l'esclavitud: Black Lives Matter), de classe (precarietat laboral, accés a l'habitatge, deute estudiantil). Les desigualtats del present tienen arrels directes en la história que hem estudiat.</p>
+          <p><strong>4. Les migracions:</strong> la pobresa del Sud Global que genera les migracions cap a Europa no és resultat de la «mala sort» o de factors culturals. És la conseqüència acumulada de segles de colonialisme, del neocolonialisme econòmic i dels conflictes armats generats per fronteres colonials arbitràries i per intervencions de les potències. Qui controla el present controla el relat de les migracions; qui coneix la história entén les seves causes reals.</p>
+        </div>
+
+        <div class="pullquote">
+          <p>«La História no és el passat mort. És l'arrel del present viu. Comprendre d'on venim és la condició per entendre on som i per poder imaginar on volem anar.»</p>
+        </div>
+      </section>
+
+    </div><!-- /panel-apunts -->
+
+    <!-- ═══ TAB 2: CRONOLOGIA ═══ -->
+    <div class="tab-panel" id="panel-cronologia">
+      <p style="font-size:.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'DM Mono',monospace;letter-spacing:.04em;">Els fets marcats en <span style="color:var(--blue);font-weight:700;">blau</span> són els moments de ruptura principals del període.</p>
+      <div class="crono">
+
+        <div class="crono-group">
+          <div class="crono-group-label">Els orígens de la Guerra Freda (1945–1955)</div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1945–1947</span><div class="crono-event">Divisió del món — Doctrina Truman — Pla Marshall</div><div class="crono-desc">Els antics aliats es divideixen en zones d'influència. La Doctrina Truman (1947) formula la «contenció» del comunisme. El Pla Marshall (1948) reconstrueix l'Europa Occidental i la vincula econòmicament als EUA.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1949</span><div class="crono-event">OTAN · Xina comunista · Bomba atòmica soviètica</div><div class="crono-desc">Un any decisiu: neix l'aliança militar occidental (OTAN), la Xina es fa comunista sota Mao, i la URSS prova la seva primera bomba atòmica. La cursa d'armaments nuclears comença.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1950–1953</span><div class="crono-event">Guerra de Corea</div><div class="crono-desc">Primera guerra «en calent» de la Guerra Freda. EUA i aliats vs. Corea del Nord i Xina. Armistici el 1953 que divideix Corea al paral·lel 38. La situació persisteix fins avui.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1961</span><div class="crono-event">Construcció del Mur de Berlín</div><div class="crono-desc">La RDA construeix el Mur per aturar la fuga massiva de ciutadans cap a l'Oest. El Mur es converteix en el símbol físic de la divisió del món en dos blocs.</div></div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">Crises i conflictes (1953–1975)</div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1953</span><div class="crono-event">CIA derroca Mossadegh a l'Iran</div><div class="crono-desc">La CIA organitza el cop que derroca el primer ministre iranià, que havia nacionalitzat el petroli. Restauració del xa. Primer exemple documentat d'intervencionisme americà en democràcies electes durant la Guerra Freda.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Octubre 1962</span><div class="crono-event">Crisi dels Míssils de Cuba</div><div class="crono-desc">Tretze dies en els quals el món va estar a punt d'una guerra nuclear. Kennedy i Khrushchev arriben a un acord secret. La línia directa Washington-Moscou («telèfon vermell») s'estableix com a conseqüència.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1968</span><div class="crono-event">Primavera de Praga · Mayo francès · Vietnam</div><div class="crono-desc">Un any de rebel·lions globals: tancs soviètics a Praga, el Maig del 68 a França, l'ofensiva del Tet al Vietnam canvia l'opinió pública americana. El 1968 és l'any que qüestiona tots dos blocs.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">11 setembre 1973</span><div class="crono-event">Cop de Pinochet a Xile</div><div class="crono-desc">La CIA i Nixon suporten el cop que derroca Salvador Allende, elegit democràticament. Pinochet aplica les primeres polítiques neoliberals de la História. Milers d'assassinats i desapareguts.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1975</span><div class="crono-event">Caiguda de Saigon — derrota americana al Vietnam</div><div class="crono-desc">Les forces del Vietnam del Nord entren a Saigon. Primera gran derrota militar dels EUA. El Vietnam queda reunificat sota el règim comunista. La guerra ha costat 58.000 soldats americans i entre 2 i 3 milions de vietnamites.</div></div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">La fi de la Guerra Freda i el neoliberalisme (1979–1991)</div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1979</span><div class="crono-event">Thatcher al poder · Reagan el 1981</div><div class="crono-desc">La revolució neoliberal arriba al poder als dos països anglosaxons més influents. Privatitzacions, desregulació financera, atac als sindicats i reducció de l'Estat del Benestar es convertiran en el model dominant a tot el món.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1985</span><div class="crono-event">Gorbatxov al capdavant de la URSS</div><div class="crono-desc">Mikhail Gorbatxov proposa la perestroika i la glasnost per reformar la URSS des de dins. En lloc de salvar el sistema, les reformes acceleren el seu col·lapse al despertar nacionalismes i crítiques que no es podien frenar.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">9 novembre 1989</span><div class="crono-event">Caiguda del Mur de Berlín</div><div class="crono-desc">El Mur és destruït per les mans dels berlinesos en una nit que capgira la História. En setmanes, tots els règims comunistes d'Europa Oriental cauen. El món canvia en poc temps.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">25 desembre 1991</span><div class="crono-event">Dissolució de la URSS</div><div class="crono-desc">Gorbatxov renuncia. La bandera soviètica del Kremlin és arriada. La URSS es divideix en 15 repúbliques independents. Fi de la Guerra Freda. Fukuyama anuncia el «Fi de la Història». Estava molt equivocat.</div></div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">El món actual (1991–avui)</div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1991–2001</span><div class="crono-event">El «moment unipolar» i la globalització</div><div class="crono-desc">Els EUA queden com a única superpotència. L'OMC (1995) accelera la globalització comercial. Les multinacionals deslocalitzen la producció als països amb salaris i regulacions menors. La desigualtat dins dels països rics comença a créixer.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">2008</span><div class="crono-event">La Gran Recessió — crisi financera global</div><div class="crono-desc">El col·lapse del mercat hipotecari nord-americà s'estén al sistema bancari global. La resposta europea és l'austeritat: retallades que agreuguen la desigualtat. Les conseqüències polítiques: ascens de partits d'extrema dreta i antiestablishment a molts països.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">2016</span><div class="crono-event">Brexit i Trump — la crisi de l'ordre liberal</div><div class="crono-desc">El Regne Unit vota sortir de la UE. Trump guanya les presidencials als EUA. Dos senyals de la crisi de l'ordre liberal nascut al 1945 i del descontentament popular amb la globalització neoliberal i les seves conseqüències distributives.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">2022</span><div class="crono-event">Invasió russa d'Ucraïna</div><div class="crono-desc">Rússia envaeix Ucraïna en una guerra que recorda la lògica de la Guerra Freda però en un context molt diferent. Europa s'enfronta a la major guerra al continent des de 1945. La geopolítica torna al centre del debat.</div></div>
+        </div>
+
+      </div>
+    </div><!-- /panel-cronologia -->
+
+    <!-- ═══ TAB 3: LA HISTÓRIA, ARA ═══ -->
+    <div class="tab-panel" id="panel-ara">
+      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
+        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">Amb aquest tema tanquem el curs. L'activitat final proposa fer el que hem anunciat des del tema 0: usar la história com a eina d'anàlisi del present. Traçar els fils que connecten allò que hem estudiat amb el món on viviu.</p>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>1. La CIA i les democràcies: lliçons per al present</h3><span class="task-badge">Anàlisi crítica</span></div>
+        <div class="task-body">
+          <p>La CIA va participar en el derroc de governs democràtics a l'Iran (1953), Guatemala (1954), Xile (1973), Congo (1960), Brasil (1964) i molts altres països, sempre amb l'argument de la «seguretat nacional» i la «contenció del comunisme». Avui els arguments han canviat però el patró d'intervencionisme continua.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Escull un dels tres casos dels apunts (Iran, Guatemala o Xile) i investiga: qui va governar després del cop? Quines polítiques va aplicar? Quines conseqüències a llarg termini va tenir per al país?</span></li>
+            <li><span class="step-num">02</span><span>Avui, els EUA critiquen Rússia per intervenir en eleccions i la sobirania d'altres països (Ucraïna, Geòrgia...). Creus que els EUA tenen autoritat moral per fer-ho, tenint en compte la seva história d'intervencionisme? Com es resol la tensió entre la crítica legítima de les accions russes i el reconeixement de la pròpia história?</span></li>
+            <li><span class="step-num">03</span><span>El Xile de Pinochet va ser el primer laboratori del neoliberalisme. Avui, les polítiques neoliberals (privatitzacions, desregulació, retallades socials) s'apliquen a través del FMI i del Banc Mundial als països en dificultats. Qué diferencia aquest «neoliberalisme voluntari» del que es va imposar a punta de baioneta a Xile?</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>2. Activitat final: llençant ponts entre la Història i el present</h3><span class="task-badge">Projecte final · Individual o parelles</span></div>
+        <div class="task-body">
+          <p>Al llarg d'aquest curs hem estudiat dos segles d'história contemporània. L'activitat final demana que demostris que has entès la connexió entre el passat i el present: que la história no és el passat mort, sinó l'arrel del present viu.</p>
+          <p><strong>Tria un fenomen del món actual</strong> que et preocupi o t'interessi i traça les seves arrels históricques fins als temes del curs. L'objectiu és demostrar que aquell fenomen no ha sorgit del no-res sinó que té causes estructurals que hem estudiat.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span><strong>Tria el teu tema:</strong> migracions i refugiats, crisi climàtica, ascens de l'extrema dreta, desigualtat econòmica, guerres actuals (Ucraïna, Gaza, Sudan...), crisi de l'habitatge, racisme sistèmic, precarietat laboral juvenil, o qualsevol altra que et sembli rellevant.</span></li>
+            <li><span class="step-num">02</span><span><strong>Construeix la cadena causal:</strong> des del fenomen actual, ves cap enrere en el temps identificant les causes. Cada causa ha de tenir una arrel en almenys un dels temes del curs. Usa fletxes i esquemes si t'ajuda a visualitzar-ho.</span></li>
+            <li><span class="step-num">03</span><span><strong>Exemple orientatiu:</strong> «Les migracions cap a Europa» → pobresa del Sud Global → neocolonialisme econòmic (T03) → colonialisme i fronteres arbitràries (T03) → crisi climàtica com a factor de desplaçament → model energètic capitalista des de la Revolució Industrial (T02) → conflictes als països d'origen, molts amb arrels a la Guerra Freda (T08). Però el teu raonament ha de ser propi.</span></li>
+            <li><span class="step-num">04</span><span><strong>Presentació:</strong> exposa el teu raonament en 5 minuts a la classe. Has de ser capaç de respondre preguntes dels companys i del professor. L'objectiu no és que tinguis totes les respostes, sinó que puguis fer les preguntes correctes.</span></li>
+          </ul>
+          <div class="debate-box">
+            <span class="debate-label">El propòsit de tot el curs</span>
+            <p>Hem dit al tema 0 que la história no és útil quan ens fa sentir orgullosos del passat o quan justifica el present, sinó quan ens permet veure que el món podria ser diferent del que és, que res no estava escrit per endavant, i que els canvis que semblen impossibles a vegades es produeixen quan prou gent s'organitza per aconseguir-los. Quin canvi et sembla necessari avui? I quina arrel histórica té la situació que vols canviar?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>3. La Guerra Freda avui: Ucraïna i el retorn de la geopolítica</h3><span class="task-badge">Actualitat</span></div>
+        <div class="task-body">
+          <p>La invasió russa d'Ucraïna el febrer de 2022 ha tornat a posar la guerra al cor d'Europa per primera vegada des de 1945. Molts analistes parlen d'una «nova Guerra Freda». Analitzem fins a quin punt la comparació és útil.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Quines similituds trobes entre la dinàmica de la Guerra Freda i el conflicte actual a Ucraïna? Pensa en: el paper de la OTAN, les esferes d'influència, l'armament d'un dels bàndols per una superpotència, la propaganda dels dos bàndols.</span></li>
+            <li><span class="step-num">02</span><span>Quines diferències importants hi ha? (La Xina com a actor; la interdependència econòmica global; les xarxes socials i la guerra informativa; l'amenaça nuclear explícita de Rússia; la posició dels països del Sud Global que no s'alineen clarament amb cap bàndol).</span></li>
+            <li><span class="step-num">03</span><span>Busca com la guerra d'Ucraïna s'explica des de la perspectiva russa, la ucraïnesa i la d'un país del Sud Global (per exemple, l'Índia o el Brasil, que no van condemnar Rússia a l'ONU). Per qué cada perspectiva és diferent? Quin paper hi juga la história?</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /panel-ara -->
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>T08 · La Guerra Freda i el Món Actual · 4t ESO</span>
+  <nav class="footer-nav">
+    <a href="t07_espanya.html">← Tema 07</a>
+    <a href="index.html">Índex</a>
+  </nav>
+</footer>
+
+<script>
+  function switchTab(name,btn){
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('panel-'+name).classList.add('active');
+    btn.classList.add('active');
+    if(name==='cronologia')animateCrono();
+    if(name==='apunts')revealSections();
+    window.scrollTo({top:document.querySelector('.tabs-bar').offsetTop-56,behavior:'smooth'});
+  }
+  function revealSections(){
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.06});
+    document.querySelectorAll('#panel-apunts .section').forEach(s=>obs.observe(s));
+  }
+  function animateCrono(){document.querySelectorAll('.crono-entry').forEach((el,i)=>{setTimeout(()=>el.classList.add('vis'),i*55)})}
+  const tocLinks=document.querySelectorAll('#toc-apunts a');
+  const sObs=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting){tocLinks.forEach(a=>a.classList.remove('active'));const l=document.querySelector(`#toc-apunts a[href="#${x.target.id}"]`);if(l)l.classList.add('active')}})
+  },{rootMargin:'-20% 0px -70% 0px'});
+  document.querySelectorAll('.section[id],h3[id]').forEach(s=>sObs.observe(s));
+  revealSections();
+</script>
+</body>
+</html>

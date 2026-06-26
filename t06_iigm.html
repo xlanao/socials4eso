@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>T06 · La Segona Guerra Mundial — Història 4t ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#111111;--ink-soft:#444444;--ink-faint:#8a8a8a;--paper:#ffffff;--paper-off:#fafaf9;--line:#111111;--line-soft:#cfcfcc;--line-faint:#e6e5e1;--blue:#0057b8;--blue-light:#e8f0fa;--sidebar-w:250px;--content-max:740px}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Spectral',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:16.5px;font-weight:400}
+  .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav-left{display:flex;align-items:center}
+  .nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-decoration:none;display:flex;align-items:center;gap:8px;padding:6px 14px 6px 0;border-right:1px solid var(--line-faint);margin-right:14px;transition:color .15s}
+  .nav-back:hover{color:var(--ink)}
+  .nav-brand{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);text-decoration:none;font-weight:700}
+  .nav-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-faint);letter-spacing:.06em}
+  .topic-hero{background:var(--paper);border-bottom:1px solid var(--line);padding:52px 48px 44px}
+  .topic-hero-inner{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .topic-breadcrumb{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+  .topic-breadcrumb a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+  .topic-num-badge{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  .topic-hero h1{font-family:'Spectral',serif;font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:600;letter-spacing:-.01em;line-height:1.18;color:var(--ink);margin-bottom:14px}
+  .topic-hero h1 em{font-style:italic;font-weight:400}
+  .topic-subtitle{font-family:'DM Mono',monospace;color:var(--ink-soft);font-size:.82rem;letter-spacing:.03em}
+  .tabs-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:0 48px;display:flex}
+  .tab-btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);border:none;background:none;padding:15px 22px;cursor:pointer;position:relative;transition:color .15s}
+  .tab-btn::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--blue);opacity:0;transition:opacity .15s}
+  .tab-btn:hover{color:var(--ink-soft)}.tab-btn.active{color:var(--ink);font-weight:700}.tab-btn.active::after{opacity:1}
+  .page-wrap{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto;display:grid;grid-template-columns:var(--sidebar-w) 1fr;align-items:start}
+  .sidebar{position:sticky;top:56px;padding:40px 24px 40px 0;max-height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none}
+  .sidebar::-webkit-scrollbar{display:none}
+  .sidebar-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .toc{list-style:none}
+  .toc a{display:block;padding:5px 0 5px 14px;font-family:'Spectral',serif;font-size:.83rem;color:var(--ink-faint);text-decoration:none;border-left:1px solid var(--line-faint);transition:all .15s;line-height:1.4}
+  .toc a:hover{color:var(--ink);border-left-color:var(--ink-soft)}.toc a.active{color:var(--blue);border-left:2px solid var(--blue);font-weight:600}
+  .toc .toc-sub a{padding-left:28px;font-size:.78rem;font-style:italic}
+  .content{padding:48px 0 100px 40px;border-left:1px solid var(--line);min-width:0}
+  .tab-panel{display:none}.tab-panel.active{display:block}
+  .section{margin-bottom:64px;padding-top:8px;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+  .section.visible{opacity:1;transform:none}
+  .section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:block}
+  h2{font-family:'Spectral',serif;font-size:1.65rem;font-weight:600;color:var(--ink);margin-bottom:26px;line-height:1.3;padding-bottom:16px;border-bottom:1px solid var(--line)}
+  h3{font-family:'Spectral',serif;font-size:1.18rem;font-weight:600;color:var(--ink);margin:40px 0 14px}
+  h4{font-family:'Spectral',serif;font-size:.95rem;font-weight:600;font-style:italic;color:var(--ink-soft);margin:28px 0 10px}
+  p{margin-bottom:14px;color:var(--ink-soft);font-weight:300}p:last-child{margin-bottom:0}
+  strong{color:var(--ink);font-weight:700}em{font-style:italic}
+  ul,ol{padding-left:22px;margin-bottom:14px}
+  li{margin-bottom:6px;color:var(--ink-soft);font-weight:300;line-height:1.6}
+  .section-divider{border:none;border-top:1px solid var(--line);margin:52px 0}
+  .def-box{border:1px solid var(--ink);padding:18px 20px;margin:20px 0}
+  .def-box .def-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px;display:block;font-weight:700}
+  .def-box p{margin:0 0 8px;font-size:.95rem}.def-box p:last-child{margin:0}
+  .info-box{border-left:3px solid var(--blue);background:var(--blue-light);padding:16px 20px;margin:22px 0}
+  .info-box .info-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:8px;display:block;font-weight:700}
+  .info-box p{margin:0 0 8px;font-size:.93rem}.info-box p:last-child{margin:0}
+  .warn-box{border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:16px 4px;margin:22px 0;font-size:.93rem;color:var(--ink-soft)}
+  .warn-box::before{content:'PER ENTENDRE-HO BÉ — ';font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;color:var(--ink);font-weight:700;display:block;margin-bottom:6px}
+  .img-wrap{margin:24px 0;border:1px solid var(--line-soft)}
+  .img-wrap img{width:100%;height:auto;display:block}
+  .img-cap{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.04em;color:var(--ink-faint);padding:8px 12px;border-top:1px solid var(--line-faint);background:var(--paper-off)}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);margin:24px 0}
+  .stat-item{padding:18px 14px;text-align:center;border-right:1px solid var(--line-faint)}
+  .stat-item:last-child{border-right:none}
+  .stat-num{font-family:'DM Mono',monospace;font-size:1.5rem;font-weight:700;color:var(--blue);display:block;line-height:1;margin-bottom:5px}
+  .stat-label{font-family:'DM Mono',monospace;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);display:block;line-height:1.4}
+  .pullquote{border-left:3px solid var(--ink);padding:12px 0 12px 22px;margin:28px 0}
+  .pullquote p{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft);line-height:1.65;font-weight:300;margin:0 0 6px}
+  .pullquote cite{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-style:normal}
+  /* fases guerra */
+  .fases{border-left:1px solid var(--line);padding-left:24px;margin:22px 0}
+  .fase{position:relative;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--line-faint)}
+  .fase:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .fase::before{content:'';position:absolute;left:-29px;top:7px;width:8px;height:8px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
+  .fase.clau::before{background:var(--blue);border-color:var(--blue);width:10px;height:10px;left:-30px;top:6px}
+  .fase-data{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:3px}
+  .fase-title{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.3}
+  .fase-body{font-size:.88rem;color:var(--ink-faint);font-weight:300;line-height:1.6}
+  .fase-body p{margin-bottom:8px;font-size:.88rem;color:var(--ink-faint);font-weight:300}
+  .fase-body p:last-child{margin-bottom:0}
+  /* etapes holocaust */
+  .etapes-holo{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);margin:22px 0}
+  .etapa-holo{padding:16px 14px;border-right:1px solid var(--line-faint);text-align:center}
+  .etapa-holo:last-child{border-right:none}
+  .etapa-any{font-family:'DM Mono',monospace;font-size:.7rem;font-weight:700;color:var(--blue);display:block;margin-bottom:6px;letter-spacing:.08em}
+  .etapa-nom{font-family:'Spectral',serif;font-size:.88rem;font-weight:600;color:var(--ink);margin-bottom:5px;line-height:1.3}
+  .etapa-desc{font-size:.78rem;color:var(--ink-faint);font-weight:300;line-height:1.5}
+  /* conseqüències taula */
+  .table-wrap{overflow-x:auto;margin:20px 0}
+  table{width:100%;border-collapse:collapse;font-size:.88rem}
+  th{background:var(--ink);color:var(--paper);padding:10px 14px;text-align:left;font-family:'DM Mono',monospace;font-weight:400;font-size:.78rem;letter-spacing:.04em}
+  td{padding:10px 14px;border-bottom:1px solid var(--line-faint);vertical-align:top;color:var(--ink-soft);font-size:.88rem}
+  tr:last-child td{border-bottom:1px solid var(--line)}
+  /* crono */
+  .crono{border-left:1px solid var(--line);padding-left:28px;margin-top:8px}
+  .crono-group{margin-bottom:36px}
+  .crono-group-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-off);display:inline-block;padding:4px 10px;margin-bottom:18px;position:relative;left:-38px;border:1px solid var(--line-faint)}
+  .crono-entry{position:relative;margin-bottom:26px;opacity:0;transform:translateX(-6px);transition:opacity .38s ease,transform .38s ease}
+  .crono-entry.vis{opacity:1;transform:none}
+  .crono-dot{position:absolute;left:-33px;top:6px;width:8px;height:8px;border-radius:50%;background:var(--paper);border:1px solid var(--ink)}
+  .crono-dot.key{background:var(--blue);border-color:var(--blue);width:10px;height:10px;left:-34px;top:5px}
+  .crono-year{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:2px}
+  .crono-event{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.3}
+  .crono-desc{font-size:.88rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
+  /* task */
+  .task-block{margin-bottom:40px;border:1px solid var(--ink)}
+  .task-header{background:var(--ink);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
+  .task-header h3{margin:0;font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--paper)}
+  .task-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.4);color:rgba(255,255,255,.7);white-space:nowrap}
+  .task-body{padding:22px 24px}
+  .task-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300}
+  .task-steps{list-style:none;padding:0;margin:12px 0 0}
+  .task-steps li{display:flex;gap:12px;align-items:flex-start;margin-bottom:10px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.6;border-bottom:1px dotted var(--line-faint);padding-bottom:10px}
+  .task-steps li:last-child{border-bottom:none;padding-bottom:0}
+  .task-steps li .step-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:18px}
+  .debate-box{border-top:1px solid var(--line-soft);margin-top:16px;padding-top:14px}
+  .debate-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:6px;font-weight:700}
+  .debate-box p{font-style:italic;font-size:.9rem}
+  .site-footer{border-top:1px solid var(--line);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;color:var(--ink-faint);font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.06em;max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .footer-nav{display:flex;gap:20px}
+  .footer-nav a{color:var(--ink-faint);text-decoration:none;transition:color .15s}
+  .footer-nav a:hover{color:var(--ink)}
+  @media(max-width:860px){
+    .page-wrap{grid-template-columns:1fr}.sidebar{display:none}
+    .content{padding:32px 22px 60px;border-left:none}
+    .stats{grid-template-columns:1fr 1fr}
+    .etapes-holo{grid-template-columns:1fr 1fr}
+    .etapa-holo:nth-child(2n){border-right:none}
+    .etapa-holo:nth-child(1),.etapa-holo:nth-child(2){border-bottom:1px solid var(--line-faint)}
+    .topic-hero,.tabs-bar{padding-left:22px;padding-right:22px}
+    .nav{padding:0 22px}.nav-meta{display:none}
+    .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-back" href="index.html">← Índex</a>
+    <span class="nav-brand">Història 4t ESO</span>
+  </div>
+  <span class="nav-meta">T06 · La Segona Guerra Mundial (1939–1945)</span>
+</nav>
+
+<div class="topic-hero">
+  <div class="topic-hero-inner">
+    <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 06</div>
+    <div class="topic-num-badge">Tema 06 — 1939–1945</div>
+    <h1>La <em>Segona Guerra Mundial</em></h1>
+    <p class="topic-subtitle">L'appeasement · Les fases del conflicte · L'Holocaust · La URSS i la Resistència · Les conseqüències</p>
+  </div>
+</div>
+
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
+  <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
+</div>
+
+<div class="page-wrap">
+  <nav class="sidebar">
+    <div class="sidebar-title">Continguts</div>
+    <ul class="toc" id="toc-apunts">
+      <li><a href="#s1">1. Com va ser possible?</a></li>
+      <li class="toc-sub"><a href="#s1-1">1.1 L'appeasement</a></li>
+      <li class="toc-sub"><a href="#s1-2">1.2 El Pacte Molotov-Ribbentrop</a></li>
+      <li class="toc-sub"><a href="#s1-3">1.3 L'esclat de la guerra</a></li>
+      <li><a href="#s2">2. Les fases de la guerra</a></li>
+      <li class="toc-sub"><a href="#s2-1">2.1 Expansió nazi (1939–41)</a></li>
+      <li class="toc-sub"><a href="#s2-2">2.2 La guerra es globalitza (1941)</a></li>
+      <li class="toc-sub"><a href="#s2-3">2.3 El gir: Stalingrad (1942–43)</a></li>
+      <li class="toc-sub"><a href="#s2-4">2.4 La derrota nazi (1944–45)</a></li>
+      <li><a href="#s3">3. L'Holocaust</a></li>
+      <li class="toc-sub"><a href="#s3-1">3.1 El procés gradual</a></li>
+      <li class="toc-sub"><a href="#s3-2">3.2 La Solució Final</a></li>
+      <li class="toc-sub"><a href="#s3-3">3.3 Complicitats i lliçons</a></li>
+      <li><a href="#s4">4. La URSS i la Resistència</a></li>
+      <li><a href="#s5">5. Conseqüències</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+    <div class="tab-panel active" id="panel-apunts">
+
+      <div class="stats" style="margin-bottom:40px">
+        <div class="stat-item"><span class="stat-num">70–85M</span><span class="stat-label">Morts totals (la majoria civils)</span></div>
+        <div class="stat-item"><span class="stat-num">6M</span><span class="stat-label">Jueus assassinats a l'Holocaust</span></div>
+        <div class="stat-item"><span class="stat-num">27M</span><span class="stat-label">Morts soviètics</span></div>
+        <div class="stat-item"><span class="stat-num">1945</span><span class="stat-label">Fi del conflicte</span></div>
+      </div>
+
+      <!-- ─── S1 ─── -->
+      <section class="section" id="s1">
+        <span class="section-num">Secció 01</span>
+        <h2>Com va ser possible? El camí cap a la guerra</h2>
+
+        <p>La Segona Guerra Mundial no va arribar de sobte. Va ser el resultat d'un encadenament de decisions que, en retrospectiva, semblen increïbles: les democràcies europees van tenir anys per aturar Hitler i van optar sistemàticament per no fer-ho. Per entendre per qué, cal anar més enllà de la ingenuïtat dels dirigents i preguntar-se quins interessos reals movien aquelles decisions.</p>
+
+        <h3 id="s1-1">1.1. L'appeasement: apaivagar l'agressor</h3>
+        <p>Des que Hitler va arribar al poder el 1933, el règim nazi va anar escalant les seves provocacions de manera gradual i deliberada. El 1936, Alemanya va remilitaritzar la Renània (violant Versalles). El 1938, va annexionar Àustria (<em>Anschluss</em>). Tot i cada violació dels tractats de pau, Gran Bretanya i França van respondre amb la mateixa política: l'<strong><em>appeasement</em></strong>, el «apaivagament» o la concessió. La lògica aparent era que cedir a les demandes «raonables» de Hitler evitaria una altra guerra. La realitat, tal com va demostrar l'experiència, era molt diferent: cada concessió convencia Hitler que Occident no resistiria.</p>
+        <p>El punt culminant va arribar el <strong>setembre de 1938</strong> a <strong>Munic</strong>. El primer ministre britànic Neville Chamberlain i el president francès Daladier es van reunir amb Hitler i Mussolini per cedir-li els <strong>Sudets</strong> (la regió de Txecoslovàquia de parla alemanya) sense consultar els txecoslovacs. A canvi, Hitler prometia que no faria cap altra demanda territorial. Chamberlain va tornar a Londres brandant un paper i declarant: <em>«Pau per al nostre temps»</em>. Sis mesos després, Hitler havia ocupat tota Txecoslovàquia.</p>
+
+        <div class="img-wrap">
+          <img src="images/munich_1938.jpg" alt="Acords de Munic, setembre de 1938" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Els acords de Munic (setembre de 1938): Hitler, Mussolini, Daladier i Chamberlain. Txecoslovàquia no va ser convidada a la reunió en la qual es decidia el seu destí. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="warn-box">
+          L'<em>appeasement</em> no era simplement ingenuïtat de Chamberlain. Molts sectors de l'aristocràcia i la gran burgesia britànica i francesa <strong>veien en Hitler un dic de contenció útil contra el comunisme soviètic</strong>. La lògica era: si Hitler vol espai vital a l'Est, deixem que ataqui la URSS. Dues amenaces es destrossen mútuament. La <strong>no-intervenció a la Guerra Civil espanyola</strong> (1936–39) responia a la mateixa lògica: Franco era un dic anticomunista. L'<em>appeasement</em> no va ser ignorància: va ser una aposta geopolítica que va fallar catastròficament.
+        </div>
+
+        <h3 id="s1-2">1.2. El Pacte Molotov-Ribbentrop (agost 1939)</h3>
+        <p>La gran sorpresa estratègica de l'estiu de 1939 va ser el <strong>Pacte germano-soviètic</strong>, signat el 23 d'agost per Molotov (ministre soviètic d'Afers Exteriors) i Ribbentrop (alemany). Dos règims ideològicament oposats —el nazisme i el comunisme s'havien definit mútuament com a enemics mortals— s'aliaven de facto: acordaven la no-agressió mútua i, en protocols secrets, el repartiment de Polònia i les esferes d'influència a l'Europa de l'Est.</p>
+        <p>El pacte va frustrar l'estratègia occidental d'<em>appeasement</em>: Hitler ja no havia d'atacar la URSS per tenir «espai vital». Podia atacar primer a l'Oest, sense por d'un front soviètic. Per a Stalin, el pacte comprava temps: la URSS necessitava anys per rearmar-se després de les purges dels anys 30 que havien decapitat l'exèrcit. Els dos dictadors van traïr el pacte a la primera oportunitat: Hitler el va trencar el juny de 1941 amb l'Operació Barba-roja.</p>
+
+        <h3 id="s1-3">1.3. L'esclat de la guerra: Polònia, setembre de 1939</h3>
+        <p>L'1 de setembre de 1939, Alemanya va envair Polònia per l'oest. El 17 de setembre, la URSS —en virtut del pacte secret— va envair Polònia per l'est. El país va ser dividit i ocupat en setmanes. Gran Bretanya i França, que havien garantit la integritat de Polònia, van declarar la guerra a Alemanya el 3 de setembre. La Segona Guerra Mundial havia començat.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S2 ─── -->
+      <section class="section" id="s2">
+        <span class="section-num">Secció 02</span>
+        <h2>Les fases del conflicte (1939–1945)</h2>
+
+        <p>La Segona Guerra Mundial va ser un conflicte global que va involucrar finalment a gairebé tots els països del món. La seva dinàmica militar va passar per fases clarament diferenciades: l'expansió fulminant nazi els primers dos anys, la globalització del conflicte el 1941, el gir decisiu a Stalingrad i, finalment, la pressió des de l'est i l'oest que va acabar derrotant Alemanya.</p>
+
+        <div class="fases">
+
+          <div class="fase clau">
+            <span class="fase-data">1939–1941 — L'expansió nazi</span>
+            <div class="fase-title">La <em>Blitzkrieg</em> conquesta Europa</div>
+            <div class="fase-body">
+              <p>Alemanya va aplicar la <strong><em>Blitzkrieg</em></strong> («guerra llampec»): combinació de tancs, aviació i infanteria motoritzada que avançava tan ràpidament que l'enemic no tenia temps de reorganitzar-se. Polònia va caure en setmanes (setembre 1939). El 1940, van caure Dinamarca i Noruega (abril), i a continuació —en un dels colps militars més espectaculars de la Història— els Països Baixos, Bèlgica i <strong>França sencera en sis setmanes</strong> (juny 1940). Les tropes aliades van ser evacuades per mar a Dunkerque en una operació frenètica.</p>
+              <p>La <strong>Batalla d'Anglaterra</strong> (agost–setembre 1940) va ser el primer gran fracàs nazi: Hitler necessitava destruir la RAF (Royal Air Force) britànica per preparar un desembarcament a les illes. No va aconseguir-ho. Per primer cop, la <em>Blitzkrieg</em> topava amb un límit. Churchill, nou primer ministre britànic, va resumir: <em>«Mai en el camp dels conflictes humans, tant no havia estat degut per tants a tan pocs.»</em></p>
+            </div>
+          </div>
+
+          <div class="fase clau">
+            <span class="fase-data">Juny–desembre 1941 — La guerra es globalitza</span>
+            <div class="fase-title">Barba-roja i Pearl Harbor canvien tot</div>
+            <div class="fase-body">
+              <p>El <strong>22 de juny de 1941</strong>, Hitler va trencar el pacte amb Stalin i va llançar l'<strong>Operació Barba-roja</strong>: la invasió de la URSS amb tres milions de soldats en el front més llarg de la História. Va ser una decisió ideològica —destruir el «bolxevisme judeomarxista» i conquerir l'«espai vital» a l'Est— però estratègicament catastròfica: obria un segon front enorme que Alemanya no podia sostenir alhora que combatia a l'Oest.</p>
+              <p>El <strong>7 de desembre de 1941</strong>, el Japó (aliat d'Alemanya) va atacar la base naval nord-americana de <strong>Pearl Harbor</strong> a Hawaii, destruint gran part de la flota del Pacífic. L'endemà, els EUA van declarar la guerra al Japó. Quatre dies després, Alemanya i Itàlia van declarar la guerra als EUA. En sis mesos, el conflicte europeu s'havia convertit en una guerra veritablement mundial.</p>
+            </div>
+          </div>
+
+          <div class="fase clau">
+            <span class="fase-data">Agost 1942 – febrer 1943 — El gir</span>
+            <div class="fase-title">Stalingrad: la primera gran derrota alemanya</div>
+            <div class="fase-body">
+              <p>La <strong>Batalla de Stalingrad</strong> va ser el punt d'inflexió de la guerra. Alemanya havia avançat fins a la meitat de la URSS i atacava la ciutat del Volga que portava el nom de Stalin. Durant sis mesos, uns 300.000 soldats alemanys van quedar envoltats per un contraatac soviètic planificat per Zhukov. En condicions de fred extrem i combat urbà ferotge, l'exèrcit alemany va ser destruït: el <strong>2 de febrer de 1943</strong>, el mariscal Paulus va capitular. Era la primera gran derrota alemanya en camp obert. A partir d'aquí, l'Exèrcit Roig va anar avançant inexorablement cap a l'Oest.</p>
+            </div>
+          </div>
+
+          <div class="fase clau">
+            <span class="fase-data">Juny 1944 – maig 1945 — La derrota nazi</span>
+            <div class="fase-title">El Dia D i la caiguda de Berlín</div>
+            <div class="fase-body">
+              <p>El <strong>6 de juny de 1944</strong> —el <strong>Dia D</strong>— va ser el desembarcament aliat a les platges de Normandia (nord de França): la major operació anfibia de la História. Centenars de milers de soldats nord-americans, britànics i canadencs van desembarcar sota foc enemic. Va ser un dia de carnisseria enorme, però va establir el front occidental que Alemanya no podia sostenir alhora que l'Exèrcit Roig avançava des de l'Est.</p>
+              <p>Alemanya lluitava ara en dos fronts alhora, sense reserves humanes ni materials. <strong>Berlín va caure</strong> el 2 de maig de 1945. Hitler s'havia suïcidat el 30 d'abril. L'<strong>8 de maig de 1945</strong> («Dia V-E», Victory in Europe), Alemanya va signar la capitulació incondicional. Al Pacífic, la guerra va continuar fins al <strong>6 i 9 d'agost de 1945</strong>, quan els EUA van llançar bombes atòmiques sobre <strong>Hiroshima i Nagasaki</strong>. El 2 de setembre, el Japó va capitular. La Segona Guerra Mundial havia acabat.</p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="img-wrap">
+          <img src="images/dday_normandy.jpg" alt="Desembarcament a Normandia, 6 de juny de 1944" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Soldats nord-americans desembarcant a les platges de Normandia el Dia D, 6 de juny de 1944. La foto, de Robert F. Sargent, és una de les icones de la Segona Guerra Mundial. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="img-wrap">
+          <img src="images/stalingrad.jpg" alt="Bandera soviètica a les ruïnes de Stalingrad, 1943" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Soldats soviètics hissant la bandera a les ruïnes de Stalingrad, febrer de 1943. La derrota alemanya a Stalingrad va ser el punt d'inflexió de la guerra a l'Est. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="img-wrap">
+          <img src="images/hiroshima.jpg" alt="Bolet nuclear sobre Hiroshima o Nagasaki, agost de 1945" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El núvol de la bomba atòmica sobre el Japó, agost de 1945. Hiroshima (6 d'agost) i Nagasaki (9 d'agost) van matar entre 129.000 i 226.000 persones, la majoria civils. Van obrir l'era nuclear. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S3 ─── -->
+      <section class="section" id="s3">
+        <span class="section-num">Secció 03</span>
+        <h2>L'Holocaust</h2>
+
+        <p>L'Holocaust —el genocidi sistemàtic i industrialitzat del poble jueu (i gitanos, homosexuals, persones amb discapacitat, comunistes, eslaus i altres minories) perpetrat pel règim nazi— és la màxima expressió del racisme i el totalitarisme feixista portats fins a les seves darreres conseqüències. <strong>6 milions de jueus assassinats</strong> com a política d'Estat: no en el calor de la batalla, sinó planificat, burocratitzat i executat sistemàticament.</p>
+
+        <h3 id="s3-1">3.1. Un procés gradual: de l'exclusió al genocidi</h3>
+        <p>L'Holocaust no va sorgir del no-res un dia de 1942. Va ser el resultat d'un procés gradual i deliberat que va durar deu anys, en el qual cada pas preparava el terreny per al següent. Comprendre aquesta gradació és fonamental: no per «relativitzar» el genocidi, sinó per entendre com és possible que una societat moderna arribili a cometre'l.</p>
+
+        <div class="etapes-holo">
+          <div class="etapa-holo">
+            <span class="etapa-any">1933–1935</span>
+            <div class="etapa-nom">Exclusió legal</div>
+            <div class="etapa-desc">Lleis de Nuremberg (1935): els jueus perden la ciutadania, no poden casar-se amb aris ni exercir nombroses professions.</div>
+          </div>
+          <div class="etapa-holo">
+            <span class="etapa-any">1938</span>
+            <div class="etapa-nom">Violència física</div>
+            <div class="etapa-desc">Kristallnacht (novembre 1938): destrucció massiva de negocis i sinagogues. Milers d'arrestats, enviats als primers camps.</div>
+          </div>
+          <div class="etapa-holo">
+            <span class="etapa-any">1939–1941</span>
+            <div class="etapa-nom">Guetos i deportació</div>
+            <div class="etapa-desc">A Polònia ocupada, centenars de milers de jueus confinats en guetos superpoblats. Fam i malalties deliberades. Afusellaments massius als territoris soviètics conquerits.</div>
+          </div>
+          <div class="etapa-holo">
+            <span class="etapa-any">1942–1945</span>
+            <div class="etapa-nom">La Solució Final</div>
+            <div class="etapa-desc">Conferència de Wannsee (gener 1942): planificació burocràtica del genocidi total. Camps d'extermini (Auschwitz, Treblinka, Sobibor...). Les cambres de gas.</div>
+          </div>
+        </div>
+
+        <h3 id="s3-2">3.2. La Solució Final: el genocidi industrialitzat</h3>
+        <p>El <strong>20 de gener de 1942</strong>, a la Conferència de <strong>Wannsee</strong> (un xalet a les afores de Berlín), quinze alts funcionaris nazis van coordinar durant hora i mitja la «Solució Final de la qüestió jueva»: l'extermini sistemàtic de tots els jueus d'Europa. No era una decisió impulsiva de fanàtics: era una reunió burocràtica on es prenien decisions administratives sobre ferrocarrils, camps i recursos.</p>
+        <p>Els camps d'extermini —Auschwitz-Birkenau, Treblinka, Sobibor, Belzec, Chelmno, Majdanek— van ser construïts a Polònia, lluny dels ulls dels ciutadans alemanys i amb accés als principals eixos ferroviaris. Les víctimes eren deportades amb trens des de tota Europa ocupada. En arribar, les que no podien treballar eren enviades directament a les <strong>cambres de gas</strong>, les seves restes cremades als forns crematoris. Va ser un genocidi industrialitzat: planificat com una cadena de producció.</p>
+
+        <div class="img-wrap">
+          <img src="images/holocaust_auschwitz.jpg" alt="Porta del camp d'extermini d'Auschwitz-Birkenau" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">La porta d'entrada al camp d'extermini d'Auschwitz-Birkenau (Polònia), on van ser assassinades entre 1,1 i 1,5 milions de persones, la majoria jueves. Avui és un memorial i lloc d'homenatge. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="img-wrap">
+          <img src="images/holocaust_liberation.jpg" alt="Presoners alliberats al camp de Buchenwald, abril de 1945" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Supervivents al camp de concentració de Buchenwald (Alemanya), fotografiats per Margaret Bourke-White el dia de l'alliberament, 16 d'abril de 1945. Elie Wiesel, futur Premi Nobel de la Pau, és al segon bressol de la dreta. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s3-3">3.3. Complicitats i lliçons</h3>
+        <p>L'Holocaust no hauria estat possible sense una xarxa de complicitats que s'estén molt més enllà dels membres del Partit Nazi:</p>
+        <ul>
+          <li><strong>La burocracia ordinària:</strong> funcionaris de ferrocarrils que organitzaven els trens, funcionaris de l'administració que gestionaven els registres, metges que participaven en «seleccions». La filòsofa Hannah Arendt, cobrint el judici d'Adolf Eichmann (un dels organitzadors logístics de l'Holocaust) el 1961, va encunyar la frase «la <strong>banalitat del mal</strong>»: els genocidis no sempre els cometen monstres evidents, sinó homes ordinaris que obeeixen ordres i «fan la seva feina» sense qüestionar-se el sistema del qual formen part.</li>
+          <li><strong>Les empreses:</strong> IG Farben (química), Volkswagen, Siemens, BMW, Daimler-Benz van utilitzar mà d'obra esclava de camps de concentració. La seva participació als crims nazis va ser real i documentada. Algunes van pagar indemnitzacions dècades després.</li>
+          <li><strong>Els estats col·laboradors:</strong> el règim de Vichy (França col·laboracionista) va deportar jueus francesos sense que els nazis els ho haguessin demanat. Franco, malgrat la seva neutralitat oficial, va proporcionar llistes de jueus espanyols als nazis. Hongria, Romania i Croàcia van participar activament en deportacions i massacres.</li>
+        </ul>
+
+        <div class="pullquote">
+          <p>«Primer van venir pels comunistes, i no vaig dir res perquè jo no era comunista. Llavors van venir pels sindicats, i no vaig dir res perquè jo no era sindicalista. Llavors van venir pels jueus, i no vaig dir res perquè jo no era jueu. Llavors van venir a buscar-me, i ja no quedava ningú per dir res per mi.»</p>
+          <cite>Atribuïda al pastor protestant Martin Niemöller, supervivent dels camps nazis</cite>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">Lliçons per al present</span>
+          <p>L'Holocaust no va sorgir del no-res. Va ser el resultat d'un procés gradual: primer el discurs que presenta un col·lectiu com a amenaça o «inferiors»; després la discriminació legal; després la violència tolerada; finalment la violència d'Estat. Reconèixer els primers passos d'aquest procés —la deshumanització verbal, la creació de bocs expiatoris, la suspensió gradual de drets— és la manera de no repetir-lo. La «banalitat del mal» ens adverteix que l'obediència acrítica a l'autoritat és un perill permanent, no un tret exclusiu de l'Alemanya dels anys 30.</p>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S4 ─── -->
+      <section class="section" id="s4">
+        <span class="section-num">Secció 04</span>
+        <h2>El paper de la URSS i de la Resistència antifeixista</h2>
+
+        <p>La narració dominant de la Segona Guerra Mundial a Occident tendeix a centrar-se en el Dia D i la contribució nord-americana. És una narració incompleta que oblida qui va suportar el gruix del combat.</p>
+
+        <h3>La URSS: el teatre principal de la guerra</h3>
+        <p>El <strong>Front de l'Est</strong> va ser, amb diferència, el teatre principal de la Segona Guerra Mundial. L'Exèrcit Roig soviètic va enfrontar-se al llarg de quatre anys contra entre el <strong>75% i el 80% de la força militar alemanya total</strong>. Les batles del Front de l'Est van ser les més grans de la História: a Kursk (juliol 1943) hi van participar més de 6.000 tancs. A Berlín (abril–maig 1945), 2,5 milions de soldats soviètics. La URSS va perdre entre <strong>25 i 27 milions de persones</strong> —civils i militars— en el conflicte. Cap altre país va suportar un cost semblant.</p>
+        <p>Sense la resistència soviètica, la guerra no s'hauria pogut guanyar. El Dia D va ser possible perquè l'Exèrcit Roig havia destroçat durant tres anys les divisions alemanyes a l'Est. Quan els aliats occidentals van desembarcar a Normandia el juny de 1944, Alemanya ja estava exhausta i perdent la guerra a l'Est. Reconèixer-ho no implica idealitzar el règim de Stalin: és rigor históric.</p>
+
+        <h3>La Resistència antifeixista</h3>
+        <p>A tots els països ocupats per Alemanya, grups de resistència van lluitar des de la clandestinitat: sabotatge, intel·ligència, protecció de persones perseguides, guerrilla. La <strong>Resistència antifeixista</strong> europea va ser en gran part una resistència d'esquerres: comunistes, socialistes, anarquistes i sindicalistes que tenien les xarxes organitzatives i la motivació ideològica per lluitar en les condicions més difícils. A França, el Consell Nacional de la Resistència va ser liderat per figures com Jean Moulin. A Iugoslàvia, els partisans de Tito —comunistes— van alliberar el país pràcticament sols. A Grècia, Polònia i Itàlia, les esquerres van protagonitzar la resistència interior.</p>
+        <p>Cal esmentar també les persones que, arriscant la vida, van amagar o ajudar a fugir jueus i altres perseguïts: els que la tradició jueva anomena els <strong><em>Justos entre les Nacions</em></strong>. Raoul Wallenberg (diplomàtic suec), Giorgio Perlasca (italià que va salvar milers de jueus a Budapest) o Oskar Schindler (empresari alemany que va salvar els seus treballadors jueus) van demostrar que fins i tot enmig del nazisme existia la possibilitat de resistir individualment.</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S5 ─── -->
+      <section class="section" id="s5">
+        <span class="section-num">Secció 05</span>
+        <h2>Les conseqüències de la Segona Guerra Mundial</h2>
+
+        <p>La Segona Guerra Mundial va redissenyar completament l'ordre polític i econòmic mundial. El mapa d'Europa va canviar, els imperis colonials europeus van entrar en crisi terminal, dues noves superpotències van emergir, i per primera vegada la humanitat tenia eines per destruir-se a si mateixa completament.</p>
+
+        <div class="table-wrap">
+          <table>
+            <tr><th>Àmbit</th><th>Conseqüència</th></tr>
+            <tr>
+              <td><strong>L'ONU (1945)</strong></td>
+              <td>Creació de l'Organització de Nacions Unides com a fòrum d'ordre internacional basat en el dret i la diplomàcia. Substituïa la fallida Societat de Nacions. L'any 1948, l'ONU aprovava la <strong>Declaració Universal dels Drets Humans</strong>, el primer document que reconeixia drets universals per a tota la humanitat, independentment de l'Estat al qual pertanyés.</td>
+            </tr>
+            <tr>
+              <td><strong>Els Judicis de Nuremberg (1945–46)</strong></td>
+              <td>Per primera vegada, dirigents d'un Estat vençut eren jutjats internacionalment per «crims contra la humanitat». El principi establert: cap ordre superior no justifica la participació en genocidis. Va ser el fonament del dret internacional humanitari modern. La sentència va executar els líders nazis principals i va empresonar d'altres.</td>
+            </tr>
+            <tr>
+              <td><strong>El Pla Marshall (1948)</strong></td>
+              <td>Els EUA van invertir 12.000 milions de dòlars (equivalent a uns 130.000 milions actuals) per reconstruir l'Europa Occidental devastada. L'objectiu no era altruista: evitar que la misèria dugués els europeus al comunisme. El Pla Marshall va ser la base de la ràpida recuperació econòmica d'Europa occidental als anys 50 i 60, i va vincular estretament l'economia europea a la nord-americana.</td>
+            </tr>
+            <tr>
+              <td><strong>La Guerra Freda</strong></td>
+              <td>Els antics aliats —EUA i URSS— es van convertir en rivals globals. Europa va quedar dividida en dos blocs: l'Occidental, sota influència nord-americana i organitzat en la NATO (1949); i l'Oriental, sota control soviètic i organitzat en el Pacte de Varsòvia (1955). La divisió d'Alemanya (República Federal i República Democràtica Alemanya) en va ser la manifestació més visible.</td>
+            </tr>
+            <tr>
+              <td><strong>La descolonització</strong></td>
+              <td>La guerra va accelerar la crisi terminal dels imperis colonials europeus. Gran Bretanya, França, Holanda i Bèlgica havien sortit de la guerra debilitades i amb la seva «missió civilitzadora» completament desacreditada: eren les potències que havien derrotat el nazisme però que continuaven tenint colonies de milions de persones privades de drets. Els moviments d'alliberament nacional a Àsia i Àfrica —que en molts casos havien lluitat amb les forces aliades— van guanyar força immediatament. L'<strong>Índia</strong> va accedir a la independència el 1947, Pakistan es va separar en el mateix moment. Indonèsia el 1945, Vietnam (després d'una guerra contra França). A Àfrica, la descolonització va arribar sobretot als anys <strong>50–60</strong>: Ghana (1957), Algèria (guerra 1954–62, independència 1962), Congo (1960), Kenya (1963)... El procés va ser sovint violent, i les potències colonials van resistir quan els interessos econòmics eren importants. La descolonització va crear cinquanta nous estats —molts d'ells amb les fronteres arbitràries del colonialisme que hem estudiat al T03— i va configurar el món actual.</td>
+            </tr>
+            <tr>
+              <td><strong>L'era nuclear</strong></td>
+              <td>Les bombes sobre Hiroshima i Nagasaki van obrir una nova era: per primera vegada, la humanitat tenia capacitat de destruir-se a si mateixa completament. La cursa d'armaments nuclears entre EUA i URSS va definir tota la Guerra Freda i va crear el concepte de «destrucció mútua assegurada» (MAD): la garantia que cap dels dos bàndols podria atacar l'altre sense ser destruït alhora.</td>
+            </tr>
+          </table>
+        </div>
+
+        <div class="img-wrap">
+          <img src="images/nuremberg_trials.jpg" alt="Judici de Nuremberg, 1945-1946" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Els judicis de Nuremberg (1945–46): per primera vegada, dirigents d'un Estat eren jutjats internacionalment per crims contra la humanitat. Al banc dels acusats, els principals líders nazis supervivents. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="info-box">
+          <span class="info-label">La memòria de la guerra — qui recorda qué?</span>
+          <p>La memòria de la Segona Guerra Mundial és molt diferent als diversos països. Als EUA, la guerra és el triomf moral i militar que va derrotar el mal absolut; el rol soviètic hi és gairebé invisible. A Rússia, és la «Gran Guerra Pàtria» protagonitzada per l'Exèrcit Roig; la contribució occidental hi és secundària. A Alemanya, la guerra és fonamentalment la memòria de la culpa i l'Holocaust. A Polònia, és l'ocupació i l'extermini. Cada memòria nacional és «real» i «parcial» alhora. Preguntar-se <em>qui recorda qué i per qué</em> és, com dèiem al tema 0, una pregunta fonamental de la história crítica.</p>
+        </div>
+      </section>
+
+    </div><!-- /panel-apunts -->
+
+    <!-- ═══ TAB 2: CRONOLOGIA ═══ -->
+    <div class="tab-panel" id="panel-cronologia">
+      <p style="font-size:.9rem;color:var(--ink-faint);margin-bottom:36px;font-family:'DM Mono',monospace;letter-spacing:.04em;">Els fets marcats en <span style="color:var(--blue);font-weight:700;">blau</span> són els moments de ruptura principals del conflicte.</p>
+
+      <div class="crono">
+
+        <div class="crono-group">
+          <div class="crono-group-label">El camí cap a la guerra (1936–1939)</div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1936–1939</span><div class="crono-event">Guerra Civil Espanyola · No-intervenció occidental</div><div class="crono-desc">Alemanya i Itàlia intervenen al costat de Franco. GB i França s'autoexclouen amb la política de «no-intervenció». El primer assaig del feixisme en guerra: la Legió Còndor destrueix Guernica (abril 1937).</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Març 1938</span><div class="crono-event">Anschluss — Alemanya annexiona Àustria</div><div class="crono-desc">L'annexió d'Àustria a Alemanya —violació dels tractats de pau— es produeix sense resistència militar i amb l'entusiasme d'una part de la població austríaca. GB i França no reaccionen.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Setembre 1938</span><div class="crono-event">Acords de Munic · L'appeasement al seu punt màxim</div><div class="crono-desc">GB i França cedeixen els Sudets txecoslovacs a Hitler sense consultar els txecoslovacs. Chamberlain torna a Londres amb el seu paper: «Pau per al nostre temps». Sis mesos després, Hitler ocupa tota Txecoslovàquia.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">23 agost 1939</span><div class="crono-event">Pacte Molotov-Ribbentrop</div><div class="crono-desc">Sorpresa estratègica mundial: nazisme i comunisme pacten la no-agressió i el repartiment d'Europa de l'Est. Hitler pot atacar primer a l'Oest sense por d'un front soviètic.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1 setembre 1939</span><div class="crono-event">Invasió de Polònia — inici de la guerra</div><div class="crono-desc">Alemanya envaeix Polònia per l'oest; la URSS per l'est (17 setembre). GB i França declaren la guerra a Alemanya (3 setembre). Comença la Segona Guerra Mundial.</div></div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">L'expansió nazi i la globalització (1940–1941)</div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Juny 1940</span><div class="crono-event">França capitula en sis setmanes</div><div class="crono-desc">La <em>Blitzkrieg</em> derrota el millor exèrcit d'Europa en temps rècord. Els aliats s'evacuen a Dunkerque. París ocupa. Un govern col·laboracionista (Vichy) governa la França no ocupada sota les ordres de Pétain.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Agost–setembre 1940</span><div class="crono-event">Batalla d'Anglaterra — la RAF resisteix</div><div class="crono-desc">Hitler necessita destruir l'aviació britànica per preparar el desembarcament. La RAF impedeix que els nazis obtinguin la superioritat aèria. Primer fracàs nazi. Gran Bretanya no cau.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">22 juny 1941</span><div class="crono-event">Operació Barba-roja — invasió de la URSS</div><div class="crono-desc">Tres milions de soldats alemanys ataquen la URSS en el front més llarg de la História. L'exèrcit soviètic, debilitat per les purges de Stalin, recula enormement. Però no col·lapsa.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">7 desembre 1941</span><div class="crono-event">Pearl Harbor — els EUA entren a la guerra</div><div class="crono-desc">L'atac japonès a la base naval nord-americana de Pearl Harbor porta els EUA a la guerra. Alemanya i Itàlia declaren la guerra als EUA quatre dies després. El conflicte és ara veritablement mundial.</div></div>
+        </div>
+
+        <div class="crono-group">
+          <div class="crono-group-label">El gir i la derrota nazi (1942–1945)</div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Gener 1942</span><div class="crono-event">Conferència de Wannsee — la Solució Final</div><div class="crono-desc">Quinze funcionaris nazis planifiquen burocràticament l'extermini sistemàtic de tots els jueus d'Europa. Comencen a funcionar els camps d'extermini a plena capacitat.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Febrer 1943</span><div class="crono-event">Capitulació alemanya a Stalingrad</div><div class="crono-desc">El mariscal Paulus capitula amb 90.000 supervivents (d'uns 300.000). Primera gran derrota alemanya. L'Exèrcit Roig prendrà l'ofensiva i no s'aturarà fins a Berlín.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">6 juny 1944</span><div class="crono-event">El Dia D — desembarcament a Normandia</div><div class="crono-desc">La major operació anfibia de la História. Centenars de milers de soldats aliats desembarquen a les platges normandas. S'obra el front occidental. Alemanya ara lluita en dos fronts simultanis.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Abril–maig 1945</span><div class="crono-event">Caiguda de Berlín · Fi de la guerra a Europa</div><div class="crono-desc">L'Exèrcit Roig conquista Berlín. Hitler es suïcida el 30 d'abril. L'8 de maig, Alemanya signa la capitulació incondicional. «Dia V-E» (Victory in Europe). La guerra a Europa ha acabat.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Agost 1945</span><div class="crono-event">Bombes atòmiques sobre Hiroshima i Nagasaki</div><div class="crono-desc">El 6 d'agost, Hiroshima. El 9 d'agost, Nagasaki. Entre 129.000 i 226.000 morts. El 2 de setembre, el Japó capitula. Fi de la Segona Guerra Mundial. Comença l'era nuclear.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1945–1946</span><div class="crono-event">Judicis de Nuremberg · Creació de l'ONU</div><div class="crono-desc">L'ONU és fundada (juny 1945). Els principals líders nazis supervivents són jutjats a Nuremberg (novembre 1945 – octubre 1946) per crims de guerra i crims contra la humanitat. Neix el dret internacional humanitari modern.</div></div>
+        </div>
+
+      </div>
+    </div><!-- /panel-cronologia -->
+
+    <!-- ═══ TAB 3: LA HISTÓRIA, ARA ═══ -->
+    <div class="tab-panel" id="panel-ara">
+      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
+        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">La Segona Guerra Mundial i l'Holocaust no són simplement el passat. Les seves lliçons —sobre com es pot arribar al genocidi, sobre l'obediència acrítica, sobre la memòria selectiva— continuen sent urgentment rellevants. Aquestes activitats proposen fer la connexió.</p>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>1. La banalitat del mal: responsabilitat individual i sistèmica</h3><span class="task-badge">Reflexió filosòfica</span></div>
+        <div class="task-body">
+          <p>Hannah Arendt va encunyar el concepte de «banalitat del mal» observant el judici d'Adolf Eichmann el 1961: l'home que havia organitzat logísticament el transport de milions de persones als camps no era un monstre sàdic, sinó un buròcrata mediocre que «feia la seva feina» i «obeïa ordres». Arendt argumentava que això no el feia menys culpable: el feia més perillós, perquè demostrava que qualsevol podria arribar a fer el mateix.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Busca el famós <strong>Experiment de Milgram</strong> (1961), fet gairebé simultàniament amb el judici d'Eichmann. En qué consistia? Quins resultats va obtenir? Per qué és rellevant per entendre la «banalitat del mal»?</span></li>
+            <li><span class="step-num">02</span><span>Llegeix la citació de Martin Niemöller als apunts. A quins col·lectius et refereixes tu quan penses en grups que avui estan sent demonitzats o deshumanitzats en el discurs públic?</span></li>
+            <li><span class="step-num">03</span><span>Els empresaris que van usar mà d'obra esclava als camps (Volkswagen, Siemens, BMW...) van ser jutjats? Van pagar reparacions? Busca-ho. Qué et diu sobre com les societats gestionen les responsabilitats econòmiques dels crims histórics?</span></li>
+            <li><span class="step-num">04</span><span>Reflexió personal: en situacions de pressió de grup o d'autoritat, quan és difícil dir «no»? Quin exemple de la teva vida quotidiana podries posar? Qué et caldria per resistir una ordre injusta?</span></li>
+          </ul>
+          <div class="debate-box">
+            <span class="debate-label">Debat</span>
+            <p>«La culpa del genocidi nazi era exclusivament dels líders que el van ordenar, o s'estén a tots els qui van participar en l'execució, a tots els qui ho sabien i no van dir res, i a tots els qui es van beneficiar econòmicament d'ell?» On poses el límit de la responsabilitat individual en un sistema d'opressió col·lectiva?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>2. Genocidis d'ahir i d'avui: memòria selectiva</h3><span class="task-badge">Perspectiva crítica</span></div>
+        <div class="task-body">
+          <p>L'Holocaust és el genocidi més estudiat i commemorat de la História. Però la Historia del segle XX —i del present— conté molts altres genocidis que reben molt menys atenció. Analitzem per qué.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Busca informació sobre tres genocidis del segle XX (a part de l'Holocaust) que hagin rebut reconeixement internacional: el genocidi armeni (1915–17), el genocidi de Rwanda (1994) i el genocidi de Srebrenica (Bòsnia, 1995). Quants morts van causar? Qui els va cometre? Van ser jutjats els responsables?</span></li>
+            <li><span class="step-num">02</span><span>Per qué creus que l'Holocaust ha tingut una institucionalització de la memòria molt superior (museus, lleis, commemoracions) als altres genocidis? Pensa en factors polítics, geogràfics i de poder.</span></li>
+            <li><span class="step-num">03</span><span>El filòsof Achille Mbembe ha dit que «Europa recorda l'Holocaust però oblida el colonialisme». Creus que hi ha una connexió entre la deshumanització dels pobles colonitzats i la deshumanització que va fer possible l'Holocaust? Argumenta.</span></li>
+          </ul>
+          <div class="debate-box">
+            <span class="debate-label">Punt de reflexió</span>
+            <p>Si l'objectiu de commemorar l'Holocaust és «mai més», per qué es commemora l'Holocaust europeu però no els genocidis colonials a Àfrica o Amèrica? La memoria selectiva pot buidar de contingut el «mai més»?</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="task-block">
+        <div class="task-header"><h3>3. L'appeasement i les guerres d'avui</h3><span class="task-badge">Connexió present</span></div>
+        <div class="task-body">
+          <p>La política d'<em>appeasement</em> —cedir a les demandes d'un agressor amb l'esperança d'evitar la guerra— ha tornat al debat polític arran de la invasió russa d'Ucraïna (2022). Alguns analistes comparen Putin amb Hitler. Altres consideren que la comparació és excessiva i que pot portar a decisions perilloses. Analitzem el debat.</p>
+          <ul class="task-steps">
+            <li><span class="step-num">01</span><span>Busca quines demandes va fer Hitler entre 1936 i 1939 i com van respondre GB i França a cada una. Busca quins territori o esferes d'influència ha reivindicat Rússia des del 2008 (guerra de Geòrgia, annexió de Crimea 2014, invasió d'Ucraïna 2022). Quins elements comuns trobes?</span></li>
+            <li><span class="step-num">02</span><span>Quins arguments hi ha per a l'<em>appeasement</em> (negociar, cedir territori per evitar una guerra major, especialment nuclear) i quins arguments hi ha contra (que cada concessió envalenteix l'agressor)?</span></li>
+            <li><span class="step-num">03</span><span>Creus que és útil o perillós comparar situacions actuals amb el nazisme? Quins riscos té fer servir comparacions históricques en el debat polític?</span></li>
+          </ul>
+        </div>
+      </div>
+
+    </div><!-- /panel-ara -->
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>T06 · La Segona Guerra Mundial · 4t ESO</span>
+  <nav class="footer-nav">
+    <a href="t05_entreguerres.html">← Tema 05</a>
+    <a href="index.html">Índex</a>
+    <a href="t07_espanya.html">Tema 07 →</a>
+  </nav>
+</footer>
+
+<script>
+  function switchTab(name,btn){
+    document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    document.getElementById('panel-'+name).classList.add('active');
+    btn.classList.add('active');
+    if(name==='cronologia')animateCrono();
+    if(name==='apunts')revealSections();
+    window.scrollTo({top:document.querySelector('.tabs-bar').offsetTop-56,behavior:'smooth'});
+  }
+  function revealSections(){
+    const obs=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('visible')})},{threshold:.06});
+    document.querySelectorAll('#panel-apunts .section').forEach(s=>obs.observe(s));
+  }
+  function animateCrono(){document.querySelectorAll('.crono-entry').forEach((el,i)=>{setTimeout(()=>el.classList.add('vis'),i*55)})}
+  const tocLinks=document.querySelectorAll('#toc-apunts a');
+  const sObs=new IntersectionObserver(e=>{
+    e.forEach(x=>{if(x.isIntersecting){tocLinks.forEach(a=>a.classList.remove('active'));const l=document.querySelector(`#toc-apunts a[href="#${x.target.id}"]`);if(l)l.classList.add('active')}})
+  },{rootMargin:'-20% 0px -70% 0px'});
+  document.querySelectorAll('.section[id],h3[id]').forEach(s=>sObs.observe(s));
+  revealSections();
+</script>
+</body>
+</html>
