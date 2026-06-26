@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>T07 · La Guerra Civil Espanyola i el Franquisme — Història 4t ESO</title>
+<title>T07 · Espanya i Catalunya: de la Setmana Tràgica a la Transició — Història 4t ESO</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
-  :root{--ink:#111111;--ink-soft:#444444;--ink-faint:#8a8a8a;--paper:#ffffff;--paper-off:#fafaf9;--line:#111111;--line-soft:#cfcfcc;--line-faint:#e6e5e1;--blue:#0057b8;--blue-light:#e8f0fa;--sidebar-w:250px;--content-max:740px}
+  :root{--ink:#111111;--ink-soft:#444444;--ink-faint:#8a8a8a;--paper:#ffffff;--paper-off:#fafaf9;--line:#111111;--line-soft:#cfcfcc;--line-faint:#e6e5e1;--blue:#0057b8;--blue-light:#e8f0fa;--sidebar-w:260px;--content-max:740px}
   *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
   body{font-family:'Spectral',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.75;font-size:16.5px;font-weight:400}
   .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:56px}
@@ -60,6 +60,14 @@
   .img-wrap{margin:24px 0;border:1px solid var(--line-soft)}
   .img-wrap img{width:100%;height:auto;display:block}
   .img-cap{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.04em;color:var(--ink-faint);padding:8px 12px;border-top:1px solid var(--line-faint);background:var(--paper-off)}
+  /* font primària */
+  .font-primaria{border:1px solid var(--line);margin:24px 0;background:var(--paper-off)}
+  .font-header{background:var(--ink);padding:8px 14px;display:flex;justify-content:space-between;align-items:center}
+  .font-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .font-tipus{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.6);text-transform:uppercase}
+  .font-body{padding:16px 18px;font-family:'Spectral',serif;font-style:italic;font-size:.95rem;color:var(--ink-soft);line-height:1.7;font-weight:300}
+  .font-body strong{color:var(--ink);font-style:normal}
+  .font-peu{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);padding:8px 14px;border-top:1px solid var(--line-faint);letter-spacing:.04em}
   .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid var(--line);margin:24px 0}
   .stat-item{padding:18px 14px;text-align:center;border-right:1px solid var(--line-faint)}
   .stat-item:last-child{border-right:none}
@@ -68,7 +76,6 @@
   .pullquote{border-left:3px solid var(--ink);padding:12px 0 12px 22px;margin:28px 0}
   .pullquote p{font-family:'Spectral',serif;font-style:italic;font-size:1.05rem;color:var(--ink-soft);line-height:1.65;font-weight:300;margin:0 0 6px}
   .pullquote cite{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-faint);font-style:normal}
-  /* bàndols */
   .bandols{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin:22px 0}
   .bandol{padding:20px 18px;border-right:1px solid var(--line-faint)}
   .bandol:last-child{border-right:none}
@@ -77,7 +84,6 @@
   .bandol.rebel .bandol-header{color:var(--ink);border-color:var(--ink)}
   .bandol ul{padding-left:16px;margin:0}
   .bandol li{font-size:.85rem;color:var(--ink-soft);margin-bottom:7px;font-weight:300;line-height:1.5}
-  /* etapes franquisme */
   .etapes-f{border-left:1px solid var(--line);padding-left:24px;margin:22px 0}
   .etapa-f{position:relative;margin-bottom:28px;padding-bottom:28px;border-bottom:1px solid var(--line-faint)}
   .etapa-f:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
@@ -86,16 +92,14 @@
   .etapa-f-data{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:3px}
   .etapa-f-title{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px;line-height:1.3}
   .etapa-f-body{font-size:.88rem;color:var(--ink-faint);font-weight:300;line-height:1.6}
-  .etapa-f-body p{margin-bottom:7px;font-size:.88rem;color:var(--ink-faint);font-weight:300}
+  .etapa-f-body p{margin-bottom:7px;font-size:.88rem;color:var(--ink-soft);font-weight:300}
   .etapa-f-body p:last-child{margin-bottom:0}
-  /* transició grid */
   .transicio-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line);margin:22px 0}
   .t-item{padding:18px 16px;border-right:1px solid var(--line-faint)}
   .t-item:last-child{border-right:none}
   .t-any{font-family:'DM Mono',monospace;font-size:.78rem;font-weight:700;color:var(--blue);display:block;margin-bottom:6px;letter-spacing:.08em}
   .t-title{font-family:'Spectral',serif;font-size:.93rem;font-weight:600;color:var(--ink);margin-bottom:5px;line-height:1.3}
   .t-desc{font-size:.82rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
-  /* crono */
   .crono{border-left:1px solid var(--line);padding-left:28px;margin-top:8px}
   .crono-group{margin-bottom:36px}
   .crono-group-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);background:var(--paper-off);display:inline-block;padding:4px 10px;margin-bottom:18px;position:relative;left:-38px;border:1px solid var(--line-faint)}
@@ -106,7 +110,6 @@
   .crono-year{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:2px}
   .crono-event{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:4px;line-height:1.3}
   .crono-desc{font-size:.88rem;color:var(--ink-faint);font-weight:300;line-height:1.55}
-  /* task */
   .task-block{margin-bottom:40px;border:1px solid var(--ink)}
   .task-header{background:var(--ink);padding:14px 24px;display:flex;justify-content:space-between;align-items:center}
   .task-header h3{margin:0;font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--paper)}
@@ -124,16 +127,14 @@
   .footer-nav{display:flex;gap:20px}
   .footer-nav a{color:var(--ink-faint);text-decoration:none;transition:color .15s}
   .footer-nav a:hover{color:var(--ink)}
-  @media(max-width:860px){
+  @media(max-width:900px){
     .page-wrap{grid-template-columns:1fr}.sidebar{display:none}
     .content{padding:32px 22px 60px;border-left:none}
     .stats{grid-template-columns:1fr 1fr}
     .bandols{grid-template-columns:1fr}
-    .bandol{border-right:none;border-bottom:1px solid var(--line-faint)}
-    .bandol:last-child{border-bottom:none}
+    .bandol{border-right:none;border-bottom:1px solid var(--line-faint)}.bandol:last-child{border-bottom:none}
     .transicio-grid{grid-template-columns:1fr}
-    .t-item{border-right:none;border-bottom:1px solid var(--line-faint)}
-    .t-item:last-child{border-bottom:none}
+    .t-item{border-right:none;border-bottom:1px solid var(--line-faint)}.t-item:last-child{border-bottom:none}
     .topic-hero,.tabs-bar{padding-left:22px;padding-right:22px}
     .nav{padding:0 22px}.nav-meta{display:none}
     .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
@@ -147,15 +148,15 @@
     <a class="nav-back" href="index.html">← Índex</a>
     <span class="nav-brand">Història 4t ESO</span>
   </div>
-  <span class="nav-meta">T07 · La Guerra Civil Espanyola, el Franquisme i la Transició</span>
+  <span class="nav-meta">T07 · Espanya i Catalunya: 1909–1982</span>
 </nav>
 
 <div class="topic-hero">
   <div class="topic-hero-inner">
     <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 07</div>
-    <div class="topic-num-badge">Tema 07 — 1936–1982</div>
-    <h1>La Guerra Civil, el <em>Franquisme</em><br>i la Transició</h1>
-    <p class="topic-subtitle">El cop del 36 · La guerra civil · Quaranta anys de dictadura · La transició i els seus límits</p>
+    <div class="topic-num-badge">Tema 07 — 1909–1982</div>
+    <h1>Espanya i Catalunya:<br><em>De la Setmana Tràgica a la Transició</em></h1>
+    <p class="topic-subtitle">La crisi de la Restauració · La Dictadura · La República · La Guerra Civil · El Franquisme · La Transició</p>
   </div>
 </div>
 
@@ -169,24 +170,33 @@
   <nav class="sidebar">
     <div class="sidebar-title">Continguts</div>
     <ul class="toc" id="toc-apunts">
-      <li><a href="#s1">1. El cop d'estat i la Guerra Civil</a></li>
-      <li class="toc-sub"><a href="#s1-1">1.1 El cop del juliol de 1936</a></li>
-      <li class="toc-sub"><a href="#s1-2">1.2 Els dos bàndols</a></li>
-      <li class="toc-sub"><a href="#s1-3">1.3 La no-intervenció</a></li>
-      <li class="toc-sub"><a href="#s1-4">1.4 Guernica i la guerra total</a></li>
-      <li class="toc-sub"><a href="#s1-5">1.5 La revolució social</a></li>
-      <li class="toc-sub"><a href="#s1-6">1.6 La derrota i la repressió</a></li>
-      <li><a href="#s2">2. El Franquisme (1939–1975)</a></li>
-      <li class="toc-sub"><a href="#s2-1">2.1 La naturalesa del règim</a></li>
-      <li class="toc-sub"><a href="#s2-2">2.2 La repressió sistemàtica</a></li>
-      <li class="toc-sub"><a href="#s2-3">2.3 L'autarquia i la fam</a></li>
-      <li class="toc-sub"><a href="#s2-4">2.4 El desenvolupisme dels 60</a></li>
-      <li class="toc-sub"><a href="#s2-cat">2.cat El franquisme a Catalunya</a></li>
-      <li class="toc-sub"><a href="#s2-5">2.5 La resistència antifranquista</a></li>
-      <li><a href="#s3">3. La Transició (1975–1982)</a></li>
-      <li class="toc-sub"><a href="#s3-1">3.1 Els actors i el procés</a></li>
-      <li class="toc-sub"><a href="#s3-2">3.2 El 23-F</a></li>
-      <li class="toc-sub"><a href="#s3-3">3.3 Els dèficits democràtics</a></li>
+      <li><a href="#s1">1. La crisi de la Restauració</a></li>
+      <li class="toc-sub"><a href="#s1-1">1.1 El sistema del torn i el caciquisme</a></li>
+      <li class="toc-sub"><a href="#s1-2">1.2 El Desastre del 98 i el catalanisme</a></li>
+      <li class="toc-sub"><a href="#s1-3">1.3 La Setmana Tràgica (1909)</a></li>
+      <li class="toc-sub"><a href="#s1-4">1.4 La crisi del 1917</a></li>
+      <li class="toc-sub"><a href="#s1-5">1.5 La Mancomunitat de Catalunya</a></li>
+      <li class="toc-sub"><a href="#s1-6">1.6 La Dictadura de Primo de Rivera</a></li>
+      <li><a href="#s2">2. La Segona República (1931–1936)</a></li>
+      <li class="toc-sub"><a href="#s2-1">2.1 Proclamació i reformes</a></li>
+      <li class="toc-sub"><a href="#s2-2">2.2 Les etapes de la República</a></li>
+      <li class="toc-sub"><a href="#s2-3">2.3 El fracàs de la República</a></li>
+      <li><a href="#s3">3. La Guerra Civil (1936–1939)</a></li>
+      <li class="toc-sub"><a href="#s3-1">3.1 El cop i els dos bàndols</a></li>
+      <li class="toc-sub"><a href="#s3-2">3.2 La no-intervenció</a></li>
+      <li class="toc-sub"><a href="#s3-3">3.3 Guernica i la guerra total</a></li>
+      <li class="toc-sub"><a href="#s3-4">3.4 La revolució social</a></li>
+      <li class="toc-sub"><a href="#s3-5">3.5 La derrota i la repressió</a></li>
+      <li><a href="#s4">4. El Franquisme (1939–1975)</a></li>
+      <li class="toc-sub"><a href="#s4-1">4.1 La naturalesa del règim</a></li>
+      <li class="toc-sub"><a href="#s4-2">4.2 La repressió i l'autarquia</a></li>
+      <li class="toc-sub"><a href="#s4-3">4.3 El franquisme a Catalunya</a></li>
+      <li class="toc-sub"><a href="#s4-4">4.4 El desenvolupisme dels 60</a></li>
+      <li class="toc-sub"><a href="#s4-5">4.5 La resistència antifranquista</a></li>
+      <li><a href="#s5">5. La Transició (1975–1982)</a></li>
+      <li class="toc-sub"><a href="#s5-1">5.1 El procés i els actors</a></li>
+      <li class="toc-sub"><a href="#s5-2">5.2 El 23-F</a></li>
+      <li class="toc-sub"><a href="#s5-3">5.3 Els dèficits democràtics</a></li>
     </ul>
   </nav>
 
@@ -194,248 +204,356 @@
     <div class="tab-panel active" id="panel-apunts">
 
       <div class="stats" style="margin-bottom:40px">
-        <div class="stat-item"><span class="stat-num">500K</span><span class="stat-label">Morts durant la guerra (1936–39)</span></div>
-        <div class="stat-item"><span class="stat-num">150K+</span><span class="stat-label">Afusellaments franquistes</span></div>
-        <div class="stat-item"><span class="stat-num">36 anys</span><span class="stat-label">Durada de la dictadura</span></div>
+        <div class="stat-item"><span class="stat-num">1909</span><span class="stat-label">Setmana Tràgica a Barcelona</span></div>
+        <div class="stat-item"><span class="stat-num">500K</span><span class="stat-label">Morts durant la Guerra Civil</span></div>
+        <div class="stat-item"><span class="stat-num">36 anys</span><span class="stat-label">Durada de la dictadura franquista</span></div>
         <div class="stat-item"><span class="stat-num">1977</span><span class="stat-label">Primeres eleccions democràtiques</span></div>
       </div>
 
-      <!-- ─── S1: GUERRA CIVIL ─── -->
+      <!-- ─── S1: CRISI RESTAURACIÓ ─── -->
       <section class="section" id="s1">
         <span class="section-num">Secció 01</span>
-        <h2>El cop d'estat i la Guerra Civil (1936–1939)</h2>
+        <h2>La crisi de la Restauració (1898–1931)</h2>
 
-        <p>La Guerra Civil espanyola no va ser simplement una guerra entre espanyols: va ser la primera batalla de la Segona Guerra Mundial, un assaig general en el qual les forces del feixisme europeu van provar les seves armes i les democràcies liberals van demostrar la seva incapacitat o falta de voluntat per defensar la democràcia. I va ser, alhora, un moment en el qual Espanya va estar a punt de protagonitzar la revolució social més profunda d'Europa occidental del segle XX.</p>
+        <p>Per entendre la Guerra Civil del 1936, cal remuntar-se almenys al 1898. Espanya entrava al segle XX amb un sistema polític profundament corrupte, una economia agrícola endarrerida, un exèrcit sobredimensionat i rancorós, i una societat en ràpida polarització. La Restauració borbònica —el sistema creat per Cánovas del Castillo des de 1874— havia garantit l'estabilitat a base de falsificar les eleccions i de repartir el poder entre les oligarquies. Quan el sistema va fer aigüa, no hi havia res per sostenir-lo.</p>
 
-        <h3 id="s1-1">1.1. El cop del 17–18 de juliol de 1936</h3>
-        <p>El <strong>17 de juliol de 1936</strong>, les guarnicions militars espanyoles al Marroc (l'exèrcit colonial, el més professional i ben armat d'Espanya) van proclamar l'estat de guerra contra la República. L'endemà, l'aixecament s'estenia a la Península. Els generals protagonistes eren <strong>Francisco Franco</strong>, <strong>Emilio Mola</strong> (l'«arquitecte» del cop), <strong>Gonzalo Queipo de Llano</strong> i el general <strong>Sanjurjo</strong> (que moriria en accident d'avió pocs dies després, deixant Franco com a figura dominant).</p>
-        <p>El cop va estar a punt de fracassar en les primeres hores. A Madrid, Barcelona, Bilbao, València i les grans ciutats, la <strong>resistència popular immediata</strong> —treballadors, milicians de la CNT-FAI i la UGT, guàrdia d'assalt lleial a la República— va impedir que els militars rebels s'imposessin. A Barcelona, les milícies anarquistes van derrotar les tropes del general Goded en un sol dia. A Madrid, el govern distribuïa armes entre la població.</p>
-        <p>El resultat va ser una situació inèdita: ni el cop havia triomfat del tot ni la República havia sufocat l'aixecament. Espanya quedava dividida en dos: una zona rebel (el nord-est, Galícia, Navarra, Castella-Lleó, el Marroc, parts d'Andalusia) i una zona republicana (Madrid, Catalunya, País Valencià, País Basc, gran part d'Andalusia i Extremadura). La guerra civil era inevitable.</p>
+        <h3 id="s1-1">1.1. El sistema del torn i el caciquisme</h3>
+        <p>El sistema de la Restauració es basava en el <strong>torn pacífic</strong>: dos partits dinàstics, el Liberal (Sagasta) i el Conservador (Cánovas), s'alternaven al govern de manera pactada, amb independència dels resultats electorals reals. El mecanisme era el <strong>caciquisme</strong>: els <em>cacics</em> —homes poderosos locals, generalment terratinents o professionals vinculats al poder— garantien els resultats electorals que el govern necessitava a canvi de favors, càrrecs i impunitat. Les eleccions eren una obra de teatre en la qual el resultat estava decidit abans de la votació.</p>
+        <p>El problema era que el sistema excloïa sistemàticament les forces emergents: el moviment obrer, el republicanisme, els nacionalismes perifèrics i, a mesura que avançava el segle, les classes mitjanes urbanes. Mentre l'oligarquia terratenent i industrial es repartia el pastís, una Espanya real —industrial, obrera, catalanista, republicana— creixia fora del sistema i cada cop tenia menys paciència per participar en la seva farsa.</p>
 
-        <h3 id="s1-2">1.2. Els dos bàndols</h3>
-        <p>La divisió entre bàndols reflectia no només diferències polítiques sinó també estructures socials i econòmiques profundes. Al bàndol republicà es concentraven les classes populars urbanes, els treballadors industrials i els camperols sense terra; al bàndol rebel, els terratinents, l'alta burgesia, el clero i els sectors conservadors de l'exèrcit.</p>
+        <h3 id="s1-2">1.2. El Desastre del 98 i el catalanisme polític</h3>
+        <p>El <strong>1898</strong> va ser el cop que va obrir la primera gran fissura. La guerra contra els EUA va significar la pèrdua de Cuba, Puerto Rico i les Filipines —les últimes colònies espanyoles—, una humiliació militar i nacional que va posar en evidència la decrepitud del sistema. El «Desastre del 98» va generar un corrent d'autocrítíca intel·lectual, el <strong>regeneracionisme</strong>, que demanava modernitzar Espanya des de l'educació, l'economia i la política. Però el sistema oligàrquic era incapaç de reformar-se a si mateix.</p>
+        <p>A Catalunya, el 98 va tenir un efecte diferent: va accelerar la consolidació del <strong>catalanisme polític</strong>. La burgesia industrial catalana havia vist com les seves colònies —mercat captiu per als teixits catalans— desapareixien i com l'Estat espanyol era incapaç de protegir els seus interessos. La <strong>Lliga Regionalista</strong> de Prat de la Riba i Cambó, fundada el 1901, va convertir-se en la força política hegemònica a Catalunya: burgesia, professional i catòlica, demanava autonomia per a Catalunya dins d'un Estat espanyol modernitzat.</p>
+
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font escrita</span><span class="font-tipus">Manifest polític · 1906</span></div>
+          <div class="font-body">«Catalunya no és una nació sense Estat perquè ho vulgui la seva gent, sinó perquè li ha estat negat. La llibertat que reclamem no és la separació, sinó el reconeixement del que som: una nació amb llengua, història, cultura i voluntat pròpies.»</div>
+          <div class="font-peu">Enric Prat de la Riba, president de la Mancomunitat de Catalunya. Font: Buxaweb / Arxiu Nacional de Catalunya.</div>
+        </div>
+
+        <h3 id="s1-3">1.3. La Setmana Tràgica de Barcelona (1909)</h3>
+        <p>El <strong>juliol del 1909</strong> va ser el primer gran esclat de la crisi del sistema. El govern Maura havia decidit enviar tropes de reserva al Marroc per defensar les mines de ferro de la zona de Melilla, on els rifenys atacaven els treballadors espanyols. La mobilització va afectar sobretot obrers barcelonins —els qui no podien pagar per alliberar-se del servei militar— i va generar una indignació immensa: per qué els fills dels rics no anaven al Marroc?</p>
+        <p>El <strong>26 de juliol</strong>, els sindicats van convocar una vaga general a Barcelona que es va convertir ràpidament en una insurrecció popular espontània. Durant una setmana, barris obrers de Barcelona, el Baix Llobregat i el Vallès van cremar esglésies i convents —símbols del poder clerical i de l'aliança entre l'Església i les classes dominants—, van construir barricades i van enfrontar-se a l'exèrcit. La repressió va ser brutal: 104 morts, centenars de ferits, milers de detinguts. Cinc persones van ser afusellades, entre elles el pedagog anarquista <strong>Francesc Ferrer i Guàrdia</strong>, fundador de l'Escola Moderna, que va ser condemnat amb proves fabricades en un procés que va escandalitzar mig Europa.</p>
+
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/3b/Semana_Tr%C3%A1gica_de_Barcelona.jpg" alt="La Setmana Tràgica de Barcelona, juliol de 1909" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Barricades al carrer durant la Setmana Tràgica de Barcelona, juliol de 1909. La revolta espontània dels barris obrers contra la mobilització militar va ser reprimida amb un centenar de morts. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font escrita</span><span class="font-tipus">Crònica periodística · 1909</span></div>
+          <div class="font-body">«Les mares de Barcelona plorant als carrers, els homes arrencats dels seus llocs de treball per ser enviats a morir en guerres que no entenien ni havien demanat, la sang dels obrers sobre els carrers empedrats —tot això és la Setmana Tràgica. No va ser una revolució. Va ser el crit d'un poble que ja no aguantava més.»</div>
+          <div class="font-peu">Joan Maragall, poeta, carta a un amic. La Veu de Catalunya, agost de 1909.</div>
+        </div>
+
+        <p>La Setmana Tràgica va tenir conseqüències polítiques importants. El president Maura va dimitir, víctima de la protesta popular i de les pressions internacionals pel cas Ferrer. Però els problemes de fons —la guerra del Marroc, el sistema caciquista, la misèria obrera, la manca de reformes— continuaven intactes. El sistema de la Restauració havia demostrat que no sabia gestionar el conflicte social sense la violència.</p>
+
+        <h3 id="s1-4">1.4. La crisi del 1917: la triple rebel·lió</h3>
+        <p>El <strong>1917</strong> va ser l'any en el qual el sistema va estar a punt d'esfondrar-se, però no va tenir la capacitat de transformar-se. Tres moviments van convergir simultàniament, cosa que el feia especialment perillós per al règim:</p>
+        <ul>
+          <li><strong>La crisi militar:</strong> les Juntes de Defensa, organitzades pels oficials militars d'escala intermèdia, es van revoltar contra el sistema d'ascensos per mèrits de guerra al Marroc que afavoria els «africanistes» (entre ells, un jove Franco). Van exigir reformes i van amenaçar el govern. Era, de fet, una temptativa de pressió militar sobre el poder civil.</li>
+          <li><strong>La crisi política:</strong> l'Assemblea de Parlamentaris, convocada per Cambó a Barcelona amb diputats i senadors de diverses forces, va exigir una reforma constitucional profunda i la convocatòria de Corts constituents. Era el primer intent de crear una alternativa al bipartidisme dinàstic.</li>
+          <li><strong>La crisi social:</strong> la UGT (socialista) i la CNT (anarquista) van convocar una vaga general revolucionària. A les mines d'Astúries, a les fàbriques de Barcelona i de Bilbao, el moviment obrer va demostrar una capacitat de mobilització sense precedents. La repressió va ser duríssima: l'exèrcit va disparar contra els vaguistes, amb pulmons de morts.</li>
+        </ul>
+        <p>El sistema va sobreviure perquè les tres crisis no van aconseguir coordinar-se: les Juntes Militars, en última instància, van preferir la repressió obrera a la reforma democràtica; Cambó i la burgesia catalana van fer marxa enrere en veure que la crisi social podia desestabilitzar-ho tot. Però la ferida era profunda i el sistema no va poder recuperar la legitimitat perduda.</p>
+
+        <h3 id="s1-5">1.5. La Mancomunitat de Catalunya (1914–1925)</h3>
+        <p>En mig de la crisi política espanyola, Catalunya va tenir un breu però significatiu període d'autogestió institucional. La <strong>Mancomunitat de Catalunya</strong>, presidida per Enric <strong>Prat de la Riba</strong> (1914–1917) i Josep <strong>Puig i Cadafalch</strong> (1917–1923), va ser la primera institució de govern català des del Decret de Nova Planta (1716): una mancomunitat de les quatre diputacions provincials catalanes, amb competències limitades però amb un projecte clar de modernització nacional.</p>
+        <p>En onze anys, la Mancomunitat va construir carreteres i línies telefòniques, va crear biblioteques populars per tot el territori, va fundar l'Institut d'Estudis Catalans, va normalitzar les Normes Ortogràfiques del català (1913), va crear escoles tècniques i d'infermeria, i va impulsar la premsa i la vida cultural en català. Era, en miniatura, un projecte d'Estat català.</p>
+        <p>La Dictadura de Primo de Rivera va dissoldre la Mancomunitat el <strong>1925</strong>, en considerar-la un foco de separatisme. Va ser un dels actes de repressió nacional que més van radicalitzar el catalanisme cap a posicions republicans i independentistes.</p>
+
+        <h3 id="s1-6">1.6. La Dictadura de Primo de Rivera (1923–1930)</h3>
+        <p>El <strong>13 de setembre de 1923</strong>, el capità general de Catalunya, el general <strong>Miguel Primo de Rivera</strong>, va donar un cop d'estat. El rei Alfons XIII, en lloc de destituir-lo, el va nomenar cap del govern. La Dictadura va suprimir la Constitució, va dissoldre les Corts, va prohibir els partits polítics i va governar per decret.</p>
+        <p>Primo de Rivera es presentava com a regenerador que volia «sanejar» la política espanyola dels vicis del caciquisme. En realitat, va liquidar el sistema parlamentari sense crear-ne cap alternativa estable. Va aplicar una política econòmica intervencionista que va aprofitar-se del boom econòmic dels anys 20 per construir infraestructures; però quan la crisi del 1929 va arribar, l'economia espanyola era extremament vulnerable. La seva repressió del catalanisme —prohibició de l'ús públic del català, persecució del catalanisme polític, dissolució de la Mancomunitat— va alimentar el republicanisme català.</p>
+        <p>Primo de Rivera va dimitir el <strong>gener del 1930</strong>, sense suport ni de l'exèrcit ni del rei. El règim de la Restauració havia sobrevingut al trauma, però tan dèbilment que en setze mesos més el rei també hauria de marxar.</p>
+
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Miguel_Primo_de_Rivera.jpg" alt="El general Primo de Rivera" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El general Miguel Primo de Rivera, dictador d'Espanya entre 1923 i 1930. Va suprimir la Constitució, va prohibir el catalanisme polític i va dissoldre la Mancomunitat de Catalunya. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S2: REPÚBLICA ─── -->
+      <section class="section" id="s2">
+        <span class="section-num">Secció 02</span>
+        <h2>La Segona República Espanyola (1931–1936)</h2>
+
+        <p>El <strong>14 d'abril de 1931</strong>, els resultats de les eleccions municipals van mostrar un suport massiu als partits republicans a totes les capitals de província. Alfons XIII, davant l'evidència que el país havia votat en contra de la monarquia, va optar per marxar a l'exili en lloc d'arriscar-se a un conflicte. La República va ser proclamada pacíficament enmig d'una eufòria popular autèntica. Era la primera vegada des de feia segles que Espanya canviava de règim sense sang.</p>
+
+        <h3 id="s2-1">2.1. La proclamació i el programa reformador</h3>
+        <p>La República va arribar amb un programa ambiciós de reformes que volien trencar amb les estructures de l'Antic Règim que Espanya havia mantingut mentre la resta d'Europa les liquidava al segle XIX:</p>
+
+        <div class="def-box">
+          <span class="def-label">Les grans reformes de la Segona República</span>
+          <p><strong>Separació Església-Estat:</strong> educació laica, matrimoni civil, divorci legal. L'Església perdia el monopoli sobre l'ensenyament i l'estat civil. La reacció clerical va ser immediata i furiosa.</p>
+          <p><strong>Sufragi femení (1931):</strong> gràcies principalment a la diputada <strong>Clara Campoamor</strong>, Espanya es convertia en una de les primeres democràcies europees a reconèixer el vot de les dones. Va ser aprovada per 161 vots a favor i 121 en contra, en un debat parlamentari en el qual algunes diputades republicans s'hi van oposar per por que les dones votessin la dreta sota influència de l'Església.</p>
+          <p><strong>Reforma agrària:</strong> expropiació de les grans propietats no conreades per distribuir-les entre els jornalers. Va ser tímida, lenta i burocràtica, i no va satisfer les expectatives del camperolat del sud.</p>
+          <p><strong>Estatuts d'autonomia:</strong> Catalunya va aconseguir l'Estatut de 1932, que va restaurar la Generalitat amb Francesc Macià com a president. El País Basc va obtenir el seu estatut el 1936.</p>
+          <p><strong>Reforma militar:</strong> reducció de l'exèrcit sobredimensionat. Va crear enemics entre els militars conservadors.</p>
+        </div>
+
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d6/Clara_Campoamor.jpg" alt="Clara Campoamor, diputada republicana" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Clara Campoamor, diputada del Partit Republicà Radical, defensora del sufragi femení a les Corts Constituents de 1931. Va guanyar el debat parlamentari gràcies a una intervenció que va fer història. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font escrita</span><span class="font-tipus">Discurs parlamentari · 1 octubre 1931</span></div>
+          <div class="font-body">«Señores diputados: yo no puedo hacer otra cosa. Yo no puedo votar en contra de la concesión del voto a la mujer, porque eso equivaldría a establecer diferencias entre los ciudadanos y las ciudadanas de la República. <strong>La mujer es que a la República se le pide que reconozca lo que la Revolución le ha concedido ya al ciudadano varón.</strong> No debemos olvidar que la mujer española no está preparada, ¿y quién la ha tenido así? Los mismos que ahora la rechazan.»</div>
+          <div class="font-peu">Clara Campoamor, discurs a les Corts Constituents de la República Espanyola, 1 d'octubre de 1931. Diari de Sessions del Congrés.</div>
+        </div>
+
+        <h3 id="s2-2">2.2. Les etapes de la República</h3>
+
+        <h4>El bienni progressista (1931–1933)</h4>
+        <p>Els primers dos anys, el govern de coalició d'esquerres republicans i socialistes (presidit per <strong>Manuel Azaña</strong>) va intentar aplicar les reformes. Va ser una etapa de gran activitat legislativa que va generar una resistència ferotge: l'Església i la dreta catòlica s'hi van oposar frontalment, el gran capital i els terratinents van sabotetjar la reforma agrària, i l'exèrcit conservador va intentar un cop (el pronunciamiento del general Sanjurjo, 1932) que va fracassar.</p>
+
+        <h4>El bienni negre (1933–1935)</h4>
+        <p>Les eleccions de novembre del 1933 van donar la victòria a una coalició de dretes encapçalada per la <strong>CEDA</strong> de Gil Robles. Les reformes es van paralitzar i algunes es van revertir. Les tensions van escalar fins a l'<strong>octubre del 1934</strong>, quan els miners asturians i les organitzacions obreres van proclamar una insurrecció revolucionària. El govern va enviar l'exèrcit colonial del Marroc —comandat pel general <strong>Franco</strong>— a reprimir-la. La repressió va ser brutal: milers de morts i desenes de milers de detinguts.</p>
+
+        <h4>El Front Popular (febrer 1936)</h4>
+        <p>Les eleccions de febrer del 1936 van donar la victòria al <strong>Front Popular</strong>, la coalició d'esquerres (republicans, socialistes, comunistes). La dreta va acusar frau sense cap base real i va refusar acceptar el resultat. En els mesos següents, la violència política s'incrementava des dels dos bàndols, i sectors de l'exèrcit preparaven el cop.</p>
+
+        <h3 id="s2-3">2.3. Per qué va fracassar la República?</h3>
+        <p>La República va voler reformar en cinc anys unes estructures que s'havien consolidat durant segles. Les causes del seu fracàs operen en tres nivells: primer, la <strong>resistència de les elits</strong> (Església, exèrcit, terratinents) que van preferir el cop d'estat a perdre els seus privilegis; segon, la <strong>divisió de les esquerres</strong> (la tensió constant entre socialistes, comunistes i anarquistes va debilitar la resposta democràtica); i tercer, el <strong>context internacional adverso</strong> (Alemanya i Itàlia donaven suport als militars rebels mentre les democràcies occidentals s'autoexcloïen per la política de no-intervenció).</p>
+      </section>
+
+      <hr class="section-divider">
+
+      <!-- ─── S3: GUERRA CIVIL ─── -->
+      <section class="section" id="s3">
+        <span class="section-num">Secció 03</span>
+        <h2>La Guerra Civil (1936–1939)</h2>
+
+        <p>La Guerra Civil espanyola no va ser simplement una guerra entre espanyols: va ser la primera batalla de la Segona Guerra Mundial, un assaig general en el qual les forces del feixisme europeu van provar les seves armes, les democràcies liberals van demostrar la seva incapacitat de defensar la democràcia, i Espanya va estar a punt de protagonitzar la revolució social més profunda d'Europa occidental del segle XX.</p>
+
+        <h3 id="s3-1">3.1. El cop del 17–18 de juliol de 1936 i els dos bàndols</h3>
+        <p>El <strong>17 de juliol de 1936</strong>, les guarnicions militars espanyoles al Marroc es van proclamar en estat de guerra contra la República. L'endemà l'aixecament s'estenia a la Península. El cop va estar a punt de fracassar en les primeres hores: a Madrid, Barcelona, Bilbao i les grans ciutats, la resistència popular immediata va impedir que els militars rebels s'imposessin. A Barcelona, les milícies anarquistes de la CNT van derrotar les tropes del general Goded en un sol dia. El resultat va ser una situació inèdita: Espanya quedava dividida en dos.</p>
 
         <div class="bandols">
           <div class="bandol republica">
-            <span class="bandol-header">Bàndol republicà — «els rojos»</span>
+            <span class="bandol-header">Bàndol republicà</span>
             <ul>
               <li>El govern legítim democràticament elegit del Front Popular</li>
               <li>Partits d'esquerres: PSOE, PCE, POUM, Esquerra Republicana</li>
-              <li>Anarcosindicalistes: CNT-FAI (molt forts a Catalunya i Aragó)</li>
-              <li>Suport de la URSS: armes pagades amb les reserves d'or del Banc d'Espanya</li>
-              <li>Les Brigades Internacionals: 35.000 voluntaris de 54 països</li>
-              <li>Bascos i catalans: defensa de les autonomies aprovades per la República</li>
+              <li>CNT-FAI (molt forts a Catalunya i Aragó)</li>
+              <li>Suport de la URSS: armes pagades amb les reserves d'or</li>
+              <li>Brigades Internacionals: 35.000 voluntaris de 54 països</li>
+              <li>Govern de la Generalitat i milícies catalanes</li>
             </ul>
           </div>
           <div class="bandol rebel">
-            <span class="bandol-header">Bàndol rebel — «los nacionales»</span>
+            <span class="bandol-header">Bàndol rebel («nacional»)</span>
             <ul>
-              <li>Sector de l'exèrcit: generals rebels amb Franco al capdavant</li>
-              <li>La Falange Espanyola (feixistes), carlins i monàrquics</li>
-              <li>L'Església catòlica: proclama la guerra com a «cruzada» religiosa</li>
-              <li>Grans terratinents i alta burgesia finançadora del cop</li>
-              <li>Alemanya nazi: la Legió Còndor (aviació, tancs, assessors militars)</li>
-              <li>Itàlia feixista: 80.000 soldats voluntaris i material militar</li>
+              <li>Sector de l'exèrcit amb Franco, Mola, Queipo de Llano</li>
+              <li>La Falange Espanyola (feixistes) i els carlins</li>
+              <li>L'Església catòlica: proclama la guerra «cruzada»</li>
+              <li>Grans terratinents i alta burgesia</li>
+              <li>Legió Còndor alemanya (aviació, tancs, assessors)</li>
+              <li>80.000 soldats italians de Mussolini</li>
             </ul>
           </div>
         </div>
 
-        <h3 id="s1-3">1.3. La no-intervenció: la traïció de les democràcies</h3>
-        <p>Des del primer moment, el govern republicà va demanar ajuda militar als seus aliats naturals: les democràcies europees, especialment Gran Bretanya i França. La resposta va ser la política de <strong>«no-intervenció»</strong>: l'agost de 1936 es va crear un Comitè Internacional de No-Intervenció al qual van adherir-se 27 estats, incloent-hi, paradoxalment, <strong>Alemanya i Itàlia</strong>, que continuaven enviant armes, aviadors i soldats a Franco mentre signaven el compromís de no fer-ho.</p>
-        <p>La no-intervenció tenia una lògica real però inconfessable: molts cercles de l'aristocràcia i la gran burgesia britànica i francesa <strong>preferien una Espanya feixista a una Espanya d'esquerres</strong>. La por al comunisme superava la defensa de la democràcia. El resultat pràctic va ser deixar la República sense accés als mercats d'armes occidentals mentre Alemanya i Itàlia intervenien obertament. La URSS va ser l'única potència que va vendre armes a la República —i va cobrar les reserves d'or íntegrament.</p>
+        <h3 id="s3-2">3.2. La no-intervenció: la traïció de les democràcies</h3>
+        <p>Des del primer moment, el govern republicà va demanar ajuda als seus aliats naturals: les democràcies europees. La resposta va ser la política de <strong>«no-intervenció»</strong>: l'agost del 1936 es va crear un Comitè Internacional de No-Intervenció —al qual van adherir-se paradoxalment Alemanya i Itàlia, que continuaven enviant armes a Franco mentre signaven el compromís de no fer-ho. La no-intervenció no era ingenuïtat: molts cercles de l'aristocràcia britànica i la gran burgesia francesa <strong>preferien una Espanya feixista a una Espanya d'esquerres</strong>. La por al comunisme superava la defensa de la democràcia.</p>
 
-        <div class="info-box">
-          <span class="info-label">Les Brigades Internacionals: internacionalisme en acció</span>
-          <p>Les <strong>Brigades Internacionals</strong> van ser una de les manifestacions més notables d'internacionalisme polític del segle XX. Uns 35.000 voluntaris de 54 països —comunistes, socialistes, anarquistes, liberals antifeixistes— van viatjar a Espanya per lluitar per la República, sovint deixant famílies, feines i comoditats. Entre ells: Ernest Hemingway (periodista), George Orwell (que va lluitar amb el POUM), el poeta Federico García Lorca (assassinat pels franquistes al principi de la guerra). Van ser decisius en la defensa de Madrid el novembre de 1936.</p>
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font escrita</span><span class="font-tipus">Novel·la · 1938</span></div>
+          <div class="font-body">«Era la primera vegada en la meva vida que havia estat en una ciutat on la classe treballadora mantenia el control. Gairebé totes les edificacions eren en mans dels obrers i estaven decorades amb banderes roges o les banderes roig-i-negre de la CNT-FAI; les esglésies havien estat saquejades i les imatges cremades; les esglésies estaven tancades o convertides en magatzems o llocs de reunió. Cada establiment i cada botiga tenien la inscripció col·lectivitzada; fins i tot els esclataners de sabates havien estat col·lectivitzats i els estands pintats de vermell i negre. Els cambrers i les venedores et miraven als ulls i et tractaven d'igual a igual.»</div>
+          <div class="font-peu">George Orwell, <em>Homenatge a Catalunya</em> (1938), descrivint Barcelona el gener de 1937. Orwell va lluitar amb el POUM a Aragó.</div>
         </div>
 
-        <h3 id="s1-4">1.4. Guernica i la guerra total</h3>
-        <p>El <strong>26 d'abril de 1937</strong>, la Legió Còndor alemanya i l'aviació italiana van bombardejar la ciutat basca de <strong>Guernica</strong> en un dia de mercat, quan estava plena de civils. El bombardeig va durar tres hores, amb bombes explosives i incendiàries. Centenars de persones van morir. Va ser el <strong>primer bombardeig sistemàtic d'una població civil en la História</strong> de l'aviació moderna, un assaig de les tàctiques que s'aplicarien pocs anys després a tota Europa.</p>
-        <p>La notícia va recórrer el món. El pintor Pablo Picasso, que havia rebut l'encàrrec del govern de la República per a la seva participació a l'Exposició Universal de París, va abandonar el que estava pintant i va crear en poques setmanes el <em>Guernica</em> (1937): un dels quadres més importants del segle XX i un monument permanent a les víctimes civils de la guerra.</p>
+        <h3 id="s3-3">3.3. Guernica i la guerra total</h3>
+        <p>El <strong>26 d'abril del 1937</strong>, la Legió Còndor alemanya i l'aviació italiana van bombardejar la ciutat basca de <strong>Guernica</strong> en dia de mercat, quan estava plena de civils. El bombardeig va durar tres hores, amb bombes explosives i incendiàries. Centenars de persones van morir. Va ser el <strong>primer bombardeig sistemàtic d'una població civil</strong> de la historia de l'aviació moderna. Pablo Picasso, que havia rebut l'encàrrec del govern de la República per a l'Exposició Universal de París, va crear en poques setmanes el <em>Guernica</em> (1937), monument permanent a les víctimes civils de la guerra.</p>
 
         <div class="img-wrap">
-          <img src="images/guernica_bombardeig.jpg" alt="Restes de Guernica després del bombardeig, abril 1937" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Restes de la ciutat basca de Guernica després del bombardeig de la Legió Còndor i l'aviació italiana, 26 d'abril de 1937. Tres hores de bombardeig sobre una població civil en dia de mercat. Font: Wikimedia Commons (domini públic).</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/6/6d/Guernica_bombing_1937.jpg" alt="Restes de Guernica després del bombardeig, abril de 1937" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Restes de Guernica després del bombardeig de la Legió Còndor, 26 d'abril de 1937. Tres hores de bombardeig sobre una població basca en dia de mercat: el primer assaig de la «guerra total» contra civils. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
+        <h3 id="s3-4">3.4. La revolució social al bàndol republicà</h3>
+        <p>La Guerra Civil va tenir una doble cara al bàndol republicà: era alhora una guerra i una revolució. A Catalunya i Aragó, l'estiu del 1936 va veure com les organitzacions anarquistes (CNT-FAI) posaven en pràctica una transformació social radical: <strong>col·lectivitzacions agràries</strong> i <strong>col·lectivitzacions industrials</strong> a les fàbriques barcelonines, on els treballadors van assumir la gestió directa. Van ser les experiències d'autogestió obrera més extenses d'Europa occidental del segle XX.</p>
+
         <div class="img-wrap">
-          <img src="images/brigades_internacionals.jpg" alt="Cartell de les Brigades Internacionals" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Cartell de reclutament de les Brigades Internacionals. 35.000 voluntaris de 54 països van anar a Espanya per lluitar per la República contra el feixisme. Font: Wikimedia Commons (domini públic).</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/f/f1/Milicianas.jpg" alt="Milicianes republicanes a Barcelona, 1936" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Milicianes republicanes a Barcelona, estiu de 1936. La guerra va mobilitzar dones als fronts i a les fàbriques en proporcions sense precedents a la historia espanyola. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
-        <h3 id="s1-5">1.5. La revolució social al bàndol republicà</h3>
-        <p>La Guerra Civil espanyola va tenir una doble cara al bàndol republicà: era alhora una guerra i una revolució. A Catalunya i Aragó especialment, l'estiu de 1936 va veure com les organitzacions anarquistes (CNT-FAI) i d'altres esquerres posaven en pràctica una transformació social radical: <strong>col·lectivitzacions agràries</strong> en les quals els camperols gestionaven col·lectivament les terres dels terratinents fugits; <strong>col·lectivitzacions industrials</strong> a les fàbriques de Barcelona, on els treballadors van assumir la gestió directa. Seran les experiències d'autogestió obrera més extenses d'Europa occidental del segle XX.</p>
-        <p>George Orwell, que va lluitar amb el POUM (el Partit Obrer d'Unificació Marxista) a Barcelona, va deixar-ne un retrat únic a <em>Homenatge a Catalunya</em> (1938): una societat on «per primer cop en la meva vida vaig veure una ciutat on la classe treballadora era dominant», on les diferències de classe s'havien volatilitzat temporalment, on el «tu» havia substituït el «vostè».</p>
-        <p>Però la revolució social va generar tensions internes que van debilitar el bàndol republicà. Els <strong>Fets de Maig de 1937</strong> a Barcelona van ser la ruptura: enfrontaments armats entre, d'una banda, la CNT-FAI i el POUM (que volien continuar la revolució alhora que guanyaven la guerra) i, de l'altra, el PCE i el govern republicà (que prioritzaven la disciplina militar i temien que la revolució espantés els aliats occidentals). La repressió del POUM per part dels comunistes —sovint dirigida des de Moscou— va fracturar profundament el bàndol antifeixista.</p>
-
-        <h3 id="s1-6">1.6. La derrota i la repressió</h3>
-        <p>La superioritat militar del bàndol rebel —amb el suport alemany i italià, i sense la contrapartida d'una ajuda democràtica occidental— va anar imposant-se al llarg de 1938. La caiguda de Catalunya (gener–febrer 1939) va obrir una <strong>onada de refugiats</strong> desesperada: prop de 500.000 persones van creuar la frontera francesa en poques setmanes, en condicions inhumanes, en el que es coneixeria com «la <em>Retirada</em>». França els va internar en camps improvisats a la costa (Argelers, Sant Cebrià, el Barcarès) en condicions precàries.</p>
-        <p>El <strong>28 de març de 1939</strong>, les tropes franquistes van entrar a Madrid. L'1 d'abril, Franco va signar l'últim part de guerra: «La guerra ha terminado.» Però el que va venir a continuació no era la pau: era la repressió sistemàtica i planificada dels vençuts.</p>
+        <p>Però la revolució social va generar tensions internes greus. Els <strong>Fets de Maig del 1937</strong> a Barcelona van ser la ruptura: enfrontaments armats entre la CNT-FAI i el POUM (que volien continuar la revolució) i el PCE i el govern republicà (que prioritzaven la disciplina militar). La repressió del POUM per part dels comunistes —sovint dirigida des de Moscou— va fracturar profundament el bàndol antifeixista.</p>
 
         <div class="img-wrap">
-          <img src="images/refugiats_republicans.jpg" alt="Refugiats republicans creuant la frontera francesa, febrer de 1939" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Refugiats republicans creuant la frontera francesa a peu, febrer de 1939. Uns 500.000 persones van fugir en poques setmanes en el que s'anomena «la Retirada». Font: Wikimedia Commons (domini públic).</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/International_Brigades_poster.jpg" alt="Cartell de les Brigades Internacionals" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Cartell de reclutament de les Brigades Internacionals. 35.000 voluntaris de 54 països van anar a Espanya per lluitar contra el feixisme. Van ser decisius en la defensa de Madrid el novembre de 1936. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <h3 id="s3-5">3.5. La derrota i la repressió</h3>
+        <p>La caiguda de Catalunya (gener–febrer del 1939) va obrir una <strong>onada de refugiats</strong>: prop de 500.000 persones van creuar la frontera francesa en poques setmanes, en el que es coneix com «la <em>Retirada</em>». França els va internar en camps improvisats a la costa (Argelers, Sant Cebrià). El <strong>28 de març de 1939</strong>, les tropes franquistes van entrar a Madrid. L'1 d'abril, Franco va signar l'últim part de guerra: «La guerra ha terminado.»</p>
+
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/44/Spanish_refugees_crossing_into_France.jpg" alt="Refugiats republicans creuant la frontera francesa, febrer de 1939" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">La Retirada: refugiats republicans creuant la frontera francesa a peu, febrer de 1939. Uns 500.000 persones van fugir en poques setmanes. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <div class="def-box">
-          <span class="def-label">La repressió franquista: dimensió i naturalesa</span>
-          <p><strong>Durant la guerra:</strong> l'exèrcit rebel va aplicar una política sistemàtica de terror als territoris que anava conquerint. Afusellaments massius de sindicalistes, polítics republicans, mestres, intel·lectuals. Federico García Lorca va ser assassinat el 18 d'agost de 1936, pocs dies d'iniciar-se el cop.</p>
-          <p><strong>Acabada la guerra:</strong> camps de concentració per als presoners de guerra, judicis militars expeditius, afusellaments en massa. La xifra d'executats entre 1939 i la dècada de 1950 s'estima entre <strong>100.000 i 200.000 persones</strong>. Desenes de milers van morir a les presons per les condicions infrahumanes.</p>
-          <p><strong>El Valle de los Caídos:</strong> Franco va ordenar construir un monument faraònic —una basílica excavada a la roca amb una creu de 150 metres— fent servir treball forçat de presoners republicans. Va ser construït entre 1940 i 1958. Franco va ser enterrat allà el 1975 i hi va romandre fins al 2019, quan el govern va traslladar les seves restes al cementiri de Mingorrubio.</p>
-          <p><strong>L'exili:</strong> uns 500.000 republicans van marxar a l'exili, la majoria a França, Mèxic i l'URSS. Entre ells, els principals intel·lectuals, científics i artistes d'Espanya: Antonio Machado (que moria a Cotlliure poc de creuar la frontera), Joan Miró, Pablo Casals, María Zambrano...</p>
+          <span class="def-label">La repressió franquista: dimensions</span>
+          <p><strong>Durant la guerra:</strong> afusellaments massius als territoris conquerits. Federico García Lorca, assassinat el 18 d'agost del 1936. <strong>Lluís Companys</strong>, president de la Generalitat, extradit de França i afusellat al Castell de Montjuïc el 15 d'octubre del 1940 —l'únic president d'un govern europeu executat per Franco.</p>
+          <p><strong>Acabada la guerra:</strong> camps de concentració, judicis militars expeditius, afusellaments en massa. Entre 100.000 i 200.000 persones executades entre 1939 i la dècada del 1950. Milers van morir a les presons.</p>
+          <p><strong>El Valle de los Caídos:</strong> monument faraònic construït amb treball forçat de presoners republicans entre 1940 i 1958. Franco hi va ser enterrat el 1975 i les seves restes traslladades el 2019.</p>
+          <p><strong>L'exili:</strong> uns 500.000 republicans van marxar, principalment a França, Mèxic i l'URSS. Entre ells Antonio Machado (mort a Cotlliure el 1939), Joan Miró, Pablo Casals, María Zambrano.</p>
         </div>
       </section>
 
       <hr class="section-divider">
 
-      <!-- ─── S2: FRANQUISME ─── -->
-      <section class="section" id="s2">
-        <span class="section-num">Secció 02</span>
+      <!-- ─── S4: FRANQUISME ─── -->
+      <section class="section" id="s4">
+        <span class="section-num">Secció 04</span>
         <h2>El Franquisme (1939–1975)</h2>
 
-        <p>El règim de Franco va durar <strong>trenta-sis anys</strong>, el període dictatorial més llarg d'Europa occidental al segle XX. Va ser una dictadura militar-clerical-feixista que va passar per diverses fases, adaptant-se als canvis internacionals sense canviar la seva natura essencial: la supressió de les llibertats polítiques, la repressió de les identitats nacionals no castellanes i la preservació dels interessos de les classes dominants que havien finançat el cop.</p>
-
-        <h3 id="s2-1">2.1. La naturalesa del règim</h3>
-        <p>El franquisme va ser un règim híbrid en el qual es combinaven elements del feixisme europeu amb el conservadorisme catòlic i l'autoritarisme militar clàssic. A diferència del nazisme i el feixisme italià, Franco no va crear un partit de masses amb un projecte ideològic clar: va crear un <strong>règim de coalició</strong> entre l'exèrcit, l'Església, la Falange i els carlins, amb ell com a àrbitre i garant dels interessos de tots. El poder de Franco reposava en tres pilars:</p>
-        <ul>
-          <li><strong>L'exèrcit:</strong> no només era la base del poder del règim sinó la seva font de legitimitat original. Franco era el Generalísimo, el cap suprem. L'exèrcit mantenia un pressupost enorme i ocupava posicions clau a l'administració.</li>
-          <li><strong>L'Església catòlica:</strong> a canvi del seu suport actiu al cop («la Cruzada»), l'Església va recuperar el control de l'educació, va aconseguir el finançament estatal i va re-confesionalitzar la vida pública. El divorci, aprovat per la República, va ser il·legalitzat. L'ensenyament religiós era obligatori.</li>
-          <li><strong>Les classes dominants econòmiques:</strong> els grans terratinents, els banquers i la gran burgesia industrial que havien finançat el cop van recuperar les seves posicions i van ser afavorits per les polítiques econòmiques del règim. La reforma agrària republicana va ser completament revertida.</li>
-        </ul>
+        <h3 id="s4-1">4.1. La naturalesa del règim</h3>
+        <p>El règim de Franco va durar <strong>trenta-sis anys</strong>, el període dictatorial més llarg d'Europa occidental al segle XX. Va ser una dictadura militar-clerical-feixista que es va anar adaptant als canvis internacionals sense canviar la seva natura essencial. El poder de Franco reposava en tres pilars: l'<strong>exèrcit</strong> vencedor de la guerra, l'<strong>Església catòlica</strong> que havia beneït la «cruzada», i les <strong>classes dominants econòmiques</strong> —terratinents, banquers, gran burgesia industrial— que havien finançat el cop.</p>
 
         <div class="img-wrap">
-          <img src="images/franco_victoria.jpg" alt="Franco al desfilada de la victòria, 1939" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Francisco Franco al desfilada de la victòria a Madrid, 19 de maig de 1939. Flanquejat per representants de la Falange, l'exèrcit i els aliats italians i alemanys. Font: Wikimedia Commons (domini públic).</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/Franco_en_el_desfile_de_la_victoria_1939.jpg" alt="Franco al desfilada de la victòria, 1939" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Francisco Franco a la desfilada de la victòria a Madrid, 19 de maig de 1939. Al costat, representants de la Falange, l'exèrcit i els aliats italians. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
-        <h3 id="s2-2">2.2. La repressió política i cultural</h3>
-        <p>El franquisme va exercir una repressió sistemàtica i permanent sobre tota forma d'oposició política, cultural i nacional:</p>
-        <ul>
-          <li><strong>Prohibició de partits i sindicats:</strong> tots els partits polítics (excepte el Movimiento Nacional, el marc polític del règim) i tots els sindicats (substituïts per sindicats verticals controlats per l'Estat) van ser il·legalitzats. La mera pertinença a organitzacions obreres o republicanes podia portar a la presó o a la mort.</li>
-          <li><strong>Censura:</strong> tots els mitjans de comunicació, tots els llibres, totes les pel·lícules i totes les obres de teatre estaven sotmesos a censura prèvia. Molts autors espanyols i llatinoamericans van ser prohibits. La premsa publicava el que el règim volia que publiqués.</li>
-          <li><strong>Repressió de les identitats nacionals:</strong> el català, el basc i el gallec van ser prohibits a l'escola, a l'administració i a l'espai públic. Publicar un llibre en català era il·legal. Posar un nom en català als fills, il·legal. El règim imposava la unitat nacional espanyola com a uniformitat cultural i lingüística castellana. La repressió cultural va ser especialment intensa a Catalunya i el País Basc.</li>
-          <li><strong>El control social per l'Església:</strong> la religió catòlica impregnava la vida pública. Les relacions sexuals fora del matrimoni eren perseguides. Les dones estaven legalment subordinades als seus marits —necessitaven el permís marital per obrir un compte bancari, signar un contracte o obtenir el passaport fins al 1975.</li>
-        </ul>
+        <h3 id="s4-2">4.2. La repressió sistemàtica i l'autarquia</h3>
+        <p>El franquisme va exercir una repressió total sobre tota forma d'oposició: prohibició de partits i sindicats, censura prèvia de tota publicació, persecució de les identitats nacionals no castellanes. El català, el basc i el gallec van ser prohibits a l'escola, a l'administració i a l'espai públic.</p>
+        <p>La política econòmica de la primera dècada va ser l'<strong>autarquia</strong>: l'autosuficiència econòmica nacional. El resultat va ser una catàstrofe: Espanya no va rebre el Pla Marshall, la producció agrícola va col·lapsar, el racionament d'aliments va continuar fins al <strong>1952</strong>. Els anys 40 van ser els anys de la gana: mortalitat infantil disparada, malnutrició generalitzada. Espanya va trigar <strong>quinze anys</strong> a recuperar el nivell econòmic del 1936.</p>
 
-        <h3 id="s2-3">2.3. L'autarquia i la fam dels anys 40</h3>
-        <p>La política econòmica de la primera dècada del franquisme va ser l'<strong>autarquia</strong>: l'autosuficiència econòmica nacional, el tancament a l'exterior, la substitució d'importacions per producció nacional. Era una barreja d'ideologia feixista (la nació econòmicament independent) i necessitat (les democràcies occidentals aïllaven el règim franquista).</p>
-        <p>El resultat va ser una catàstrofe econòmica. Espanya no va rebre el Pla Marshall (per ser un règim feixista). La producció agrícola va col·lapsar. El racionament d'aliments, imposat durant la guerra, va continuar fins al <strong>1952</strong>. Els anys 40 van ser els anys de la <strong>gana</strong>: mortalitat infantil disparada, malnutrició generalitzada a les classes populars, mercat negre (l'<em>estraperlo</em>). Espanya va trigar <strong>quinze anys</strong> a recuperar el nivell econòmic del 1936. Era l'únic país europeu que el 1950 produïa menys que el 1936.</p>
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font escrita</span><span class="font-tipus">Testimoni oral · anys 40</span></div>
+          <div class="font-body">«A casa no teníem res. El racionament no donava per viure. La meva mare feia cues des de les cinc de la matinada per aconseguir una mica de pa i llegums. El mercat negre era l'única manera de sobreviure si tenies diners, i nosaltres no en teníem. Molts dels nens del carrer anaven descalços a l'escola. Dels qui tenien pare pres o afusellat, millor no parlar-ne: aquells nens gairebé ni podien estudiar.»</div>
+          <div class="font-peu">Testimoni anònim recollit per l'historiador Paul Preston a <em>El Holocausto Español</em> (2011). Madrid, anys 40.</div>
+        </div>
 
-        <h3 id="s2-4">2.4. El desenvolupisme dels anys 60: el «miracle espanyol»</h3>
-        <p>A partir de finals dels anys 50, el règim va fer un gir econòmic radical. Pressionat per una crisi de balança de pagaments, Franco va abandonar l'autarquia i va encomanar la política econòmica als <strong>tecnòcrates de l'Opus Dei</strong> (Ullastres, Navarro Rubio, López Rodó): catòlics conservadors formats als EUA que creien en la integració al mercat internacional i en l'economia de mercat. El <strong>Pla d'Estabilització de 1959</strong> va obrir l'economia espanyola a l'exterior.</p>
-        <p>El resultat va ser un creixement econòmic espectacular durant els anys 60 —el «miracle espanyol»— basat en tres factors: l'<strong>emigració</strong> de mà d'obra espanyola cap a Alemanya, França i Suïssa (que alleujava la pressió sobre el mercat laboral i enviava divises a casa); el <strong>turisme</strong> (milions d'europeus del nord venien a les platges espanyoles); i la <strong>inversió estrangera</strong>, atreta pels baixos salaris espanyols garantits per l'absència de sindicats lliures. El creixement era real però asimètric: les ciutats industrials (Barcelona, Madrid, el País Basc) creixien ràpidament mentre les zones rurals es buidaven.</p>
+        <h3 id="s4-3">4.3. El franquisme a Catalunya: repressió nacional i resistència</h3>
+        <p>Catalunya va patir una repressió nacional específica per sobre de la repressió política general. Immediatament acabada la guerra, el règim va suprimir totes les institucions catalanes: la Generalitat va ser dissolta, l'Estatut derogat, i el seu president <strong>Lluís Companys</strong> afusellat al Castell de Montjuïc el 15 d'octubre del 1940. El català va ser prohibit a tots els espais públics.</p>
+        <p>Però la repressió cultural no va aconseguir destruir la llengua ni la identitat. Des de la clandestinitat, escriptors i editors van mantenir viva la cultura catalana. L'<strong>Òmnium Cultural</strong> (fundat el 1961) i el <strong>Congrés de Cultura Catalana</strong> van ser instruments de resistència. La <strong>Nova Cançó</strong> —Lluís Llach, Raimon, Maria del Mar Bonet, Joan Manuel Serrat— va convertir la música en vehicle de resistència política.</p>
+
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b3/Llach_en_el_Palau_dels_Esports.jpg" alt="Lluís Llach al Palau dels Esports de Barcelona" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Lluís Llach en concert al Palau dels Esports de Barcelona durant el franquisme tardà. La Nova Cançó va ser un dels vectors principals de resistència cultural i identitària catalana. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font cultural</span><span class="font-tipus">Cançó · 1968</span></div>
+          <div class="font-body">«<strong>L'estaca</strong> / que ens aguanta tots plegats / des de sempre s'ha fet vella / ja podeu veure com es bada / i si ningú no ho remeia / tots caurem. / Si estirem tots ella caurà / i podrem ser lliures.»</div>
+          <div class="font-peu">Lluís Llach, <em>L'Estaca</em> (1968). La cançó, censurada pel règim, es va convertir en un himne de la resistència antifranquista a Catalunya. L'«estaca» és metàfora del franquisme.</div>
+        </div>
+
+        <h3 id="s4-4">4.4. El desenvolupisme dels anys 60</h3>
+        <p>A partir de finals dels anys 50, el règim va fer un gir econòmic radical. Els <strong>tecnòcrates de l'Opus Dei</strong> van substituir els falangistes en la gestió econòmica i van obrir l'economia espanyola al mercat internacional. El <strong>Pla d'Estabilització de 1959</strong> va ser el punt d'inflexió. El «miracle econòmic» dels anys 60 es basava en tres factors: l'<strong>emigració</strong> de mà d'obra espanyola cap a Alemanya i França, el <strong>turisme</strong> dels europeus del nord, i la <strong>inversió estrangera</strong> atreta pels baixos salaris garantits per l'absència de sindicats lliures.</p>
 
         <div class="warn-box">
-          El «miracle econòmic» dels 60 es va construir sobre la feblesa laboral dels treballadors espanyols, que no tenien dret de vaga ni sindicats lliures. Els salaris eren baixos, les jornades llargues i les condicions de seguretat escasses. Quan Franco va morir el 1975, Espanya tenia un PIB per càpita que la situava a la franja baixa dels països de l'Europa occidental. El creixement havia enriquit les elits i havia creat una classe mitjana urbana, però la distribució seguia sent profundament desigual.
+          El «miracle econòmic» dels 60 es va construir sobre la debilitat laboral garantida per la dictadura. Els treballadors no tenien dret de vaga ni sindicats lliures. Quan Franco va morir el 1975, Espanya tenia un nivell de vida dels més baixos d'Europa occidental. El creixement era real però profundament desigual: va enriquir les elits i va crear una classe mitjana urbana, però la distribució seguia sent injusta.
         </div>
 
-        <h3 id="s2-cat">2. cat. El franquisme a Catalunya: repressió nacional i resistència cultural</h3>
-        <p>Per als alumnes de Barcelona, el franquisme no és només la História d'Espanya: és la História del lloc on vivim. Catalunya va ser, juntament amb el País Basc, el territori que va patir una repressió nacional específica per part del règim, per damunt de la repressió política general que afectava tothom.</p>
-        <p>Immediatament després de la fi de la guerra, el règim va suprimir totes les institucions catalanes: la <strong>Generalitat</strong> va ser dissolta i el seu president, <strong>Lluís Companys</strong>, extradit de França i afusellat al Castell de Montjuïc el 15 d'octubre de 1940 —l'únic president d'un govern europeu executat per Franco. L'<strong>Estatut d'Autonomia</strong> aprovat per la República va ser derogat. El català va ser prohibit a l'escola, a l'administració, als rètols dels comerços, als actes públics i als registres civils. Posar un nom català a un fill era il·legal. Parlar català en públic podia ser motiu de represàlies.</p>
-        <p>La repressió cultural, però, no va aconseguir destruir la llengua ni la identitat. Des de la clandestinitat, escriptors, editors i intel·lectuals van mantenir viva la cultura catalana. L'<strong>Òmnium Cultural</strong> (fundat el 1961) i el <strong>Congrés de Cultura Catalana</strong> van ser instruments de resistència cultural. Les protestes estudiantils, les misses clandestines en català i les primeres actuacions públiques en català als anys 60 van ser actes de desobediència civil. La Nova Cançó —amb artistes com Joan Manuel Serrat, Raimon, Maria del Mar Bonet i Lluís Llach— va convertir la música en un vehicle de resistència política i de preservació lingüística.</p>
-        <p>El franquisme a Catalunya va tenir, a més, una dimensió de classe clara: la burgesia industrial catalana va col·laborar en general amb el règim (que protegia els seus interessos econòmics i s'oposa als sindicats), mentre que la classe obrera —molts d'ells migrants del sud d'Espanya que van aprendre el català als barris de Barcelona— i els sectors intel·lectuals van protagonitzar la resistència. La complexitat d'aquesta situació —catalanisme i antifranquisme sovint convergents, però no sempre idèntics— és part de la História recent de la societat barcelonina.</p>
-
-        <h3 id="s2-5">2.5. La resistència antifranquista</h3>
-        <p>Malgrat la repressió, mai no va desaparèixer la resistència al franquisme. Va prendre formes molt diverses al llarg dels trenta-sis anys de dictadura:</p>
+        <h3 id="s4-5">4.5. La resistència antifranquista</h3>
+        <p>Malgrat la repressió, la resistència mai no va desaparèixer:</p>
         <ul>
-          <li><strong>El maquis (1939–1952):</strong> grups de guerrillers republicans que van continuar la lluita armada a les muntanyes des de la fi de la guerra fins als primers anys 50, quan la repressió i la manca de suport popular i internacional els va fer impossible continuar.</li>
-          <li><strong>El PCE i la clandestinitat comunista:</strong> el Partit Comunista d'Espanya, malgrat la repressió, va mantenir una xarxa clandestina que va ser el principal motor de l'oposició organitzada durant molts anys. Santiago Carrillo va dirigir el parti des de l'exili a París.</li>
-          <li><strong>Les Comissions Obreres (CCOO):</strong> sorgides als anys 60, van ser la gran innovació del moviment obrer sota el franquisme. En lloc d'actuar en la clandestinitat total, van infiltrar-se als sindicats oficials del règim des de dins, usant els seus propis mecanismes per fer reivindicacions laborals. Van ser el sindicat més important de l'antifranquisme i van protagonitzar les grans vagues dels anys 60 i 70.</li>
-          <li><strong>ETA (Euskadi Ta Askatasuna):</strong> fundada el 1959 per joves bascos que consideraven que la clandestinitat comunista era insuficient, va optar per la lluita armada. Va protagonitzar l'atemptat més destacat del franquisme: l'assassinat de l'almirall Carrero Blanco, successor designat de Franco, el desembre de 1973.</li>
-          <li><strong>El moviment universitari:</strong> a partir dels anys 60, les universitats espanyoles van ser focus de resistència i agitació. Molts estudiants que el 1939 haurien hagut de ser fills lleials del franquisme eren el 1968 militants de l'antifranquisme. Represàlies brutals —com el curs en el qual van ser expulsats de la universitat els professors Enrique Tierno Galván, José Luis López Aranguren i Agustín García Calvo— van convertir acadèmics en mites de la resistència.</li>
-          <li><strong>L'Església crítica:</strong> paradoxalment, una part de l'Església —especialment el clero jove i els sectors vinculats al Concili Vaticà II (1962–65)— va anar distanciant-se del règim i posant-se de costat de les víctimes de la repressió. La presó concordatària de Zamora acollia sacerdots empresonats per haver donat suport a moviments socials.</li>
+          <li><strong>El maquis (1939–1952):</strong> guerrillers republicans que van continuar la lluita armada a les muntanyes fins als primers anys 50.</li>
+          <li><strong>El PCE i la clandestinitat:</strong> el Partit Comunista va mantenir una xarxa clandestina que va ser el principal motor de l'oposició organitzada. Santiago Carrillo el dirigia des de l'exili a París.</li>
+          <li><strong>Les Comissions Obreres (CCOO):</strong> sorgides als anys 60, van infiltrar-se als sindicats oficials del règim des de dins per fer reivindicacions laborals des de la legalitat franquista mateixa.</li>
+          <li><strong>ETA (Euskadi Ta Askatasuna):</strong> fundada el 1959, va optar per la lluita armada. El seu acte més destacat va ser l'assassinat de l'almirall Carrero Blanco, successor designat de Franco, el desembre del 1973.</li>
+          <li><strong>El moviment universitari i l'Església crítica:</strong> a partir dels anys 60, les universitats van ser focus de resistència. Una part del clero jove, influïda pel Concili Vaticà II (1962–65), va prendre distàncies del règim.</li>
         </ul>
 
         <div class="img-wrap">
-          <img src="images/valle_caidos.jpg" alt="El Valle de los Caídos" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">El Valle de los Caídos, construït amb treball forçat de presoners republicans entre 1940 i 1958. Franco i el fundador de la Falange, José Antonio Primo de Rivera, hi van ser enterrats. Les restes de Franco van ser traslladades el 2019. Font: Wikimedia Commons (domini públic).</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/20/Exhumacion_de_victimas_del_franquismo.jpg" alt="Exhumació de víctimes del franquisme d'una fossa comuna" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Exhumació de víctimes del franquisme d'una fossa comuna. Espanya és el segon país del món amb més fosses comunes de víctimes polítiques, després de Cambodja. Dècades després, moltes famílies continuen buscant els seus morts. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/07/Valle_de_los_Ca%C3%ADdos_-_2007_05_02.jpg" alt="El Valle de los Caídos" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El Valle de los Caídos, construït amb treball forçat de presoners republicans (1940–1958). Franco hi va ser enterrat el 1975. Les seves restes van ser traslladades al cementiri de Mingorrubio el 2019. Font: Wikimedia Commons (domini públic).</div>
         </div>
       </section>
 
       <hr class="section-divider">
 
-      <!-- ─── S3: TRANSICIÓ ─── -->
-      <section class="section" id="s3">
-        <span class="section-num">Secció 03</span>
+      <!-- ─── S5: TRANSICIÓ ─── -->
+      <section class="section" id="s5">
+        <span class="section-num">Secció 05</span>
         <h2>La Transició democràtica (1975–1982)</h2>
 
-        <p>El <strong>20 de novembre de 1975</strong>, Francisco Franco va morir al llit, a la seva residència del Pardo, envoltat de metges i col·laboradors. Era l'únic dels dictadors feixistes europeus (Hitler, Mussolini, Salazar) que moria de mort natural, al poder, sense haver estat jutjat. Dos dies després, el rei <strong>Joan Carles I</strong> era proclamat cap de l'Estat. Ningú no sabia exactament quin camí prendria Espanya.</p>
+        <p>El <strong>20 de novembre de 1975</strong>, Francisco Franco va morir al llit als 82 anys. Era l'únic dels dictadors feixistes europeus que moria al poder sense ser jutjat. Dos dies després, el rei <strong>Joan Carles I</strong> era proclamat cap de l'Estat. La seva trajectòria democràtica era desconeguda: havia estat format per Franco i molts esperaven que fos la continuïtat del règim amb altra cara. Es van equivocar.</p>
 
-        <h3 id="s3-1">3.1. Els actors i el procés de la Transició</h3>
-        <p>La Transició va ser un procés de canvi polític guiat des de dalt, fruit de la negociació entre sectors reformistes del propi règim i l'oposició democràtica moderada. La seva lògica central va ser la <strong>reforma des de la legalitat franquista</strong>: no trencar amb l'ordre jurídic del règim sinó usarlo per transformar-se a si mateix. Franco havia deixat unes institucions que el seu successor podia usar per democratitzar el país sense que ningú pogués al·legar que era «il·legal».</p>
+        <h3 id="s5-1">5.1. El procés i els actors de la Transició</h3>
+        <p>La Transició va ser un procés de canvi polític guiat des de dalt, fruit de la negociació entre sectors reformistes del propi règim i l'oposició democràtica moderada. La seva lògica central era la <strong>reforma des de la legalitat franquista</strong>: no trencar amb l'ordre jurídic del règim sinó usar-lo per transformar-se a si mateix.</p>
 
         <div class="etapes-f">
           <div class="etapa-f clau">
-            <span class="etapa-f-data">1975–1976 — El reformisme de Suárez</span>
-            <div class="etapa-f-title">De les lleis de Franco a la democràcia</div>
+            <span class="etapa-f-data">1975–1977 — Suárez i la reforma</span>
+            <div class="etapa-f-title">De la dictadura a les eleccions</div>
             <div class="etapa-f-body">
-              <p>Joan Carles I va sorprendre molts: en lloc de continuar el franquisme, va apostar per la democratització. Va nomenar primer president del govern Adolfo <strong>Suárez</strong>, un jove exsecretari general del Movimiento franquista que, paradoxalment, usaria els mecanismes del propi règim per desmuntar-lo. Suárez tenia credencials franquistes impecables, cosa que li permetia parlar als militars i als sectors conservadors i convèncer-los que el canvi no era una amenaça.</p>
-              <p>La <strong>Llei per a la Reforma Política</strong> (novembre 1976) va ser aprovada per les pròpies Corts franquistes —el Parlament del règim va votar la seva pròpia dissolució. Ho va fer en part per convicció, en part per por a l'alternativa (la ruptura democràtica radical exigida per l'oposició) i en part per càlcul: molts franquistes van entendre que la democràcia els permetria mantenir posicions de poder que la continuació del règim, en un context d'agitació social creixent, potser no els garantia.</p>
+              <p>Joan Carles I va nomenar Adolfo <strong>Suárez</strong> president del govern —un jove exsecretari general del Movimiento franquista. Les seves credencials franquistes li permetien negociar amb els militars conservadors. La <strong>Llei per a la Reforma Política</strong> (novembre 1976) va ser aprovada per les pròpies Corts franquistes, que van votar la seva pròpia dissolució. Espanya continuava sent formalment dins la legalitat franquista mentre la superava.</p>
             </div>
           </div>
-
           <div class="etapa-f clau">
-            <span class="etapa-f-data">Juny 1977 — Les primeres eleccions</span>
-            <div class="etapa-f-title">Quaranta anys sense votar</div>
+            <span class="etapa-f-data">15 juny 1977 — Primeres eleccions</span>
+            <div class="etapa-f-title">Quaranta-un anys sense votar</div>
             <div class="etapa-f-body">
-              <p>Les primeres eleccions democràtiques des de febrer de 1936 van tenir lloc el <strong>15 de juny de 1977</strong>. Hi van participar quaranta-tres anys de persones que mai no havien votat. La Unió de Centre Democràtic (UCD) de Suárez va guanyar sense majoria absoluta. El PSOE de Felipe González va quedar segon. El PCE, legalitzat poc abans en una decisió que va escandalitzar molts militars, va obtenir un resultat modest (9%). La dreta més reaccionària (Aliança Popular, de Manuel Fraga) va quedar marginalitzada.</p>
-              <p>Aquella tardor, davant d'una crisi econòmica severa (Espanya patia els efectes de la crisi del petroli de 1973 amb retard), els principals partits van signar els <strong>Pactes de la Moncloa</strong>: un acord econòmic i polític que establia reformes salarials, fiscals i socials. Era un exemple de concertació social que permetia gestionar la transició sense una crisi econòmica que la desestabilitzés.</p>
+              <p>La UCD de Suárez va guanyar sense majoria absoluta. El PSOE va quedar segon. El PCE, legalitzat poc abans, va obtenir el 9%. Aquella tardor, els principals partits van signar els <strong>Pactes de la Moncloa</strong>: acords de concertació econòmica i política per gestionar la crisi sense que la transició s'associés a la misèria.</p>
             </div>
           </div>
-
           <div class="etapa-f clau">
-            <span class="etapa-f-data">Desembre 1978 — La Constitució</span>
+            <span class="etapa-f-data">Desembre 1978 — Constitució</span>
             <div class="etapa-f-title">El pacte constitucional</div>
             <div class="etapa-f-body">
-              <p>La <strong>Constitució Espanyola de 1978</strong> va ser el resultat d'un consens ampli entre les forces polítiques representades al Parlament. Els «pares de la Constitució» incloïen representants de la UCD, el PSOE, el PCE, Aliança Popular i Convergència i Unió. Va ser aprovada en referèndum el desembre de 1978 amb un 88% de vots a favor (amb una abstenció important al País Basc).</p>
-              <p>La Constitució establia l'Estat de les Autonomies: un model federal-autonòmic que reconeixia les especificitats de Catalunya, el País Basc, Galícia i altres territoris. Va ser una solució de compromís que satisfeia parcialment les aspiracions nacionals sense declarar la federalitat ni la independència. Catalunya va recuperar la Generalitat i el País Basc el Govern Basc. En els anys següents, totes les comunitats autònomes van anar assumint competències.</p>
+              <p>La <strong>Constitució Espanyola de 1978</strong> va ser el resultat d'un consens ampli entre les forces polítiques. Va ser aprovada en referèndum amb el 88% de vots a favor (amb una abstenció important al País Basc). Va establir l'Estat de les Autonomies: Catalunya va recuperar la Generalitat, el País Basc el Govern Basc.</p>
             </div>
           </div>
-
           <div class="etapa-f">
             <span class="etapa-f-data">Febrer 1981 — El 23-F</span>
             <div class="etapa-f-title">El cop d'estat fallit</div>
             <div class="etapa-f-body">
-              <p>El 23 de febrer de 1981, al voltant de les 18:30, el tinent coronel de la Guàrdia Civil Antonio <strong>Tejero</strong> va irrompre al Congrés dels Diputats acompanyat de 200 guàrdies civils armats, mentre es votava la investidura del nou president Calvo-Sotelo. Disparant a l'aire i amb el famós «¡Todo el mundo al suelo!», va segrestar tot el Parlament durant hores. Simultàniament, el general Milans del Bosch treia els tancs als carrers de València.</p>
-              <p>La nit del 23-F, <strong>Joan Carles I</strong> va aparèixer a la televisió amb uniforme militar per condemnar el cop i ordenar als militars que tornessin als quarters. El rei, que en teoria havia estat escollit pels colpistes com a cap d'un govern d'unitat nacional, els rebutjava explícitament. La majoria dels militars van obeir. Tejero va capitular la matinada del 24 de febrer. El 23-F havia acabat. La democràcia va sobreviure.</p>
+              <p>El tinent coronel de la Guàrdia Civil <strong>Tejero</strong> va irrompre al Congrés dels Diputats amb 200 guàrdies civils armats mentre es votava la investidura del nou president. Simultàniament, el general Milans del Bosch treia els tancs als carrers de València. La nit del 23-F, Joan Carles I va aparèixer a la televisió per condemnar el cop i ordenar als militars que tornessin als quarters. La democràcia va sobreviure.</p>
             </div>
           </div>
-
           <div class="etapa-f">
-            <span class="etapa-f-data">Octubre 1982 — El PSOE guanya</span>
+            <span class="etapa-f-data">Octubre 1982 — PSOE</span>
             <div class="etapa-f-title">La consolidació democràtica</div>
             <div class="etapa-f-body">
-              <p>Les eleccions d'octubre de 1982 van donar la majoria absoluta al <strong>PSOE</strong> de Felipe González: 202 escons d'un total de 350. Va ser la primera transferència pacífica del poder des de la dreta a l'esquerra des de 1936. Per a molts, aquelles eleccions van ser la veritable culminació de la Transició: la democràcia era prou madura per permetre que guanyés el partit socialistra —l'herència ideològica dels vençuts de la guerra civil— sense que l'exèrcit reaccionés.</p>
+              <p>El <strong>PSOE</strong> de Felipe González va guanyar amb majoria absoluta (202 escons de 350). Era la primera transferència pacífica del poder de la dreta a l'esquerra des del 1936. La democràcia era prou madura per permetre que guanyés el Partit Socialista sense que l'exèrcit reaccionés.</p>
             </div>
           </div>
         </div>
 
         <div class="img-wrap">
-          <img src="images/23f_congres.jpg" alt="El cop del 23-F al Congrés dels Diputats, febrer de 1981" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Diputats a terra al Congrés dels Diputats durant el cop del 23-F (23 de febrer de 1981). La fotografia, captada per la càmera de televisió que gravava la sessió, va donar la volta al món. Font: Wikimedia Commons (domini públic).</div>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/8/8b/23F.jpg" alt="El cop del 23-F al Congrés dels Diputats" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Diputats a terra al Congrés dels Diputats durant el cop del 23-F, 23 de febrer de 1981. La fotografia, captada per la càmera de televisió que gravava la sessió, va donar la volta al món. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
-        <h3 id="s3-2">3.2. La Transició i els seus dèficits democràtics</h3>
-        <p>La Transició espanyola va ser durant molts anys presentada internacionalment com a «model» de canvi pacífic de règim, exportable a altres països. La narrativa de la «Transició modèlica» és, però, una simplificació que amaga costos reals i dèficits democràtics que avui continuen sent debatuts:</p>
+        <h3 id="s5-2">5.2. El 23-F: per qué va fracassar el cop?</h3>
+        <p>El 23-F va fracassar per tres raons convergents. Primera: <strong>Joan Carles I es va negar a avalar el cop</strong>. Tejero i els seus havien previst que el rei els donaria suport o almenys no s'hi oposaria; la seva intervenció televisiva va deixar els colpistes sense cobertura institucional. Segona: la <strong>majoria dels generals va obeir el rei</strong> i es va mantenir als quarters en lloc de sortir al carrer. Tercera: la <strong>resposta civil va ser massiva</strong>: l'endemà del cop, manifestacions multitudinàries en defensa de la democràcia van recórrer les principals ciutats espanyoles.</p>
+
+        <h3 id="s5-3">5.3. Els dèficits democràtics de la Transició</h3>
+        <p>La Transició espanyola va ser presentada internacionalment com a «model» de canvi pacífic de règim. Però va tenir costos reals i dèficits que avui continuen sent debatuts:</p>
 
         <div class="def-box">
-          <span class="def-label">Els dèficits de la Transició — quatre dimensions</span>
-          <p><strong>1. La impunitat total:</strong> cap militar franquista, cap torturador de la Brigada Politicosocial, cap jutge que havia firmat condemnes a mort va ser mai jutjat. La <strong>Llei d'Amnistia del 1977</strong> va beneficiar tant els presos polítics republicans (que podien sortir de la presó) com els repressors del règim (als quals s'eximia de qualsevol responsabilitat). Era una amnistia mútua que, de fet, era una llei d'impunitat.</p>
-          <p><strong>2. La continuïtat de les elits:</strong> les elits econòmiques, judicials i militars del franquisme van mantenir gran part del seu poder. Els mateixos jutges que havien signat condemnes a mort continuaven als seus càrrecs. Els mateixos banquers que havien finançat el cop del 36 continuaven controlant el sistema bancari. La transició va ser política, no econòmica ni social.</p>
-          <p><strong>3. El pacte de l'oblit:</strong> cap comissió de la veritat, cap procés de reconeixement oficial de les víctimes, cap excavació de les fosses comunes. Els milers de republicans afusellats i enterrats en cunetes i camps anònims van romandre allà. L'oblit era la condició implícita del pacte constitucional.</p>
-          <p><strong>4. La Llei de Memòria Democràtica (2022):</strong> quaranta-set anys després de la mort de Franco, el govern espanyol va aprovar la primera llei que reconeixia explícitament com a víctimes els morts del franquisme, declarava il·legals els tribunals franquistes i establia obligacions de l'Estat per localitzar i identificar les persones enterrades en fosses comunes. Va ser aprovada amb molts vots en contra i continua sent políticament controvertida.</p>
+          <span class="def-label">Quatre dèficits de la Transició</span>
+          <p><strong>1. La impunitat total:</strong> la <strong>Llei d'Amnistia del 1977</strong> va beneficiar els presos polítics republicans però també va eximir de responsabilitat tots els repressors del règim. Cap militar franquista, cap torturador de la Brigada Politicosocial no va ser mai jutjat.</p>
+          <p><strong>2. La continuïtat de les elits:</strong> les elits econòmiques, judicials i militars del franquisme van mantenir gran part del seu poder. La transició va ser política, no econòmica ni social.</p>
+          <p><strong>3. El pacte de l'oblit:</strong> cap comissió de la veritat, cap procés de reconeixement oficial de les víctimes. Milers de republicans afusellats i enterrats en cunetes i camps anònims van romandre allà. L'oblit era la condició implícita del pacte constitucional.</p>
+          <p><strong>4. La Llei de Memòria Democràtica (2022):</strong> quaranta-set anys després de la mort de Franco, Espanya va aprovar la primera llei que reconeixia explícitament com a víctimes els morts del franquisme i obligava l'Estat a localitzar les fosses comunes. Va ser aprovada amb molts vots en contra.</p>
         </div>
 
-        <div class="img-wrap">
-          <img src="images/fosses_comunes.jpg" alt="Exhumació de víctimes del franquisme" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Exhumació de víctimes del franquisme d'una fossa comuna. Dècades després de la fi de la dictadura, milers de famílies continuen buscant els seus morts. Espanya és el segon país del món, després de Cambodja, amb més fosses comunes. Font: Wikimedia Commons (domini públic).</div>
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font periodística</span><span class="font-tipus">Article d'opinió · 1979</span></div>
+          <div class="font-body">«La transició espanyola és un mirall en el qual tothom veu el que vol. Els uns hi veuen un model de moderació i de sensatesa. Els altres hi veuen el preu que han hagut de pagar els vençuts de la guerra: un cop més, l'oblit. Una democràcia que neix sobre la impunitat dels crims de la dictadura pot considerar-se una democràcia completa? <strong>La pregunta no té una resposta fàcil. Però cal fer-la.</strong>»</div>
+          <div class="font-peu">Manuel Vázquez Montalbán, periodista i escriptor. <em>El País</em>, 1979.</div>
         </div>
 
         <div class="pullquote">
           <p>«Una democràcia pot construir-se sobre l'oblit dels crims del règim anterior?»</p>
         </div>
 
-        <p>La pregunta que els apunts deixen oberta no té una resposta única. Hi ha arguments per al «pacte de l'oblit» de la Transició: la fragilitat del moment, l'amenaça militar constant, la necessitat d'integrar sectors socials amplis en el nou sistema. I hi ha arguments per a la memòria: que una democràcia construïda sobre la impunitat normalitza la injustícia, que les víctimes no van poder participar en el «pacte» que decidia sobre el seu propi dolor, i que la ferida que es tapa sense netejar-la s'infecta i torna. El debat sobre la memòria democràtica a Espanya segueix viu perquè la Transició va deixar qüestions fonamentals sense resoldre.</p>
+        <p>La pregunta que els apunts deixen oberta no té una resposta única. Hi ha arguments per al «pacte de l'oblit»: la fragilitat del moment, l'amenaça militar constant (el 23-F ho va demostrar), la necessitat d'integrar sectors socials amplis en el nou sistema. I hi ha arguments per a la memòria: que una democràcia construïda sobre la impunitat normalitza la injustícia, que les víctimes no van poder participar en el «pacte» que decidia sobre el seu propi dolor, i que la ferida que es tapa sense netejar-la s'infecta i torna. El debat segueix viu perquè la Transició va deixar qüestions fonamentals sense resoldre.</p>
       </section>
 
     </div><!-- /panel-apunts -->
@@ -446,59 +564,60 @@
       <div class="crono">
 
         <div class="crono-group">
-          <div class="crono-group-label">La Guerra Civil (1936–1939)</div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">17–18 juliol 1936</span><div class="crono-event">El cop d'estat militar</div><div class="crono-desc">Les guarnicions del Marroc i la Península es revolten contra la República democràticament elegida. El cop fracassa a les grans ciutats gràcies a la resistència popular. La guerra civil és inevitable.</div></div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Agost 1936</span><div class="crono-event">Comitè de No-Intervenció · Brigades Internacionals</div><div class="crono-desc">27 estats, inclosos Alemanya i Itàlia, signen la no-intervenció. Ambdós països la violen immediatament. La URSS comença a vendre armes a la República. Comencen a arribar els voluntaris internacionals.</div></div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Tardor 1936</span><div class="crono-event">Defensa de Madrid · Col·lectivitzacions a Catalunya</div><div class="crono-desc">Les milícies obreres i les Brigades Internacionals aturen els rebels a les portes de Madrid. A Catalunya i Aragó, les col·lectivitzacions obreres transformen l'economia. Dues guerres simultànies: la militar i la social.</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">26 abril 1937</span><div class="crono-event">Bombardeig de Guernica</div><div class="crono-desc">La Legió Còndor i l'aviació italiana destrueixen la ciutat basca de Guernica en dia de mercat. Centenars de morts civils. Primer bombardeig sistemàtic d'una població civil de la história. Picasso el immortalitza al seu Guernica.</div></div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Maig 1937</span><div class="crono-event">Fets de Maig a Barcelona — la fractura interna</div><div class="crono-desc">Enfrontaments armats entre CNT-FAI/POUM i PCE/govern republicà a Barcelona. La repressió del POUM per part dels comunistes fractura el bàndol antifeixista. George Orwell ho descriu a Homenatge a Catalunya.</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Febrer 1939</span><div class="crono-event">Caiguda de Catalunya · La Retirada</div><div class="crono-desc">500.000 refugiats republicans creuen la frontera francesa en poques setmanes, en el que s'anomena «la Retirada». França els interna en camps improvisats a la costa. El poeta Antonio Machado mor a Cotlliure pocs dies d'arribar.</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1 abril 1939</span><div class="crono-event">Fi de la guerra · Inici de la repressió</div><div class="crono-desc">Franco signa l'últim part de guerra. Comença immediatament la repressió sistemàtica: camps de concentració, judicis militars, afusellaments massius. Entre 100.000 i 200.000 persones seran executades en els anys següents.</div></div>
+          <div class="crono-group-label">La crisi de la Restauració (1898–1931)</div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1898</span><div class="crono-event">El Desastre del 98 — pèrdua de les últimes colònies</div><div class="crono-desc">La derrota contra els EUA i la pèrdua de Cuba, Puerto Rico i les Filipines posa en evidència la decrepitud del sistema polític de la Restauració. A Catalunya s'accelera el catalanisme polític.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1901</span><div class="crono-event">Fundació de la Lliga Regionalista</div><div class="crono-desc">Prat de la Riba i Cambó funden la Lliga, primera força catalanista de massa. Hegemònica a Catalunya durant dues dècades.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Juliol 1909</span><div class="crono-event">La Setmana Tràgica de Barcelona</div><div class="crono-desc">Revolta popular contra la mobilització per al Marroc. Una setmana de barricades i crema d'esglésies als barris obrers. 104 morts. L'execució de Ferrer i Guàrdia escandalitza Europa. El sistema polític queda ferit de mort.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1914</span><div class="crono-event">Fundació de la Mancomunitat de Catalunya</div><div class="crono-desc">Primera institució de govern català des del 1714. Presidida per Prat de la Riba, construeix infraestructures, biblioteques, normativa lingüística i institucions culturals.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1917</span><div class="crono-event">La triple crisi: militar, política i social</div><div class="crono-desc">Juntes Militars, Assemblea de Parlamentaris i vaga general revolucionària convergeixen. El sistema sobreviu però perd tota legitimitat. La violència social s'accelera.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Setembre 1923</span><div class="crono-event">Cop de Primo de Rivera</div><div class="crono-desc">El capità general de Catalunya dona un cop d'estat amb el beneplàcit del rei Alfons XIII. Suspensió de la Constitució. Dissolució de la Mancomunitat el 1925.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">14 abril 1931</span><div class="crono-event">Proclamació de la Segona República</div><div class="crono-desc">Alfons XIII marxa a l'exili. La República es proclama pacíficament enmig d'eufòria popular. Comença l'experiment reformador més ambiciós de la historia moderna d'Espanya.</div></div>
         </div>
 
         <div class="crono-group">
-          <div class="crono-group-label">El Franquisme (1939–1975)</div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1939–1952</span><div class="crono-event">L'autarquia i la fam</div><div class="crono-desc">El racionament d'aliments dura fins al 1952. Espanya no rep el Pla Marshall. Anys de gana i misèria per a les classes populars. El mercat negre (estraperlo) és omnipresent.</div></div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1953</span><div class="crono-event">Pactes amb els EUA · Bases militars</div><div class="crono-desc">En ple clima de Guerra Freda, els EUA signen un acord amb Franco: bases militars americanes a Espanya (Torrejón, Rota, Morón) a canvi d'ajuda econòmica i reconeixement internacional. El franquisme és «blanquejat».</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1959</span><div class="crono-event">Pla d'Estabilització · Apertura econòmica</div><div class="crono-desc">Els tecnòcrates de l'Opus Dei abandonen l'autarquia i obren l'economia espanyola al mercat internacional. Comença el «miracle econòmic» dels anys 60, basat en turisme, emigració i inversió estrangera.</div></div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1960</span><div class="crono-event">Fundació d'ETA</div><div class="crono-desc">Joves bascos que consideren insuficient la resistència clandestina tradicional funden ETA (Euskadi Ta Askatasuna) i opten per la lluita armada contra la dictadura.</div></div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1973</span><div class="crono-event">ETA assassina Carrero Blanco</div><div class="crono-desc">L'almirall Luis Carrero Blanco, president del govern i successor designat de Franco, és assassinat per ETA amb una bomba que fa volar el seu cotxe per sobre d'un edifici de cinc pisos. El franquisme queda descapçalat.</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">20 novembre 1975</span><div class="crono-event">Mort de Franco</div><div class="crono-desc">Francisco Franco mor al llit, envoltant de metges, als 82 anys. És l'únic dels dictadors feixistes europeus que mor al poder sense ser jutjat. Dos dies després, Joan Carles I és proclamat rei d'Espanya.</div></div>
+          <div class="crono-group-label">La República i la Guerra Civil (1931–1939)</div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1931</span><div class="crono-event">Sufragi femení — Clara Campoamor</div><div class="crono-desc">Espanya aprova el vot de les dones gràcies a Campoamor. Primera Constitució que reconeix la igualtat de drets entre homes i dones.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1932</span><div class="crono-event">Estatut d'Autonomia de Catalunya</div><div class="crono-desc">Francesc Macià es converteix en primer president de la Generalitat restaurada. Catalunya recupera la seva institució de govern.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Octubre 1934</span><div class="crono-event">Revolució d'Astúries · repressió de Franco</div><div class="crono-desc">Insurrecció minera reprimida per l'exèrcit colonial del Marroc. Milers de morts i detinguts. Franco es perfila com l'home fort de la dreta militar.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">17–18 juliol 1936</span><div class="crono-event">El cop d'estat militar</div><div class="crono-desc">Les guarnicions del Marroc i la Península es revolen contra la República. El cop fracassa a les grans ciutats gràcies a la resistència popular. La guerra civil comença.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">26 abril 1937</span><div class="crono-event">Bombardeig de Guernica</div><div class="crono-desc">La Legió Còndor destrueix la ciutat basca en dia de mercat. Centenars de morts civils. Picasso crea el Guernica per a l'Exposició Universal de París.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Febrer 1939</span><div class="crono-event">Caiguda de Catalunya · La Retirada</div><div class="crono-desc">500.000 refugiats creuen la frontera francesa en poques setmanes. Antonio Machado mor a Cotlliure. Lluís Companys és extradit i afusellat el 1940.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1 abril 1939</span><div class="crono-event">Fi de la guerra · Inici de la repressió</div><div class="crono-desc">Franco signa l'últim part de guerra. Comença la repressió sistemàtica: entre 100.000 i 200.000 persones seran executades en els anys següents.</div></div>
         </div>
 
         <div class="crono-group">
-          <div class="crono-group-label">La Transició Democràtica (1975–1982)</div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Novembre 1976</span><div class="crono-event">Llei per a la Reforma Política</div><div class="crono-desc">Les pròpies Corts franquistes votan la seva dissolució i la convocatòria d'eleccions democràtiques. El mecanisme de la «ruptura pactada»: reformar des de la legalitat del propi règim.</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">15 juny 1977</span><div class="crono-event">Primeres eleccions democràtiques</div><div class="crono-desc">Per primera vegada des de febrer de 1936, els espanyols voten lliurement. La UCD de Suárez guanya sense majoria absoluta. El PSOE queda segon. El PCE, legalitzat poc abans, obté el 9%.</div></div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">Octubre 1977</span><div class="crono-event">Pactes de la Moncloa</div><div class="crono-desc">Acords entre govern i partits per gestionar la crisi econòmica durant la Transició. Reformes fiscals, salarials i socials que garantien que el procés democratitzador no s'associava a la misèria econòmica.</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Desembre 1978</span><div class="crono-event">Constitució Espanyola</div><div class="crono-desc">Aprovada en referèndum amb el 88% de vots favorables (abstenció important al País Basc). Estableix l'Estat de les Autonomies i els drets fonamentals. Catalunya recupera la Generalitat, el País Basc el govern autonòmic.</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">23 febrer 1981</span><div class="crono-event">El 23-F — cop d'estat fallit</div><div class="crono-desc">Tejero irrompet al Congrés armant amb guàrdies civils. Tancs als carrers de València. Joan Carles I apareix a la televisió per condemnar el cop i ordenar als militars que tornessin als quarters. La democràcia sobreviu.</div></div>
-          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Octubre 1982</span><div class="crono-event">Victòria del PSOE — consolidació democràtica</div><div class="crono-desc">Felipe González guanya amb majoria absoluta (202 escons). Primera transferència pacífica del poder de la dreta a l'esquerra des de 1936. La consolidació democràtica és considerada completada.</div></div>
-          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">2022</span><div class="crono-event">Llei de Memòria Democràtica</div><div class="crono-desc">47 anys després de la mort de Franco, Espanya aprova la primera llei que reconeix explícitament com a víctimes els morts del franquisme i obliga l'Estat a localitzar les fosses comunes.</div></div>
+          <div class="crono-group-label">El Franquisme i la Transició (1939–1982)</div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1939–1952</span><div class="crono-event">L'autarquia i la gana</div><div class="crono-desc">Racionament fins al 1952. Espanya no rep el Pla Marshall. Quinze anys de postguerra per recuperar el nivell econòmic del 1936.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1953</span><div class="crono-event">Pactes amb els EUA — les bases militars</div><div class="crono-desc">En ple context de Guerra Freda, els EUA «blanquegen» Franco a canvi de bases militars a Torrejón, Rota i Morón.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">1959</span><div class="crono-event">Pla d'Estabilització · l'apertura econòmica</div><div class="crono-desc">Els tecnòcrates de l'Opus Dei abandonen l'autarquia. Comença el «miracle econòmic» dels anys 60 basat en turisme, emigració i inversió estrangera.</div></div>
+          <div class="crono-entry"><div class="crono-dot"></div><span class="crono-year">1973</span><div class="crono-event">ETA assassina l'almirall Carrero Blanco</div><div class="crono-desc">El successor designat de Franco mor en un atemptat a Madrid. El franquisme queda descapçalat sense successor clar.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">20 novembre 1975</span><div class="crono-event">Mort de Franco</div><div class="crono-desc">Franco mor al llit als 82 anys. Joan Carles I és proclamat rei. La Transició comença.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">15 juny 1977</span><div class="crono-event">Primeres eleccions democràtiques</div><div class="crono-desc">Primera vegada que els espanyols voten lliurement des de febrer de 1936. UCD guanya. El PSOE queda segon. PCE legalitzat.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Desembre 1978</span><div class="crono-event">Constitució Espanyola</div><div class="crono-desc">Aprovada en referèndum amb el 88% de vots favorables. Estat de les Autonomies. Catalunya recupera la Generalitat.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">23 febrer 1981</span><div class="crono-event">El 23-F — cop d'estat fallit</div><div class="crono-desc">Tejero al Congrés i tancs als carrers de València. Joan Carles I condemna el cop a la televisió. La democràcia sobreviu.</div></div>
+          <div class="crono-entry"><div class="crono-dot key"></div><span class="crono-year">Octubre 1982</span><div class="crono-event">Victòria del PSOE · consolidació democràtica</div><div class="crono-desc">Felipe González guanya amb majoria absoluta. Primera transferència pacífica del poder de la dreta a l'esquerra des del 1936.</div></div>
         </div>
-
       </div>
     </div><!-- /panel-cronologia -->
 
     <!-- ═══ TAB 3: LA HISTÓRIA, ARA ═══ -->
     <div class="tab-panel" id="panel-ara">
       <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
-        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">La Guerra Civil, el Franquisme i la Transició no són passat tancat. Les seves conseqüències —les fosses comunes sense excavar, els drets que van ser suprimits, els debats sobre la memòria— continuen configurant el present polític d'Espanya. I les preguntes que plantegen sobre democràcia, impunitat i memòria són universals.</p>
+        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">La Guerra Civil, el Franquisme i la Transició no són passat tancat. Les seves conseqüències —les fosses comunes sense excavar, els drets que van ser suprimits, els debats sobre la memòria— continuen configurant el present polític d'Espanya i de Catalunya. I les preguntes que plantegen sobre democràcia, impunitat i memòria són universals.</p>
       </div>
 
       <div class="task-block">
-        <div class="task-header"><h3>1. La memòria de la Guerra Civil: qui la té i qui la perd</h3><span class="task-badge">Memòria oral · Família</span></div>
+        <div class="task-header"><h3>1. La memòria de la Guerra Civil: el que guarda la teva família</h3><span class="task-badge">Memòria oral</span></div>
         <div class="task-body">
-          <p>La Guerra Civil és l'únic conflicte modern en el qual moltes famílies espanyoles d'avui encara poden trobar testimonis directes o de primera generació. Avis o besavis que la van viure, que van lluitar en un bàndol o en l'altre, que van perdre algú. Aquesta memòria familiar és una font histórica de primer ordre que sovint no s'aprofita a l'escola.</p>
+          <p>La Guerra Civil és l'únic conflicte modern en el qual moltes famílies espanyoles d'avui poden trobar testimonis de primera generació: avis o besavis que la van viure, que van lluitar, que van perdre algú. Aquesta memòria familiar és una font histórica de primer ordre que sovint no s'aprofita.</p>
           <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Pregunta a casa: algun familiar teu va viure la Guerra Civil o el Franquisme? Quin bàndol, quina experiència? Si no ho saps o no ho trobes, pregunta a un familiar gran sobre com era viure sota el franquisme (censura, religió obligatòria, manca de llibertats).</span></li>
-            <li><span class="step-num">02</span><span>Compara el que t'han explicat amb el que diuen els apunts. Hi ha contradiccions? Quins aspectes la memòria familiar ressalta que els apunts no mencionen, i viceversa?</span></li>
-            <li><span class="step-num">03</span><span>En moltes famílies espanyoles, la Guerra Civil és un tema tabú del qual no es parla. Si és el teu cas, reflexiona: per qué creus que pot ser? Té relació amb el «pacte de l'oblit» de la Transició?</span></li>
-            <li><span class="step-num">04</span><span>Posa en comú amb la classe. Quina diversitat de memòries familiars apareix? Hi ha famílies en els dos bàndols? Qué ens diu això sobre la complexitat de la guerra?</span></li>
+            <li><span class="step-num">01</span><span>Pregunta a casa: algun familiar teu va viure la Guerra Civil o el Franquisme? Quin bàndol, quina experiència? Si no ho saps o la familia és d'origen immigrant, pregunta com era viure al teu país d'origen en la mateixa època (molts països llatinoamericans van acollir exiliats republicans).</span></li>
+            <li><span class="step-num">02</span><span>Compara el que t'han explicat amb el que diuen els apunts. Hi ha contradiccions? Quins aspectes la memòria familiar ressalta que els apunts no mencionen?</span></li>
+            <li><span class="step-num">03</span><span>En moltes famílies espanyoles, la Guerra Civil és un tema tabú. Si és el teu cas, reflexiona: per qué creus que pot ser? Té relació amb el «pacte de l'oblit» de la Transició?</span></li>
           </ul>
           <div class="debate-box">
             <span class="debate-label">Reflexió</span>
-            <p>La memòria oral és sempre subjectiva i parcial. Però és una font histórica legítima. Com podem valorar la memòria familiar d'una guerra civil, sabent que els dos bàndols la recorden de manera molt diferent? La memòria de les víctimes i la dels perpetradors tenen el mateix valor? Com les tractem historiogràficament?</p>
+            <p>La memòria oral és sempre subjectiva. La memòria de les víctimes i la dels perpetradors no tenen el mateix pes moral, però sí el mateix valor com a fonts. Com podem tractar la memòria familiar d'una guerra civil amb rigor históric i sense negar el dolor de ningú?</p>
           </div>
         </div>
       </div>
@@ -506,27 +625,27 @@
       <div class="task-block">
         <div class="task-header"><h3>2. Les fosses comunes: una ferida oberta</h3><span class="task-badge">Drets humans · Present</span></div>
         <div class="task-body">
-          <p>Espanya és, segons les estimacions de l'ONU, el segon país del món amb més fosses comunes de víctimes polítiques, només superat per Cambodja. Milers de persones afusellades pel franquisme continuen enterrades en cunetes, camps i patis de presons, sense identificar, sense reconeixement oficial. Per a moltes famílies, la recerca dels seus morts continua dècades després.</p>
+          <p>Espanya és el segon país del món amb més fosses comunes de víctimes polítiques, després de Cambodja. Milers de persones afusellades pel franquisme continuen enterrades en cunetes, camps i patis de presons, sense identificar, sense reconeixement oficial.</p>
           <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca informació sobre l'Associació per a la Recuperació de la Memòria Histórica (ARMH). Quantes fosses han localitzat? Quantes persones han pogut identificar? Quins problemes troben per fer la seva feina?</span></li>
-            <li><span class="step-num">02</span><span>A Argentina, la Comisión Nacional sobre la Desaparición de Personas (CONADEP) va documentar els crims de la dictadura el 1984, i molts militars van ser jutjats. A Sud-àfrica, la Comissió de Veritat i Reconciliació va permetre que víctimes i perpetradors s'enfrontessin públicament. Compara amb el cas espanyol. Qué diferencia les transicions que fan justícia de les que fan oblit?</span></li>
-            <li><span class="step-num">03</span><span>La Llei de Memòria Democràtica (2022) va ser aprovada però continua sent molt polèmica. Busca els arguments dels qui s'hi oposen. Creus que són arguments legítims? Creus que reobrirle les ferides o curar-les és el debat real?</span></li>
+            <li><span class="step-num">01</span><span>Busca informació sobre l'Associació per a la Recuperació de la Memòria Histórica (ARMH). Quantes fosses han localitzat? Quines dificultats troben?</span></li>
+            <li><span class="step-num">02</span><span>Compara el cas espanyol amb el de l'Argentina (CONADEP, 1984) o el de Sud-àfrica (Comissió de Veritat i Reconciliació). Qué diferencia les transicions que fan justícia de les que fan oblit?</span></li>
+            <li><span class="step-num">03</span><span>La Llei de Memòria Democràtica (2022) continua sent molt polèmica. Busca els arguments dels qui s'hi oposen. Creus que són arguments legítims?</span></li>
           </ul>
           <div class="debate-box">
             <span class="debate-label">Pregunta clau</span>
-            <p>«Una democràcia pot construir-se sobre l'oblit dels crims del règim anterior?» Ara que coneixes el cas espanyol, la transició de Sud-àfrica i el cas argentí, quina és la teva posició? Hi ha alguna manera de fer justícia que no «reobri ferides» però que tampoc signifiqui impunitat?</p>
+            <p>«Una democràcia pot construir-se sobre l'oblit dels crims del règim anterior?» Tenint en compte el cas espanyol, l'argentí i el sud-africà, quina és la teva posició?</p>
           </div>
         </div>
       </div>
 
       <div class="task-block">
-        <div class="task-header"><h3>3. Cataluya i el dret d'autodeterminació: arrels históricques d'un debat present</h3><span class="task-badge">Conflicte territorial · Actualitat</span></div>
+        <div class="task-header"><h3>3. La Setmana Tràgica i el present: qui paga les guerres?</h3><span class="task-badge">Connexió present</span></div>
         <div class="task-body">
-          <p>El debat sobre l'independentisme català i el dret d'autodeterminació no va sorgir el 2010 o el 2017: té arrels en la repressió franquista de la identitat nacional catalana, en l'Estatut de 1932, en la Guerra Civil i en la reivindicació d'autonomia que ja existia a la Restauració. Analitzar-ne les arrels históricques permet entendre-ho millor.</p>
+          <p>La revolta de la Setmana Tràgica va néixer de la indignació que els fills dels pobres anaven a morir al Marroc mentre els fills dels rics pagaven per no anar-hi. Aquesta desigualtat davant de la guerra és un fenomen que es repeteix al llarg de la historia.</p>
           <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Fes una línia de temps de la relació Catalunya–Estat espanyol entre 1931 i 2017: Estatut de 1932, supressió per Franco, recuperació a la Transició (Estatut de 1979), Estatut de 2006 (retallat pel Tribunal Constitucional), referèndum del 1-O de 2017. Identifica els moments de reconeixement i els de negació.</span></li>
-            <li><span class="step-num">02</span><span>Per qué creus que la repressió franquista de la llengua i la cultura catalanes va reforçar el sentiment nacional català en lloc de destruir-lo? Qué et diu això sobre com funcionen la repressió cultural i la identitat?</span></li>
-            <li><span class="step-num">03</span><span>Reflexió: La Constitució de 1978 reconeix «les nacionalitats i regions» però no el dret d'autodeterminació. Va ser un pacte possible el 1978? Seria el mateix pacte possible avui? Qué ha canviat?</span></li>
+            <li><span class="step-num">01</span><span>Busca com funcionava la «redempció en metàl·lic» a l'Espanya del segle XIX i principis del XX: qué era, quant costava i qui podia permetre-se-la.</span></li>
+            <li><span class="step-num">02</span><span>A la Guerra del Vietnam, els rics nord-americans podien obtenir exempcions mèdiques o universitàries per no anar al front; els negres i els pobres hi anaven en percentatges molt superiors. Busca dades. Es repeteix el mateix patró que la Setmana Tràgica?</span></li>
+            <li><span class="step-num">03</span><span>Avui, els exèrcits professionals dels països rics recluten principalment entre les classes populars i les zones de desocupació alta. Analitza: el fet que qui decideix les guerres no sigui qui les combat, canvia la propensió d'un país a entrar en guerra?</span></li>
           </ul>
         </div>
       </div>
@@ -537,7 +656,7 @@
 </div>
 
 <footer class="site-footer">
-  <span>T07 · La Guerra Civil, el Franquisme i la Transició · 4t ESO</span>
+  <span>T07 · Espanya i Catalunya: 1909–1982 · 4t ESO</span>
   <nav class="footer-nav">
     <a href="t06_iigm.html">← Tema 06</a>
     <a href="index.html">Índex</a>
