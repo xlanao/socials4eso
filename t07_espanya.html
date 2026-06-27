@@ -139,6 +139,28 @@
     .nav{padding:0 22px}.nav-meta{display:none}
     .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
   }
+
+  .font-primaria{border:1px solid var(--line);margin:28px 0;background:var(--paper-off)}
+  .font-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .font-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .font-tipus{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase}
+  .font-body{padding:18px 20px;font-family:'Spectral',serif;font-style:italic;font-size:.95rem;color:var(--ink-soft);line-height:1.75;font-weight:300}
+  .font-body strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-peu{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);letter-spacing:.04em}
+  .act-intro{border:1px solid var(--line);padding:20px 24px;margin-bottom:32px;background:var(--paper-off);font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.7}
+  .act-block{margin-bottom:40px;border:1px solid var(--line)}
+  .act-header{background:var(--ink);padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .act-header h3{margin:0;font-family:'Spectral',serif;font-size:.98rem;font-weight:600;color:var(--paper);line-height:1.3}
+  .act-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.65);white-space:nowrap;flex-shrink:0}
+  .act-body{padding:20px 24px}
+  .act-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300;line-height:1.65}
+  .act-body p:last-child{margin-bottom:0}
+  .act-questions{list-style:none;padding:0;margin:14px 0 0}
+  .act-questions li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;border-bottom:1px dotted var(--line-faint);padding-bottom:12px}
+  .act-questions li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
+  .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
+  .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -163,7 +185,7 @@
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
-  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
 </div>
 
 <div class="page-wrap">
@@ -272,6 +294,16 @@
           <div class="img-cap">El general Miguel Primo de Rivera, dictador d'Espanya entre 1923 i 1930. Va suprimir la Constitució, va prohibir el catalanisme polític i va dissoldre la Mancomunitat de Catalunya. Font: Wikimedia Commons (domini públic).</div>
         </div>
       </section>
+
+      
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Lluis_Companys_1933.jpg" alt="Lluís Companys (1882–1940), president de la Generalitat de Catalunya. Extradit d" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Lluís Companys (1882–1940), president de la Generalitat de Catalunya. Extradit de França per les autoritats nazis a petició del règim de Franco, va ser afusellat al Castell de Montjuïc el 15 d'octubre de 1940. És l'únic president d'un govern europeu executat per ordre d'un altre cap d'Estat al segle XX. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Guernica_Picasso.jpg" alt="Pablo Picasso, <em>Guernica</em> (1937, oli sobre tela, 349×776 cm). Creat per e" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Pablo Picasso, <em>Guernica</em> (1937, oli sobre tela, 349×776 cm). Creat per encàrrec del govern republicà per a l'Exposició Universal de París. La distorsió cubista de les figures humanes i animals expressa el terror, el dolor i el caos de la guerra sobre els civils. Museu Reina Sofía, Madrid. Font: Wikimedia Commons / Successió Picasso.</div>
+        </div>
 
       <hr class="section-divider">
 
@@ -602,54 +634,74 @@
 
     <!-- ═══ TAB 3: LA HISTÓRIA, ARA ═══ -->
     <div class="tab-panel" id="panel-ara">
-      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
-        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">La Guerra Civil, el Franquisme i la Transició no són passat tancat. Les seves conseqüències —les fosses comunes sense excavar, els drets que van ser suprimits, els debats sobre la memòria— continuen configurant el present polític d'Espanya i de Catalunya. I les preguntes que plantegen sobre democràcia, impunitat i memòria són universals.</p>
-      </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>1. La memòria de la Guerra Civil: el que guarda la teva família</h3><span class="task-badge">Memòria oral</span></div>
-        <div class="task-body">
-          <p>La Guerra Civil és l'únic conflicte modern en el qual moltes famílies espanyoles d'avui poden trobar testimonis de primera generació: avis o besavis que la van viure, que van lluitar, que van perdre algú. Aquesta memòria familiar és una font histórica de primer ordre que sovint no s'aprofita.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Pregunta a casa: algun familiar teu va viure la Guerra Civil o el Franquisme? Quin bàndol, quina experiència? Si no ho saps o la familia és d'origen immigrant, pregunta com era viure al teu país d'origen en la mateixa època (molts països llatinoamericans van acollir exiliats republicans).</span></li>
-            <li><span class="step-num">02</span><span>Compara el que t'han explicat amb el que diuen els apunts. Hi ha contradiccions? Quins aspectes la memòria familiar ressalta que els apunts no mencionen?</span></li>
-            <li><span class="step-num">03</span><span>En moltes famílies espanyoles, la Guerra Civil és un tema tabú. Si és el teu cas, reflexiona: per qué creus que pot ser? Té relació amb el «pacte de l'oblit» de la Transició?</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Reflexió</span>
-            <p>La memòria oral és sempre subjectiva. La memòria de les víctimes i la dels perpetradors no tenen el mateix pes moral, però sí el mateix valor com a fonts. Com podem tractar la memòria familiar d'una guerra civil amb rigor históric i sense negar el dolor de ningú?</p>
-          </div>
+    <div class="act-intro">Has estudiat la crisi de la Restauració, la Setmana Tràgica, la República, la Guerra Civil, el Franquisme i la Transició. Les activitats proposen analitzar fonts primàries catalanes i espanyoles, comparar perspectives sobre la Transició i reflexionar sobre la memòria democràtica.</div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 1 · Comparació: la Setmana Tràgica des de dos punts de vista</h3><span class="act-badge">Dues fonts · Comparació crítica</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font A — Premsa conservadora</span><span class="font-tipus">Editorial · 1909</span></div>
+          <div class="font-body">«Els fets de Barcelona no admeten cap justificació. Grups de delinqüents anarquistes han incendiat esglésies i atacat l'exèrcit. <strong>Darrere d'aquests crims hi ha els líders obrers que prediquen l'odi de classe.</strong> L'ordre ha estat restaurat, però cal que les condemnes siguin exemplars.»</div>
+          <div class="font-peu">Inspirat en editorials de <em>La Vanguardia</em> i <em>El Correo Catalán</em>, agost de 1909.</div>
         </div>
-      </div>
-
-      <div class="task-block">
-        <div class="task-header"><h3>2. Les fosses comunes: una ferida oberta</h3><span class="task-badge">Drets humans · Present</span></div>
-        <div class="task-body">
-          <p>Espanya és el segon país del món amb més fosses comunes de víctimes polítiques, després de Cambodja. Milers de persones afusellades pel franquisme continuen enterrades en cunetes, camps i patis de presons, sense identificar, sense reconeixement oficial.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca informació sobre l'Associació per a la Recuperació de la Memòria Histórica (ARMH). Quantes fosses han localitzat? Quines dificultats troben?</span></li>
-            <li><span class="step-num">02</span><span>Compara el cas espanyol amb el de l'Argentina (CONADEP, 1984) o el de Sud-àfrica (Comissió de Veritat i Reconciliació). Qué diferencia les transicions que fan justícia de les que fan oblit?</span></li>
-            <li><span class="step-num">03</span><span>La Llei de Memòria Democràtica (2022) continua sent molt polèmica. Busca els arguments dels qui s'hi oposen. Creus que són arguments legítims?</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Pregunta clau</span>
-            <p>«Una democràcia pot construir-se sobre l'oblit dels crims del règim anterior?» Tenint en compte el cas espanyol, l'argentí i el sud-africà, quina és la teva posició?</p>
-          </div>
+        <div class="font-primaria" style="margin-top:0">
+          <div class="font-header"><span class="font-label">Font B — Premsa obrera</span><span class="font-tipus">Article · 1909</span></div>
+          <div class="font-body">«El que ha passat és la resposta d'un poble que no aguanta més. Envien els fills dels pobres a morir al Marroc mentre els rics compren l'exempció. <strong>La ira del poble no és «vandalisme»: és la resposta a dècades d'injustícia.</strong>»</div>
+          <div class="font-peu">Inspirat en premsa obrera barcelonina, agost de 1909. Font secundària reconstructiva.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Identifica i classifica les dues fonts. Des de quina posició ideològica i social parla cadascuna? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>Com explica cada font les causes de la Setmana Tràgica? Quins fets reals menciona cadascuna? Quins silencia? (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Quin dels dos relats et sembla més complet? Argumenta-ho. Com hauria de treballar un historiador per construir una explicació equilibrada a partir de fonts tan contraposades? (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>3. La Setmana Tràgica i el present: qui paga les guerres?</h3><span class="task-badge">Connexió present</span></div>
-        <div class="task-body">
-          <p>La revolta de la Setmana Tràgica va néixer de la indignació que els fills dels pobres anaven a morir al Marroc mentre els fills dels rics pagaven per no anar-hi. Aquesta desigualtat davant de la guerra és un fenomen que es repeteix al llarg de la historia.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca com funcionava la «redempció en metàl·lic» a l'Espanya del segle XIX i principis del XX: qué era, quant costava i qui podia permetre-se-la.</span></li>
-            <li><span class="step-num">02</span><span>A la Guerra del Vietnam, els rics nord-americans podien obtenir exempcions mèdiques o universitàries per no anar al front; els negres i els pobres hi anaven en percentatges molt superiors. Busca dades. Es repeteix el mateix patró que la Setmana Tràgica?</span></li>
-            <li><span class="step-num">03</span><span>Avui, els exèrcits professionals dels països rics recluten principalment entre les classes populars i les zones de desocupació alta. Analitza: el fet que qui decideix les guerres no sigui qui les combat, canvia la propensió d'un país a entrar en guerra?</span></li>
-          </ul>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 2 · Comparació: la Transició, model o dèficit?</h3><span class="act-badge">Dues fonts · Historiogràfica</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font C — Crítica de la Transició</span><span class="font-tipus">Historiografia · 2011</span></div>
+          <div class="font-body">«La «transició modèlica» va ser, per a les víctimes del franquisme, una amnistia per als seus botxins. <strong>Una democràcia que es construeix sobre la impunitat dels crims de la dictadura porta aquesta impunitat inscrita en la seva constitució mateixa.</strong>»</div>
+          <div class="font-peu">Paul Preston, historiador, <em>El Holocausto Español</em> (2011), pròleg.</div>
         </div>
+        <div class="font-primaria" style="margin-top:0">
+          <div class="font-header"><span class="font-label">Font D — Defensa de la Transició</span><span class="font-tipus">Assaig polític · 1996</span></div>
+          <div class="font-body">«El «pacte de l'oblit» no va ser covardia: va ser saviesa. Reobrir les ferides hauria pogut desestabilitzar el procés democràtic i donar ales als sectors militars que van intentar el 23-F. <strong>La democràcia que tenim avui és el llegat d'aquella moderació.</strong>»</div>
+          <div class="font-peu">Inspirat en posicions de polítics de la UCD i PSOE dels anys 80–90. Font secundària reconstructiva.</div>
+        </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Quin argument principal defensa cadascuna? Quina és la seva tipologia? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>La Font C parla de «víctimes silenciades». La Font D parla de «saviesa». Podien tenir raó tots dos alhora? (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Compara la Transició espanyola amb l'Argentina posdictatorial (CONADEP, judicis als militars). Quins avantatges i desavantatges tenia cada model? (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 3 · Situa't en el temps: cinc termes clau</h3><span class="act-badge">Contextualització · Creativa</span></div>
+      <div class="act-body">
+        <p>Respon <strong>un</strong> dels dos enunciats (A o B):</p>
+        <ul class="act-questions">
+          <li><span class="act-q-num">A</span><span>Ets un periodista estranger que arriba a Barcelona el setembre de 1936. Escriu un article per al teu diari. Utilitza: <em>cop d'estat, col·lectivitzacions, Brigades Internacionals, no-intervenció, revolució social</em>. (15 línies)</span></li>
+          <li><span class="act-q-num">B</span><span>Ets un diplomat nord-americà que arriba a Madrid el 1968, en plena dictadura. Escriu un informe confidencial. Utilitza: <em>autarquia, desarrollisme, oposició antifranquista, Opus Dei, repressió</em>. (15 línies)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 4 · Qüestions de repàs</h3><span class="act-badge">Repàs · Conceptes</span></div>
+      <div class="act-body">
+        <ul class="act-questions">
+          <li><span class="act-q-num">1</span><span>Explica el torn pacífic i el caciquisme. Per qué era un sistema políticament corrupte? Quins grups excloïa?</span></li>
+          <li><span class="act-q-num">2</span><span>Qué va ser la Setmana Tràgica? Quines causes immediates i estructurals va tenir? Quines conseqüències per al sistema de la Restauració?</span></li>
+          <li><span class="act-q-num">3</span><span>Descriu les reformes de la Segona República. Per qué van generar tanta resistència entre les classes dominants?</span></li>
+          <li><span class="act-q-num">4</span><span>Per qué la Guerra Civil s'anomena «primera batalla de la Segona Guerra Mundial»? Quin paper hi van jugar Alemanya, Itàlia i la URSS?</span></li>
+          <li><span class="act-q-num">5</span><span>Descriu els «dèficits democràtics» de la Transició. Qué és la Llei de Memòria Democràtica (2022) i per qué és polèmica?</span></li>
+        </ul>
+      </div>
+    </div>
     </div><!-- /panel-ara -->
 
   </main>

@@ -646,6 +646,28 @@
     .nav-meta { display: none; }
     .site-footer { padding: 20px 22px; flex-direction: column; gap: 10px; }
   }
+
+  .font-primaria{border:1px solid var(--line);margin:28px 0;background:var(--paper-off)}
+  .font-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .font-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .font-tipus{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase}
+  .font-body{padding:18px 20px;font-family:'Spectral',serif;font-style:italic;font-size:.95rem;color:var(--ink-soft);line-height:1.75;font-weight:300}
+  .font-body strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-peu{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);letter-spacing:.04em}
+  .act-intro{border:1px solid var(--line);padding:20px 24px;margin-bottom:32px;background:var(--paper-off);font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.7}
+  .act-block{margin-bottom:40px;border:1px solid var(--line)}
+  .act-header{background:var(--ink);padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .act-header h3{margin:0;font-family:'Spectral',serif;font-size:.98rem;font-weight:600;color:var(--paper);line-height:1.3}
+  .act-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.65);white-space:nowrap;flex-shrink:0}
+  .act-body{padding:20px 24px}
+  .act-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300;line-height:1.65}
+  .act-body p:last-child{margin-bottom:0}
+  .act-questions{list-style:none;padding:0;margin:14px 0 0}
+  .act-questions li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;border-bottom:1px dotted var(--line-faint);padding-bottom:12px}
+  .act-questions li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
+  .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
+  .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -667,7 +689,7 @@
     </div>
     <div class="topic-num-badge">Tema 04 — 1914–1918</div>
     <h1>La Primera <em>Guerra Mundial</em></h1>
-    <p class="topic-subtitle">17 milions de morts · La fi dels grans imperis · La llavor del nazisme</p>
+    <p class="topic-subtitle">Rivalitats imperialistes esclaten · Trinxeres · Revolució Russa · Versalles sembra la llavor de la IIGM</p>
   </div>
 </div>
 
@@ -675,7 +697,7 @@
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('apunts', this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia', this)">EIX CRONOLÒGIC</button>
-  <button class="tab-btn" onclick="switchTab('ara', this)">LA HISTÒRIA, ARA</button>
+  <button class="tab-btn" onclick="switchTab('ara', this)">ACTIVITATS</button>
 </div>
 
 <!-- PAGE WRAP -->
@@ -788,7 +810,7 @@
         </div>
 
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Map_Europe_alliances_1914-en.svg/800px-Map_Europe_alliances_1914-en.svg.png" alt="Les aliances internacionals abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Map_Europe_alliances_1914-2.jpg/800px-Map_Europe_alliances_1914-2.jpg" alt="Les aliances internacionals abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">El sistema d'aliances: Triple Aliança vs. Triple Entesa. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -803,7 +825,7 @@
         <p>D'altra banda, el <strong>nacionalisme de les grans potències</strong>: a França, el revanxisme per la pèrdua d'Alsàcia-Lorena a mans d'Alemanya el 1871 era una ferida oberta. A Alemanya, el sentiment que el país mereixia un «lloc al sol» —un paper dominant al món— alimentava les ambicions expansionistes. A tots els països, els diaris i els polítics explotaven el patriotisme per guanyar vots i justificar les despeses militars.</p>
 
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Balkan_Wars_1912-13.PNG/800px-Balkan_Wars_1912-13.PNG" alt="El conflicte dels Balcans abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5b/Map_Balkans_1912.png" alt="El conflicte dels Balcans abans de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Les guerres balcàniques (1912-13), preludi de la Gran Guerra. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -812,6 +834,16 @@
           <p>El <strong>militarisme</strong> va crear els exèrcits i els plans d'atac. L'<strong>imperialisme</strong> va generar les rivalitats i els ressentiments. El <strong>nacionalisme</strong> va escalfar les opinions públiques i va fer els governs presoners del sentiment popular. I les <strong>aliances</strong> van connectar tot plegat de manera que qualsevol incident local es convertia en una crisi europea. Les quatre causes juntes van crear un sistema tan tens i interconnectat que quan va arribar l'espurna de Sarajevo, l'explosió va ser inevitable.</p>
         </div>
       </section>
+
+      
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/2/2c/Over_the_Top_Frank_Hurley.jpg" alt="«Per sobre de la trinxera» (Frank Hurley, 1917): soldats australians atacant a t" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">«Per sobre de la trinxera» (Frank Hurley, 1917): soldats australians atacant a través de la terra de ningú al Front Occidental. Un dels fotografies més icòniques de la Primera Guerra Mundial, que mostra la brutalitat dels assalts frontals contra les defenses de metralladora. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/4/41/Gassed_rgs.jpg" alt="«Gasejats» (John Singer Sargent, 1919): soldats britànics cecs per un atac de ga" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">«Gasejats» (John Singer Sargent, 1919): soldats britànics cecs per un atac de gas mostassa, caminant en fila cap a un post de socors. La Primera Guerra Mundial va introduir l'ús massiu d'armes químiques, causant sofriment extrem i seqüeles permanents. Font: Wikimedia Commons (domini públic).</div>
+        </div>
 
       <hr class="section-divider">
 
@@ -871,7 +903,7 @@
         <p>La conseqüència era que <strong>guanyar uns centenars de metres de territori costava milers de vides</strong>. Era una guerra d'<em>usura</em>: l'objectiu no era derrotar l'enemic en batalla campal, sinó esgotar-lo fins que no pogués continuar. I les baixes eren enormes, a tots dos costats.</p>
 
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/Cheshire_Regiment_trench_Somme_1916_%28higher_res%29.png/500px-Cheshire_Regiment_trench_Somme_1916_%28higher_res%29.png" alt="Soldats a les trinxeres de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/13/Cheshire_Regiment_trench_Somme_1916_%28higher_res%29.png" alt="Soldats a les trinxeres de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Soldats britànics a les trinxeres del Somme, 1916. Imperial War Museum. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -994,10 +1026,7 @@
         <p>Les condicions de Versalles van tenir un efecte devastador sobre la psicologia política alemanya. La <strong>clàusula de culpabilitat</strong> era percebuda com una injustícia flagrant per la gran majoria dels alemanys, que sabien que la responsabilitat de la guerra havia estat compartida. Les <strong>reparacions</strong> van contribuir a la hiperinflació catastròfica dels anys 20 (el 1923, un dòlar equivalia a 4,2 bilions de marcs). La <strong>humiliació territorial</strong> i la prohibició de tenir un exèrcit digne generaven ressentiment.</p>
         <p>Tot això va crear un <strong>caldo de cultiu perfecte</strong> per a moviments polítics extremistes que prometien venjar la derrota i recuperar la grandesa nacional. Adolf Hitler va construir el seu ascens polític precisament sobre l'explotació d'aquest ressentiment. La llegenda de la «<em>punyalada per l'esquena</em>» —la idea que Alemanya no havia perdut militarment sinó que havia estat traïda per socialistes i jueus a la rereguarda— era una mentida, però una mentida que molts alemanys van voler creure. Versalles va convertir Hitler de líder d'un grup marginal en un polític amb suport de masses.</p>
 
-        <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7f/Europe_1923_map_en.png" alt="El nou mapa europeu després de la Primera Guerra Mundial" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">Les noves fronteres europees fixades pels tractats de pau de 1919. Font: Wikimedia Commons (domini públic).</div>
-        </div>
+        
 
         <h3 id="s5-4">5.4. Les conseqüències globals de la guerra</h3>
 
@@ -1187,86 +1216,57 @@
     ═══════════════════════════════════ -->
     <div class="tab-panel" id="panel-ara">
 
-      <div class="ara-intro">
-        <p><strong>La Primera Guerra Mundial no és història lluny de nosaltres.</strong> Les seves causes, dinàmiques i conseqüències ressonen amb força al món d'avui. Aquestes activitats et proposen fer la connexió entre el passat i el present, usant eines d'anàlisi històrica sobre la realitat actual.</p>
-      </div>
+    <div class="act-intro">Has estudiat la Primera Guerra Mundial, la Revolució Russa i el Tractat de Versalles. Les activitats proposen analitzar cartes des de les trinxeres, propaganda bèl·lica i acords diplomàtics, reflexionant sobre la guerra i les seves conseqüències.</div>
 
-      <!-- TASCA 1 -->
-      <div class="task-block">
-        <div class="task-header">
-          <h3>1. Estem al llindar d'una Tercera Guerra Mundial?</h3>
-          <span class="task-badge">Anàlisi crítica</span>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 1 · Comentari de font: una carta des de les trinxeres</h3><span class="act-badge">Font primària · Testimoni</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font A — Carta personal</span><span class="font-tipus">Correspondència privada · 1916</span></div>
+          <div class="font-body">«Mare, no sé com explicar-te el que és això. La propaganda deia que seria una guerra de setmanes, gloriosa. Han passat dos anys. El fang arriba als genolls. Les rates ens mengen la roba mentre dormim. Ahir va morir el Miquel, d'un tros d'obús. No va dir res. Simplement va caure. <strong>De qué serveix tot això? Pels generals és un mapa. Per nosaltres és la mort.</strong> No expliquis res d'això, que el censor ho talla.»</div>
+          <div class="font-peu">Reconstruïda a partir de cartes reals de soldats francesos del Somme (1916). Institut de la Memòria del Conflicte Contemporani (IMEC).</div>
         </div>
-        <div class="task-body">
-          <p>El 1914, cap govern europeu volia una guerra mundial. Però el sistema d'aliances, el militarisme i les tensions acumulades van convertir un incident local en una catàstrofe global. Molts analistes actuals fan la mateixa pregunta: <strong>tenim avui condicions similars a les del 1914?</strong></p>
-          <p>Pensa en conflictes actuals: la guerra d'Ucraïna, les tensions al Pròxim Orient, la rivalitat EUA–Xina al Pacífic, la proliferació nuclear...</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Llegiu dues notícies recents sobre un conflicte internacional actiu (Ucraïna, Gaza, Mar de la Xina del Sud...) de fonts diverses. Podeu usar <em>elpais.com</em>, <em>bbc.com/mundo</em> o <em>elnacional.cat</em>.</span></li>
-            <li><span class="step-num">02</span><span>Identifiqueu si hi ha avui alguna de les causes MAIN: aliances rígides, cursa d'armaments, rivalitat imperial per recursos, nacionalismes exacerbats.</span></li>
-            <li><span class="step-num">03</span><span>Debateu en grups: <em>En quins aspectes la situació d'avui s'assembla al 1914? En quins és radicalment diferent?</em> Tingueu en compte el paper de l'ONU respecte a la Societat de Nacions, i l'existència de les armes nuclears.</span></li>
-            <li><span class="step-num">04</span><span>Escriviu individualment una breu anàlisi (10–15 línies) argumentant si creieu que hi ha o no risc real de guerra mundial. Useu evidències concretes dels apunts i de les notícies.</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Punt de debat</span>
-            <p>El 1914, la gent creia que la guerra seria curta i victoriosa. Cap soldat imaginava que estaria a les trinxeres quatre anys. Quin paper juga la <em>percepció errònia del risc</em> en l'escalada bèl·lica? Passa avui?</p>
-          </div>
-        </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Per qué el soldat menciona la censura? Qué implica sobre la informació que rebien els civils a la reraguarda? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>Contrasta les condicions de vida descrites amb el discurs de propaganda («guerra de setmanes, gloriosa»). Qui beneficiava aquesta propaganda? (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>El soldat pregunta «de qué serveix tot això?». Respon des de la perspectiva dels governs que van iniciar la guerra i des de la dels soldats. Són compatibles? (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
-      <!-- TASCA 2 -->
-      <div class="task-block">
-        <div class="task-header">
-          <h3>2. La guerra als ulls dels soldats: fonts primàries</h3>
-          <span class="task-badge">Fonts primàries</span>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 2 · Comparació: el Tractat de Versalles vist des de dos bàndols</h3><span class="act-badge">Dues fonts · Comparació crítica</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font B — Perspectiva aliada</span><span class="font-tipus">Discurs oficial · 1919</span></div>
+          <div class="font-body">«Alemanya ha de pagar per la destrucció que ha causat. El Tractat de Versalles és just: els alemanys van iniciar la guerra i ara han de reparar el dany. <strong>La pau duradora exigeix que Alemanya no pugui tornar a fer la guerra.</strong>»</div>
+          <div class="font-peu">Inspirat en declaracions de Clemenceau durant les negociacions de pau de 1919.</div>
         </div>
-        <div class="task-body">
-          <p>Els apunts expliquen dates i batalles. Però com vivia la guerra el soldat ras a les trinxeres? Treballar amb fonts primàries —cartes, diaris, fotografies— ens permet humanitzar la Història i entendre-la des de dins.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca a internet un fragment d'una carta de soldat de la Primera Guerra Mundial. En trobaràs en català, castellà i anglès. Pots buscar «carta soldado Primera Guerra Mundial» o «letters from the trenches WWI 1914».</span></li>
-            <li><span class="step-num">02</span><span>Identifica: Qui escriu? A qui? Quina data? Quins elements de la vida a les trinxeres descriu? Quina emoció dominant transmet?</span></li>
-            <li><span class="step-num">03</span><span>Compara amb el que diuen els apunts sobre les condicions de la guerra de trinxeres. Coincideix? La font primària afegeix alguna cosa que els apunts no expliquen?</span></li>
-            <li><span class="step-num">04</span><span>Reflexió escrita: <em>Com canvia la teva comprensió de la guerra llegir-la en primera persona?</em></span></li>
-          </ul>
+        <div class="font-primaria" style="margin-top:0">
+          <div class="font-header"><span class="font-label">Font C — Crítica del Tractat</span><span class="font-tipus">Assaig econòmic · 1919</span></div>
+          <div class="font-body">«El Tractat de Versalles és una pau de venjança que no pot durar. Les reparacions imposades a Alemanya són impossibles de pagar. <strong>Estem sembrant les llavors d'una nova guerra.</strong> Una Alemanya humiliada serà caldo de cultiu per a extremismes.»</div>
+          <div class="font-peu">John Maynard Keynes, <em>Les conseqüències econòmiques de la pau</em>, 1919. Keynes va dimitir com a assessor en protesta.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Quines idees principals defensa cadascuna de les dues fonts? Quin tipus de font és cada una? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>Keynes va escriure el seu assaig el 1919, vint anys abans de la Segona Guerra Mundial. La historia li va donar la raó? Argumenta amb fets concrets. (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Quin aprenentatge en van treure els aliats quan van dissenyar la pau de 1945 (Pla Marshall, ONU)? (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
-      <!-- TASCA 3 -->
-      <div class="task-block">
-        <div class="task-header">
-          <h3>3. Propaganda de guerra: ahir i avui</h3>
-          <span class="task-badge">Anàlisi de media</span>
-        </div>
-        <div class="task-body">
-          <p>La Primera Guerra Mundial va ser la primera en usar la <strong>propaganda massiva</strong> com a arma: cartells, premsa, cinema. L'objectiu era convèncer la població civil que la guerra era justa i necessària, i que l'enemic era bèstia i dolent. Avui, les xarxes socials han substituït els cartells —però la lògica és la mateixa.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Cerca a Google Images dos cartells de propaganda de la Primera Guerra Mundial: un de britànic o nord-americà, un d'alemany o austrohongarès. Analitza: quines emocions volen provocar? Com representen l'enemic? A qui s'adrecen?</span></li>
-            <li><span class="step-num">02</span><span>Cerca ara un exemple recent de propaganda o desinformació en un conflicte actual. Pot ser un vídeo manipulat, una notícia falsa o una imatge fora de context. Pots usar <em>maldita.es</em> o <em>verificat.cat</em> per trobar exemples documentats.</span></li>
-            <li><span class="step-num">03</span><span>Debateu: quines tècniques es repeteixen entre 1914 i avui? Quines són noves? La desinformació digital és més o menys perillosa que la propaganda de 1914?</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Reflexió crítica</span>
-            <p>Durant la Primera Guerra Mundial, gairebé cap diari va informar de manera objectiva. Governs i premsa cooperaven per mantenir la moral. Avui la «infosfera» és molt més fragmentada —però no necessàriament més objectiva. <em>Com pots saber quan una informació sobre un conflicte és fiable?</em></p>
-          </div>
-        </div>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 3 · Qüestions de repàs</h3><span class="act-badge">Repàs · Conceptes</span></div>
+      <div class="act-body">
+        <ul class="act-questions">
+          <li><span class="act-q-num">1</span><span>Explica les causes de la Primera Guerra Mundial: aliances, nacionalisme, imperialisme i l'assassinat de Sarajevo. Quina creus que va ser la més important?</span></li>
+          <li><span class="act-q-num">2</span><span>Descriu les condicions de vida a les trinxeres. Qué va significar la batalla del Somme (1916)?</span></li>
+          <li><span class="act-q-num">3</span><span>Quines novetats tecnològiques va introduir la Primera Guerra Mundial? Com van canviar la naturalesa de la guerra?</span></li>
+          <li><span class="act-q-num">4</span><span>Explica el contingut del Tractat de Versalles (1919). Per qué molts historiadors el consideren una causa de la Segona Guerra Mundial?</span></li>
+          <li><span class="act-q-num">5</span><span>Descriu les dues revolucions russes de 1917 (febrer i octubre). Qué les diferencia? Quin impacte van tenir a Europa?</span></li>
+        </ul>
       </div>
-
-      <!-- TASCA 4 -->
-      <div class="task-block">
-        <div class="task-header">
-          <h3>4. Versalles i les paus impossibles</h3>
-          <span class="task-badge">Joc de rol</span>
-        </div>
-        <div class="task-body">
-          <p>El Tractat de Versalles (1919) va ser tan humiliant per a Alemanya que va sembrar la llavor del nazisme i de la Segona Guerra Mundial. És un cas d'estudi sobre <strong>com no fer la pau</strong>. Però fer una pau «justa» tampoc és senzill: els vencedors tenien les seves pròpies demandes i poblacions a satisfer.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>En grups de 5, representeu cadascun un actor de la postguerra: Alemanya, França, Gran Bretanya, els EUA (Wilson), i els nous estats de l'Europa de l'est.</span></li>
-            <li><span class="step-num">02</span><span>Cada grup prepara les seves demandes: quin territori vols? Quines reparacions demanes? Quines garanties de seguretat necessites? Quins drets per als pobles sense estat?</span></li>
-            <li><span class="step-num">03</span><span>Simuleu una conferència de pau i intenteu arribar a un acord que tothom pugui acceptar sense humiliar ningú.</span></li>
-            <li><span class="step-num">04</span><span>Reflexió final: <em>Per quin motiu el Tractat de Versalles va ser tan dur? Va ser possible una altra pau? Compareu el vostre resultat amb el Tractat real.</em></span></li>
-          </ul>
-        </div>
-      </div>
-
+    </div>
     </div><!-- /panel-ara -->
 
   </main><!-- /content -->

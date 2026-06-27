@@ -125,6 +125,28 @@
     .nav{padding:0 22px}.nav-meta{display:none}
     .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
   }
+
+  .font-primaria{border:1px solid var(--line);margin:28px 0;background:var(--paper-off)}
+  .font-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .font-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .font-tipus{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase}
+  .font-body{padding:18px 20px;font-family:'Spectral',serif;font-style:italic;font-size:.95rem;color:var(--ink-soft);line-height:1.75;font-weight:300}
+  .font-body strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-peu{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);letter-spacing:.04em}
+  .act-intro{border:1px solid var(--line);padding:20px 24px;margin-bottom:32px;background:var(--paper-off);font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.7}
+  .act-block{margin-bottom:40px;border:1px solid var(--line)}
+  .act-header{background:var(--ink);padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .act-header h3{margin:0;font-family:'Spectral',serif;font-size:.98rem;font-weight:600;color:var(--paper);line-height:1.3}
+  .act-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.65);white-space:nowrap;flex-shrink:0}
+  .act-body{padding:20px 24px}
+  .act-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300;line-height:1.65}
+  .act-body p:last-child{margin-bottom:0}
+  .act-questions{list-style:none;padding:0;margin:14px 0 0}
+  .act-questions li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;border-bottom:1px dotted var(--line-faint);padding-bottom:12px}
+  .act-questions li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
+  .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
+  .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -142,14 +164,14 @@
     <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 08</div>
     <div class="topic-num-badge">Tema 08 — 1947–Avui</div>
     <h1>La <em>Guerra Freda</em><br>i el Món Actual</h1>
-    <p class="topic-subtitle">Els dos blocs · Les crises · La fi de la URSS · El neoliberalisme · El present</p>
+    <p class="topic-subtitle">El nou ordre nascut de la IIGM · Els dos blocs · Les crises · La descolonització · La fi de la URSS · El neoliberalisme · El present</p>
   </div>
 </div>
 
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
-  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
 </div>
 
 <div class="page-wrap">
@@ -269,6 +291,16 @@
           La Guerra Freda no va ser, com es presenta sovint, un conflicte entre «la llibertat» i «el totalitarisme». Als països del Sud Global, els EUA van defensar repetidament dictadures brutals contra democràcies electes, sempre que les democràcies amenacessin els interessos de les empreses nord-americanes. L'anticomunisme va ser sovint una coartada per defensar el dret de les multinacionals a explotar recursos i mà d'obra barata sense interferències democràtiques.
         </div>
       </section>
+
+      
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/10/Truman_signing_North_Atlantic_Treaty.jpg" alt="El president Truman signa el Tractat de l'Atlàntic Nord (OTAN), 4 d'abril de 194" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">El president Truman signa el Tractat de l'Atlàntic Nord (OTAN), 4 d'abril de 1949. L'aliança militar occidental —avui amb 32 membres— és un dels llegats duradors de la Guerra Freda. La seva expansió cap a l'est és una de les causes oficials esgrimides per Rússia per a la invasió d'Ucraïna el 2022. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/b4/Checkpoint_Charlie_1963.jpg" alt="Checkpoint Charlie, el pas fronterer entre Berlín Est i Berlín Oest, 1963. Escen" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Checkpoint Charlie, el pas fronterer entre Berlín Est i Berlín Oest, 1963. Escenari de l'únic enfrontament directe de tancs americans i soviètics de la Guerra Freda (octubre 1961). Avui és un museu i atracció turística en el cor de Berlín reunificat. Font: Wikimedia Commons (domini públic).</div>
+        </div>
 
       <hr class="section-divider">
 
@@ -444,52 +476,72 @@
 
     <!-- ═══ TAB 3: LA HISTÓRIA, ARA ═══ -->
     <div class="tab-panel" id="panel-ara">
-      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
-        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">Amb aquest tema tanquem el curs. L'activitat final proposa fer el que hem anunciat des del tema 0: usar la história com a eina d'anàlisi del present. Traçar els fils que connecten allò que hem estudiat amb el món on viviu.</p>
-      </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>1. La CIA i les democràcies: lliçons per al present</h3><span class="task-badge">Anàlisi crítica</span></div>
-        <div class="task-body">
-          <p>La CIA va participar en el derroc de governs democràtics a l'Iran (1953), Guatemala (1954), Xile (1973), Congo (1960), Brasil (1964) i molts altres països, sempre amb l'argument de la «seguretat nacional» i la «contenció del comunisme». Avui els arguments han canviat però el patró d'intervencionisme continua.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Escull un dels tres casos dels apunts (Iran, Guatemala o Xile) i investiga: qui va governar després del cop? Quines polítiques va aplicar? Quines conseqüències a llarg termini va tenir per al país?</span></li>
-            <li><span class="step-num">02</span><span>Avui, els EUA critiquen Rússia per intervenir en eleccions i la sobirania d'altres països (Ucraïna, Geòrgia...). Creus que els EUA tenen autoritat moral per fer-ho, tenint en compte la seva história d'intervencionisme? Com es resol la tensió entre la crítica legítima de les accions russes i el reconeixement de la pròpia história?</span></li>
-            <li><span class="step-num">03</span><span>El Xile de Pinochet va ser el primer laboratori del neoliberalisme. Avui, les polítiques neoliberals (privatitzacions, desregulació, retallades socials) s'apliquen a través del FMI i del Banc Mundial als països en dificultats. Qué diferencia aquest «neoliberalisme voluntari» del que es va imposar a punta de baioneta a Xile?</span></li>
-          </ul>
+    <div class="act-intro">Has estudiat la Guerra Freda, la descolonització, el neoliberalisme i les seves connexions actuals. Les activitats proposen analitzar discursos de les superpotències, comparar perspectives del Tercer Món amb les de les metròpolis i reflexionar sobre com les lògiques de la Guerra Freda continuen configurant el present.</div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 1 · Comparació: la Guerra Freda des dels dos bàndols</h3><span class="act-badge">Dues fonts · Comparació crítica</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font A — Perspectiva americana</span><span class="font-tipus">Discurs oficial · 1947</span></div>
+          <div class="font-body">«Gairebé tots els pobles han d'escollir entre dos estils de vida. Un es basa en la voluntat de la majoria, en institucions lliures, en governs representatius. L'altre es basa en la voluntat d'una minoria imposada per la força. <strong>La política dels EUA ha de ser la de donar suport als pobles lliures que resisteixen els intents de subjugació.</strong>»</div>
+          <div class="font-peu">President Truman, discurs al Congrés, 12 de març de 1947. La «Doctrina Truman». Font primària.</div>
         </div>
-      </div>
-
-      <div class="task-block">
-        <div class="task-header"><h3>2. Activitat final: llençant ponts entre la Història i el present</h3><span class="task-badge">Projecte final · Individual o parelles</span></div>
-        <div class="task-body">
-          <p>Al llarg d'aquest curs hem estudiat dos segles d'história contemporània. L'activitat final demana que demostris que has entès la connexió entre el passat i el present: que la história no és el passat mort, sinó l'arrel del present viu.</p>
-          <p><strong>Tria un fenomen del món actual</strong> que et preocupi o t'interessi i traça les seves arrels históricques fins als temes del curs. L'objectiu és demostrar que aquell fenomen no ha sorgit del no-res sinó que té causes estructurals que hem estudiat.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span><strong>Tria el teu tema:</strong> migracions i refugiats, crisi climàtica, ascens de l'extrema dreta, desigualtat econòmica, guerres actuals (Ucraïna, Gaza, Sudan...), crisi de l'habitatge, racisme sistèmic, precarietat laboral juvenil, o qualsevol altra que et sembli rellevant.</span></li>
-            <li><span class="step-num">02</span><span><strong>Construeix la cadena causal:</strong> des del fenomen actual, ves cap enrere en el temps identificant les causes. Cada causa ha de tenir una arrel en almenys un dels temes del curs. Usa fletxes i esquemes si t'ajuda a visualitzar-ho.</span></li>
-            <li><span class="step-num">03</span><span><strong>Exemple orientatiu:</strong> «Les migracions cap a Europa» → pobresa del Sud Global → neocolonialisme econòmic (T03) → colonialisme i fronteres arbitràries (T03) → crisi climàtica com a factor de desplaçament → model energètic capitalista des de la Revolució Industrial (T02) → conflictes als països d'origen, molts amb arrels a la Guerra Freda (T08). Però el teu raonament ha de ser propi.</span></li>
-            <li><span class="step-num">04</span><span><strong>Presentació:</strong> exposa el teu raonament en 5 minuts a la classe. Has de ser capaç de respondre preguntes dels companys i del professor. L'objectiu no és que tinguis totes les respostes, sinó que puguis fer les preguntes correctes.</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">El propòsit de tot el curs</span>
-            <p>Hem dit al tema 0 que la história no és útil quan ens fa sentir orgullosos del passat o quan justifica el present, sinó quan ens permet veure que el món podria ser diferent del que és, que res no estava escrit per endavant, i que els canvis que semblen impossibles a vegades es produeixen quan prou gent s'organitza per aconseguir-los. Quin canvi et sembla necessari avui? I quina arrel histórica té la situació que vols canviar?</p>
-          </div>
+        <div class="font-primaria" style="margin-top:0">
+          <div class="font-header"><span class="font-label">Font B — Perspectiva del Tercer Món</span><span class="font-tipus">Discurs a l'ONU · 1960</span></div>
+          <div class="font-body">«Ens diuen que hem de triar entre el bloc americà i el bloc soviètic. Però nosaltres hem triat la independència. Els EUA parlen de «pobles lliures» però van donar suport al règim que ens colonitzava. <strong>Nosaltres no volem ser peó de ningú. Volem decidir el nostre propi futur.</strong>»</div>
+          <div class="font-peu">Inspirat en Kwame Nkrumah (Ghana) i Jawaharlal Nehru (Índia) a l'ONU, 1960. Moviment de No-Alineació.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Identifica i classifica les dues fonts. Quin és el context de cadascuna? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>Truman presenta la Guerra Freda com una elecció entre «llibertat» i «opressió». La Font B refuta aquest argument. Documenta la resposta amb exemples d'intervencions americanes al Tercer Món. (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Avui molts països del Sud Global (Índia, Brasil) es neguen a condemnar Rússia per la guerra d'Ucraïna. És una continuació de la lògica de Bandung? (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>3. La Guerra Freda avui: Ucraïna i el retorn de la geopolítica</h3><span class="task-badge">Actualitat</span></div>
-        <div class="task-body">
-          <p>La invasió russa d'Ucraïna el febrer de 2022 ha tornat a posar la guerra al cor d'Europa per primera vegada des de 1945. Molts analistes parlen d'una «nova Guerra Freda». Analitzem fins a quin punt la comparació és útil.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Quines similituds trobes entre la dinàmica de la Guerra Freda i el conflicte actual a Ucraïna? Pensa en: el paper de la OTAN, les esferes d'influència, l'armament d'un dels bàndols per una superpotència, la propaganda dels dos bàndols.</span></li>
-            <li><span class="step-num">02</span><span>Quines diferències importants hi ha? (La Xina com a actor; la interdependència econòmica global; les xarxes socials i la guerra informativa; l'amenaça nuclear explícita de Rússia; la posició dels països del Sud Global que no s'alineen clarament amb cap bàndol).</span></li>
-            <li><span class="step-num">03</span><span>Busca com la guerra d'Ucraïna s'explica des de la perspectiva russa, la ucraïnesa i la d'un país del Sud Global (per exemple, l'Índia o el Brasil, que no van condemnar Rússia a l'ONU). Per qué cada perspectiva és diferent? Quin paper hi juga la história?</span></li>
-          </ul>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 2 · Comentari de dades: el neoliberalisme i la desigualtat</h3><span class="act-badge">Font estadística · Economia</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font C — Dades econòmiques comparades</span><span class="font-tipus">Estadística OCDE · 1980–2020</span></div>
+          <div class="font-body"><strong>Participació dels salaris en el PIB:</strong> 1980: 66% → 2020: 58%<br><strong>Participació dels beneficis empresarials:</strong> 1980: 15% → 2020: 23%<br><strong>Índex Gini als EUA (desigualtat):</strong> 1980: 0,40 → 2020: 0,49</div>
+          <div class="font-peu">Dades OCDE (Labour Share, 2021) i US Census Bureau. Elaboració pròpia.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Descriu les dades. Qué ha passat amb la participació dels salaris i dels beneficis en el PIB entre 1980 i 2020? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>El neoliberalisme prometia que la riquesa «regalimaria» cap avall. Les dades confirmen o refuten aquesta promesa? (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Relaciona l'augment de la desigualtat amb l'ascens de l'extrema dreta a Europa i als EUA. La desigualtat econòmica explica el populisme? (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 3 · Projecte final: del passat al present</h3><span class="act-badge">Síntesi del curs</span></div>
+      <div class="act-body">
+        <p>Tria <strong>un</strong> fenomen del món actual i traça les seves arrels históricques fins als temes del curs:</p>
+        <ul class="act-questions">
+          <li><span class="act-q-num">1</span><span><strong>Tria el tema:</strong> migracions, crisi climàtica, extrema dreta, desigualtat, guerres actuals (Ucraïna, Gaza), habitatge, racisme sistèmic, precarietat laboral, o qualsevol altre.</span></li>
+          <li><span class="act-q-num">2</span><span><strong>Construeix la cadena causal:</strong> des del fenomen actual, ves cap enrere. Cada causa ha de tenir arrels en almenys un tema del curs (T01–T08).</span></li>
+          <li><span class="act-q-num">3</span><span><strong>Exemple:</strong> Migracions → pobresa del Sud Global → neocolonialisme (T08) → colonialisme i fronteres arbitràries (T03) → conflictes armats → Guerra Freda per procuració (T08) → crisi climàtica → model energètic des de la RI (T02).</span></li>
+          <li><span class="act-q-num">4</span><span><strong>Presentació oral</strong> (5 minuts). L'objectiu no és tenir totes les respostes, sinó poder fer les preguntes correctes.</span></li>
+        </ul>
+        <div class="act-nota">Criteris: precisió histórica (2 p.) · connexions causals argumentades (2 p.) · presentació i respostes (1 p.) = 5 punts totals.</div>
+      </div>
+    </div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 4 · Qüestions de repàs</h3><span class="act-badge">Repàs · Conceptes</span></div>
+      <div class="act-body">
+        <ul class="act-questions">
+          <li><span class="act-q-num">1</span><span>Explica les causes de la Guerra Freda. Per qué EUA i URSS, antics aliats, es van convertir en rivals?</span></li>
+          <li><span class="act-q-num">2</span><span>Descriu la Crisi dels Míssils de Cuba (1962). Per qué va ser el moment més a prop d'una guerra nuclear?</span></li>
+          <li><span class="act-q-num">3</span><span>Qué va ser la Conferència de Bandung (1955) i el Moviment de No-Alineació?</span></li>
+          <li><span class="act-q-num">4</span><span>Explica per qué va caure la URSS. Quin paper van tenir la perestroika i la glasnost?</span></li>
+          <li><span class="act-q-num">5</span><span>Defineix el neoliberalisme. Quines polítiques van aplicar Thatcher i Reagan? Quines conseqüències en termes de desigualtat?</span></li>
+        </ul>
+      </div>
+    </div>
     </div><!-- /panel-ara -->
 
   </main>

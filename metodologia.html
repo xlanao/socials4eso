@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Com fer les activitats d'Història — Història 4t ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{--ink:#111111;--ink-soft:#444444;--ink-faint:#8a8a8a;--paper:#ffffff;--paper-off:#fafaf9;--line:#111111;--line-soft:#cfcfcc;--line-faint:#e6e5e1;--blue:#0057b8;--blue-light:#e8f0fa;--sidebar-w:260px;--content-max:760px}
+  *{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+  body{font-family:'Spectral',Georgia,serif;background:var(--paper);color:var(--ink);line-height:1.8;font-size:16.5px;font-weight:400}
+  .nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--line);padding:0 48px;display:flex;align-items:center;justify-content:space-between;height:56px}
+  .nav-left{display:flex;align-items:center}
+  .nav-back{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);text-decoration:none;display:flex;align-items:center;gap:8px;padding:6px 14px 6px 0;border-right:1px solid var(--line-faint);margin-right:14px;transition:color .15s}
+  .nav-back:hover{color:var(--ink)}
+  .nav-brand{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);font-weight:700}
+  .nav-meta{font-family:'DM Mono',monospace;font-size:10px;color:var(--ink-faint);letter-spacing:.06em}
+  .topic-hero{background:var(--paper);border-bottom:1px solid var(--line);padding:52px 48px 44px}
+  .topic-hero-inner{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .topic-breadcrumb{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:22px}
+  .topic-breadcrumb a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--ink)}
+  .topic-num-badge{display:inline-flex;align-items:center;gap:10px;font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px}
+  .topic-hero h1{font-family:'Spectral',serif;font-size:clamp(1.7rem,3.6vw,2.6rem);font-weight:600;letter-spacing:-.01em;line-height:1.18;color:var(--ink);margin-bottom:14px}
+  .topic-hero h1 em{font-style:italic;font-weight:400}
+  .topic-subtitle{font-family:'DM Mono',monospace;color:var(--ink-soft);font-size:.82rem;letter-spacing:.03em}
+  .tabs-bar{background:var(--paper);border-bottom:1px solid var(--line);padding:0 48px;display:flex}
+  .tab-btn{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-faint);border:none;background:none;padding:15px 22px;cursor:pointer;position:relative;transition:color .15s}
+  .tab-btn::after{content:'';position:absolute;bottom:-1px;left:0;right:0;height:1px;background:var(--blue);opacity:0;transition:opacity .15s}
+  .tab-btn:hover{color:var(--ink-soft)}.tab-btn.active{color:var(--ink);font-weight:700}.tab-btn.active::after{opacity:1}
+  .page-wrap{max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto;display:grid;grid-template-columns:var(--sidebar-w) 1fr;align-items:start}
+  .sidebar{position:sticky;top:56px;padding:40px 24px 40px 0;max-height:calc(100vh - 56px);overflow-y:auto;scrollbar-width:none}
+  .sidebar::-webkit-scrollbar{display:none}
+  .sidebar-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--line)}
+  .toc{list-style:none}
+  .toc a{display:block;padding:5px 0 5px 14px;font-family:'Spectral',serif;font-size:.83rem;color:var(--ink-faint);text-decoration:none;border-left:1px solid var(--line-faint);transition:all .15s;line-height:1.4}
+  .toc a:hover{color:var(--ink);border-left-color:var(--ink-soft)}.toc a.active{color:var(--blue);border-left:2px solid var(--blue);font-weight:600}
+  .toc .toc-sub a{padding-left:28px;font-size:.78rem;font-style:italic}
+  .content{padding:48px 0 100px 40px;border-left:1px solid var(--line);min-width:0}
+  .tab-panel{display:none}.tab-panel.active{display:block}
+  .section{margin-bottom:72px;padding-top:8px;opacity:0;transform:translateY(12px);transition:opacity .45s ease,transform .45s ease}
+  .section.visible{opacity:1;transform:none}
+  .section-num{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:block}
+  h2{font-family:'Spectral',serif;font-size:1.55rem;font-weight:600;color:var(--ink);margin-bottom:22px;line-height:1.3;padding-bottom:14px;border-bottom:1px solid var(--line)}
+  h3{font-family:'Spectral',serif;font-size:1.12rem;font-weight:600;color:var(--ink);margin:36px 0 12px}
+  p{margin-bottom:16px;color:var(--ink-soft);font-weight:300}p:last-child{margin-bottom:0}
+  strong{color:var(--ink);font-weight:700}em{font-style:italic}
+  ul,ol{padding-left:22px;margin-bottom:16px}
+  li{margin-bottom:8px;color:var(--ink-soft);font-weight:300;line-height:1.65}
+  /* passos */
+  .passos{margin:22px 0}
+  .pas{display:grid;grid-template-columns:52px 1fr;gap:0;margin-bottom:0;border:1px solid var(--line);border-bottom:none}
+  .pas:last-child{border-bottom:1px solid var(--line)}
+  .pas-num{font-family:'DM Mono',monospace;font-size:1.1rem;font-weight:700;color:var(--paper);background:var(--ink);display:flex;align-items:center;justify-content:center;padding:18px 0}
+  .pas.blue .pas-num{background:var(--blue)}
+  .pas-body{padding:18px 22px}
+  .pas-title{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin-bottom:8px}
+  .pas-desc{font-size:.92rem;color:var(--ink-soft);font-weight:300;line-height:1.65;margin:0}
+  .pas-desc strong{color:var(--ink);font-weight:700}
+  /* caixes */
+  .caixa{padding:18px 22px;margin:22px 0;border:1px solid var(--line)}
+  .caixa.blava{border-left:4px solid var(--blue);background:var(--blue-light)}
+  .caixa.grisa{background:var(--paper-off);border-color:var(--line-faint)}
+  .caixa-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-faint);display:block;margin-bottom:8px;font-weight:700}
+  .caixa.blava .caixa-label{color:var(--blue)}
+  .caixa p{font-size:.92rem;margin:0 0 8px;font-weight:300;color:var(--ink-soft)}
+  .caixa p:last-child{margin:0}
+  .caixa ul{margin:8px 0 0;padding-left:18px}
+  .caixa li{font-size:.9rem;color:var(--ink-soft);margin-bottom:6px;font-weight:300}
+  /* font primària */
+  .font-doc{border:1px solid var(--line);margin:22px 0;background:var(--paper-off)}
+  .font-doc-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .font-doc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .font-doc-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.5);text-transform:uppercase}
+  .font-doc-cos{padding:18px 20px;font-style:italic;font-size:.93rem;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .font-doc-cos strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-doc-peu{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint)}
+  /* resposta model */
+  .resposta-bloc{border:1px solid var(--line);margin:24px 0}
+  .resposta-header{background:var(--blue);padding:10px 18px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .resposta-header-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .resposta-header-sub{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.6);text-transform:uppercase}
+  .resposta-cos-bloc{padding:22px 24px}
+  .apartat{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--line-faint)}
+  .apartat:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+  .apartat-titol{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+  .apartat-pts{font-family:'DM Mono',monospace;font-size:9px;background:var(--ink);color:var(--paper);padding:2px 8px;letter-spacing:.1em}
+  .apartat-pts.blue{background:var(--blue)}
+  .apartat-text{font-size:.92rem;color:var(--ink-soft);font-weight:300;line-height:1.7;border-left:3px solid var(--blue-light);padding:12px 16px;background:var(--blue-light)}
+  .apartat-text p{margin:0 0 10px;font-size:.92rem;font-weight:300;color:var(--ink-soft)}
+  .apartat-text p:last-child{margin:0}
+  /* anotació sobre la resposta */
+  .anotacio{border-top:1px solid var(--line-faint);padding:14px 24px;background:var(--paper-off)}
+  .anotacio p{font-size:.82rem;color:var(--ink-faint);margin:0;font-style:italic}
+  /* errors */
+  .errors-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line);margin:20px 0}
+  .error-col{padding:20px 20px}
+  .error-col:first-child{border-right:1px solid var(--line)}
+  .error-col-title{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--line-faint);display:block}
+  .error-col.mal .error-col-title{color:#b00}
+  .error-col.be .error-col-title{color:#0a6}
+  .error-col ul{padding-left:0;margin:0;list-style:none}
+  .error-col li{font-size:.88rem;color:var(--ink-soft);margin-bottom:12px;font-weight:300;line-height:1.6;padding-left:18px;position:relative}
+  .error-col.mal li::before{content:'✗';position:absolute;left:0;color:#b00;font-weight:700}
+  .error-col.be li::before{content:'✓';position:absolute;left:0;color:#0a6;font-weight:700}
+  /* check autoavaluació */
+  .check-list{list-style:none;padding:0;margin:18px 0}
+  .check-list li{display:flex;gap:14px;align-items:flex-start;margin-bottom:12px;font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.65;padding:12px 14px;border:1px solid var(--line-faint)}
+  .check-box{width:20px;height:20px;border:2px solid var(--line-soft);flex-shrink:0;margin-top:2px}
+  /* peu */
+  .site-footer{border-top:1px solid var(--line);padding:24px 48px;display:flex;justify-content:space-between;align-items:center;color:var(--ink-faint);font-family:'DM Mono',monospace;font-size:9.5px;letter-spacing:.06em;max-width:calc(var(--sidebar-w) + var(--content-max) + 64px);margin:0 auto}
+  .footer-nav{display:flex;gap:20px}
+  .footer-nav a{color:var(--ink-faint);text-decoration:none;transition:color .15s}.footer-nav a:hover{color:var(--ink)}
+  /* divider */
+  .divider{border:none;border-top:1px solid var(--line);margin:52px 0}
+  @media(max-width:860px){
+    .page-wrap{grid-template-columns:1fr}.sidebar{display:none}
+    .content{padding:32px 22px 60px;border-left:none}
+    .errors-grid{grid-template-columns:1fr}.error-col:first-child{border-right:none;border-bottom:1px solid var(--line)}
+    .topic-hero,.tabs-bar{padding-left:22px;padding-right:22px}
+    .nav{padding:0 22px}.nav-meta{display:none}
+    .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-left">
+    <a class="nav-back" href="index.html">← Índex</a>
+    <span class="nav-brand">Història 4t ESO</span>
+  </div>
+  <span class="nav-meta">Guia · Com fer les activitats</span>
+</nav>
+
+<div class="topic-hero">
+  <div class="topic-hero-inner">
+    <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Guia metodològica</div>
+    <div class="topic-num-badge">Guia metodològica</div>
+    <h1>Com fer les activitats<br><em>d'Història</em></h1>
+    <p class="topic-subtitle">Comentari de font · Comparació de fonts · Text explicatiu históric · Pas a pas amb exemples</p>
+  </div>
+</div>
+
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('comentari',this)">1 · COMENTARI DE FONT</button>
+  <button class="tab-btn" onclick="switchTab('comparacio',this)">2 · COMPARACIÓ DE FONTS</button>
+  <button class="tab-btn" onclick="switchTab('explicatiu',this)">3 · TEXT EXPLICATIU</button>
+  <button class="tab-btn" onclick="switchTab('errors',this)">ERRORS FREQÜENTS</button>
+</div>
+
+<div class="page-wrap">
+  <nav class="sidebar">
+    <div class="sidebar-title">En aquesta pestanya</div>
+    <ul class="toc" id="toc-nav">
+      <li><a href="#que-es-font">Qué és una font histórica?</a></li>
+      <li><a href="#tipus-fonts">Tipus de fonts</a></li>
+      <li><a href="#tres-preguntes">Les tres preguntes clau</a></li>
+      <li><a href="#pas-a-pas">Pas a pas</a></li>
+      <li><a href="#exemple-text">Exemple: text escrit</a></li>
+      <li><a href="#exemple-imatge">Exemple: imatge</a></li>
+      <li><a href="#exemple-dades">Exemple: dades</a></li>
+    </ul>
+  </nav>
+
+  <main class="content">
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 1: COMENTARI DE FONT                  -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="tab-panel active" id="panel-comentari">
+
+      <section class="section visible" id="que-es-font">
+        <span class="section-num">Per on comencem</span>
+        <h2>Qué és una font histórica?</h2>
+
+        <p>Imagina que d'aquí a cent anys algú vol saber com eres tu, com vivies, qué pensaves. On mirarien? Potser als teus missatges, als teus vídeos, als teus dibuixos, als teus apunts d'escola. Tot allò que has deixat enrere seria una <strong>font histórica</strong>.</p>
+
+        <p>Els historiadors fan exactament el mateix: busquen rastres del passat per entendre com va ser. Qualsevol cosa que ens hagi deixat el passat —un text, una foto, un mapa, un cartell, un gràfic— és una font histórica. El comentari de font és l'exercici d'analitzar un d'aquests rastres de manera ordenada i crítica.</p>
+
+        <div class="caixa blava">
+          <span class="caixa-label">La pregunta clau de tot comentari de font</span>
+          <p>Davant de qualsevol font histórica, cal fer-se sempre la mateixa pregunta de fons: <strong>Qui va fer això, quan, per qué i per a qui?</strong> La resposta a aquestes quatre preguntes et porta directament al comentari.</p>
+        </div>
+      </section>
+
+      <section class="section visible" id="tipus-fonts">
+        <span class="section-num">Secció 01</span>
+        <h2>Tipus de fonts: com reconèixer-les</h2>
+
+        <p>Primer de tot, cal saber de quin tipus de font es tracta. Hi ha dues distincions bàsiques que hauràs de fer a cada activitat:</p>
+
+        <h3>Primària o secundària?</h3>
+
+        <div class="passos">
+          <div class="pas">
+            <div class="pas-num" style="font-size:.85rem">1ª</div>
+            <div class="pas-body">
+              <div class="pas-title">Font primària — «era allà»</div>
+              <div class="pas-desc">Feta <strong>en el moment dels fets</strong>, per algú que hi era present o que hi participava directament. És com un testimoni directe. Exemples: una carta de la trinxera escrita el 1916, un cartell de propaganda de la Guerra Civil, un discurs d'Hitler de 1933, una fotografia de la Revolució Francesa. <strong>El valor:</strong> és un document original, no filtrat per interpretacions posteriors. <strong>La trampa:</strong> l'autor sempre té un punt de vista i uns interessos; no és neutral.</div>
+            </div>
+          </div>
+          <div class="pas blue">
+            <div class="pas-num" style="font-size:.85rem">2ª</div>
+            <div class="pas-body">
+              <div class="pas-title">Font secundària — «ho ha estudiat»</div>
+              <div class="pas-desc">Feta <strong>posteriorment als fets</strong>, per algú que els ha estudiat i analitzat. Exemples: un llibre d'història publicat el 2020 sobre la Primera Guerra Mundial, un article d'un professor sobre el franquisme. <strong>El valor:</strong> té perspectiva i distància crítica, pot comparar i analitzar. <strong>La trampa:</strong> també té un punt de vista i pot estar condicionada per les idees del moment en el qual es va escriure.</div>
+            </div>
+          </div>
+        </div>
+
+        <h3>De quin tema tracta?</h3>
+        <p>A més de primària o secundària, cal dir de quin àmbit és la font:</p>
+        <ul>
+          <li><strong>Política:</strong> lleis, constitucions, discursos de governs, decrets, proclames militars.</li>
+          <li><strong>Social:</strong> cartes personals, testimonis de treballadors, diaris íntims, notícies sobre condicions de vida.</li>
+          <li><strong>Econòmica:</strong> estadístiques de producció, taules de preus, gràfics de comerç.</li>
+          <li><strong>Cultural/ideològica:</strong> cartells de propaganda, articles de premsa d'opinió, pamflets, caricatures.</li>
+          <li><strong>Cartogràfica:</strong> mapes de batalles, mapes de fronteres, mapes colonials.</li>
+        </ul>
+
+        <div class="caixa grisa">
+          <span class="caixa-label">Exemple ràpid</span>
+          <p>Un cartell de propaganda nazi de 1933 és: font <strong>primària</strong> (creada en el moment dels fets) de naturalesa <strong>política i cultural/ideològica</strong> (és propaganda política que vol convèncer la gent). Un llibre d'un historiador de 2010 sobre el nazisme és: font <strong>secundària</strong> de naturalesa <strong>historiogràfica</strong>.</p>
+        </div>
+      </section>
+
+      <section class="section visible" id="tres-preguntes">
+        <span class="section-num">Secció 02</span>
+        <h2>Les tres preguntes que estructura tot comentari</h2>
+
+        <p>Tots els comentaris de font que faràs en aquest curs (i als exàmens de batxillerat) se estructuren al voltant de tres preguntes. Pensa-hi com les tres capes d'una ceba:</p>
+
+        <div class="passos">
+          <div class="pas">
+            <div class="pas-num">A</div>
+            <div class="pas-body">
+              <div class="pas-title">Qué és? — La descripció</div>
+              <div class="pas-desc">Identifica la font: de quin tipus és, qui la va fer, quan, per a qui i de qué tracta en una frase. No expliquis res més per ara. <strong>Com un passaport de la font.</strong><br><br>Preguntes que t'has de fer: <em>Qué tinc davant? Qui ho ha creat? Quan? Per a qui? Qué diu/mostra en una frase?</em></div>
+            </div>
+          </div>
+          <div class="pas blue">
+            <div class="pas-num">B</div>
+            <div class="pas-body">
+              <div class="pas-title">Per qué existeix? — El context</div>
+              <div class="pas-desc">Explica qué estava passant en el moment en el qual es va crear la font. Per qué tenia sentit fer aquest document justament llavors? Quin problema, conflicte o debat hi havia al fons?<br><br>Preguntes: <em>Quin era el moment históric? Qué estava passant? Per qué algú va voler crear aquest document just en aquell moment?</em></div>
+            </div>
+          </div>
+          <div class="pas">
+            <div class="pas-num">C</div>
+            <div class="pas-body">
+              <div class="pas-title">Qué significa? — L'anàlisi crítica</div>
+              <div class="pas-desc">Aquí és on demostres que has entès de veritat. Explica les idees principals, però no les resumeixis —<strong>analitza-les</strong>: per qué l'autor diu el que diu? Quins interessos té? Qué es silencia? Qué et sorprèn? Qué contradiu el que sabies?<br><br>Preguntes: <em>Quines idees defensa l'autor? Per qué? Té algun interès? Qué no diu? És fiable? Per qué és important per a la história?</em></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caixa blava">
+          <span class="caixa-label">La trampa més habitual</span>
+          <p>L'apartat C —l'anàlisi— és el que val més punts i el que molts alumnes fan malament. L'error típic és <strong>resumir el que diu el text</strong> en lloc d'analitzar-lo. Resumir vol dir repetir el que ja diu la font. Analitzar vol dir explicar <em>per qué</em> ho diu, qui s'hi beneficia i quin significat históric té. No és el mateix.</p>
+        </div>
+      </section>
+
+      <section class="section visible" id="pas-a-pas">
+        <span class="section-num">Secció 03</span>
+        <h2>Pas a pas: com fer el comentari</h2>
+
+        <p>Abans d'escriure res, fes aquests tres passos de preparació:</p>
+
+        <div class="passos">
+          <div class="pas">
+            <div class="pas-num">1</div>
+            <div class="pas-body">
+              <div class="pas-title">Llegeix dues vegades (sense escriure res)</div>
+              <div class="pas-desc">La primera vegada, llegeix per entendre de qué va en general. La segona, subratlles les paraules clau, les idees que et criden l'atenció, les frases que semblen importants o sorprenents. Si és una imatge o un mapa, observa-la durant un minut complet sense precipitar-te.</div>
+            </div>
+          </div>
+          <div class="pas blue">
+            <div class="pas-num">2</div>
+            <div class="pas-body">
+              <div class="pas-title">Respon mentalment les tres preguntes A, B, C</div>
+              <div class="pas-desc">Abans de posar-te a escriure, pensa: <em>Qué és? (A) · Per qué existeix? (B) · Qué significa? (C)</em>. Si no tens resposta per a alguna, llegeix la font una altra vegada. Pots fer un esquema breu en un paper.</div>
+            </div>
+          </div>
+          <div class="pas">
+            <div class="pas-num">3</div>
+            <div class="pas-body">
+              <div class="pas-title">Escriu per apartats, en ordre</div>
+              <div class="pas-desc">Escriu primer l'apartat A, després el B, després el C. No barregis els apartats. L'apartat C ha de ser el més llarg: és el que demostra que has pensat i analitzat de veritat. Recorda: <strong>si cites paraules del document, posa-les entre cometes.</strong></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <!-- EXEMPLE 1: TEXT -->
+      <section class="section visible" id="exemple-text">
+        <span class="section-num">Exemple resolt · Text escrit</span>
+        <h2>Comentari d'un text: una ordre militar (1936)</h2>
+
+        <p>Llegirem primer la font. Llegeix-la dues vegades abans de mirar la resposta:</p>
+
+        <div class="font-doc">
+          <div class="font-doc-header">
+            <span class="font-doc-label">Font A — Document escrit</span>
+            <span class="font-doc-tag">Instruccions secretes · 17 juliol 1936</span>
+          </div>
+          <div class="font-doc-cos">«Se tendrá en cuenta que la acción ha de ser en extremo violenta para reducir lo antes posible al enemigo, que es fuerte y bien organizado. Desde luego, serán encarcelados todos los directivos de los partidos políticos, sociedades y sindicatos no afectos al Movimiento, aplicándoles castigos ejemplares [...] para estrangular los movimientos de rebeldía o huelgas. Por otro lado, no hay que olvidar que el gobierno actual quería una revolución social tal como la que existe en Rusia.»</div>
+          <div class="font-doc-peu">General Emilio Mola, instruccions secretes als caps militars de Pamplona, 17 de juliol de 1936.</div>
+        </div>
+
+        <p>Ara mira com es respondria correctament, apartat per apartat. Fixa't en la diferència entre cada apartat:</p>
+
+        <div class="resposta-bloc">
+          <div class="resposta-header">
+            <span class="resposta-header-label">Resposta model comentada</span>
+            <span class="resposta-header-sub">Text escrit · Font primària</span>
+          </div>
+          <div class="resposta-cos-bloc">
+
+            <div class="apartat">
+              <div class="apartat-titol">A · Qué és? <span class="apartat-pts">descripció</span></div>
+              <div class="apartat-text">
+                <p>Es tracta d'un <strong>document escrit de caràcter polític i militar</strong>. És una font <strong>primària</strong> perquè va ser creada en el moment dels fets, el 17 de juliol de 1936, pel general Emilio Mola. És un document intern i secret —instruccions als caps militars— que no estava destinat al públic general. El seu contingut és la planificació d'un cop d'estat militar contra el govern de la República Espanyola.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--ink-faint);margin-top:10px;margin-bottom:0;font-style:italic">👆 Fixat: en un paràgraf curt hem dit <em>qué és</em>, <em>qui ho va fer</em>, <em>quan</em>, <em>per a qui</em> i <em>de qué tracta</em>. Res més. No hem explicat la Guerra Civil.</p>
+            </div>
+
+            <div class="apartat">
+              <div class="apartat-titol">B · Per qué existeix? <span class="apartat-pts">context</span></div>
+              <div class="apartat-text">
+                <p>El document s'inscriu en la crisi política de la Segona República Espanyola. El febrer de 1936, el Front Popular —una coalició d'esquerres— havia guanyat les eleccions. La dreta, l'exèrcit i sectors de l'Església no van acceptar el resultat i van preparar un cop per derrocar el govern triat democràticament. El general Mola era l'organitzador principal d'aquest cop, que esclataria el 17–18 de juliol de 1936 i donaria inici a la Guerra Civil espanyola.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--ink-faint);margin-top:10px;margin-bottom:0;font-style:italic">👆 Fixat: hem explicat per qué té sentit que existeixi aquest document en aquell moment. Hem situat el context just necessari, sense explicar tot el tema de la Guerra Civil.</p>
+            </div>
+
+            <div class="apartat">
+              <div class="apartat-titol">C · Qué significa? <span class="apartat-pts blue">anàlisi crítica · la part més important</span></div>
+              <div class="apartat-text">
+                <p>El document revela tres coses molt importants. <strong>Primera:</strong> Mola no diu que vol «restaurar l'ordre» sinó aplicar una violència «extrema» per «estrangular» qualsevol resistència. Això demostra que el cop d'estat estava planificat com un terror sistemàtic, no com una reacció davant el «caos» que després els franquistes van al·legar.</p>
+                <p><strong>Segona:</strong> l'«enemic» que Mola vol destruir no és cap revolucionari: és qualsevol persona que pertanyi a un «partido político, sociedad o sindicato» que no sigui afecte al Movimiento. Això inclou simples membres de partits republicans liberals. El cop no anava contra la revolució sinó contra la democràcia.</p>
+                <p><strong>Tercera:</strong> la menció de «la revolució tal com la que existeix a Rússia» revela que la por al comunisme era l'argument que justificava el cop als ulls dels conspiradors. Era la por que les classes riques tenien des de la Revolució Russa del 1917. Com a font, és molt valuosa perquè és un document intern i secret —no estava pensat per al públic— de manera que Mola no s'amaga: diu exactament el que pensa.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--ink-faint);margin-top:10px;margin-bottom:0;font-style:italic">👆 Fixat: aquí NO hem resumit el document, l'hem ANALITZAT. Hem explicat <em>per qué</em> les paraules de Mola sont importants, qué ens diuen sobre la seva visió i quina és la seva fiabilitat com a font.</p>
+            </div>
+
+          </div>
+          <div class="anotacio">
+            <p><strong>Per qué funciona aquesta resposta:</strong> cada apartat fa exactament el que ha de fer. El A descriu sense analitzar. El B contextualitza sense desviar-se. El C analitza sense resumir. La resposta cita paraules del document entre cometes («extremo violenta», «estrangular») i les explica en comptes de simplement repetir-les.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- EXEMPLE 2: IMATGE -->
+      <section class="section visible" id="exemple-imatge">
+        <span class="section-num">Exemple resolt · Imatge</span>
+        <h2>Comentari d'una imatge: un cartell de propaganda (1936)</h2>
+
+        <p>Quan la font és una imatge, el procés és el mateix però l'apartat A inclou una <strong>descripció visual</strong>: explica el que veus (colors, figures, símbols, text si n'hi ha) abans de dir de qué tracta.</p>
+
+        <div class="font-doc">
+          <div class="font-doc-header">
+            <span class="font-doc-label">Font B — Font iconogràfica</span>
+            <span class="font-doc-tag">Cartell de propaganda · 1936</span>
+          </div>
+          <div class="font-doc-cos" style="text-align:center">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/2a/International_Brigades_poster.jpg"
+                 alt="Cartell de les Brigades Internacionals, 1936"
+                 style="max-width:340px;width:100%;display:inline-block"
+                 loading="lazy" onerror="this.parentNode.style.display='none'">
+          </div>
+          <div class="font-doc-peu">Cartell de reclutament de les Brigades Internacionals per a la Guerra Civil espanyola, 1936. Autor desconegut. Wikimedia Commons (domini públic).</div>
+        </div>
+
+        <div class="resposta-bloc">
+          <div class="resposta-header">
+            <span class="resposta-header-label">Resposta model comentada</span>
+            <span class="resposta-header-sub">Font iconogràfica · Cartell</span>
+          </div>
+          <div class="resposta-cos-bloc">
+
+            <div class="apartat">
+              <div class="apartat-titol">A · Qué és? <span class="apartat-pts">descripció</span></div>
+              <div class="apartat-text">
+                <p>És un <strong>cartell de propaganda política</strong>, creada el 1936 per les organitzacions antifeixistes internacionals. És una font <strong>primària</strong> de naturalesa <strong>política i ideològica</strong>. L'objectiu del cartell era reclutar voluntaris estrangers per anar a lluitar a la Guerra Civil a favor de la República espanyola. Visualment, mostra un puny tancat i alçat —símbol del moviment obrer internacional— i la consigna «¡No Pasarán!», que Dolores Ibárruri havia pronunciat en la defensa de Madrid. Els colors dominants són el vermell i el negre, associats als moviments socialista i anarquista.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--ink-faint);margin-top:10px;margin-bottom:0;font-style:italic">👆 En la descripció d'una imatge: primer diem <em>qué és</em> (cartell de propaganda), després describim <em>el que veiem</em> (puny, colors, consigna) i finalment diem <em>de qué tracta</em> (reclutament per a les Brigades).</p>
+            </div>
+
+            <div class="apartat">
+              <div class="apartat-titol">B · Per qué existeix? <span class="apartat-pts">context</span></div>
+              <div class="apartat-text">
+                <p>El cartell es crea en el context de la Guerra Civil espanyola (1936–1939). Arran del cop militar de Franco, la República va quedar sense suport de les democràcies occidentals, que van adoptar una política de no-intervenció. Per suplir aquesta manca d'ajuda oficial, les organitzacions obreres i antifeixistes d'Europa i Amèrica van organitzar brigades de voluntaris —les Brigades Internacionals— per lluitar al costat de la República. El cartell és una eina per animar persones de fora d'Espanya a allistar-s'hi.</p>
+              </div>
+            </div>
+
+            <div class="apartat">
+              <div class="apartat-titol">C · Qué significa? <span class="apartat-pts blue">anàlisi crítica</span></div>
+              <div class="apartat-text">
+                <p>El cartell és una eina de <strong>propaganda amb una funció concreta: reclutar</strong>. Per aconseguir-ho, fa tres coses. Primera, usa símbols universals —el puny, els colors vermell i negre— que qualsevol treballador d'Europa reconeixia com a propis, de manera que la lluita a Espanya semblés part de la lluita global del moviment obrer.</p>
+                <p>Segona, la consigna «¡No Pasarán!» transmet urgència: si el feixisme «passa» a Espanya, passarà per tota Europa. Era una amenaça que resultaria profètica: tres anys després de la derrota republicana, la Segona Guerra Mundial esclatava.</p>
+                <p>Tercera, el cartell no mostra violència ni mort: mostra força i resistència. Això és una decisió conscient —ningú s'alista per morir, sinó per guanyar. La seva limitació com a font és, precisament, que és propaganda: mostra una sola perspectiva de manera emocional i parcial, sense reconèixer cap contradicció interna.</p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- EXEMPLE 3: DADES -->
+      <section class="section visible" id="exemple-dades">
+        <span class="section-num">Exemple resolt · Dades estadístiques</span>
+        <h2>Comentari de dades: una taula de producció industrial</h2>
+
+        <p>Quan la font és una taula de dades o un gràfic, l'apartat A descriu <em>qué mesuren</em> les dades, i l'apartat C analitza <em>qué ens diuen</em> les tendències que mostren.</p>
+
+        <div class="font-doc">
+          <div class="font-doc-header">
+            <span class="font-doc-label">Font C — Dades estadístiques</span>
+            <span class="font-doc-tag">Producció industrial · 1850–1910</span>
+          </div>
+          <div class="font-doc-cos">
+            <strong>Producció de carbó (milions de tones)</strong><br>
+            Gran Bretanya: 1850 → 49 mt &nbsp;|&nbsp; 1880 → 147 mt &nbsp;|&nbsp; 1910 → 264 mt<br>
+            Alemanya:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1850 → 5 mt &nbsp;&nbsp;|&nbsp; 1880 → 47 mt &nbsp;&nbsp;|&nbsp; 1910 → 152 mt<br>
+            França:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1850 → 4 mt &nbsp;&nbsp;|&nbsp; 1880 → 19 mt &nbsp;&nbsp;|&nbsp; 1910 → 38 mt<br><br>
+            <strong>Producció d'acer (milions de tones)</strong><br>
+            Gran Bretanya: 1880 → 1,3 mt &nbsp;|&nbsp; 1910 → 6,5 mt<br>
+            Alemanya:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1880 → 0,7 mt &nbsp;|&nbsp; 1910 → 13,1 mt<br>
+            França:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 1880 → 0,4 mt &nbsp;|&nbsp; 1910 → 3,4 mt
+          </div>
+          <div class="font-doc-peu">Font: B.R. Mitchell, <em>European Historical Statistics 1750–1975</em> (1981). Font secundària compilatòria basada en estadístiques industrials originals.</div>
+        </div>
+
+        <div class="resposta-bloc">
+          <div class="resposta-header">
+            <span class="resposta-header-label">Resposta model comentada</span>
+            <span class="resposta-header-sub">Font estadística · Dades industrials</span>
+          </div>
+          <div class="resposta-cos-bloc">
+
+            <div class="apartat">
+              <div class="apartat-titol">A · Qué és? <span class="apartat-pts">descripció</span></div>
+              <div class="apartat-text">
+                <p>Es tracta d'una <strong>sèrie estadística</strong> —una taula de dades numèriques al llarg del temps— que mesura la producció de carbó i d'acer de tres grans potències europees (Gran Bretanya, Alemanya i França) entre 1850 i 1910. És una font <strong>secundària</strong> de naturalesa <strong>econòmica</strong>: va ser compilada per un historiador l'any 1981 a partir de dades industrials originals del segle XIX. Ens informa del ritme de creixement industrial de cada país durant la Revolució Industrial i els anys d'imperialisme.</p>
+              </div>
+            </div>
+
+            <div class="apartat">
+              <div class="apartat-titol">B · Per qué existeix? <span class="apartat-pts">context</span></div>
+              <div class="apartat-text">
+                <p>Les dades cobreixen el període de la Revolució Industrial i la Segona Revolució Industrial (1850–1914), en el qual el carbó i l'acer eren la base del poder econòmic i militar. En aquest context, la rivalitat industrial entre les potències europees era directament una rivalitat de poder: el país que produïa més acer podia tenir un exèrcit més gran, una armada més potent i més capacitat d'expandir-se colonialment. Les tensions generades per aquestes rivalitats industrials van ser una de les causes de la Primera Guerra Mundial (1914).</p>
+              </div>
+            </div>
+
+            <div class="apartat">
+              <div class="apartat-titol">C · Qué significa? <span class="apartat-pts blue">anàlisi crítica</span></div>
+              <div class="apartat-text">
+                <p>Les dades revelen dos aspectes molt importants. <strong>Primer:</strong> tots els països creixen molt, però <em>no al mateix ritme</em>. La producció de carbó de Gran Bretanya es multiplica per 5 entre 1850 i 1910, però la d'Alemanya es multiplica per 30. Alemanya, que el 1880 produïa menys de la meitat d'acer que Gran Bretanya, el 1910 en produïa el doble. Això vol dir que Alemanya estava <em>superant</em> Gran Bretanya com a primera potència industrial.</p>
+                <p><strong>Segon:</strong> aquest canvi econòmic és la base del canvi polític que portarà a la Primera Guerra Mundial. Gran Bretanya, que havia dominat el món durant tot el segle XIX, veia com Alemanya la superava. Alemanya, que creixia ràpidament, volia tenir un imperi colonial proporcional al seu poder industrial. Aquesta tensió entre les dues potències és exactament el que explica la carrera d'armament naval britànico-alemanya i les aliances que van portar a la guerra del 1914.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--ink-faint);margin-top:10px;margin-bottom:0;font-style:italic">👆 Fixat: no hem dit simplement «Gran Bretanya produïa molts milions de tones». Hem explicat <em>qué significa</em> el fet que Alemanya creixés més de pressa i <em>com es connecta</em> amb la história política (la Primera Guerra Mundial).</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /panel-comentari -->
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 2: COMPARACIÓ DE FONTS               -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="tab-panel" id="panel-comparacio">
+
+      <section class="section visible">
+        <span class="section-num">Per on comencem</span>
+        <h2>Qué és la comparació crítica de fonts?</h2>
+
+        <p>La comparació de fonts és un exercici en el qual tens <strong>dues fonts sobre el mateix tema</strong> i has de comparar-les: veure en qué s'assemblen, en qué difereixen, i per qué cada autor diu el que diu. És com escoltar dos testimonis d'un mateix accident: cadascú ha vist coses diferents i té el seu punt de vista.</p>
+
+        <p>L'exercici té tres apartats, igual que el comentari de font, però amb una diferència important: <strong>l'apartat C demana que les comparis entre elles</strong>, no que les analitzis per separat.</p>
+
+        <div class="caixa blava">
+          <span class="caixa-label">Els tres apartats de la comparació</span>
+          <ul>
+            <li><strong>a) Idees principals de la primera font</strong> — Qué diu? Quines dues o tres idees fonamentals transmet?</li>
+            <li><strong>b) Idees principals de la segona font</strong> — Qué diu? Quines dues o tres idees fonamentals transmet?</li>
+            <li><strong>c) Comparació i anàlisi crítica</strong> — En qué coincideixen? En qué difereixen? Des de quina posició parla cadascun? Quins interessos té? Quina és més fiable?</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section visible">
+        <h2>Com fer l'apartat C: la comparació real</h2>
+
+        <p>L'apartat C és el que marca la diferència. Molts alumnes fan els apartats A i B bé però l'apartat C el fan malament perquè tornen a comentar cada font per separat en lloc de comparar-les. Aquí tens l'estructura recomanada:</p>
+
+        <div class="passos">
+          <div class="pas">
+            <div class="pas-num">1</div>
+            <div class="pas-body">
+              <div class="pas-title">Primer: explica el context comú</div>
+              <div class="pas-desc">Quin és el debat o la situació que les dues fonts comparteixen? Qué estava passant quan es van crear? Una o dues frases que situen les dues fonts en el mateix marc históric.</div>
+            </div>
+          </div>
+          <div class="pas blue">
+            <div class="pas-num">2</div>
+            <div class="pas-body">
+              <div class="pas-title">Segon: similituds i diferències</div>
+              <div class="pas-desc">Estructura la comparació. Pots fer-ho d'aquesta manera:<br>— «<em>Totes dues fonts coincideixen en...</em>» (similituds)<br>— «<em>Per contra / en canvi / mentre que la Font A diu X, la Font B diu Y...</em>» (diferències)<br><br>Usa connectors de comparació: <em>en canvi, per contra, mentre que, a diferència de, totes dues, per la seva banda</em>.</div>
+            </div>
+          </div>
+          <div class="pas">
+            <div class="pas-num">3</div>
+            <div class="pas-body">
+              <div class="pas-title">Tercer: qui parla i per qué</div>
+              <div class="pas-desc">Per a cada font: qui és l'autor? Des de quina posició social o política parla? Quins interessos té? Qué silencia o no diu? Per qué diu el que diu? Aquesta és la part «crítica» de l'anàlisi crítica.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section visible">
+        <span class="section-num">Exemple resolt</span>
+        <h2>Comparació: dues visions del treball infantil (1842)</h2>
+
+        <div class="font-doc">
+          <div class="font-doc-header">
+            <span class="font-doc-label">Font A — Informe oficial</span>
+            <span class="font-doc-tag">Document parlamentari · 1842</span>
+          </div>
+          <div class="font-doc-cos">«Les criatures comencen a treballar a les mines als cinc i sis anys. Transporten carbó en cistelles a les espatlles per passadissos estrets. Treballen entre dotze i catorze hores diàries, en la foscor. <strong>Molts no veuen la llum del dia en tota la setmana.</strong> Als setze anys, els qui no han mort d'accident ja presenten deformitats òssies permanents. Quan els pregunto si saben llegir o escriure, em miren com si els preguntés si han estat a la lluna.»</div>
+          <div class="font-doc-peu">Informe de la Comissió Parlamentària britànica sobre el treball infantil a les mines, 1842. Testimoni d'un inspector governamental.</div>
+        </div>
+
+        <div class="font-doc" style="margin-top:0">
+          <div class="font-doc-header">
+            <span class="font-doc-label">Font B — Pamflet industrial</span>
+            <span class="font-doc-tag">Document privat · 1830</span>
+          </div>
+          <div class="font-doc-cos">«El treball a les fàbriques és un benefici per als fills dels pobres. Aprenen la disciplina del treball des de petits, guanyen un jornal que ajuda les seves famílies i eviten els vicis de la vagància dels carrers. <strong>Els qui volen prohibir el treball infantil condemnen les famílies obreres a la misèria.</strong> Els que s'hi oposen mai no han viscut la pobresa real.»</div>
+          <div class="font-doc-peu">Pamflet d'un propietari de fàbrica tèxtil de Manchester defensant el treball infantil, 1830. Font primària de caràcter econòmic i ideològic.</div>
+        </div>
+
+        <div class="resposta-bloc">
+          <div class="resposta-header">
+            <span class="resposta-header-label">Resposta model comentada</span>
+            <span class="resposta-header-sub">Comparació de fonts · 4t ESO</span>
+          </div>
+          <div class="resposta-cos-bloc">
+
+            <div class="apartat">
+              <div class="apartat-titol">A · Idees de la Font A <span class="apartat-pts">informe parlamentari</span></div>
+              <div class="apartat-text">
+                <p>La Font A és un informe parlamentari oficial que denuncia les condicions de treball infantil a les mines britàniques. Les dues idees principals són: <strong>primera</strong>, les condicions de treball infantil son inhumanes —nens de 5 anys que treballen 12–14 hores diàries en la foscor sense veure la llum del dia; <strong>segona</strong>, el treball infantil destrueix el futur dels nens: els incapacita físicament i els priva d'educació, deixant-los sense possibilitat de progressar.</p>
+              </div>
+            </div>
+
+            <div class="apartat">
+              <div class="apartat-titol">B · Idees de la Font B <span class="apartat-pts">pamflet industrial</span></div>
+              <div class="apartat-text">
+                <p>La Font B és un pamflet d'un propietari de fàbrica que defensa el treball infantil. Les dues idees principals són: <strong>primera</strong>, el treball infantil és un benefici per als nens i les seves famílies perquè els dóna disciplina i ingressos; <strong>segona</strong>, qui s'oposa al treball infantil condemna els pobres a la misèria, perquè sense la feina dels fills les famílies no sobreviurien.</p>
+              </div>
+            </div>
+
+            <div class="apartat">
+              <div class="apartat-titol">C · Comparació i anàlisi crítica <span class="apartat-pts blue">la part central</span></div>
+              <div class="apartat-text">
+                <p>Les dues fonts parlen del treball infantil durant la Revolució Industrial britànica, però des de posicions completament oposades que reflecteixen els interessos de cada autor.</p>
+
+                <p><strong>Una diferència fonamental:</strong> mentre que la Font A descriu les condicions reals de manera objectiva i documentada (l'inspector ha vist i parlat directament amb els nens), la Font B utilitza arguments abstractes i morals («disciplina», «evitar la vagància») sense cap referència a les condicions reals. La Font A mostra; la Font B argumenta.</p>
+
+                <p><strong>Qui parla i per qué:</strong> l'autor de la Font A és un inspector governamental, és a dir, algú pagat per l'Estat per documentar la realitat —té incentius per ser precís. L'autor de la Font B és un propietari de fàbrica, és a dir, algú que <em>es beneficia econòmicament</em> del treball infantil —té tot l'incentiu per justificar-lo. Quan la Font B diu que els crítics «mai no han viscut la pobresa real», és un argument per desacreditar l'oposició sense respondre als fets que denuncia.</p>
+
+                <p><strong>Quin dels dos és més fiable?</strong> La Font A, perquè es basa en observació directa i és un document oficial que pot ser verificat. La Font B és interessada: un propietari de fàbrica que defensa el treball infantil té un conflicte d'interessos evident. Dit això, totes dues ens donen informació útil: la Font A ens diu com eren les condicions; la Font B ens diu com les classes benestants les justificaven.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--ink-faint);margin-top:10px;margin-bottom:0;font-style:italic">👆 Fixat que l'apartat C: (1) comença situant el context comú; (2) usa connectors de comparació («mentre que», «a diferència de»); (3) explica qui parla i per qué; (4) valora la fiabilitat de cadascuna.</p>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /panel-comparacio -->
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 3: TEXT EXPLICATIU                    -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="tab-panel" id="panel-explicatiu">
+
+      <section class="section visible">
+        <span class="section-num">Per on comencem</span>
+        <h2>Qué és el text explicatiu históric?</h2>
+
+        <p>El text explicatiu históric és una redacció en la qual has d'explicar un tema, un procés o un esdeveniment históric de manera ordenada i raonada. No és un exercici de memòria —no es tracta de «vomitar» tot el que saps—, sinó de <strong>seleccionar, organitzar i argumentar</strong>.</p>
+
+        <p>Les activitats de text explicatiu que trobaràs en aquest curs (i al batxillerat) poden venir de dues maneres:</p>
+
+        <div class="passos">
+          <div class="pas">
+            <div class="pas-num">A</div>
+            <div class="pas-body">
+              <div class="pas-title">«Situa't en el temps» — Escriu com a personatge</div>
+              <div class="pas-desc">Escrius des del punt de vista d'un personatge históric (un treballador del 1917, un diplomat del 1936, un militar del 1944). L'enunciat et dona <strong>cinc termes</strong> que has d'usar obligatòriament. La nota depèn de com d'encertadament els uses: no n'hi ha prou d'escriure la paraula; has de demostrar que entens el seu significat en aquell context.</div>
+            </div>
+          </div>
+          <div class="pas blue">
+            <div class="pas-num">B</div>
+            <div class="pas-body">
+              <div class="pas-title">«Exposa un tema» — Desenvolupa una pregunta</div>
+              <div class="pas-desc">Has d'explicar un tema históric (per exemple, «les causes de la Primera Guerra Mundial» o «les reformes de la Segona República»). La nota depèn de si expliques bé els continguts i de si ets capaç d'argumentar quins van ser els canvis i les continuïtats del període.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section visible">
+        <h2>L'estructura bàsica d'un bon text históric</h2>
+
+        <p>Qualsevol text explicatiu históric hauria de tenir tres parts:</p>
+
+        <div class="passos">
+          <div class="pas">
+            <div class="pas-num">1</div>
+            <div class="pas-body">
+              <div class="pas-title">Introducció breu: de qué va i quan</div>
+              <div class="pas-desc">Una o dues frases que situen clarament el tema, el lloc i el moment históric. No comencessos amb «Des de sempre» ni amb frases molt vagues. <strong>Exemple bo:</strong> «La Primera Guerra Mundial va esclatar el 1914 com a resultat de les tensions imperialistes i les aliances militars que s'havien anat construint entre les potències europees des de finals del segle XIX.»</div>
+            </div>
+          </div>
+          <div class="pas blue">
+            <div class="pas-num">2</div>
+            <div class="pas-body">
+              <div class="pas-title">Cos: explicació amb ordre causal</div>
+              <div class="pas-desc">Un paràgraf per idea principal. <strong>Clau:</strong> cada paràgraf ha de tenir una idea central clara i exemples concrets que la il·lustrin. Usa connectors causals per mostrar que entens les relacions entre les coses: «a causa de», «en conseqüència», «per tant», «gràcies a», «tot i que», «per contra», «d'una banda / de l'altra». Evita les llistes de fets sense connexió.</div>
+            </div>
+          </div>
+          <div class="pas">
+            <div class="pas-num">3</div>
+            <div class="pas-body">
+              <div class="pas-title">Conclusió: balanç i valoració</div>
+              <div class="pas-desc">Dues o tres frases que resumeixin les idees principals i facin una valoració. Si l'exercici demana «canvis i continuïtats», explica explícitament qué va canviar i qué va continuar igual. No acabis amb «en conclusió, la história és molt important»: acaba amb una idea concreta i rellevant.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="caixa blava">
+          <span class="caixa-label">Com usar els cinc termes (exercici A)</span>
+          <p>Els cinc termes no s'han de posar en ordre ni necessàriament un per paràgraf. El que compta és que <strong>els uses de manera que demostra que entens el seu significat</strong>.</p>
+          <p><strong>Malament:</strong> «El caciquisme és molt important en aquest context.»</p>
+          <p><strong>Bé:</strong> «El sistema polític de la Restauració es basava en el caciquisme: els <em>cacics</em> locals controlaven les eleccions comprant vots o falsificant els resultats, cosa que garantia que sempre guanyés el partit que el govern central volia.»</p>
+        </div>
+      </section>
+
+      <hr class="divider">
+
+      <section class="section visible">
+        <span class="section-num">Exemple resolt · Tipus A</span>
+        <h2>«Situa't en el temps»: una carta des de Barcelona (1909)</h2>
+
+        <div class="font-doc">
+          <div class="font-doc-header">
+            <span class="font-doc-label">Enunciat</span>
+            <span class="font-doc-tag">Tipus A · Cinc termes</span>
+          </div>
+          <div class="font-doc-cos" style="font-style:normal">
+            Ets un treballador tèxtil de Barcelona i acabes de viure la Setmana Tràgica (juliol de 1909). Escriu una carta a un familiar que viu al camp explicant el que ha passat i per qué. Utilitza els cinc termes següents de manera adequada: <strong>Setmana Tràgica, Marroc, redempció en metàl·lic, vaga general, anarquisme</strong>.
+          </div>
+        </div>
+
+        <div class="resposta-bloc">
+          <div class="resposta-header">
+            <span class="resposta-header-label">Resposta model comentada</span>
+            <span class="resposta-header-sub">Exercici A · Cinc termes</span>
+          </div>
+          <div class="resposta-cos-bloc">
+            <div class="apartat">
+              <div class="apartat-text">
+                <p>Estimat cosí,</p>
+                <p>T'escric des d'un Barcelona que sembla un camp de batalla. Portem una setmana que ha canviat moltes coses i he de contar-te-la des del principi.</p>
+                <p>Tot va començar quan el govern va anunciar que enviava reservistes al <strong>Marroc</strong> per defensar les mines d'uns empresaris. Aquests empresaris guanyaven diners gràcies als jaciments de ferro d'allà, però eren els nostres fills —els fills dels treballadors— qui anaven a morir defensant-los. Els rics podien pagar la <strong>redempció en metàl·lic</strong>: 1.500 pessetes i el teu fill es quedava a casa. Qui no tenia diners —és a dir, nosaltres— havia d'enviar els fills a la guerra. T'imagines la ràbia que es va generar als barris?</p>
+                <p>El 26 de juliol les organitzacions obreres van convocar una <strong>vaga general</strong>. Al principi era per aturar els vaixells que portaven les tropes. Però la cosa va escalar molt ràpidament. El carrer es va omplir de gent furiosa, no solament per la guerra sinó per anys i anys d'injustícies acumulades. L'<strong>anarquisme</strong> té molta força aquí als barris: la gent creu que l'Estat i l'Església sempre han estat al servei dels rics i mai dels treballadors. Per això les esglésies van ser dels primers objectius: no era vandàlisme sense sentit, era la ira d'anys de veure com el clero beneïa l'explotació.</p>
+                <p>L'exèrcit va entrar i va disparar. Han mort més de cent persones. Han detingut milers. Diuen que afusellarant el Ferrer i Guàrdia, que és el fundador de l'Escola Moderna, tot i que no hi va participar directament. Aquesta és la nostra <strong>Setmana Tràgica</strong>: tràgica per a nosaltres, no pas per als que van manar la repressió.</p>
+                <p>Cuida't.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--ink-faint);margin-top:10px;margin-bottom:0;font-style:italic">👆 Els cinc termes apareixen en negreta per facilitar la lectura, però en l'examen real no cal posar-los en negreta. Fixat que cada terme s'usa en un context que demostra que l'alumne entén el seu significat, no simplement que el recorda.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section visible">
+        <span class="section-num">Exemple resolt · Tipus B</span>
+        <h2>«Exposa un tema»: les reformes de la Segona República</h2>
+
+        <div class="font-doc">
+          <div class="font-doc-header">
+            <span class="font-doc-label">Enunciat</span>
+            <span class="font-doc-tag">Tipus B · Exposició temàtica</span>
+          </div>
+          <div class="font-doc-cos" style="font-style:normal">
+            Explica les principals reformes que va impulsar la Segona República Espanyola (1931–1936) i per qué van generar una resistència tan forta entre determinats sectors de la societat.
+          </div>
+        </div>
+
+        <div class="resposta-bloc">
+          <div class="resposta-header">
+            <span class="resposta-header-label">Resposta model comentada</span>
+            <span class="resposta-header-sub">Exercici B · Exposició temàtica</span>
+          </div>
+          <div class="resposta-cos-bloc">
+            <div class="apartat">
+              <div class="apartat-text">
+                <p>La Segona República, proclamada el 14 d'abril de 1931, va intentar modernitzar Espanya en molt poc temps, impulsant reformes que la major part dels països europeus ja havien fet dècades abans.</p>
+
+                <p>En l'àmbit <strong>polític i religiós</strong>, la República va establir la separació entre l'Estat i l'Església, va instaurar el matrimoni civil i el divorci, i va introduir el sufragi femení —les dones podien votar per primera vegada. Totes aquestes mesures van enfrontar la República amb l'Església catòlica, que perdia el seu monopoli sobre l'educació i l'estat civil, i amb els sectors catòlics de la societat que hi estaven profundament vinculats.</p>
+
+                <p>En l'àmbit <strong>social i econòmic</strong>, la República va intentar una reforma agrària: expropiar les grans propietats de terra no conreada per distribuir-les entre els camperols sense terra del sud d'Espanya. Va ser una reforma molt lenta i burocràtica, però va generar la hostilitat dels grans terratinents, que van veure amenaçats els seus interessos. Al mateix temps, la reforma militar —reduir un exèrcit sobredimensionat— va crear enemies entre els generals conservadors.</p>
+
+                <p>En definitiva, la República volia canviar en cinc anys estructures que s'havien consolidat durant segles. La resistència va ser tan gran perquè les reformes amenaçaven directament els tres pilars del poder tradicional: l'Església (que perdia el control de l'educació), l'exèrcit (que veia reduïda la seva influència) i els terratinents (que podien perdre les terres). Quan el cop del 1936 va esclatar, no era una coincidència que militars, clero i propietaris agraris fossin els principals suports del bàndol rebel.</p>
+              </div>
+              <p style="font-size:.82rem;color:var(--ink-faint);margin-top:10px;margin-bottom:0;font-style:italic">👆 Fixat en l'estructura: introducció breu → paràgrafs per àmbits (polític/religiós, social/econòmic) → conclusió que relaciona les reformes amb la guerra. No és una llista de fets: cada paràgraf explica <em>per qué</em> les coses van passar.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div><!-- /panel-explicatiu -->
+
+
+    <!-- ══════════════════════════════════════════ -->
+    <!-- TAB 4: ERRORS FREQÜENTS                   -->
+    <!-- ══════════════════════════════════════════ -->
+    <div class="tab-panel" id="panel-errors">
+
+      <section class="section visible">
+        <span class="section-num">Autoavaluació</span>
+        <h2>Els errors més habituals i com evitar-los</h2>
+
+        <p>Aquests sont els errors que apareixen més sovint en les respostes de 4t d'ESO. Llegeix-los amb atenció: probablement t'has de veure reflectit en algun.</p>
+
+        <div class="errors-grid">
+          <div class="error-col mal">
+            <span class="error-col-title">Errors que baixen nota</span>
+            <ul>
+              <li><strong>Resumir en lloc d'analitzar.</strong> Repetir el que diu la font amb les teves paraules no és analitzar. Has d'explicar <em>per qué</em> ho diu i <em>qué significa.</em></li>
+              <li><strong>Explicar tot el tema.</strong> La font és un punt de partida, no una excusa per escriure tot el que saps. Respon a partir del document, no «aprofites» el document per fer un resum de la lliçó.</li>
+              <li><strong>No dir de quin tipus de font es tracta.</strong> Sempre has de dir si és primària o secundària i de quin àmbit és (política, económica, social...). Si ho oblides perds punts fàcils.</li>
+              <li><strong>No citar el text.</strong> Si cites paraules del document, posa-les entre cometes. Sense cometes sembla que les frases siguin teves.</li>
+              <li><strong>Comparar sense comparar.</strong> A la comparació de fonts, l'apartat C ha d'establir relacions entre les dues fonts. Si les comentes per separat sense dir «en canvi», «mentre que» o similars, no estàs comparant.</li>
+              <li><strong>Opinions sense base.</strong> «Jo crec que Mola estava molt equivocat» és una opinió sense valor históric. «El document revela que el cop estava planificat com un terror sistemàtic» és una anàlisi basada en el text.</li>
+            </ul>
+          </div>
+          <div class="error-col be">
+            <span class="error-col-title">Pràctiques que sumen punts</span>
+            <ul>
+              <li><strong>Cita i explica.</strong> Quan cites una frase entre cometes, la frase que ve a continuació hauria d'explicar per qué la has citat. No deixis la cita sola.</li>
+              <li><strong>Identifica l'autor i els seus interessos.</strong> Qui ha fet la font? Qué guanya o perd amb el que diu? Té interessos concrets? Això és la part «crítica» de l'anàlisi crítica.</li>
+              <li><strong>Usa connectors causals.</strong> «A causa de», «en conseqüència», «per tant», «gràcies a»: demostren que entens les relacions entre els fets, no solament que els recordes.</li>
+              <li><strong>Usa vocabulari específic.</strong> En lloc de «els qui manaven», escriu «les oligarquies» o «les classes dominants». En lloc de «va canviar moltes coses», explica exactament qué va canviar.</li>
+              <li><strong>Estructurates per apartats.</strong> Respon A, B i C per ordre i sense barrejar-los. L'ordre ajuda el corrector a veure que saps el que fas.</li>
+              <li><strong>Planeja dos minuts.</strong> Abans d'escriure, pensa en un esquema breu. Dos minuts de planificació t'estalvien molts errors i repeticions.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section visible">
+        <h2>Llista de comprovació abans de lliurar</h2>
+
+        <p>Quan acabis qualsevol activitat de comentari o comparació de fonts, marca tots els punts d'aquesta llista. Si en queda algun sense marcar, revisa la teva resposta:</p>
+
+        <ul class="check-list">
+          <li><div class="check-box"></div><span>He dit de quin tipus de font es tracta (primària o secundària, i l'àmbit temàtic).</span></li>
+          <li><div class="check-box"></div><span>He explicat qui ha fet la font, quan i per a qui.</span></li>
+          <li><div class="check-box"></div><span>He situat la font en el seu context históric (el que estava passant en aquell moment).</span></li>
+          <li><div class="check-box"></div><span>He analitzat les idees principals (no les he resumit: he explicat el per qué).</span></li>
+          <li><div class="check-box"></div><span>He identificat el punt de vista de l'autor i els seus possibles interessos.</span></li>
+          <li><div class="check-box"></div><span>Si era una comparació, he usat connectors de comparació («en canvi», «mentre que», «per contra»...).</span></li>
+          <li><div class="check-box"></div><span>He citat paraules del document entre cometes quan les he usat.</span></li>
+          <li><div class="check-box"></div><span>He revisat l'ortografia i la coherència de les frases.</span></li>
+        </ul>
+
+        <div class="caixa blava">
+          <span class="caixa-label">Una última cosa</span>
+          <p>Comentar fonts és una habilitat: com tocar un instrument o aprendre a anar en bici. No s'aprèn llegint la guia —s'aprèn practicant. Les activitats de cada tema estan pensades perquè practiquis exactament les coses que has llegit aquí. Cada vegada que en fas una, millores una mica. Al final del curs, ho faràs de manera natural sense necessitar la guia.</p>
+        </div>
+      </section>
+
+    </div><!-- /panel-errors -->
+
+  </main>
+</div>
+
+<footer class="site-footer">
+  <span>Com fer les activitats d'Història · 4t ESO</span>
+  <nav class="footer-nav">
+    <a href="index.html">← Índex</a>
+    <a href="t01_antic_regim.html">T01 →</a>
+  </nav>
+</footer>
+
+<script>
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('panel-' + name).classList.add('active');
+    btn.classList.add('active');
+    window.scrollTo({top: document.querySelector('.tabs-bar').offsetTop - 56, behavior: 'smooth'});
+    // Update sidebar links based on tab
+    updateSidebar(name);
+  }
+  function updateSidebar(name) {
+    const links = {
+      'comentari': ['#que-es-font', '#tipus-fonts', '#tres-preguntes', '#pas-a-pas', '#exemple-text', '#exemple-imatge', '#exemple-dades'],
+      'comparacio': [],
+      'explicatiu': [],
+      'errors': []
+    };
+  }
+  // Reveal sections on scroll
+  const obs = new IntersectionObserver(e => {
+    e.forEach(x => { if (x.isIntersecting) x.target.classList.add('visible'); });
+  }, {threshold: 0.04});
+  document.querySelectorAll('.section').forEach(s => obs.observe(s));
+</script>
+</body>
+</html>

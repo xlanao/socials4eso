@@ -152,6 +152,28 @@
     .nav-meta{display:none}
     .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
   }
+
+  .font-primaria{border:1px solid var(--line);margin:28px 0;background:var(--paper-off)}
+  .font-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .font-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .font-tipus{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase}
+  .font-body{padding:18px 20px;font-family:'Spectral',serif;font-style:italic;font-size:.95rem;color:var(--ink-soft);line-height:1.75;font-weight:300}
+  .font-body strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-peu{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);letter-spacing:.04em}
+  .act-intro{border:1px solid var(--line);padding:20px 24px;margin-bottom:32px;background:var(--paper-off);font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.7}
+  .act-block{margin-bottom:40px;border:1px solid var(--line)}
+  .act-header{background:var(--ink);padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .act-header h3{margin:0;font-family:'Spectral',serif;font-size:.98rem;font-weight:600;color:var(--paper);line-height:1.3}
+  .act-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.65);white-space:nowrap;flex-shrink:0}
+  .act-body{padding:20px 24px}
+  .act-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300;line-height:1.65}
+  .act-body p:last-child{margin-bottom:0}
+  .act-questions{list-style:none;padding:0;margin:14px 0 0}
+  .act-questions li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;border-bottom:1px dotted var(--line-faint);padding-bottom:12px}
+  .act-questions li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
+  .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
+  .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -169,14 +191,14 @@
     <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 02</div>
     <div class="topic-num-badge">Tema 02 — 1760–1870</div>
     <h1>La <em>Revolució Industrial</em></h1>
-    <p class="topic-subtitle">Gran Bretanya primer · La fàbrica i el proletariat · El moviment obrer · El món que habiteu</p>
+    <p class="topic-subtitle">Capitalisme industrial · Fàbrica i proletariat · Moviment obrer · Catalunya industrial · Arrel de l'imperialisme</p>
   </div>
 </div>
 
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
-  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
 </div>
 
 <div class="page-wrap">
@@ -246,6 +268,16 @@
           <div class="img-cap">Paisatge típic de l'Anglaterra post-Enclosures: camps tancats amb tanques i murs que substituïren les terres comunals obertes. Font: Wikimedia Commons (domini públic).</div>
         </div>
       </section>
+
+      
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5e/Brooklyn_Museum_-_The_Strike_-_Robert_Koehler.jpg" alt="«La Vaga» (Robert Koehler, 1886): obrers enfrontant-se a un propietari industria" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">«La Vaga» (Robert Koehler, 1886): obrers enfrontant-se a un propietari industrial als EUA. Va ser considerada escandalosa quan es va exposar. Simbolitza el conflicte de classes al cor del capitalisme industrial del segle XIX. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Friedrich_Engels_portrait_%28cropped%29.jpg" alt="Friedrich Engels (1820–1895), coautor del <em>Manifest Comunista</em> (1848). Fi" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Friedrich Engels (1820–1895), coautor del <em>Manifest Comunista</em> (1848). Fill d'un fabricant tèxtil de Manchester, va descriure les condicions obreres a <em>La situació de la classe obrera a Anglaterra</em> (1845). La seva posició com a fill de patró que denuncia el sistema li donava una perspectiva única. Font: Wikimedia Commons (domini públic).</div>
+        </div>
 
       <hr class="section-divider">
 
@@ -472,51 +504,74 @@
 
     <!-- ═══ TAB 3: LA HISTÒRIA, ARA ═══ -->
     <div class="tab-panel" id="panel-ara">
-      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
-        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">La Revolució Industrial no és história antiga. Les seves lògiques fonamentals —el treball com a mercaderia, el benefici per sobre del benestar, la resistència col·lectiva— continuen operant avui. Aquestes activitats proposen fer la connexió.</p>
-      </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>1. La «gig economy»: el proletariat del segle XXI?</h3><span class="task-badge">Anàlisi crítica</span></div>
-        <div class="task-body">
-          <p>Els treballadors de plataformes digitals com Glovo, Uber, Deliveroo o Amazon Flex comparteixen moltes característiques amb el proletariat industrial del segle XIX: sense horari fix, sense cotitzacions, sense dret a atur, dependents de les decisions d'un algoritme que no explica res. La tecnologia ha canviat; la relació de poder, menys del que sembla.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca les condicions laborals d'un rider de Glovo o Deliveroo a Espanya (sou, horaris, accidents, proteccions socials). Pots usar la web del sindicat RidersxDerechos o articles periodístics recents.</span></li>
-            <li><span class="step-num">02</span><span>Compara amb les condicions del proletariat industrial del segle XIX descrites als apunts (jornades, salaris, proteccions). Quins elements es repeteixen? Quins han canviat?</span></li>
-            <li><span class="step-num">03</span><span>La «Llei Rider» del 2021 va regular parcialment les condicions dels repartidors a Espanya. Busca en qué consistia i qué diu el moviment de treballadors de plataformes sobre ella.</span></li>
-            <li><span class="step-num">04</span><span>Reflexió: Si un obrer tèxtil del 1840 i un rider del 2024 poguessin parlar, quines experiències compartirien? En quin aspecte el rider estaria millor? En quin aspecte podria estar pitjor?</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Punt de debat</span>
-            <p>Les empreses de plataforma diuen que els seus repartidors no són «treballadors» sinó «autònoms» que «trien lliurement» quan treballar. Els obrers del segle XIX tampoc eren «forçats»: signaven contractes «voluntàriament». Fins a quin punt una relació laboral pot ser «voluntària» quan l'alternativa és no tenir ingressos?</p>
-          </div>
+    <div class="act-intro">En aquest tema has estudiat la Revolució Industrial, les condicions de vida obreres, el moviment obrer i la industrialització catalana. Les activitats combinen l'anàlisi de fonts primàries (textos, estadístiques, testimonis) amb reflexions sobre el capitalisme industrial i les seves connexions amb el present.</div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 1 · Comparació de fonts: el treball infantil des de dos punts de vista</h3><span class="act-badge">Dues fonts · Comparació crítica</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font A — Informe parlamentari</span><span class="font-tipus">Document oficial · 1842</span></div>
+          <div class="font-body">«Les criatures comencen a treballar a les mines als cinc i sis anys. Transporten carbó en cistelles a les espatlles per passadissos tan estrets que no hi cap un adult. Treballen entre dotze i catorze hores diàries, en la foscor. <strong>Molts no veuen la llum del dia en tota la setmana.</strong> Als setze anys, els qui no han mort d'accident ja presenten deformitats òssies permanents.»</div>
+          <div class="font-peu">Informe de la Comissió Parlamentària britànica sobre el treball infantil a les mines, 1842.</div>
         </div>
-      </div>
-
-      <div class="task-block">
-        <div class="task-header"><h3>2. La crisi climàtica: el deute de la industrialització</h3><span class="task-badge">Connexió present</span></div>
-        <div class="task-body">
-          <p>La Revolució Industrial va iniciar l'era de les emissions massives de CO₂. El carbó, el vapor i la producció industrial en massa van ser la causa original de l'escalfament global que avui amenaça el planeta. Els beneficis van ser privats; el cost climàtic, global i col·lectiu.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca un gràfic de les emissions de CO₂ des de 1750 fins avui. Quan comença la pujada significativa? Coincideix amb la Revolució Industrial?</span></li>
-            <li><span class="step-num">02</span><span>Els països que es van industrialitzar primer (Gran Bretanya, EUA, Europa occidental) han emès molt més CO₂ historicament que els països del Sud Global. Cerca dades comparatives i reflexiona: és just que tots els països tinguin els mateixos límits d'emissions avui?</span></li>
-            <li><span class="step-num">03</span><span>Debateu: «Els països industrialitzats haurien de pagar una «deute climàtic» als països que menys han contribuït a l'escalfament però que en pateixen més les conseqüències?»</span></li>
-          </ul>
+        <div class="font-primaria" style="margin-top:0">
+          <div class="font-header"><span class="font-label">Font B — Pamflet industrial</span><span class="font-tipus">Defensa del sistema · 1830</span></div>
+          <div class="font-body">«El treball a les fàbriques és un benefici per als fills dels pobres. Aprenen la disciplina des de petits i guanyen un jornal que ajuda les seves famílies. <strong>Els qui volen prohibir el treball infantil condemnen les famílies obreres a la misèria.</strong> Els philanthrops mai no han viscut la pobresa real.»</div>
+          <div class="font-peu">Pamflet d'un propietari de fàbrica tèxtil de Manchester, 1830. Font primària.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Identifica i classifica les dues fonts. Quina és primària? Quina és més fiable i per qué? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>Des de quina posició social parla cadascun? Com condiciona això el contingut? (0,75 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Compara i contrasta les dues fonts. Quins interessos defensa cadascun? Com expliques que el propietari de la fàbrica presenti el treball infantil com un «benefici»? (1,25 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>3. Engels a Manchester, tu a... on?</h3><span class="task-badge">Investigació local</span></div>
-        <div class="task-body">
-          <p>Friedrich Engels va descriure Manchester el 1845 amb una precisió sociològica que avui consideraríem periodisme d'investigació. La segregació espacial per classe social —barris rics i barris pobres— que Engels va descriure no ha desaparegut. Ha canviat de forma.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca dades sobre les diferències de renda, esperança de vida o nivell d'estudis entre barris de la teva ciutat o àrea metropolitana. Les sol publicar l'Ajuntament o l'Idescat.</span></li>
-            <li><span class="step-num">02</span><span>Hi ha a la teva zona algun barri que concentri condicions precàries (habitatge deteriorat, alt atur, baixa esperança de vida)? Quin és el seu origen históric? Va néixer com a barri obrer industrial?</span></li>
-            <li><span class="step-num">03</span><span>Reflexió: La desigualtat geogràfica que tu observes avui, en quina mesura és hereva de les decisions urbanístiques i industrials del segle XIX?</span></li>
-          </ul>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 2 · Comentari de dades: creixement i desigualtat a Anglaterra</h3><span class="act-badge">Font estadística · Economia</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font C — Estadística histórica</span><span class="font-tipus">Dades · Anglaterra 1750–1850</span></div>
+          <div class="font-body"><strong>Producció industrial britànica:</strong> augment del 400% entre 1750 i 1850.<br><strong>Salaris reals dels treballadors:</strong> augment del 15–20% en el mateix període.<br><strong>Beneficis dels propietaris:</strong> augment del 200–300%.<br><strong>Mortalitat infantil a Manchester (1840):</strong> 57% dels nens morien abans dels 5 anys.<br><strong>Esperança de vida d'un obrer fabril:</strong> 28 anys.<br><strong>Esperança de vida d'un professional liberal:</strong> 50 anys.</div>
+          <div class="font-peu">E.P. Thompson, <em>The Making of the English Working Class</em> (1963) i estadístiques del Cens britànic del s. XIX.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Descriu les dades. Qué mesura cada indicador? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>La producció va créixer un 400% però els salaris només un 15–20%. Qui se'n va beneficiar i qui no? Qué et diuen sobre la distribució de la riquesa generada? (0,75 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Avui, la productivitat als països rics ha crescut molt més que els salaris des dels anys 80. Creus que les causes estructurals són les mateixes que al segle XIX? Argumenta-ho. (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 3 · Barcelona obrera: la industrialització de casa nostra</h3><span class="act-badge">História local · Catalunya</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font D — Text literari</span><span class="font-tipus">Novel·la · 1890</span></div>
+          <div class="font-body">«Al Poblenou, les xemeneies escupen fum negre dia i nit. Els carrers s'omplen de treballadors a les cinc del matí, homes, dones i nens, tots caminant cap als vapors. Cases on viuen sis o vuit persones en una sola habitació, sense aigua corrent. I malgrat tot, els diumenges canten. Perquè <strong>la dignitat és l'única cosa que el patró no pot comprar ni confiscar.</strong>»</div>
+          <div class="font-peu">Inspirat en Narcís Oller, <em>La febre d'or</em> (1890–1892), novel·la sobre la Barcelona industrial.</div>
+        </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">1</span><span>Quines condicions de vida descriu el text? Compara-les amb les dels barris obrers anglesos als apunts. Hi ha diferències?</span></li>
+          <li><span class="act-q-num">2</span><span>Busca una foto histórica del Poblenou industrial i una foto actual del barri. Qué ha canviat? Qué continuïtats trobes?</span></li>
+          <li><span class="act-q-num">3</span><span>La CNT va ser fundada a Barcelona el 1910. Per qué l'anarcosindicalisme va arrelar especialment a Catalunya? Relaciona la resposta amb el context industrial català.</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 4 · Qüestions de repàs</h3><span class="act-badge">Repàs · Conceptes</span></div>
+      <div class="act-body">
+        <ul class="act-questions">
+          <li><span class="act-q-num">1</span><span>Explica les causes de la Revolució Industrial. Per qué va començar a Anglaterra i no a França o Espanya?</span></li>
+          <li><span class="act-q-num">2</span><span>Descriu les principals innovacions tècniques de la primera Revolució Industrial. Quin paper va tenir la màquina de vapor?</span></li>
+          <li><span class="act-q-num">3</span><span>Qué és el marxisme? Quines eren les idees principals de Marx i Engels? Qué és la «plusvàlua»?</span></li>
+          <li><span class="act-q-num">4</span><span>Quina diferència hi ha entre el socialisme i l'anarquisme com a respostes al capitalisme?</span></li>
+          <li><span class="act-q-num">5</span><span>Fes una llista de drets laborals conquerits pel moviment obrer al llarg del segle XIX i principis del XX que avui donem per fets.</span></li>
+        </ul>
+      </div>
+    </div>
     </div><!-- /panel-ara -->
 
   </main>

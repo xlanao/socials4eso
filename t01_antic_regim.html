@@ -134,6 +134,28 @@
     .nav{padding:0 22px}.nav-meta{display:none}
     .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
   }
+
+  .font-primaria{border:1px solid var(--line);margin:28px 0;background:var(--paper-off)}
+  .font-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .font-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .font-tipus{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase}
+  .font-body{padding:18px 20px;font-family:'Spectral',serif;font-style:italic;font-size:.95rem;color:var(--ink-soft);line-height:1.75;font-weight:300}
+  .font-body strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-peu{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);letter-spacing:.04em}
+  .act-intro{border:1px solid var(--line);padding:20px 24px;margin-bottom:32px;background:var(--paper-off);font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.7}
+  .act-block{margin-bottom:40px;border:1px solid var(--line)}
+  .act-header{background:var(--ink);padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .act-header h3{margin:0;font-family:'Spectral',serif;font-size:.98rem;font-weight:600;color:var(--paper);line-height:1.3}
+  .act-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.65);white-space:nowrap;flex-shrink:0}
+  .act-body{padding:20px 24px}
+  .act-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300;line-height:1.65}
+  .act-body p:last-child{margin-bottom:0}
+  .act-questions{list-style:none;padding:0;margin:14px 0 0}
+  .act-questions li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;border-bottom:1px dotted var(--line-faint);padding-bottom:12px}
+  .act-questions li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
+  .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
+  .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -151,14 +173,14 @@
     <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 01</div>
     <div class="topic-num-badge">Tema 01 — Segles XVII–XVIII</div>
     <h1>L'Antic Règim i la <em>Revolució Francesa</em></h1>
-    <p class="topic-subtitle">La societat estamental · El comerç triangular · La Il·lustració · 1789 · Napoleó</p>
+    <p class="topic-subtitle">La societat estamental · El comerç triangular · La Il·lustració · 1789 · Napoleó · Inici: absolutisme; fi: liberalisme burgès</p>
   </div>
 </div>
 
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
-  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
 </div>
 
 <div class="page-wrap">
@@ -215,7 +237,7 @@
         <p>Dins del Tercer Estat, la divisió era enorme. La <strong>burgesia</strong> —comerciants, advocats, metges, banquers— havia acumulat riquesa considerable gràcies al comerç i les professions liberals, especialment a través del comerç colonial. Però malgrat el seu poder econòmic creixent, estava exclosa del poder polític, reservat a la noblesa. Aquesta contradicció —tenir diners però no tenir poder— seria una de les causes clau de la Revolució. Al fons de l'escala, el <strong>camperolat</strong> —la gran majoria de la població— vivia en condicions molt precàries: pagava impostos al rei, delmes a l'Església i drets feudals al senyor. Les males collites podien significar literalment la mort per fam.</p>
 
         <div class="img-wrap">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/5/fifty/Fotothek_df_tg_0000302_Allegorie_%5E_Gesellschaft_%5E_Stand.jpg" alt="Al·legoria de la societat estamental de l'Antic Règim" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/e/e9/Social_classes_fr.png" alt="Al·legoria de la societat estamental de l'Antic Règim" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Al·legoria de l'Antic Règim: el Tercer Estat carrega amb el pes del clergat i la noblesa. Una imatge que circulava als anys previs a la Revolució. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -252,6 +274,16 @@
           <div class="img-cap">Primera pàgina de l'<em>Encyclopédie</em> de Diderot i d'Alembert (1751). El projecte intel·lectual més ambiciós de la Il·lustració: la raó humana per sobre de qualsevol autoritat divina o tradicional. Font: Wikimedia Commons (domini públic).</div>
         </div>
       </section>
+
+      
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/5a/Robespierre.jpg" alt="Maximilien Robespierre (1758–1794), líder del Comitè de Salvació Pública durant " loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Maximilien Robespierre (1758–1794), líder del Comitè de Salvació Pública durant el Terror (1793–94). Va ser l'arquitecte de les execucions massives del període jacobí, fins que ell mateix va ser guillotinat el juliol de 1794. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/9/9b/Waterloo_Battle.jpg" alt="La Batalla de Waterloo (18 de juny de 1815). La derrota definitiva de Napoleó da" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">La Batalla de Waterloo (18 de juny de 1815). La derrota definitiva de Napoleó davant les forces britàniques i prussianes va posar fi a l'era napoleònica i va obrir el camí al Congrés de Viena i la Restauració de les monarquies europees. Font: Wikimedia Commons (domini públic).</div>
+        </div>
 
       <hr class="section-divider">
 
@@ -486,54 +518,71 @@
 
     <!-- ═══ TAB 3: LA HISTORIA, ARA ═══ -->
     <div class="tab-panel" id="panel-ara">
-      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
-        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">L'Antic Règim i la Revolució Francesa no són fets tancats al passat. La desigualtat estructural, el debat sobre qui mereix quins drets, i la connexió entre esclavitud i riquesa contemporània continuen sent qüestions vives.</p>
-      </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>1. Per a qui eren els drets de la Revolució?</h3><span class="task-badge">Anàlisi de fonts</span></div>
-        <div class="task-body">
-          <p>La Declaració dels Drets de l'Home (1789) proclamava que «tots els homes neixen lliures i iguals». Però Olympe de Gouges va denunciar que les dones quedaven excloses; i a Haití, els esclaus van haver de prendre la llibertat per la força. Les contradiccions de la Revolució ens diuen molt sobre les contradiccions del liberalisme en general.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Llegeix els primers cinc articles de la Declaració dels Drets de l'Home (1789). Qui és el «home» del qual parla? Es mencionen les dones o els esclaus en algun moment?</span></li>
-            <li><span class="step-num">02</span><span>Busca un fragment de la Declaració dels Drets de la Dona d'Olympe de Gouges (1791). Compara l'article 1 de cada declaració. Quina diferència hi ha? Per qué creus que la de Gouges va ser ignorada i ella guillotinada?</span></li>
-            <li><span class="step-num">03</span><span>La Revolució Haitiana (1791–1804) va ser la primera revolució en la qual els propis esclaus van alliberar-se per la força. Per qué creus que aquest episodi apareix tan poc als llibres de text europeus? Qué significa invisibilitzar-lo?</span></li>
-            <li><span class="step-num">04</span><span>Debat: «La Revolució Francesa va ser una revolució universal o una revolució de la burgesia blanca europea que va usar un llenguatge universal per legitimar interessos particulars?»</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Connexió present</span>
-            <p>Avui, drets que semblaven universals quan es van proclamar (vot, educació, sanitat) continuen sent desiguals segons l'origen, el gènere o la classe. En quins aspectes el debat sobre «qui mereix quins drets» continua sent viu al segle XXI?</p>
-          </div>
-        </div>
-      </div>
+    <div class="act-intro">En aquest tema has estudiat l'Antic Règim, el comerç triangular, la Il·lustració i la Revolució Francesa. Les activitats combinen l'anàlisi de fonts primàries amb reflexions sobre com els ideals de 1789 han —i no han— transformat el món.</div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>2. L'esclavitud i el present: reparacions i memòria</h3><span class="task-badge">Connexió present</span></div>
-        <div class="task-body">
-          <p>El comerç d'esclaus va enriquir Europa durant segles. Les conseqüències —la pobresa estructural d'Àfrica i el Carib, el racisme sistèmic— continuen afectant milions de persones avui. El debat sobre les reparacions és una de les qüestions polítiques més vives del moment.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca la notícia sobre Haití i França: per obtenir el reconeixement de la seva independència (1825), Haití va haver de pagar a França una indemnització de 150 milions de francs (per compensar els propietaris d'esclaus «per la pèrdua de les seves propietats»). Va trigar 122 anys a acabar de pagar. Haití és avui el país més pobre de l'hemisferi occidental. Explica la connexió.</span></li>
-            <li><span class="step-num">02</span><span>Busca el cas de l'estàtua de Colston a Bristol (2020): una multitud va llençar al mar l'estàtua d'un traficant d'esclaus. Quins arguments es van donar a favor i en contra? Quin és el teu criteri?</span></li>
-            <li><span class="step-num">03</span><span>Debat: «Les generacions actuals haurien de pagar per crims comesos fa segles?» Construïu dos arguments: un a favor i un en contra, ambdós amb fets concrets.</span></li>
-          </ul>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 1 · Comentari de font: la Declaració de Drets de l'Home (1789)</h3><span class="act-badge">Font primària · Política</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font A</span><span class="font-tipus">Document polític · 1789</span></div>
+          <div class="font-body">«Article 1. Els homes neixen i romanen lliures i iguals en drets. Les distincions socials només poden estar basades en la utilitat comuna.<br><br>Article 2. L'objectiu de tota associació política és la conservació dels drets naturals i imprescriptibles de l'home. Aquests drets són la llibertat, la propietat, la seguretat i la resistència a l'opressió.<br><br>Article 17. Essent la propietat un dret inviolable i sagrat, ningú no pot ser privat d'ella si no és en el cas en què la necessitat pública, legalment constatada, ho exigeixi evidentment.»</div>
+          <div class="font-peu">Declaració dels Drets de l'Home i del Ciutadà, Assemblea Nacional de França, 26 d'agost de 1789.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Identifica el tipus de font, l'autoria col·lectiva, la data i el context históric. (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>Explica les tres idees principals. Posa atenció especial al concepte de propietat i com es relaciona amb els interessos de la burgesia que va protagonitzar la Revolució. (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>La Declaració proclama que «els homes neixen i romanen lliures i iguals en drets». En aquell moment, milions de persones estaven en règim d'esclavitud. Com values aquesta contradicció? (1 p.)</span></li>
+        </ul>
+        <div class="act-nota">Metodologia: (a) naturalesa i context; (b) idees principals; (c) anàlisi crítica. Màxim 20 línies per apartat.</div>
       </div>
+    </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>3. La desigualtat avui: som lluny de l'Antic Règim?</h3><span class="task-badge">Reflexió crítica</span></div>
-        <div class="task-body">
-          <p>A l'Antic Règim, la riquesa i el poder s'heretaven de pare a fill per la sola raó del naixement. La Revolució Francesa va proclamar la igualtat formal davant la llei. Però la igualtat jurídica i la igualtat real no són el mateix. Fins a quin punt la desigualtat actual s'assembla a la de l'Antic Règim?</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca l'últim informe d'Oxfam sobre desigualtat global. Quina proporció de la riquesa mundial posseeix l'1% més ric? Compara-la amb la concentració de riquesa a l'Antic Règim (noblesa + clergat = ~3% de la població controlant la major part de la terra).</span></li>
-            <li><span class="step-num">02</span><span>A l'Antic Règim, la posició social s'heretava. Avui, busca dades sobre mobilitat social a Espanya: quin percentatge de fills de famílies del decil inferior acaben al decil superior en edat adulta?</span></li>
-            <li><span class="step-num">03</span><span>Reflexió final: En quins aspectes la societat actual s'ha allunyat de l'Antic Règim? En quins aspectes s'hi assembla més del que sembla a primera vista?</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Per pensar</span>
-            <p>La Revolució Francesa va abolir els privilegis <em>jurídics</em> de la noblesa. Però avui existeixen privilegis <em>de fet</em> —connexions, herència, accés a educació de qualitat, capital social— que reprodueixen desigualtats similars sense una llei explícita que les estableixi. És això diferent de l'Antic Règim o és el mateix mecanisme amb un nom diferent?</p>
-          </div>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 2 · Comparació de fonts: la Revolució des de dos punts de vista</h3><span class="act-badge">Dues fonts · Comparació crítica</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font B — Perspectiva revolucionària</span><span class="font-tipus">Discurs · 1793</span></div>
+          <div class="font-body">«La Revolució ha alliberat França de les cadenes de l'Antic Règim. Per primera vegada, el poble és sobirà. Els nobles han perdut els seus privilegis. <strong>Llibertat, Igualtat, Fraternitat: no és un simple lema, és el programa d'una nova humanitat.</strong>»</div>
+          <div class="font-peu">Inspirat en discursos de Robespierre, 1793. Font secundària reconstructiva.</div>
         </div>
+        <div class="font-primaria" style="margin-top:0">
+          <div class="font-header"><span class="font-label">Font C — Perspectiva contrarevolucionària</span><span class="font-tipus">Assaig · 1790</span></div>
+          <div class="font-body">«M'opose a la destrucció d'allò que s'ha construït amb segles d'experiència. Una Revolució que comença amb Llibertat, Igualtat i Fraternitat acaba amb la guillotina. <strong>Els drets han de protegir-se a través de les institucions, no destruint-les.</strong>»</div>
+          <div class="font-peu">Edmund Burke, <em>Reflexions sobre la Revolució a França</em>, 1790. Font primària.</div>
+        </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Resumeix la idea principal de cada font. Quins valors defensa cadascun? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>Des de quina posició social i política parla cadascun? Com influeix el punt de vista de l'autor en el contingut? (0,75 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Compara i contrasta les dues fonts. En quin punt tenia raó cadascun? Posa exemples concrets de la Revolució Francesa. (1,25 p.)</span></li>
+        </ul>
       </div>
+    </div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 3 · Situa't en el temps</h3><span class="act-badge">Contextualització · Creativa</span></div>
+      <div class="act-body">
+        <p>Respon <strong>una</strong> de les dues situacions (A o B):</p>
+        <ul class="act-questions">
+          <li><span class="act-q-num">A</span><span>Ets un artesà de París el juliol de 1789. Has participat en la presa de la Bastilla. Escriu una carta a un familiar del camp explicant per qué has arriscat la vida. Utilitza: <em>estaments, privilegis, Tercer Estat, sobirania popular, Declaració de Drets</em>. (10 línies mínim)</span></li>
+          <li><span class="act-q-num">B</span><span>Ets un noble francès el 1793, exiliat a Viena. Escriu una carta als teus familiars a París valorant la Revolució. Utilitza: <em>privilegi, propietat, Terreur, contrarrevolució, monarquia absoluta</em>. (10 línies mínim)</span></li>
+        </ul>
+        <div class="act-nota">Seràs avaluat per la precisió histórica, no per les opinions del personatge.</div>
+      </div>
+    </div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 4 · Qüestions de repàs</h3><span class="act-badge">Repàs · Conceptes clau</span></div>
+      <div class="act-body">
+        <ul class="act-questions">
+          <li><span class="act-q-num">1</span><span>Explica el sistema dels tres estaments de l'Antic Règim. Qui pagava impostos i qui no? Per quina raó? Qué tenia d'injust per a una persona del Tercer Estat?</span></li>
+          <li><span class="act-q-num">2</span><span>Descriu el comerç triangular. Quin paper hi tenia Europa? Quin impacte va tenir sobre el continent africà a llarg termini?</span></li>
+          <li><span class="act-q-num">3</span><span>Qué van aportar els il·lustrats (Voltaire, Rousseau, Montesquieu) que era tan revolucionari per a l'època? Quines idees seves continuen vigents avui?</span></li>
+          <li><span class="act-q-num">4</span><span>Per qué la burgesia va ser el gran beneficiari de la Revolució Francesa? Quines classes socials van guanyar menys del que esperaven?</span></li>
+          <li><span class="act-q-num">5</span><span>Qué va significar Napoleó per a Europa? Quines idees de la Revolució va expandir i quines va trair?</span></li>
+        </ul>
+      </div>
+    </div>
     </div><!-- /panel-ara -->
 
   </main>

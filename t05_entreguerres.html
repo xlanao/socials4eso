@@ -126,6 +126,28 @@
     .nav{padding:0 22px}.nav-meta{display:none}
     .site-footer{padding:20px 22px;flex-direction:column;gap:10px}
   }
+
+  .font-primaria{border:1px solid var(--line);margin:28px 0;background:var(--paper-off)}
+  .font-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .font-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700}
+  .font-tipus{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.1em;color:rgba(255,255,255,.55);text-transform:uppercase}
+  .font-body{padding:18px 20px;font-family:'Spectral',serif;font-style:italic;font-size:.95rem;color:var(--ink-soft);line-height:1.75;font-weight:300}
+  .font-body strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-peu{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);letter-spacing:.04em}
+  .act-intro{border:1px solid var(--line);padding:20px 24px;margin-bottom:32px;background:var(--paper-off);font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.7}
+  .act-block{margin-bottom:40px;border:1px solid var(--line)}
+  .act-header{background:var(--ink);padding:13px 22px;display:flex;justify-content:space-between;align-items:center;gap:12px}
+  .act-header h3{margin:0;font-family:'Spectral',serif;font-size:.98rem;font-weight:600;color:var(--paper);line-height:1.3}
+  .act-badge{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.13em;text-transform:uppercase;padding:4px 10px;border:1px solid rgba(255,255,255,.35);color:rgba(255,255,255,.65);white-space:nowrap;flex-shrink:0}
+  .act-body{padding:20px 24px}
+  .act-body p{font-size:.93rem;color:var(--ink-soft);margin-bottom:10px;font-weight:300;line-height:1.65}
+  .act-body p:last-child{margin-bottom:0}
+  .act-questions{list-style:none;padding:0;margin:14px 0 0}
+  .act-questions li{display:flex;gap:12px;align-items:flex-start;margin-bottom:12px;font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;border-bottom:1px dotted var(--line-faint);padding-bottom:12px}
+  .act-questions li:last-child{border-bottom:none;padding-bottom:0;margin-bottom:0}
+  .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
+  .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
+  .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
 </style>
 </head>
 <body>
@@ -143,14 +165,14 @@
     <div class="topic-breadcrumb"><a href="index.html">Índex</a> / Tema 05</div>
     <div class="topic-num-badge">Tema 05 — 1919–1939</div>
     <h1>El Període d'Entreguerres<br>i els <em>Feixismes Europeus</em></h1>
-    <p class="topic-subtitle">El Crac del 29 · Mussolini i Hitler · La Segona República · Les arrels del present</p>
+    <p class="topic-subtitle">Crisi de Versalles + Crac del 29 → feixisme · República Espanyola: preàmbul de la GC</p>
   </div>
 </div>
 
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
-  <button class="tab-btn" onclick="switchTab('ara',this)">LA HISTÒRIA, ARA</button>
+  <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
 </div>
 
 <div class="page-wrap">
@@ -245,6 +267,16 @@
           A Europa, on les democràcies eren febles, la memòria de Versalles estava molt viva i la Revolució Russa de 1917 —que vam estudiar al Tema 4— havia demostrat que el sistema podia ser enrunat des de baix, la Gran Depressió va tenir un efecte polític devastador. La misèria i la desesperació van alimentar moviments polítics extrems que prometien solucions ràpides i bocs expiatoris còmodes. El feixisme va ser la resposta que les classes dominants europees van triar per evitar el que més temien: que a Itàlia o Alemanya passés el que havia passat a Rússia.
         </div>
       </section>
+
+      
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/1/17/Nazi_book_burning_May_10_1933.jpg" alt="Crema de llibres nazis a Berlín, 10 de maig de 1933. Membres de les Joventuts Hi" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Crema de llibres nazis a Berlín, 10 de maig de 1933. Membres de les Joventuts Hitlerianes cremen obres d'autors jueus, marxistes i pacifistes. El poeta Heinrich Heine havia escrit el 1820: «Allà on cremen llibres, acabaran cremant persones.» La cita va resultar profètica. Font: Wikimedia Commons (domini públic).</div>
+        </div>
+        <div class="img-wrap">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/50/Bundesarchiv_Bild_183-H12148%2C_Mussolini_und_Hitler_in_M%C3%BCnchen.jpg" alt="Mussolini i Hitler a Munic, 1937. L'eix Roma-Berlín, formalitzat el novembre de " loading="lazy" onerror="this.parentNode.style.display='none'">
+          <div class="img-cap">Mussolini i Hitler a Munic, 1937. L'eix Roma-Berlín, formalitzat el novembre de 1936, unia els dos grans règims feixistes europeus. Hitler considerava Mussolini el pioner del feixisme; anys més tard, Mussolini es convertiria en un vassall de Hitler. Font: Arxiu Federal Alemany / Wikimedia Commons.</div>
+        </div>
 
       <hr class="section-divider">
 
@@ -448,55 +480,58 @@
 
     <!-- ═══ TAB 3: LA HISTÓRIA, ARA ═══ -->
     <div class="tab-panel" id="panel-ara">
-      <div style="border:1px solid var(--line);padding:22px 26px;margin-bottom:36px;background:var(--paper-off)">
-        <p style="font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.7">El feixisme no va sorgir del no-res ni va ser un accident. Va sorgir d'una crisi econòmica, d'una classe política que va fracassar i de les elits que van preferir la dictadura a la democràcia quan la democràcia els era incòmoda. Res d'això és tan aliè al present com podria semblar.</p>
-      </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>1. L'extrema dreta avui: hereus del feixisme?</h3><span class="task-badge">Anàlisi comparada</span></div>
-        <div class="task-body">
-          <p>A molts països europeus, partits d'extrema dreta han crescut significativament en els darrers anys: Vox a Espanya, el Rassemblement National a França, Alternativa per a Alemanya (AfD), els Demòcrates de Suècia, el PiS a Polònia, Fidesz a Hongria. Comparteixen alguns elements amb els feixismes dels anys 30 —però no tots. Analitzem les similituds i les diferències.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca el programa o les principals propostes d'un partit d'extrema dreta europeu actual (pots triar Vox, Le Pen, AfD o un altre). Identifica quines de les sis característiques del feixisme dels apunts hi apareixen i quines no.</span></li>
-            <li><span class="step-num">02</span><span>Quines diferències importantes trobes respecte als feixismes dels anys 30? (Consideres l'ús de la violència paramilitar, la defensa formal de la democràcia electoral, la posició respecte a la UE i al mercat lliure, l'antisemitisme obert vs. l'islamofòbia...)</span></li>
-            <li><span class="step-num">03</span><span>En quins contextos econòmics i socials han crescut aquests partits? Compara amb el context de crisi en el qual va créixer el feixisme dels anys 30. Quins paral·lelismes trobes? Quines diferències?</span></li>
-            <li><span class="step-num">04</span><span>Debat: «L'extrema dreta actual és feixisme o és una altra cosa?» Construïu dos arguments: un que defensi la continuïtat i un que defensi la diferència.</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Punt de debat</span>
-            <p>El filòsof Umberto Eco va descriure el 1995 el «ur-feixisme» (el feixisme original) amb catorze trets. D'entre ells: el culte a la tradició, el rebuig de la modernitat, el nacionalisme agressiu, la por a la diferència, la xenofòbia, el menyspreu pels febles, el populisme qualitatiu («el poble contra les elits») i la televisió o les xarxes com a instrument de mobilització emocional. Quants d'aquests trets reconeixeu en partits polítics actuals?</p>
-          </div>
+    <div class="act-intro">Has estudiat el Crac del 29, la Gran Depressió, el feixisme i la Segona República. Les activitats proposen analitzar propaganda, comparar discursos feixistes amb democràtics i reflexionar sobre les connexions entre crisis econòmiques i extremisme polític.</div>
+
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 1 · Comentari de font: propaganda nazi (1932)</h3><span class="act-badge">Font primària · Propaganda</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font A — Discurs electoral</span><span class="font-tipus">Míting · 1932</span></div>
+          <div class="font-body">«Alemanya porta catorze anys humiliada per Versalles. El poble alemany pateix una pobresa sense precedents mentre uns pocs s'enriqueixen. <strong>Nosaltres prometem un Reich fort, una Alemanya que torni a ser gran, una raça que recuperi la seva dignitat.</strong> Voteu per Alemanya. Voteu per la vida. Voteu per Hitler.»</div>
+          <div class="font-peu">Inspirat en discursos electorals del NSDAP, campanya de juliol de 1932. Font secundària reconstructiva.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Identifica els elements de propaganda: a qui apel·la, quin és el «boc expiatori», quines emocions intenta despertar. (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>El discurs menciona Versalles i els «banquers». Explica quin context real hi havia darrere i com el nazisme el distorsionava. (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>Compara aquest discurs amb populistes d'extrema dreta actuals (Trump, Le Pen, Vox). Quines similituds de retòrica trobes? (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
-      <div class="task-block">
-        <div class="task-header"><h3>2. Crisi econòmica i política: el 1929 i el 2008</h3><span class="task-badge">Connexió econòmica</span></div>
-        <div class="task-body">
-          <p>La crisi del 2008 va ser la major des del 1929. Però la resposta política va ser molt diferent: en lloc del New Deal, molts governs europeus van aplicar austeritat. Les conseqüències polítiques —ascens de l'extrema dreta, Brexit, Trump, crisi de les democràcies liberals— han estat significatives. Analitzem la connexió.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Busca com va afectar la crisi del 2008 a Espanya: evolució de l'atur entre 2008 i 2013, retallades en sanitat i educació, desnonaments. Intenta trobar dades concretes (Eurostat, INE, informe Oxfam).</span></li>
-            <li><span class="step-num">02</span><span>En quins anys van créixer significativament Vox a Espanya, el Front Nacional a França, l'AfD a Alemanya? Hi ha correlació amb els anys de crisi i austeritat?</span></li>
-            <li><span class="step-num">03</span><span>Roosevelt va respondre a la crisi del 29 amb el New Deal (inversió massiva, regulació financera, programes socials). Per qué creus que Europa va respondre a la crisi del 2008 amb l'austeritat en lloc d'un «New Deal europeu»? Quins interessos es protegien amb l'austeritat?</span></li>
-          </ul>
-          <div class="debate-box">
-            <span class="debate-label">Reflexió crítica</span>
-            <p>Karl Polanyi, economista hongarès, va escriure el 1944: «El feixisme és la conseqüència del fracàs de les societats de mercat per garantir a la gent un lloc en el món.» Aplica aquesta afirmació tant al context dels anys 30 com al context europeu actual. Creus que és una explicació suficient o parcial?</p>
-          </div>
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 2 · Comparació: la crisi vista per un obrer i per un banquer</h3><span class="act-badge">Dues fonts · Perspectiva social</span></div>
+      <div class="act-body">
+        <div class="font-primaria">
+          <div class="font-header"><span class="font-label">Font B — Testimoni obrer</span><span class="font-tipus">Entrevista recollida · 1932</span></div>
+          <div class="font-body">«Portava set anys a la fàbrica. Un dia em van dir que marxés, que tancava. No hi havia indemnització. No hi havia assegurança d'atur. <strong>El meu fill de deu anys em pregunta per qué no mengem cada dia.</strong> He votat tota la vida els partits de centre. Ara comencen a semblar-me iguals.»</div>
+          <div class="font-peu">Marie Jahoda et al., <em>Die Arbeitslosen von Marienthal</em> (1933). Institut de Ciències Socials de Viena.</div>
         </div>
-      </div>
-
-      <div class="task-block">
-        <div class="task-header"><h3>3. Drets conquerits i drets amenaçats</h3><span class="task-badge">Reflexió present</span></div>
-        <div class="task-body">
-          <p>La Segona República va introduir a Espanya drets que avui donem per descomptats: el vot femení, el divorci, la separació Església-Estat, l'ensenyament laic. El franquisme els va eliminar. La Transició els va recuperar. Però els drets no estan garantits per sempre: es poden qüestionar, erosionar o eliminar.</p>
-          <ul class="task-steps">
-            <li><span class="step-num">01</span><span>Investiga quins drets van ser aprovats per la Segona República que el franquisme va eliminar (vot femení, divorci, estatuts d'autonomia, reforma agrària). Quan van ser recuperats a la Transició?</span></li>
-            <li><span class="step-num">02</span><span>Busca exemples actuals de països democràtics on drets reconeguts han estat retallats o eliminats (dret a l'avortament als EUA el 2022, drets LGTB a Hongria i Polònia, llibertat de premsa a Turquia...). Quines forces polítiques han promogut aquestes restriccions?</span></li>
-            <li><span class="step-num">03</span><span>Reflexió: Clara Campoamor va lluitar per un dret que trigaria quaranta anys a ser restaurat a Espanya. Quin dret actual creus que podries trobar a faltar si desaparegués? Quin creus que és més vulnerable?</span></li>
-          </ul>
+        <div class="font-primaria" style="margin-top:0">
+          <div class="font-header"><span class="font-label">Font C — Declaració d'un banquer</span><span class="font-tipus">Entrevista de premsa · 1930</span></div>
+          <div class="font-body">«La crisi és dolorosa però necessària. El mercat s'ha d'autocorregir. <strong>L'austeritat és l'única medicina.</strong> Els qui demanen subsidis no entenen que el que cal és deixar caure les empreses ineficients i permetre que el mercat trobi el seu equilibri.»</div>
+          <div class="font-peu">Inspirat en declaracions de banquers davant el Senat nord-americà, 1930. Font secundària reconstructiva.</div>
         </div>
+        <ul class="act-questions">
+          <li><span class="act-q-num">a)</span><span>Des de quina posició social parla cadascun? Com condiciona el seu punt de vista? (0,5 p.)</span></li>
+          <li><span class="act-q-num">b)</span><span>Qué va passar als països que van aplicar l'austeritat durant la Gran Depressió? Qué va passar als que van aplicar el New Deal? (1 p.)</span></li>
+          <li><span class="act-q-num">c)</span><span>El treballador diu que els partits de centre «comencen a semblar-me iguals». Com expliques que la crisi del 29 fes créixer els extremismes? (1 p.)</span></li>
+        </ul>
       </div>
+    </div>
 
+    <div class="act-block">
+      <div class="act-header"><h3>Activitat 3 · Qüestions de repàs</h3><span class="act-badge">Repàs · Conceptes</span></div>
+      <div class="act-body">
+        <ul class="act-questions">
+          <li><span class="act-q-num">1</span><span>Explica les causes del Crac del 29: bombolla especulativa, crèdit fàcil i desigualtat dels anys 20. Qué va fer que una crisi borsària americana es convertís en una depressió mundial?</span></li>
+          <li><span class="act-q-num">2</span><span>Defineix el feixisme. Quines característiques compartien el feixisme italià i el nazisme? En qué es diferenciaven?</span></li>
+          <li><span class="act-q-num">3</span><span>Com va arribar Hitler al poder? Qué van fer malament les forces democràtiques? Quin paper va jugar la gran burgesia alemanya?</span></li>
+          <li><span class="act-q-num">4</span><span>Qué va ser el New Deal de Roosevelt? En qué es basava econòmicament? Va funcionar?</span></li>
+          <li><span class="act-q-num">5</span><span>Descriu les reformes de la Segona República Espanyola. Quins grups socials s'hi van oposar i per qué?</span></li>
+        </ul>
+      </div>
+    </div>
     </div><!-- /panel-ara -->
 
   </main>
