@@ -154,6 +154,21 @@
   .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
   .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
   .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
+
+  /* font-doc classes (activitats) */
+  .font-doc{border:1px solid var(--line);margin:14px 0}
+  .font-doc-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .font-doc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700;white-space:nowrap}
+  .font-doc-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;text-align:right}
+  .font-doc-cos{padding:18px 20px;font-style:italic;font-size:.93rem;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .font-doc-cos strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-doc-peu{font-family:'DM Mono',monospace;font-size:.69rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);line-height:1.6}
+
+  /* ── Vocabulari ── */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding:4px 0}
+  .vocab-entry{border:1px solid var(--line);padding:0}
+  .vocab-term{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.10em;text-transform:uppercase;font-weight:700;color:var(--paper);background:var(--ink);padding:8px 14px;display:block}
+  .vocab-def{font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;padding:12px 14px}
 </style>
 </head>
 <body>
@@ -179,6 +194,7 @@
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
   <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
+  <button class="tab-btn" onclick="switchTab('vocab',this)">VOCABULARI</button>
 </div>
 
 <div class="page-wrap">
@@ -559,6 +575,22 @@
       </div>
     </div>
     </div><!-- /panel-ara -->
+
+
+    <div class="tab-panel" id="panel-vocab">
+      <div class="vocab-grid">
+      <div class="vocab-entry"><span class="vocab-term">guerra llampec (Blitzkrieg)</span><div class="vocab-def">Tàctica militar nazi que combinava tancs, aviació i infanteria motoritzada per avançar ràpidament i evitar la guerra de posicions. Va permetre la conquesta de Polònia en setmanes i de França en sis setmanes.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">GESTAPO</span><div class="vocab-def">Policia secreta de l'Estat nazi encarregada de perseguir jueus, comunistes i opositors. Va ser instrument clau de la política d'extermini.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">genocidi</span><div class="vocab-def">Extermini sistemàtic d'un grup ètnic, religiós o nacional. L'Holocaust és el cas més extremat i documentat de genocidi de la història contemporània.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Seccions d'Assalt (SA)</span><div class="vocab-def">Milícies paramilitars nazis que van tenir un paper destacat en l'ascens al poder de Hitler. Dissoltes en part durant la «Nit dels ganivets llargs» (1934), van ser substituïdes per les SS com a força principal de repressió.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Seccions de Seguretat (SS)</span><div class="vocab-def">Organització militar i de seguretat nazi encarregada de l'extermini dels jueus i altres grups perseguits, i de la gestió dels camps de concentració i extermini.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">armistici</span><div class="vocab-def">Cessament dels combats. L'armistici del 8 de maig de 1945 (V-E Day) va posar fi a la guerra a Europa; el del 2 de setembre de 1945, al Pacífic, després de les bombes atòmiques.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">camp d'extermini</span><div class="vocab-def">Instal·lació construïda pels nazis per assassinar de manera industrial i sistemàtica els deportats, principalment jueus. Auschwitz-Birkenau, Treblinka, Sobibor: concebuts com a fàbriques de la mort.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Solució Final (Endlösung)</span><div class="vocab-def">Pla nazi d'extermini sistemàtic de tots els jueus europeus, aprovat a la Conferència de Wannsee (gener 1942). Va conduir a l'assassinat de sis milions de jueus i cinc milions d'altres persones.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">política d'apaivagament (appeasement)</span><div class="vocab-def">Estratègia de les democràcies occidentals de cedir a les exigències de Hitler per evitar la guerra. Va culminar als Acords de Munic (1938), on va cedir els Sudets txecs. Va fracassar i va accelerar el conflicte.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">teló d'acer</span><div class="vocab-def">Frontera simbòlica i real que va dividir Europa entre el bloc occidental (capitalista) i el bloc oriental (soviètic) des del final de la Segona Guerra Mundial. Churchill va popularitzar el terme el 1946.</div></div>
+      </div>
+    </div><!-- /panel-vocab -->
 
   </main>
 </div>

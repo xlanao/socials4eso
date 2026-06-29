@@ -168,6 +168,21 @@
   .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
   .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
   .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
+
+  /* font-doc classes (activitats) */
+  .font-doc{border:1px solid var(--line);margin:14px 0}
+  .font-doc-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .font-doc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700;white-space:nowrap}
+  .font-doc-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;text-align:right}
+  .font-doc-cos{padding:18px 20px;font-style:italic;font-size:.93rem;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .font-doc-cos strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-doc-peu{font-family:'DM Mono',monospace;font-size:.69rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);line-height:1.6}
+
+  /* ── Vocabulari ── */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding:4px 0}
+  .vocab-entry{border:1px solid var(--line);padding:0}
+  .vocab-term{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.10em;text-transform:uppercase;font-weight:700;color:var(--paper);background:var(--ink);padding:8px 14px;display:block}
+  .vocab-def{font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;padding:12px 14px}
 </style>
 </head>
 <body>
@@ -193,6 +208,7 @@
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
   <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
+  <button class="tab-btn" onclick="switchTab('vocab',this)">VOCABULARI</button>
 </div>
 
 <div class="page-wrap">
@@ -600,7 +616,7 @@
       <div class="act-header"><h3>Activitat 3 · Anàlisi de mapa: el repartiment d'Àfrica</h3><span class="act-badge">Font cartogràfica</span></div>
       <div class="act-body">
         <div class="font-doc">
-          <div class="font-doc-header"><span class="font-doc-label">Font D — Dades cartogràfiques comparatives</span><span class="font-doc-tag">1880 i 1914</span></div>
+          <div class="font-doc-header"><span class="font-doc-label">Font D — Dades cartogràfiques comparatives</span><span class="font-doc-tag">Comparació cartogràfica · 1880 i 1914</span></div>
           <div class="font-doc-cos"><strong>Àfrica el 1880:</strong> la gran majoria del continent és independent. Només zones costeres sota control europeu.<br>
 <strong>Àfrica el 1914:</strong> el 90% del continent colonitzat. Només Etiòpia i Libèria mantenen la independència.<br>
 <strong>Repartiment:</strong> Gran Bretanya (30%), França (35%), Bèlgica (Congo: 2,3 milions km²), Alemanya, Portugal, Itàlia, Espanya.</div>
@@ -626,6 +642,22 @@
       </div>
     </div>
     </div><!-- /panel-ara -->
+
+
+    <div class="tab-panel" id="panel-vocab">
+      <div class="vocab-grid">
+      <div class="vocab-entry"><span class="vocab-term">imperialisme</span><div class="vocab-def">Domini d'un país (metròpolis) sobre altres territoris (colònies) per la força militar, econòmica o política. Fase del capitalisme en expansió al segle XIX.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">colònia</span><div class="vocab-def">Territori dominat per una potència estrangera (metròpolis). Els seus recursos i habitants queden subordinats als interessos de l'Estat colonitzador.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">metròpolis</span><div class="vocab-def">Potència que domina les colònies i en controla l'economia, la política i la cultura. Principal beneficiària del sistema colonial.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">aculturació</span><div class="vocab-def">Procés per qual un poble colonitzat perd la seva cultura pròpia en absorbir la de la metròpolis: llengua, religió, costums. Instrument de dominació cultural del colonialisme.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">autodeterminació</span><div class="vocab-def">Dret d'un poble a decidir lliurement la seva forma de govern i el seu desenvolupament. Va ser recollit per l'ONU i va fonamentar la descolonització del segle XX.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">avantguardes</span><div class="vocab-def">Moviments artístics i culturals d'inicis del XX que trenquen amb les convencions estètiques. Cubisme, surrealisme, futurisme: productes del context de canvi accelerat de l'era imperial.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Conferència de Berlín (1884–85)</span><div class="vocab-def">Reunió de 14 potències europees i els EUA que va repartir Àfrica sense consultar-ne els habitants. Va establir les regles del colonialisme africà i va dibuixar fronteres artificials que persisteixen avui.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">lliurecanvisme</span><div class="vocab-def">Política econòmica que elimina les traves al comerç entre països. Les metròpolis el defensaven quan els convenia per obrir mercats, però practicaven el proteccionisme quan calia protegir la seva pròpia indústria.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">racisme científic</span><div class="vocab-def">Pseudociència del segle XIX que pretenia justificar la superioritat dels europeus sobre altres pobles mitjançant arguments biològics. Va proporcionar una cobertura ideològica al colonialisme i al genocidi.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">sobreproducció</span><div class="vocab-def">Excés d'oferta de productes industrials respecte a la demanda interna. Una de les causes econòmiques de l'imperialisme: calia trobar mercats exteriors per vendre l'excedent.</div></div>
+      </div>
+    </div><!-- /panel-vocab -->
 
   </main>
 </div>

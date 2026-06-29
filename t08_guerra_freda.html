@@ -147,6 +147,21 @@
   .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
   .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
   .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
+
+  /* font-doc classes (activitats) */
+  .font-doc{border:1px solid var(--line);margin:14px 0}
+  .font-doc-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .font-doc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700;white-space:nowrap}
+  .font-doc-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;text-align:right}
+  .font-doc-cos{padding:18px 20px;font-style:italic;font-size:.93rem;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .font-doc-cos strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-doc-peu{font-family:'DM Mono',monospace;font-size:.69rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);line-height:1.6}
+
+  /* ── Vocabulari ── */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding:4px 0}
+  .vocab-entry{border:1px solid var(--line);padding:0}
+  .vocab-term{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.10em;text-transform:uppercase;font-weight:700;color:var(--paper);background:var(--ink);padding:8px 14px;display:block}
+  .vocab-def{font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;padding:12px 14px}
 </style>
 </head>
 <body>
@@ -172,6 +187,7 @@
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
   <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
+  <button class="tab-btn" onclick="switchTab('vocab',this)">VOCABULARI</button>
 </div>
 
 <div class="page-wrap">
@@ -217,7 +233,7 @@
         <p>Acabada la guerra, els aliats van dividir les zones d'influència en les conferències de Ialta i Potsdam (1945). L'Exèrcit Roig ocupava Europa Oriental; les forces angloamericanes, Europa Occidental. Ràpidament va quedar clar que la col·laboració de guerra no sobreviuria la pau. Churchill va descriure el 1946 la divisió d'Europa amb la metàfora del <strong>«teló d'acer»</strong>: una barrera que separava l'est del continent, sota control soviètic, de l'oest, sota influència occidental.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Marshall_Plan_poster.jpg&width=800" alt="Cartell del Pla Marshall, 1948" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Marshall_Plan_poster.JPG&width=800" alt="Cartell del Pla Marshall, 1948" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Cartell oficial del Pla Marshall (European Recovery Program), 1948. El Pla va proporcionar 13.000 milions de dòlars per reconstruir l'Europa Occidental. L'objectiu econòmic era crear economies pròsperes que resistissin l'atractiu del comunisme i ancorés els països europeus a l'òrbita nord-americana. La URSS va prohibir als seus països satèl·lits d'adherir-s'hi. Font: Wikimedia Commons (domini públic).</div>
         </div>
         <p>El 1947, el president nord-americà Truman va formular la <strong>Doctrina Truman</strong>: els EUA «contindran» l'expansió del comunisme arreu del món, donant suport a tots els governs amenaçats per forces comunistes. Era la declaració oficial de la Guerra Freda. El mateix any, el Pla Marshall oferia 12.000 milions de dòlars per reconstruir l'Europa Occidental: l'objectiu econòmic era crear economies pròsperes que resistissin l'atractiu del comunisme.</p>
@@ -264,7 +280,7 @@
         <p>El moment en el qual el món va estar més a prop d'una guerra nuclear. La URSS havia instal·lat míssils nuclears a Cuba —a 150 km de les costes de Florida— en resposta a la presència de míssils americans a Turquia. El president Kennedy va imposar un bloqueig naval a Cuba i va exigir la retirada dels míssils soviètics. Durant tretze dies d'octubre de 1962, els dos blocs van estar al límit. Finalment, un acord secret va resoldre la crisi: la URSS retirava els míssils de Cuba; els EUA es comprometien a no envair Cuba i a retirar els míssils de Turquia (sense anunciar-ho públicament).</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Cuban_Missile_Crisis_-_Kennedy_Signs_Cuba_Quarantine.jpg&width=800" alt="Kennedy signa la quarantena de Cuba, octubre de 1962" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/President_Kennedy_signs_Cuba_quarantine_proclamation%2C_23_October_1962.jpg&width=800" alt="Kennedy signa la quarantena de Cuba, octubre de 1962" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">El president Kennedy signa el decret de quarantena naval de Cuba, octubre de 1962. Tretze dies en els quals el planeta estava a un sol pas de la guerra nuclear. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -280,7 +296,7 @@
         <p>El 1968, Txecoslovàquia va intentar construir un «socialisme de rostre humà» sota el lideratge d'Alexander Dubček: llibertat de premsa, obertura política, reformes econòmiques, mantenint-se dins del bloc soviètic. La URSS va respondre el 20 d'agost de 1968 amb la invasió de Txecoslovàquia per cinc exèrcits del Pacte de Varsòvia. Brezhnev va formular la seva doctrina: cap país del bloc podia permetre's reformes que amenacessin el sistema soviètic. La imatge dels tancs soviètics entrant a Praga va ser un cop dur per a molts comunistes europeus i va accelerar l'«eurocomunisme», que buscava un camí al socialisme independent de Moscou.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Prague_Spring_1968.jpg&width=800" alt="Tancs soviètics a Praga, agost de 1968" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Portrait_of_Alexander_Dubcek_in_August_23rd%2C_1968_%28cropped%29.jpg&width=800" alt="Tancs soviètics a Praga, agost de 1968" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Tancs soviètics als carrers de Praga, agost de 1968. La invasió va acabar amb l'experiment del «socialisme de rostre humà» de Dubček. La Doctrina Brezhnev afirmava que cap país del bloc podia sortir del model soviètic. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -303,7 +319,7 @@
           <div class="img-cap">El president Truman signa el Tractat de l'Atlàntic Nord (OTAN), 4 d'abril de 1949. L'aliança militar occidental —avui amb 32 membres— és un dels llegats duradors de la Guerra Freda. La seva expansió cap a l'est és una de les causes oficials esgrimides per Rússia per a la invasió d'Ucraïna el 2022. Font: Wikimedia Commons (domini públic).</div>
         </div>
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Checkpoint_Charlie_1963.jpg&width=800" alt="Checkpoint Charlie, el pas fronterer entre Berlín Est i Berlín Oest, 1963. Escen" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Berlin_-_Checkpoint_Charlie_1963.jpg&width=800" alt="Checkpoint Charlie, el pas fronterer entre Berlín Est i Berlín Oest, 1963. Escen" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Checkpoint Charlie, el pas fronterer entre Berlín Est i Berlín Oest, 1963. Escenari de l'únic enfrontament directe de tancs americans i soviètics de la Guerra Freda (octubre 1961). Avui és un museu i atracció turística en el cor de Berlín reunificat. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -321,7 +337,7 @@
         <p>La glasnost va permetre que la gent s'assabentés dels crims de Stalin, de la corrupció del PCUS, de les ineficiències del sistema. La perestroika va desestabilitzar l'economia sense crear una alternativa funcional. I a les repúbliques no russes de la URSS, l'apertura va despertar nacionalismes que el sistema havia suprimit durant dècades.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Mikhail_Gorbachev_1987.jpg&width=800" alt="Mikhail Gorbatxov" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Mikhail_Gorbachev_1987_b.jpg&width=800" alt="Mikhail Gorbatxov" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Mikhail Gorbatxov (1987). Va intentar reformar la URSS amb la perestroika i la glasnost. Va guanyar el Nobel de la Pau (1990) per posar fi a la Guerra Freda. La URSS va desaparèixer un any després. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -330,7 +346,7 @@
         <p>En les setmanes i mesos següents, els règims comunistes d'Europa Oriental van caure un darrere l'altre: Bulgària, Txecoslovàquia (Revolució de Vellut, liderada per Václav Havel), Romania (Ceauşescu va ser executat per un tribunal sumaríssim), Polònia, Hongria. Va ser la revolució democràtica més extensa d'Europa des de 1848, i va ser en gran part pacífica.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Fall_of_the_Berlin_Wall_1989.jpg&width=800" alt="Caiguda del Mur de Berlín, novembre de 1989" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/West_and_East_Germans_at_the_Brandenburg_Gate_in_1989.jpg&width=800" alt="Caiguda del Mur de Berlín, novembre de 1989" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Berlinesos a sobre del Mur la nit del 9 de novembre de 1989. En hores, el símbol físic de la Guerra Freda era destruït per les pròpies mans dels seus ciutadans. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -357,7 +373,7 @@
         <p>Les dues figures que van incarnar el gir neoliberal van ser la primera ministra britànica <strong>Margaret Thatcher</strong> (1979–1990) i el president nord-americà <strong>Ronald Reagan</strong> (1981–1989). Procedien de tradicions polítiques conservadores però van adoptar les idees dels economistes de l'Escola de Chicago (Milton Friedman) i de l'austríac Friedrich Hayek: el mercat és sempre més eficient que l'Estat, la regulació distorsiona els incentius, i la prosperitat ve de deixar actuar lliurement els mercats.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Reagan_Thatcher_1984.jpg&width=800" alt="Margaret Thatcher i Ronald Reagan, 1984" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/President_Ronald_Reagan_and_Prime_Minister_Margaret_Thatcher_of_the_United_Kingdom.jpg&width=800" alt="Margaret Thatcher i Ronald Reagan, 1984" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Margaret Thatcher i Ronald Reagan a Camp David, 1984. Les dues figures emblemes de la revolució neoliberal dels anys 80, que va transformar profundament l'economia política occidental. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -510,7 +526,7 @@
         <div class="font-doc">
           <div class="font-doc-header"><span class="font-doc-label">Font C — Cartell oficial</span><span class="font-doc-tag">EUA · 1948</span></div>
           <div class="font-doc-cos" style="padding:0;text-align:center;background:#f5f5f3">
-            <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Marshall_Plan_poster.jpg&width=800" alt="Cartell oficial del Pla Marshall (European Recovery Program), 1948" style="max-width:100%;max-height:360px;object-fit:contain;display:inline-block" loading="lazy" onerror="this.parentNode.style.display='none'">
+            <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Marshall_Plan_poster.JPG&width=800" alt="Cartell oficial del Pla Marshall (European Recovery Program), 1948" style="max-width:100%;max-height:360px;object-fit:contain;display:inline-block" loading="lazy" onerror="this.parentNode.style.display='none'">
           </div>
           <div class="font-doc-peu">Cartell oficial del Pla Marshall (European Recovery Program), 1948. Mostra les banderes dels 16 països participants. Font: Wikimedia Commons (domini públic).</div>
         </div>
@@ -545,7 +561,7 @@
       <div class="act-header"><h3>Activitat 4 · Projecte final: del passat al present</h3><span class="act-badge">Síntesi del curs</span></div>
       <div class="act-body">
         <div class="font-doc">
-          <div class="font-doc-header"><span class="font-doc-label">Enunciat</span><span class="font-doc-tag">Activitat de síntesi</span></div>
+          <div class="font-doc-header"><span class="font-doc-label">Enunciat</span><span class="font-doc-tag">Síntesi · Guerra Freda</span></div>
           <div class="font-doc-cos">Tria <strong>un</strong> fenomen del món actual i traça les seves arrels históricques fins als temes del curs.<br><br>
 <strong>Possibles temes:</strong> migracions i refugiats · crisi climàtica · ascens de l'extrema dreta · desigualtat económica · guerra d'Ucraïna · conflicte a Gaza · crisi de l'habitatge · racisme sistèmic · precarietat laboral.<br><br>
 <strong>Exemple de cadena causal:</strong> Migracions → pobresa del Sud Global → neocolonialisme (T08) → colonialisme i fronteres arbitràries (T03) → conflictes armats post-colonials → Guerra Freda per procuració (T08) → crisi climàtica → model energètic des de la RI (T02).</div>
@@ -573,6 +589,22 @@
       </div>
     </div>
     </div><!-- /panel-ara -->
+
+
+    <div class="tab-panel" id="panel-vocab">
+      <div class="vocab-grid">
+      <div class="vocab-entry"><span class="vocab-term">estat del benestar</span><div class="vocab-def">Sistema polític en el qual l'Estat garanteix a la ciutadania educació, sanitat, pensions i protecció per desocupació. Va ser el model de l'Europa occidental en el context de la Guerra Freda, com a alternativa al comunisme soviètic.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">COMECON</span><div class="vocab-def">Organització de cooperació econòmica del bloc soviètic (1949–1991), creada en resposta al Pla Marshall. Va integrar les economies dels països de l'Est sota la direcció de la URSS.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Tercer Món</span><div class="vocab-def">Terme sorgit durant la Guerra Freda per designar els països que no s'alineaven ni amb el bloc occidental ni amb el soviètic, i que vivien en condicions de subdesenvolupament. Molts eren antics països colonials.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">autodeterminació</span><div class="vocab-def">Dret dels pobles a decidir lliurement la seva forma de govern. Va ser el principi jurídic que va fonamentar la descolonització dels anys 50–70, quan desenes de noves nacions africanes i asiàtiques van accedir a la independència.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Pla Marshall</span><div class="vocab-def">Programa nord-americà (1948) per reconstruir l'economia de l'Europa Occidental devastada per la guerra. Va invertir 12.000 milions de dòlars i va vincular l'economia europea a la nord-americana durant la Guerra Freda.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">NEP (Nova Política Econòmica)</span><div class="vocab-def">Mesures de Lenin (1921) que van introduir elements de mercat a l'economia soviètica per recuperar-se de la guerra civil. Va ser abandonada per Stalin, que va optar per la planificació forçada.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">teló d'acer</span><div class="vocab-def">Frontera simbòlica i física que va dividir Europa en dos blocs durant la Guerra Freda. La seva manifestació més concreta: el Mur de Berlín (1961–1989).</div></div>
+      <div class="vocab-entry"><span class="vocab-term">MAD (destrucció mútua assegurada)</span><div class="vocab-def">Doctrina nuclear que sostenia que qualsevol atac d'un bloc seria respondut amb una destrucció total de l'agressor. Va crear un equilibri del terror que, paradoxalment, va evitar la guerra directa entre superpotències.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">neoliberalisme</span><div class="vocab-def">Doctrina econòmica que proposa reduir la intervenció de l'Estat en l'economia, privatitzar les empreses públiques i desregular els mercats. Va triomfar políticament als anys 80 amb Reagan i Thatcher, i ha definit l'ordre econòmic global des d'aleshores.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">descolonització</span><div class="vocab-def">Procés per qual les antigues colònies europees van accedir a la independència, sobretot entre 1945 i 1975. Va ser impulsada per la debilitat de les metròpolis, els moviments d'alliberament nacional i la pressió de l'ONU.</div></div>
+      </div>
+    </div><!-- /panel-vocab -->
 
   </main>
 </div>

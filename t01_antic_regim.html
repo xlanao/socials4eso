@@ -156,6 +156,48 @@
   .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
   .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
   .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
+
+  /* font-doc classes (activitats) */
+  .font-doc{border:1px solid var(--line);margin:14px 0}
+  .font-doc-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .font-doc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700;white-space:nowrap}
+  .font-doc-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;text-align:right}
+  .font-doc-cos{padding:18px 20px;font-style:italic;font-size:.93rem;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .font-doc-cos strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-doc-peu{font-family:'DM Mono',monospace;font-size:.69rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);line-height:1.6}
+
+  /* ── Vocabulari ── */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding:4px 0}
+  .vocab-entry{border:1px solid var(--line);padding:0}
+  .vocab-term{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.10em;text-transform:uppercase;font-weight:700;color:var(--paper);background:var(--ink);padding:8px 14px;display:block}
+  .vocab-def{font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;padding:12px 14px}
+
+  /* ── Història de l'Art ── */
+  .art-intro{font-size:.95rem;color:var(--ink-soft);font-weight:300;line-height:1.75;margin-bottom:32px;max-width:740px}
+  .art-section{margin-bottom:48px}
+  .art-section-header{border-left:3px solid var(--blue);padding-left:16px;margin-bottom:20px}
+  .art-section-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:4px}
+  .art-section-title{font-family:'Spectral',serif;font-size:1.35rem;font-weight:600;color:var(--ink);margin:0}
+  .art-section-sub{font-size:.82rem;color:var(--ink-faint);font-weight:300;margin-top:4px;font-family:'DM Mono',monospace}
+  .art-body{font-size:.93rem;color:var(--ink-soft);font-weight:300;line-height:1.75}
+  .art-body p{margin-bottom:12px}
+  .art-body p:last-child{margin-bottom:0}
+  .art-obra{border:1px solid var(--line);margin:20px 0;display:grid;grid-template-columns:1fr 1fr;gap:0}
+  @media(max-width:640px){.art-obra{grid-template-columns:1fr}}
+  .art-obra-img{background:var(--paper-alt,#f7f6f3);display:flex;align-items:center;justify-content:center;padding:12px}
+  .art-obra-img img{max-height:280px;width:100%;object-fit:contain}
+  .art-obra-info{padding:20px;border-left:1px solid var(--line)}
+  @media(max-width:640px){.art-obra-info{border-left:none;border-top:1px solid var(--line)}}
+  .art-obra-nom{font-family:'Spectral',serif;font-size:1rem;font-weight:600;color:var(--ink);margin:0 0 4px}
+  .art-obra-meta{font-family:'DM Mono',monospace;font-size:.7rem;color:var(--ink-faint);letter-spacing:.06em;margin-bottom:12px}
+  .art-obra-desc{font-size:.85rem;color:var(--ink-soft);font-weight:300;line-height:1.65}
+  .art-compare{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);margin:24px 0}
+  @media(max-width:640px){.art-compare{grid-template-columns:1fr}}
+  .art-compare-col{background:var(--paper);padding:20px}
+  .art-compare-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--blue);display:block;margin-bottom:10px}
+  .art-compare-list{list-style:none;padding:0;margin:0}
+  .art-compare-list li{font-size:.85rem;color:var(--ink-soft);font-weight:300;line-height:1.6;margin-bottom:6px;padding-left:14px;position:relative}
+  .art-compare-list li::before{content:'—';position:absolute;left:0;color:var(--ink-faint)}
 </style>
 </head>
 <body>
@@ -180,7 +222,9 @@
 <div class="tabs-bar">
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
+  <button class="tab-btn" onclick="switchTab('art',this)">HISTÒRIA DE L'ART</button>
   <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
+  <button class="tab-btn" onclick="switchTab('vocab',this)">VOCABULARI</button>
 </div>
 
 <div class="page-wrap">
@@ -524,6 +568,129 @@
     </div><!-- /panel-cronologia -->
 
     <!-- ═══ TAB 3: LA HISTORIA, ARA ═══ -->
+    <div class="tab-panel" id="panel-art">
+
+      <p class="art-intro">A inicis del segle XIX, dues corrents artístiques coexistien en tensió a França: el <strong>Neoclassicisme</strong>, art oficial de la Revolució i de l'Imperi, i el <strong>Romanticisme</strong>, reacció emocional contra el rigor racionalista. Entendre-les no és una qüestió estètica: és entendre com la societat del moment volia representar-se a si mateixa.</p>
+
+      <!-- NEOCLASSICISME -->
+      <div class="art-section">
+        <div class="art-section-header">
+          <span class="art-section-label">Corrent I</span>
+          <h3 class="art-section-title">El Neoclassicisme</h3>
+          <div class="art-section-sub">França · c. 1760–1830 · Raó, ordre, moral cívica</div>
+        </div>
+        <div class="art-body">
+          <p>El Neoclassicisme sorgeix directament del pensament il·lustrat: si la raó és l'eina per entendre el món, l'art ha d'expressar ordre, claredat i control. S'inspira en Grècia i Roma antigues, que les acadèmies consideraven el model de perfecció i bellesa. Les institucions acadèmiques van codificar un conjunt de normes que definien el «bon art»: jerarquia de gèneres (al cim, la pintura d'història; a sota, el paisatge o la natura morta), primacia del dibuix sobre el color, composicions equilibrades, figures idealitzades amb acabat perfecte, i una funció moral i didàctica explícita.</p>
+          <p>L'art neoclàssic no és decoratiu: és propaganda. Les obres han de transmetre valors —el sacrifici per la pàtria, la virtut cívica, el deure sobre el sentiment— i servir als ideals polítics del moment. David va convertir el pinzell en un instrument de la Revolució i, posteriorment, de Napoleó.</p>
+        </div>
+
+        <div class="art-obra">
+          <div class="art-obra-img">
+            <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Jacques-Louis_David_-_Oath_of_the_Horatii_-_Google_Art_Project.jpg&width=800" alt="El Jurament dels Horacis, David, 1784" loading="lazy" onerror="this.parentNode.style.display='none'">
+          </div>
+          <div class="art-obra-info">
+            <div class="art-obra-nom">El Jurament dels Horacis</div>
+            <div class="art-obra-meta">Jacques-Louis David · 1784–85 · Oli sobre tela, 330 × 425 cm · Museu del Louvre, París</div>
+            <div class="art-obra-desc">
+              <p>L'obra central del Neoclassicisme. Tres germanos romans juren davant el seu pare defensar Roma fins a la mort, mentre les seves germanes (que estimen homes de l'enemic) s'afonen en el dolor. El missatge és clar: el deure envers l'Estat per damunt del sentiment familiar.</p>
+              <p><strong>Anàlisi formal:</strong> Composició en tres arcades simètriques. Les figures masculines són angles i geometria; les femenines, corbes i fletant. La llum és neta, d'una sola font. Cap pinzellada visible: acabat perfecte. Dibuix precís que delimita cada figura. La pintura és llegible com un discurs polític: quatre anys abans de la Revolució, es convertirà en la imatge que prefigura el Jurament del Joc de la Pilota.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="art-obra">
+          <div class="art-obra-img">
+            <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Death_of_Marat_by_David.jpg&width=800" alt="La mort de Marat, David, 1793" loading="lazy" onerror="this.parentNode.style.display='none'">
+          </div>
+          <div class="art-obra-info">
+            <div class="art-obra-nom">La mort de Marat</div>
+            <div class="art-obra-meta">Jacques-Louis David · 1793 · Oli sobre tela, 162 × 128 cm · Museus Reials de Belles Arts de Bèlgica, Brussel·les</div>
+            <div class="art-obra-desc">
+              <p>Marat, periodista jacobí i amic de David, ha estat assassinat per Charlotte Corday mentre treballava dins la banyera (es banyava per alleujar una malaltia de pell). David el pinta com un màrtir revolucionari: la composició recorda una Pietà cristiana. El fons és absolutament negre i buit —tota l'atenció al cos.</p>
+              <p><strong>Anàlisi formal:</strong> Llum clara i clínica des de l'esquerra superior. Cap drama en la composició: la mort és presentada com a serenitat i dignitat. La pell perfecta de Marat —David elimina la malaltia real— el idealitza. És Neoclassicisme al servei de la propaganda política més directa.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-top:24px">
+          <span class="info-label">Jacques-Louis David (1748–1825)</span>
+          <p>Diputat jacobí, amic de Robespierre, pintor oficial de la Revolució i, posteriorment, de Napoleó. Va institucionalitzar el Neoclassicisme des de les acadèmies i va formar una generació sencera de pintors. La seva trajectòria resumeix la paradoxa del neoclàssic: un art de la raó i l'ordre que es posa sempre al servei del poder del moment.</p>
+        </div>
+      </div>
+
+      <!-- ROMANTICISME -->
+      <div class="art-section">
+        <div class="art-section-header">
+          <span class="art-section-label">Corrent II</span>
+          <h3 class="art-section-title">El Romanticisme</h3>
+          <div class="art-section-sub">Europa · c. 1800–1850 · Sentiment, llibertat, nació</div>
+        </div>
+        <div class="art-body">
+          <p>El Romanticisme sorgeix com a reacció contra la Il·lustració i el seu culte a la raó. Si el Neoclassicisme pinta el que s'ha de ser, el Romanticisme pinta el que se sent. L'emoció, el dramatisme, la natura salvatge i l'individu davant la grandesa del món passen al centre de l'obra. És l'estil que s'identifica amb els moviments obrers i nacionals: l'art que parla per als qui no tenien veu a les acadèmies.</p>
+          <p>En comptes d'imitar Grècia i Roma, els romàntics busquen el passat medieval, l'exòtic, el misteris, allò que escapa al control de la raó. La natura ja no és harmònica i perfecta: és brutal, imprevisible, sublime. Les composicions trencen la simetria acadèmica. El color s'allibera del dibuix. Les pinzellades es fan visibles, els contorns es desdibuixen.</p>
+        </div>
+
+        <div class="art-obra">
+          <div class="art-obra-img">
+            <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Eug%C3%A8ne_Delacroix_-_Le_28_Juillet._La_Libert%C3%A9_guidant_le_peuple.jpg&width=800" alt="La Llibertat guiant el poble, Delacroix, 1830" loading="lazy" onerror="this.parentNode.style.display='none'">
+          </div>
+          <div class="art-obra-info">
+            <div class="art-obra-nom">La Llibertat guiant el poble</div>
+            <div class="art-obra-meta">Eugène Delacroix · 1830 · Oli sobre tela, 260 × 325 cm · Museu del Louvre, París</div>
+            <div class="art-obra-desc">
+              <p>Pintada arran de la Revolució de Juliol de 1830 contra Carles X, l'obra combina al·legoria i realisme brutal: al·legoria perquè la figura central (la Llibertat, amb el barret frigi i la bandera tricolor) no és una persona real; realisme perquè al seus peus hi ha cossos, sang i fum. La barreja de classes socials —un obrer, un burgès amb barret de copa, un nen— és deliberada: la revolució és de tots.</p>
+              <p><strong>Anàlisi formal:</strong> Composició en diagonal ascendent i triangular cap a la Llibertat. Colors càlids i freds en fort contrast. Pinzellades visibles, figures menys definides que en David. La llum no és ordenada: és el caos de la batalla. L'obra és tot el que el Neoclassicisme no volia ser.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="info-box" style="margin-top:24px">
+          <span class="info-label">Eugène Delacroix (1798–1863)</span>
+          <p>El gran pintor del Romanticisme francès. Va trencar amb totes les normes acadèmiques: color per sobre del dibuix, composicions dinàmiques, temes exòtics i contemporanis, passió política. Va viatjar al Marroc (1832), que li va aportar una paleta i uns temes nous. Si David és el pintor de la raó d'estat, Delacroix és el pintor de la raó del cor.</p>
+        </div>
+      </div>
+
+      <!-- COMPARACIÓ -->
+      <div class="art-section">
+        <div class="art-section-header">
+          <span class="art-section-label">Síntesi</span>
+          <h3 class="art-section-title">Neoclassicisme vs. Romanticisme: les diferències clau</h3>
+        </div>
+        <div class="art-compare">
+          <div class="art-compare-col">
+            <span class="art-compare-label">Neoclassicisme</span>
+            <ul class="art-compare-list">
+              <li><strong>Raó</strong> per sobre del sentiment</li>
+              <li><strong>Línia</strong> per sobre del color: figures perfectament definides, contorns nítids</li>
+              <li><strong>Composició simètrica</strong> i equilibrada, línies rectes i ordenades</li>
+              <li><strong>Il·luminació neta</strong>: una sola font de llum, totes les parts visibles</li>
+              <li><strong>Acabat perfecte</strong>: cap pinzellada visible, superfície polida</li>
+              <li>Inspiració en <strong>Grècia i Roma</strong> antigues</li>
+              <li>Art <strong>oficial i acadèmic</strong>: normes fixes, jerarquia de gèneres</li>
+              <li>Funció <strong>moral i política</strong>: transmetre virtuts cíviques</li>
+            </ul>
+          </div>
+          <div class="art-compare-col">
+            <span class="art-compare-label">Romanticisme</span>
+            <ul class="art-compare-list">
+              <li><strong>Sentiment</strong> per sobre de la raó</li>
+              <li><strong>Color</strong> per sobre de la línia: taques i pinzellades, contorns difuminats</li>
+              <li><strong>Composició dinàmica</strong>: diagonals, línies irregulars, asimetria</li>
+              <li><strong>Clarobscur</strong>: forts contrasts de llum i ombra, zones en penombra</li>
+              <li><strong>Acabat imperfecte i obert</strong>: pinzellades visibles, obra «inacabada»</li>
+              <li>Inspiració en el <strong>passat medieval, l'exòtic</strong> i la natura salvatge</li>
+              <li>Art <strong>individual i subjectiu</strong>: creativitat per sobre de les normes</li>
+              <li>Funció <strong>emocional i política</strong>: expressar la llibertat i la identitat nacional</li>
+            </ul>
+          </div>
+        </div>
+        <div class="art-body" style="margin-top:16px">
+          <p>La diferència entre els dos estils no és simplement estètica: és política i de classe. El Neoclassicisme és l'art de les institucions, de l'acadèmia, del poder establert —primer la Revolució, després Napoleó. El Romanticisme és l'art de la contestació, dels moviments obrers i nacionals, dels qui s'identifiquen amb la passió i la llibertat per sobre de l'ordre. Un mateix període históric va produir dos mons estètics que s'impugnen mútuament, i cadascun diu sobre la societat alguna cosa diferent.</p>
+        </div>
+      </div>
+
+    </div><!-- /panel-art -->
+
     <div class="tab-panel" id="panel-ara">
 
     <div class="act-intro">Les activitats d'aquest tema treballen l'Antic Règim, la Il·lustració i la Revolució Francesa a través de fonts escrites, visuals i la comparació crítica entre dues perspectives contraposades. Segueix per a cada activitat els tres passos: <strong>Descriu</strong> la font → <strong>Situa</strong> el context → <strong>Analitza</strong> el significat.</div>
@@ -598,6 +765,24 @@ Art. 17. Essent la propietat un dret inviolable i sagrat, ningú no pot ser priv
       </div>
     </div>
     </div><!-- /panel-ara -->
+
+
+    <div class="tab-panel" id="panel-vocab">
+      <div class="vocab-grid">
+      <div class="vocab-entry"><span class="vocab-term">Antic Règim</span><div class="vocab-def">Sistema polític i social anterior a les revolucions liberals del segle XVIII, caracteritzat per la monarquia absoluta, la societat estamental i l'economia agrícola feudal.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Il·lustració</span><div class="vocab-def">Moviment cultural europeu del segle XVIII que defensa la raó, la llibertat i la igualtat com a fonaments de la societat. Pensadors com Montesquieu, Voltaire i Rousseau van qüestionar l'absolutisme i van preparar el terreny per a la Revolució Francesa.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Estates Generals (États Généraux)</span><div class="vocab-def">Reunió dels representants dels tres estaments de l'Antic Règim a França (clergat, noblesa i Tercer Estat). La seva convocatòria el 1789 va desencadenar la Revolució Francesa.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">girondins</span><div class="vocab-def">Grup parlamentari moderat de la Revolució Francesa, representant de la burgesia. Defensaven la llibertat, la propietat i s'oposaven a la condemna de Lluís XVI.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">jacobins</span><div class="vocab-def">Corrent radical de la Revolució Francesa, dirigida per Robespierre. Defensaven la igualtat per sobre de la llibertat i van protagonitzar el Terror (1793–1794).</div></div>
+      <div class="vocab-entry"><span class="vocab-term">delme</span><div class="vocab-def">Impost del 10% de la collita que els pagesos devien a l'Església durant l'Antic Règim. Símbol de les càrregues fiscals injustes sobre el Tercer Estat.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">crisi de subsistència</span><div class="vocab-def">Periòdiques fams provocades per la baixa productivitat agrícola de l'Antic Règim. Una de les causes directes del descontentament popular que va alimentar la Revolució.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">burgesia</span><div class="vocab-def">Classe social propietària dels negocis i el capital, sorgida a les ciutats medievals. Protagonista de les revolucions liberals i classe dominant del nou ordre capitalista.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">absolutisme</span><div class="vocab-def">Sistema de govern on el monarca concentra tots els poders sense limitació legal. La teoria del «dret diví» el justificava com a mandat de Déu.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">societat estamental</span><div class="vocab-def">Organització social de l'Antic Règim dividida en tres estaments: clergat i noblesa (privilegiats, sense impostos) i Tercer Estat (la gran majoria que pagava tots els impostos).</div></div>
+      <div class="vocab-entry"><span class="vocab-term">sobirania popular</span><div class="vocab-def">Principi il·lustrat que situa el poder en el conjunt dels ciutadans, no en el rei. Fonament de la democràcia moderna i raó central de la Revolució Francesa.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Terror (La Terreur)</span><div class="vocab-def">Fase de la Revolució Francesa (1793–1794) dirigida pels jacobins, en la qual milers de persones van ser executades a la guillotina com a «enemics de la República».</div></div>
+      </div>
+    </div><!-- /panel-vocab -->
 
   </main>
 </div>

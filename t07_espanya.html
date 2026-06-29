@@ -161,6 +161,21 @@
   .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
   .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
   .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
+
+  /* font-doc classes (activitats) */
+  .font-doc{border:1px solid var(--line);margin:14px 0}
+  .font-doc-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .font-doc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700;white-space:nowrap}
+  .font-doc-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;text-align:right}
+  .font-doc-cos{padding:18px 20px;font-style:italic;font-size:.93rem;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .font-doc-cos strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-doc-peu{font-family:'DM Mono',monospace;font-size:.69rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);line-height:1.6}
+
+  /* ── Vocabulari ── */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding:4px 0}
+  .vocab-entry{border:1px solid var(--line);padding:0}
+  .vocab-term{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.10em;text-transform:uppercase;font-weight:700;color:var(--paper);background:var(--ink);padding:8px 14px;display:block}
+  .vocab-def{font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;padding:12px 14px}
 </style>
 </head>
 <body>
@@ -186,6 +201,7 @@
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
   <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
+  <button class="tab-btn" onclick="switchTab('vocab',this)">VOCABULARI</button>
 </div>
 
 <div class="page-wrap">
@@ -258,7 +274,7 @@
         <p>El <strong>26 de juliol</strong>, els sindicats van convocar una vaga general a Barcelona que es va convertir ràpidament en una insurrecció popular espontània. Durant una setmana, barris obrers de Barcelona, el Baix Llobregat i el Vallès van cremar esglésies i convents —símbols del poder clerical i de l'aliança entre l'Església i les classes dominants—, van construir barricades i van enfrontar-se a l'exèrcit. La repressió va ser brutal: 104 morts, centenars de ferits, milers de detinguts. Cinc persones van ser afusellades, entre elles el pedagog anarquista <strong>Francesc Ferrer i Guàrdia</strong>, fundador de l'Escola Moderna, que va ser condemnat amb proves fabricades en un procés que va escandalitzar mig Europa.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Semana_Tr%C3%A1gica_de_Barcelona.jpg&width=800" alt="La Setmana Tràgica de Barcelona, juliol de 1909" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Semana_tragica.jpg&width=800" alt="La Setmana Tràgica de Barcelona, juliol de 1909" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Barricades al carrer durant la Setmana Tràgica de Barcelona, juliol de 1909. La revolta espontània dels barris obrers contra la mobilització militar va ser reprimida amb un centenar de morts. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -290,18 +306,18 @@
         <p>Primo de Rivera va dimitir el <strong>gener del 1930</strong>, sense suport ni de l'exèrcit ni del rei. El règim de la Restauració havia sobrevingut al trauma, però tan dèbilment que en setze mesos més el rei també hauria de marxar.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Miguel_Primo_de_Rivera.jpg&width=800" alt="El general Primo de Rivera" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/General_Miguel_Primo_de_Rivera.jpg&width=800" alt="El general Primo de Rivera" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">El general Miguel Primo de Rivera, dictador d'Espanya entre 1923 i 1930. Va suprimir la Constitució, va prohibir el catalanisme polític i va dissoldre la Mancomunitat de Catalunya. Font: Wikimedia Commons (domini públic).</div>
         </div>
       </section>
 
       
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lluis_Companys_1933.jpg&width=800" alt="Lluís Companys (1882–1940), president de la Generalitat de Catalunya. Extradit d" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Lluis_Companys.jpg&width=800" alt="Lluís Companys (1882–1940), president de la Generalitat de Catalunya. Extradit d" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Lluís Companys (1882–1940), president de la Generalitat de Catalunya. Extradit de França per les autoritats nazis a petició del règim de Franco, va ser afusellat al Castell de Montjuïc el 15 d'octubre de 1940. És l'únic president d'un govern europeu executat per ordre d'un altre cap d'Estat al segle XX. Font: Wikimedia Commons (domini públic).</div>
         </div>
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Guernica_Picasso.jpg&width=800" alt="Pablo Picasso, <em>Guernica</em> (1937, oli sobre tela, 349×776 cm). Creat per e" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Museo_Reina_Sof%C3%ADa.jpg&width=800" alt="Pablo Picasso, <em>Guernica</em> (1937, oli sobre tela, 349×776 cm). Creat per e" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Pablo Picasso, <em>Guernica</em> (1937, oli sobre tela, 349×776 cm). Creat per encàrrec del govern republicà per a l'Exposició Universal de París. La distorsió cubista de les figures humanes i animals expressa el terror, el dolor i el caos de la guerra sobre els civils. Museu Reina Sofía, Madrid. Font: Wikimedia Commons / Successió Picasso.</div>
         </div>
 
@@ -327,7 +343,7 @@
         </div>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Clara_Campoamor.jpg&width=800" alt="Clara Campoamor, diputada republicana" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Clara-Campoamor.jpg&width=800" alt="Clara Campoamor, diputada republicana" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Clara Campoamor, diputada del Partit Republicà Radical, defensora del sufragi femení a les Corts Constituents de 1931. Va guanyar el debat parlamentari gràcies a una intervenció que va fer història. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -402,7 +418,7 @@
         <p>El <strong>26 d'abril del 1937</strong>, la Legió Còndor alemanya i l'aviació italiana van bombardejar la ciutat basca de <strong>Guernica</strong> en dia de mercat, quan estava plena de civils. El bombardeig va durar tres hores, amb bombes explosives i incendiàries. Centenars de persones van morir. Va ser el <strong>primer bombardeig sistemàtic d'una població civil</strong> de la historia de l'aviació moderna. Pablo Picasso, que havia rebut l'encàrrec del govern de la República per a l'Exposició Universal de París, va crear en poques setmanes el <em>Guernica</em> (1937), monument permanent a les víctimes civils de la guerra.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Guernica_bombing_1937.jpg&width=800" alt="Restes de Guernica després del bombardeig, abril de 1937" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Bundesarchiv_Bild_183-H25224%2C_Guernica%2C_Ruinen.jpg&width=800" alt="Restes de Guernica després del bombardeig, abril de 1937" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Restes de Guernica després del bombardeig de la Legió Còndor, 26 d'abril de 1937. Tres hores de bombardeig sobre una població basca en dia de mercat: el primer assaig de la «guerra total» contra civils. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -417,16 +433,15 @@
         <p>Però la revolució social va generar tensions internes greus. Els <strong>Fets de Maig del 1937</strong> a Barcelona van ser la ruptura: enfrontaments armats entre la CNT-FAI i el POUM (que volien continuar la revolució) i el PCE i el govern republicà (que prioritzaven la disciplina militar). La repressió del POUM per part dels comunistes —sovint dirigida des de Moscou— va fracturar profundament el bàndol antifeixista.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/International_Brigades_poster.jpg&width=800" alt="Cartell de les Brigades Internacionals" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/CNT-FAI_poster_1936.jpg&width=800" alt="Cartell de les Brigades Internacionals" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Cartell de reclutament de les Brigades Internacionals. 35.000 voluntaris de 54 països van anar a Espanya per lluitar contra el feixisme. Van ser decisius en la defensa de Madrid el novembre de 1936. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <h3 id="s3-5">3.5. La derrota i la repressió</h3>
         <p>La caiguda de Catalunya (gener–febrer del 1939) va obrir una <strong>onada de refugiats</strong>: prop de 500.000 persones van creuar la frontera francesa en poques setmanes, en el que es coneix com «la <em>Retirada</em>». França els va internar en camps improvisats a la costa (Argelers, Sant Cebrià). El <strong>28 de març de 1939</strong>, les tropes franquistes van entrar a Madrid. L'1 d'abril, Franco va signar l'últim part de guerra: «La guerra ha terminado.»</p>
 
-        <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Spanish_refugees_crossing_into_France.jpg&width=800" alt="Refugiats republicans creuant la frontera francesa, febrer de 1939" loading="lazy" onerror="this.parentNode.style.display='none'">
-          <div class="img-cap">La Retirada: refugiats republicans creuant la frontera francesa a peu, febrer de 1939. Uns 500.000 persones van fugir en poques setmanes. Font: Wikimedia Commons (domini públic).</div>
+                <div class="warn-box" style="border-top:none;border-bottom:1px solid var(--ink);padding:14px 0;margin:20px 0">
+          <p style="margin:0;font-size:.88rem;color:var(--ink-soft)"><strong>La Retirada (febrer 1939).</strong> Quan Barcelona va caure el 26 de gener de 1939, prop de 500.000 persones van creuar els Pirineus a peu en menys de dues setmanes: soldats republicans, civils, anarquistes de la CNT-FAI, militants del POUM, famílies senceres. França els va internar en camps de concentració a la platja —Argelès, Sant Cebrià, el Barcarès— sense abric, sense aigua corrent, amb els peus en la sorra d'hivern. Molts mai van tornar a Espanya. La Retirada és la ferida que Catalunya i Espanya encara no han cicatritzat del tot. Les fotografies que existeixen d'aquest episodi (Robert Capa, entre d'altres) no es troben en domini públic i no es poden reproduir aquí.</p>
         </div>
 
         <div class="def-box">
@@ -449,7 +464,7 @@
         <p>El règim de Franco va durar <strong>trenta-sis anys</strong>, el període dictatorial més llarg d'Europa occidental al segle XX. Va ser una dictadura militar-clerical-feixista que es va anar adaptant als canvis internacionals sense canviar la seva natura essencial. El poder de Franco reposava en tres pilars: l'<strong>exèrcit</strong> vencedor de la guerra, l'<strong>Església catòlica</strong> que havia beneït la «cruzada», i les <strong>classes dominants econòmiques</strong> —terratinents, banquers, gran burgesia industrial— que havien finançat el cop.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Franco_en_el_desfile_de_la_victoria_1939.jpg&width=800" alt="Franco al desfilada de la victòria, 1939" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Francisco_Franco_desfile_de_la_victoria_1939.jpg&width=800" alt="Franco al desfilada de la victòria, 1939" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Francisco Franco a la desfilada de la victòria a Madrid, 19 de maig de 1939. Al costat, representants de la Falange, l'exèrcit i els aliats italians. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -468,7 +483,7 @@
         <p>Però la repressió cultural no va aconseguir destruir la llengua ni la identitat. Des de la clandestinitat, escriptors i editors van mantenir viva la cultura catalana. L'<strong>Òmnium Cultural</strong> (fundat el 1961) i el <strong>Congrés de Cultura Catalana</strong> van ser instruments de resistència. La <strong>Nova Cançó</strong> —Lluís Llach, Raimon, Maria del Mar Bonet, Joan Manuel Serrat— va convertir la música en vehicle de resistència política.</p>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Llach_en_el_Palau_dels_Esports.jpg&width=800" alt="Lluís Llach al Palau dels Esports de Barcelona" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Llu%C3%ADs_Llach.jpg&width=800" alt="Lluís Llach" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Lluís Llach en concert al Palau dels Esports de Barcelona durant el franquisme tardà. La Nova Cançó va ser un dels vectors principals de resistència cultural i identitària catalana. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -496,12 +511,12 @@
         </ul>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Exhumacion_de_victimas_del_franquismo.jpg&width=800" alt="Exhumació de víctimes del franquisme d'una fossa comuna" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Valle_de_los_caidos.jpg&width=800" alt="Exhumació de víctimes del franquisme d'una fossa comuna" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Exhumació de víctimes del franquisme d'una fossa comuna. Espanya és el segon país del món amb més fosses comunes de víctimes polítiques, després de Cambodja. Dècades després, moltes famílies continuen buscant els seus morts. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Valle_de_los_Ca%C3%ADdos_-_2007_05_02.jpg&width=800" alt="El Valle de los Caídos" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Valle_de_los_Ca%C3%ADdos_Cross.jpg&width=800" alt="El Valle de los Caídos" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">El Valle de los Caídos, construït amb treball forçat de presoners republicans (1940–1958). Franco hi va ser enterrat el 1975. Les seves restes van ser traslladades al cementiri de Mingorrubio el 2019. Font: Wikimedia Commons (domini públic).</div>
         </div>
       </section>
@@ -557,7 +572,7 @@
         </div>
 
         <div class="img-wrap">
-          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/23F.jpg&width=800" alt="El cop del 23-F al Congrés dels Diputats" loading="lazy" onerror="this.parentNode.style.display='none'">
+          <img src="https://commons.wikimedia.org/w/index.php?title=Special:Redirect/file/Congreso_de_los_diputados%2C_disparos_del_techo%2C_Madrid%2C_Espa%C3%B1a%2C_2015_09.JPG&width=800" alt="El cop del 23-F al Congrés dels Diputats" loading="lazy" onerror="this.parentNode.style.display='none'">
           <div class="img-cap">Diputats a terra al Congrés dels Diputats durant el cop del 23-F, 23 de febrer de 1981. La fotografia, captada per la càmera de televisió que gravava la sessió, va donar la volta al món. Font: Wikimedia Commons (domini públic).</div>
         </div>
 
@@ -720,6 +735,21 @@
       </div>
     </div>
     </div><!-- /panel-ara -->
+
+
+    <div class="tab-panel" id="panel-vocab">
+      <div class="vocab-grid">
+      <div class="vocab-entry"><span class="vocab-term">anarquisme</span><div class="vocab-def">Doctrina que rebutja tota forma d'autoritat estatal i proposa l'autoorganització lliure de la societat. A Espanya, va arrelar profundament entre el moviment obrer, especialment a Catalunya, amb la CNT com a principal organització.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">guerrilla</span><div class="vocab-def">Forma de combat protagonitzada per grups irregulars. El terme va néixer precisament a Espanya, durant la resistència a Napoleó (1808–1814), i es va emprar de nou durant la Guerra Civil (1936–39).</div></div>
+      <div class="vocab-entry"><span class="vocab-term">apartheid</span><div class="vocab-def">Sistema de segregació racial basat en la dominació d'una minoria sobre la majoria. A Espanya, el franquisme va aplicar una forma de segregació cultural i política: persecució de les cultures catalana, basca i gallega, i repressió sistemàtica dels vençuts.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">genocidi</span><div class="vocab-def">Extermini sistemàtic d'un grup. El concepte s'aplica als debats historiogràfics sobre la repressió franquista: es discuteix si l'escala i la sistematicitat de les execucions constitueix genocidi polític.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">autodeterminació</span><div class="vocab-def">Dret dels pobles a decidir la seva forma de govern. A Espanya, el debat sobre l'autodeterminació dels pobles català, basc i gallec és un dels eixos de la política contemporània, especialment des de la Transició.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">caciquisme</span><div class="vocab-def">Sistema de control polític de la Restauració (1876–1923) per qual els cacics locals manipulaven les eleccions per garantir resultats pactats. Va buidar de contingut la democràcia formal i va bloquejar la modernització política d'Espanya.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">sufragi universal (femení)</span><div class="vocab-def">Dret al vot sense restricció de sexe. Espanya va ser pionera a Europa: la Constitució republicana de 1931 va reconèixer el vot de les dones, impulsat per Clara Campoamor, molt abans que moltes democràcies occidentals.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">franquisme</span><div class="vocab-def">Règim polític i social imposat pel general Franco a Espanya des del 1939 fins a la seva mort el 1975. Dictadura personal, nacional-catolicisme, repressió de les oposicions i de les cultures no castellanes, autarquia econòmica fins als anys 60.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Transició democràtica</span><div class="vocab-def">Procés de canvi polític que va transformar Espanya d'una dictadura en una democràcia parlamentària entre 1975 i 1982. Caracteritzat pel consens i la «política dels acords», va incloure l'amnistia i el pacte de silenci sobre el passat franquista.</div></div>
+      </div>
+    </div><!-- /panel-vocab -->
 
   </main>
 </div>

@@ -148,6 +148,21 @@
   .act-q-num{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:700;color:var(--blue);padding-top:3px;flex-shrink:0;min-width:22px}
   .act-nota{border-top:1px solid var(--line-faint);margin-top:16px;padding-top:13px;font-family:'DM Mono',monospace;font-size:.72rem;color:var(--ink-faint);letter-spacing:.04em;line-height:1.6}
   .act-nota::before{content:'NOTA — ';font-weight:700;color:var(--ink)}
+
+  /* font-doc classes (activitats) */
+  .font-doc{border:1px solid var(--line);margin:14px 0}
+  .font-doc-header{background:var(--ink);padding:9px 16px;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .font-doc-label{font-family:'DM Mono',monospace;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:var(--paper);font-weight:700;white-space:nowrap}
+  .font-doc-tag{font-family:'DM Mono',monospace;font-size:9px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.06em;text-align:right}
+  .font-doc-cos{padding:18px 20px;font-style:italic;font-size:.93rem;color:var(--ink-soft);line-height:1.8;font-weight:300}
+  .font-doc-cos strong{color:var(--ink);font-style:normal;font-weight:600}
+  .font-doc-peu{font-family:'DM Mono',monospace;font-size:.69rem;color:var(--ink-faint);padding:8px 16px;border-top:1px solid var(--line-faint);line-height:1.6}
+
+  /* ── Vocabulari ── */
+  .vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;padding:4px 0}
+  .vocab-entry{border:1px solid var(--line);padding:0}
+  .vocab-term{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.10em;text-transform:uppercase;font-weight:700;color:var(--paper);background:var(--ink);padding:8px 14px;display:block}
+  .vocab-def{font-size:.88rem;color:var(--ink-soft);font-weight:300;line-height:1.65;padding:12px 14px}
 </style>
 </head>
 <body>
@@ -173,6 +188,7 @@
   <button class="tab-btn active" onclick="switchTab('apunts',this)">APUNTS</button>
   <button class="tab-btn" onclick="switchTab('cronologia',this)">EIX CRONOLÒGIC</button>
   <button class="tab-btn" onclick="switchTab('ara',this)">ACTIVITATS</button>
+  <button class="tab-btn" onclick="switchTab('vocab',this)">VOCABULARI</button>
 </div>
 
 <div class="page-wrap">
@@ -551,6 +567,24 @@
       </div>
     </div>
     </div><!-- /panel-ara -->
+
+
+    <div class="tab-panel" id="panel-vocab">
+      <div class="vocab-grid">
+      <div class="vocab-entry"><span class="vocab-term">totalitarisme</span><div class="vocab-def">Règim polític que pretén controlar tots els àmbits de la vida dels ciutadans: política, economia, cultura, família. Característic dels feixismes europeus i de l'estalinisme dels anys 30.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">especulació</span><div class="vocab-def">Operació financera que busca guanyar diners aprofitant les fluctuacions de preus, sense crear riquesa real. L'especulació borsària als EUA dels anys 20 va ser una de les causes del Crac del 29.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">bombolla especulativa</span><div class="vocab-def">Procés en el qual el valor d'un actiu puja de manera irracional fins que «esclata» i cau sobtadament. La borsa de Wall Street el 1929 és l'exemple clàssic.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">hiperinflació</span><div class="vocab-def">Inflació extrema que destrueix el valor de la moneda. L'Alemanya de Weimar la va patir el 1923: el marc va arribar a valer 4,2 bilions per un dòlar, arruïnant la classe mitjana.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">autarquia</span><div class="vocab-def">Política econòmica que busca l'autosuficiència nacional reduint les importacions. Practicada pels règims feixistes com a eina de preparació bèl·lica i control econòmic.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">espai vital (Lebensraum)</span><div class="vocab-def">Concepte nazi que defensava la necessitat d'Alemanya d'expandir-se cap a l'Est per obtenir territoris i recursos per a la «raça aria». Justificació ideològica de l'agressió a Polònia i la URSS.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">GESTAPO</span><div class="vocab-def">Policia secreta de l'Estat nazi, creada el 1933, encarregada de perseguir i eliminar els opositors polítics, els jueus i qualsevol «enemic del Reich».</div></div>
+      <div class="vocab-entry"><span class="vocab-term">gulag</span><div class="vocab-def">Sistema de camps de treball forçat de l'URSS estalinista. Va recloure milions de dissidents polítics i condemnats comuns en condicions extremes. S'estima que hi van passar entre 15 i 18 milions de persones.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">New Deal</span><div class="vocab-def">Programa econòmic del president Roosevelt (1933) per superar la Gran Depressió als EUA. Va ampliar la intervenció de l'Estat en l'economia i va fomentar l'ocupació amb grans obres públiques. Un trencament amb el liberalisme econòmic clàssic.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">Crac del 29</span><div class="vocab-def">Enfonsament de la Borsa de Nova York el 24 d'octubre de 1929 («Dijous Negre»), que va desencadenar la Gran Depressió mundial. Arrels: especulació desregulada, sobreproducció i deute dels consumidors.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">corporativisme</span><div class="vocab-def">Model econòmic feixista que pretenia eliminar la lluita de classes unint empresaris i treballadors en corporacions controlades per l'Estat. La propietat privada es mantenia però l'Estat fixava les regles.</div></div>
+      <div class="vocab-entry"><span class="vocab-term">plans quinquennals</span><div class="vocab-def">Programes de planificació econòmica centralitzada de la URSS estalinista que fixaven objectius de producció per a tota l'economia. Van transformar la URSS en potència industrial a costa d'un enorme cost humà.</div></div>
+      </div>
+    </div><!-- /panel-vocab -->
 
   </main>
 </div><!-- /page-wrap -->
